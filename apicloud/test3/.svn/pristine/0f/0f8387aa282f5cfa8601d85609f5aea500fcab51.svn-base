@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>list</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<style>
+			.artlist {
+				padding: 0 10px 0 10px;
+			}
+			.artlist li {
+				padding: 5px 0 5px 0;
+				border-bottom: 1px solid #efefef;
+				font-size: 13px;
+				line-height: 19px;
+				color: #333;
+				position: relative;
+			}
+			.artlist li img {
+				width: 100px;
+				height: 100px;
+				margin-right: 10px;
+				float: left;
+			}
+			.artlist li .p2 {
+				font-size: 12px;
+				line-height: 18px;
+				color: #666;
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 2;
+				overflow: hidden;
+			}
+			.artlist li .p3 {
+				font-size: 12px;
+				line-height: 18px;
+				color: #333;
+				position: absolute;
+				bottom: 5px;
+				left: 110px;
+			}
+			.clear {
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="artlist"></ul>
+		<script type="text/javascript" src="../script/api.js"></script>
+		<script type="text/javascript" src="../script/common.js"></script>
+		<script>
+			function sliding() {
+				api.openSlidPane({
+					type : 'left'
+				});
+			}
+
+			apiready = function() {
+				api.addEventListener({
+					name : 'keyback'
+				}, function(ret, err) {
+					api.closeWidget();
+				});
+				init();
+				//pull to refresh
+				api.setRefreshHeaderInfo({
+					visible : true,
+					// loadingImgae: 'wgt://image/refresh-white.png',
+					bgColor : '#f2f2f2',
+					textColor : '#4d4d4d',
+					textDown : '下拉刷新...',
+					textUp : '松开刷新...',
+					showTime : true
+				}, function(ret, err) {
+					init();
+				});
+			};
+			function init() {
+				api.showProgress({
+					title : '加载中...',
+					modal : false
+				});
+				var html = '';
+				api.ajax({
+					url : commonUrl + '/apicloud/test3/getArtlist.php',
+					method : 'post',
+					data : {
+						values : {
+							id : '0'
+						}
+					},
+					dataType : 'json'
+				}, function(ret, err) {
+					if (ret) {
+					
+						var html = "";
+						var obj = $api.dom('.artlist');
+						ret = ret.tngou;
+						console.log(ret);
+						for (var i = 0, len = ret.length; i < len; i++) {
+							var thisItem = ret[i];
+							var nTitle = thisItem.title;
+							var nImg = thisItem.img;
+							var nId = thisItem.id;
+							var nDescription = thisItem.description;
+							var nTime = thisItem.time;
+							nTime = getDateDiff(nTime);
+							html += '<li onclick="">';
+							html += '	<img src="' + apiImgurl + nImg + '" alt="" />';
+							html += '	' + nTitle + '';
+							html += '	<div class="p2">';
+							html += '		' + nDescription + '';
+							html += '	</div>';
+							html += '	<div class="p3">' + nTime + '</div>';
+							html += '	<div class="clear"></div>';
+							html += '</li>';
+						}
+						$api.html(obj, html);
+						api.hideProgress();
+						api.refreshHeaderLoadDone();
+					} else {
+						alert(JSON.stringify(err));
+						api.hideProgress();
+					}
+				});
+			}
+			var reloadMe = function(){
+			    alert(1); //让这块代码所在的页面刷新
+			}
+		</script>
+	</body>
+</html>

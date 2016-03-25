@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>winlogin</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+		<style>
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="header">
+				<a class="menu" tapmode="headeractive" onclick="api.closeWin()"></a>
+				<div class="title" >
+					登录
+				</div>
+				<a></a>
+			</div>
+		</header>
+		<!--<input type="number" placeholder="填写手机号码"/>
+		<input type="password" placeholder="填写密码"/>
+		<div>注册</div>-->
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script>
+		apiready = function() {
+			$header = $api.dom('.header');
+			$api.fixStatusBar($api.dom('.header'));
+			$header_h = $api.offset($header).h;
+			winname = api.pageParam.winname;
+			console.log(winname);
+			api.closeWin({
+            	name: winname,
+            });
+			api.openFrame({
+				name : 'flogin',
+				url : 'frame_login.html',
+				rect : {
+					x : 0,
+					y : $header_h,
+					w : 'auto',
+					h : 'auto'
+				}
+			});
+		}
+	</script>
+</html>

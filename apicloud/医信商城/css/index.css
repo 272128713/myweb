@@ -1,0 +1,95 @@
+
+.taocan{
+	width:3.2rem;
+	position: relative;
+}
+.taocan img{
+	width:3.2rem;
+	display: block;
+}
+.taocan .buynow{
+	width:0.9rem;
+	position: absolute;
+	bottom:0.42rem;
+	left:0.16rem;
+}
+.taocan .buynow .btn{
+	width:0.7rem;
+	background:#f7921c;
+	padding-top:0.07rem;
+	padding-bottom: 0.07rem;
+	font-size:14px;
+	line-height: 0.14rem;
+	color:#fff;
+	text-align:center;
+	float:left;
+}
+.taocan .buynow img{
+	width:0.1rem;
+	margin-left:0.1rem;
+	float:left;
+	margin-top:0.09rem;
+}
+.taocan2{
+	margin-top:22px;
+}
+.taocan2 .more{
+	width:0.96rem;
+	position: absolute;
+	bottom:-0.05rem;
+	left:0.19rem;
+	background:#f7921c;
+	padding-top:0.07rem;
+	padding-bottom: 0.07rem;
+	font-size:14px;
+	line-height: 0.14rem;
+	color:#fff;
+	text-align:center;
+}
+.taocan3{
+	margin-top:32px;
+}
+.taocan3 .more{
+	width:0.96rem;
+	position: absolute;
+	top:1.04rem;
+	right:0.26rem;
+	background:#f7921c;
+	padding-top:0.07rem;
+	padding-bottom: 0.07rem;
+	font-size:14px;
+	line-height: 0.14rem;
+	color:#fff;
+	text-align:center;
+}
+.footer{
+	width:100%;
+	background:#0c111a;
+	text-align:center;
+	padding-top:18px;
+	padding-bottom: 15px;
+}
+.footer img{
+	width:19.5%;
+}
+.footer .p1{
+	font-size:13px;
+	color:#fff;
+}
+.footer .p2{
+	font-size:18px;
+	color:#f7921c;
+	line-height:27px;
+}
+.footer .p3{
+	font-size:13px;
+	color:#fff;
+	line-height:18px;
+}
+.footer span{
+	width:5%;
+	height:2px;
+	background:#fff;
+	display: inline-block;
+	margin-top:10px;
+}

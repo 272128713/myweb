@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>frame</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<style>
+			.contain {
+				padding: 20px 15px 15px;
+				background-color: #fff;
+			}
+			.title {
+				font-size: 25px;
+				margin-bottom: 10px;
+				line-height: 1.4;
+				font-weight: 400;
+			}
+			.time {
+				font-size: 14px;
+				color: #333;
+				margin-bottom: 18px;
+				line-height: 20px;
+			}
+			.descript {
+				color: #333;
+				font-size: 14px;
+				line-height: 1.75em;
+				margin-bottom:20px;
+			}
+			.content {
+				color: rgb(136, 136, 136);
+				font-size: 14px;
+				line-height: 1.75em;
+			}
+			.contain img{
+				max-width:100%;
+			
+			}
+			.contain a{
+				
+				color: rgb(136, 136, 136);
+				font-size: 14px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="contain"></div>
+		<script type="text/javascript" src="../script/api.js"></script>
+		<script type="text/javascript" src="../script/common.js"></script>
+		<script>
+			apiready = function() {
+				pageParam = api.pageParam;
+				id = pageParam.id;
+				init(id);
+			}
+			function init(id) {
+				api.showProgress({
+					title : '加载中...',
+					modal : false
+				});
+				console.log(id);
+				url = commonUrl + '/apicloud/test3/getArtdetail.php';
+				html = '';
+				var obj = $api.dom('.contain');
+				api.ajax({
+					url : url,
+					method : 'post',
+					data : {
+						values : {
+							id : id
+						}
+					},
+					dataType : 'json',
+				}, function(ret, err) {
+					if (ret) {
+						html += '<div class="title">' + ret.title + '</div>';
+						html += '<div class="time">发表于：' + unix_to_datetime(ret.time) + '</div>';
+						html += '<div class="descript">【摘要】' + ret.description + '</div>';
+						html += '<div class="content">' + ret.message + '</div>';
+						$api.html(obj, html);
+						api.hideProgress();
+						api.refreshHeaderLoadDone();
+						localStorage['title']=ret.title;
+						localStorage['description']=ret.description;
+						
+					} else {
+//						alert(JSON.stringify(err));
+						api.hideProgress();
+						api.refreshHeaderLoadDone();
+					}
+				});
+			}
+		</script>
+	</body>
+</html>

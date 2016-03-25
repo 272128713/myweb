@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				background-color: #FFF;
+			}
+			*{
+				padding:0px;
+				margin: 0px;
+			}
+			#header{
+				height:50px;
+				line-height: 50px;
+				background-color: #303030;
+				color:#FFF;
+				font-size: 18px;
+				text-align: center;
+			}
+			.wrapper{
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+			.p-l{
+				float: left;
+			}
+			.p-r{
+				float: right;
+			}
+			ul{
+				list-style: none;
+				margin-top: 10px;
+				overflow: hidden;
+			}
+			ul li{
+				margin-top: 10px;
+				clear: both;
+				overflow: hidden;
+				height:300px;
+			}
+			.title{
+				height:30px;
+				padding:5px 0px;
+				font-size: 18px;
+				font-weight: 700;
+				margin-top:20px;
+			}
+			.brife{
+				height:30px;
+				padding:10px 0px;
+				font-size: 14px;
+				color:#ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="header">
+			<div class="wrapper">
+				<img src="../image/icon-back.png" width="17px" height="25px" class="p-l" style="margin-top:17px;" onclick="api.closeWin()">
+				旅游资讯
+				<img src="../image/icon-search.png" width="17px" height="25px" class="p-r" style="margin-top:17px;" class="p-r">
+			</div>
+		</div>
+		<div class="wrapper">
+			<div class="title">
+				宝鸡市市委书记亲切接待我司领导
+			</div>
+			<div class="brife">
+			2014-10-09  管理员
+			</div>
+			<div class="container">
+				<p>
+				今天上午，由宝鸡市创文办、市直机关工委、市机关事务局、市直机关书画家协会等单位共同主办的“我与文明城市同行”市级机关书画作品展在行政中心广场开展。市委常委、宣传部长马鲜萍宣布书画展开展。
+
+　　据了解，此次展览旨在推动全国文明城市创建工作，呼唤文明新风，凝聚创文共识，并在市级机关中倡导积极向上、健康文明、高尚文雅的情操爱好和生活品味。展览筹备以来，机关广大书画爱好者，利用业余时间，创作了一批以“文明城市创建”为主题的书画作品。这些作品也集中表达了广大干部职工坚持不懈全力创建全国文明城市，共建美好家园的精神风貌。
+
+　　此次展览共征集到171幅书法作品，30幅国画作品，经过筛选评比，最终入围作品84幅，陈靖劳、张陇得、赵周荣等59人获得优秀作品奖，市农业局、市公安局、市级机关会议管理中心3个部门获得优秀组织奖。
+				</p>
+			</div>
+		</div>
+		<script type="text/javascript" src="../script/api.js"></script>
+<script>
+	apiready = function(){
+		var header = $api.byId("header");
+    $api.fixIos7Bar(header);
+	}
+</script>
+	</body>
+</html>

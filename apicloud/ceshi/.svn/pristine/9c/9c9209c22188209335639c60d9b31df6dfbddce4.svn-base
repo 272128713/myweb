@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>瀑布</title>
+		<style>
+			img {
+				max-width: 99%;
+			}
+			.container {
+				-webkit-column-width: 160px;
+				-moz-column-width: 160px;
+				-o-colum-width: 160px;
+				-webkit-column-gap: 1px;
+				-moz-column-gap: 1px;
+				-o-column-gap: 1px;
+			}
+			.container span {
+				width: 99%;
+				background: #000;
+				display: block;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				color: #fff;
+				filter: alpha(opacity=50);
+				-moz-opacity: 0.6;
+				opacity: 0.6;
+				font: 80.5% Verdana, Arial;
+				text-align: center;
+			}
+			div:not(.container) {
+				-webkit-border-radius: 5px;
+				-moz-border-radius: 5px;
+				border-radius: 5px;
+				background: #D9D9D9;
+				border:    :#CCC 1px solid;
+				display: inline-block;
+				width: 157px;
+				position: relative;
+				margin: 2px;
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<div class="container"  id="txtNewsList"></div>
+		</section>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script>
+		apiready = function() {
+			initPage();
+			//pull to refresh
+			api.setRefreshHeaderInfo({
+				visible : true,
+				// loadingImgae: 'wgt://image/refresh-white.png',
+				bgColor : '#f2f2f2',
+				textColor : '#4d4d4d',
+				textDown : '下拉刷新...',
+				textUp : '松开刷新...',
+				showTime : true
+			}, function(ret, err) {
+				initPage();
+			});
+		};
+		function initPage() {
+			api.showProgress({
+				title : '加载中...',
+				modal : false
+			});
+			var html = '';
+			api.ajax({
+				url : 'http://210.14.72.52/firstaid/1.0/eg_weixin.php',
+				dataType : 'json'
+			}, function(ret, err) {
+				if (ret) {
+					var obj = $api.byId('txtNewsList');
+					for (var i = 0, len = ret.length; i < len; i++) {
+						var thisItem = ret[i];
+						var nType = thisItem.type;
+						html += '<a  class="item Fix hightitem"  onclick="abc(' + thisItem.id + ');">';
+						html += '<div><div class="photo"><img src="http://news.yongzihao.cn/res/' + thisItem.pic + '" /><span>' + thisItem.title.substr(0, 18) + '</div></div></div></a>';
+					}
+					$api.html(obj, html);
+					api.hideProgress();
+					api.refreshHeaderLoadDone();
+				} else {
+					alert(JSON.stringify(err));
+					api.hideProgress();
+				}
+			});
+		}
+
+		function abc(el) {
+			api.openWin({
+				name : 'name',
+				url : 'act_view.html?ID=' + el,
+				opaque : true,
+				vScrollBarEnabled : false
+			});
+		};
+	</script>
+</html>
+</html> 

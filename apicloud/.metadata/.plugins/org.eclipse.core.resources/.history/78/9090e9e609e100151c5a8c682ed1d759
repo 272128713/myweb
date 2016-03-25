@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>reg</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+		<style>
+			.form {
+				margin-top: 40px;
+			}
+			.itbtn {
+				margin: 20px 10% 20px 10%;
+			}
+			.itbtn input {
+				border: 1px solid #8B8080;
+				font-size: 15px;
+				color: #333;
+				padding: 0 10px 0 10px;
+				height: 40px;
+				display: block;
+				line-height: 40px;
+				border-radius: 7px;
+				float: left;
+				width: 120px;
+			}
+			.itbtn button {
+				float: left;
+				margin-left: 20px;
+				line-height: 40px;
+				display: block;
+				height: 40px;
+				background: #8B8080;
+				font-size: 15px;
+				padding: 0 10px 0 10px;
+				border-radius: 7px;
+				color: #fff;
+			}
+			.reg {
+				width: 82%;
+				margin: 0 auto;
+				font-size: 14px;
+			}
+			.reg a {
+				color: #666;
+			}
+			.submit {
+				font-size: 15px;
+				color: #fff;
+				padding: 0 10px 0 10px;
+				height: 40px;
+				margin: 0 auto;
+				margin-top: 30px;
+				margin-left: 10%;
+				margin-right: 10%;
+				line-height: 40px;
+				border-radius: 7px;
+				text-align: center;
+				background: #82782F;
+			}
+			.subactive {
+				background: #AD9E31;
+			}
+			.codetext {
+				font-size: 12px;
+				color: #999;
+				line-height: 18px;
+				margin-left: 10%;
+			}
+			#J_resetCode {
+				color: #bbb;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="form">
+			<div class="codetext">
+				我们已经给您的手机号码
+				<br />
+				<span id="telcode"></span>发送了一条验证短信
+			</div>
+			<div class="itbtn">
+				<input type="number" id="pincode" placeholder="请填写验证码" maxlength="11"/>
+				<button class="btn btn-small get-code" onclick="resetCode(this)" id="J_getCode">
+					获取验证码
+				</button>
+				<button class="btn btn-small get-code" style="display:none;" id="J_resetCode">
+					<span id="J_second">60</span>秒后重发
+				</button>
+				<div class="clear"></div>
+			</div>
+			<div class="codenum"></div>
+			<input type="password" id="mima1" placeholder="密码为8~20位数字或字母组合" maxlength="20"/>
+			<input type="password" id="mima2" placeholder="确认密码" maxlength="20"/>
+			<div onclick="regsub()" tapmode="subactive" class="submit">
+				重置密码
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script type="text/javascript" src="../script/jquery.min.js"></script>
+	<script>
+		apiready = function() {
+			un = api.pageParam.un;
+			$("#telcode").html(un);
+			resetCode(1);
+		}
+		//倒计时
+		function regsub() {
+			pin = $('#pincode').val();
+			mima1 = $("#mima1").val();
+			mima2 = $("#mima2").val();
+			pwd = testPwd(mima1, mima2);
+			if (pwd != 1000) {
+				if (pwd == 1001) {
+					api.toast({
+						msg : '请输入密码',
+						duration : 1500,
+						location : 'bottom'
+					});
+				} else if (pwd == 1002) {
+					api.toast({
+						msg : '请输入8~20位数字或字母组合的密码',
+						duration : 1500,
+						location : 'bottom'
+					});
+				} else if (pwd == 1003) {
+					api.toast({
+						msg : '请再次输入密码',
+						duration : 1500,
+						location : 'bottom'
+					});
+				} else if (pwd == 1004) {
+					api.toast({
+						msg : '两次输入密码不一致',
+						duration : 1500,
+						location : 'bottom'
+					});
+				}
+			} else {
+				
+				goajax()
+			}
+			function goajax() {
+				api.ajax({
+					url : commonUrl + 'reset_pw_commit.php',
+					method : 'post',
+					data : {
+						values : {
+							fasion : un,
+							pw : pw,
+							pin : pin
+						}
+					},
+					dataType : 'json'
+				}, function(ret, err) {
+					console.log(ret);
+					if (ret) {
+						if (ret.code == 0) {
+							api.alert({
+								title : 'System Message',
+								msg : '重置成功',
+								buttons : ['确定']
+							}, function(ret, err) {
+								if (ret) {
+									api.closeToWin({
+	                                    name: 'wreset'
+                                    });
+								} else {
+									alert(JSON.stringify(err));
+								}
+							});
+						} else {
+							api.toast({
+								msg : ret.msg
+							});
+						}
+					} else {
+					}
+				});
+			}
+
+		}
+
+		function resetCode(el) {
+			if (el == 1) {
+				$('#J_getCode').hide();
+				$('#J_second').html('60');
+				$('#J_resetCode').show();
+				api.ajax({
+					url : commonUrl + 'resendpincode.php',
+					method : 'post',
+					data : {
+						values : {
+							un : un,
+						}
+					},
+					dataType : 'json'
+				}, function(ret, err) {
+					//coding...
+				});
+				var second = 60;
+				var timer = null;
+				timer = setInterval(function() {
+					second -= 1;
+					if (second > 0) {
+						$('#J_second').html(second);
+					} else {
+						clearInterval(timer);
+						$('#J_getCode').show();
+						$('#J_resetCode').hide();
+					}
+				}, 1000);
+			} else {
+				$('#J_getCode').hide();
+				$('#J_second').html('60');
+				$('#J_resetCode').show();
+				var second = 60;
+				var timer = null;
+				timer = setInterval(function() {
+					second -= 1;
+					if (second > 0) {
+						$('#J_second').html(second);
+					} else {
+						clearInterval(timer);
+						$('#J_getCode').show();
+						$('#J_resetCode').hide();
+					}
+				}, 1000);
+			}
+		}
+		 //校验密码
+        function testPwd(val1,val2){
+
+
+            var reg = /^\w{8,20}$/;
+
+            if(!val1){
+                return 1001;
+            }else if(!reg.test(val1)){
+                return 1002;
+            }else if(!val2){
+                return 1003;
+            }else if(val1!=val2){
+                return 1004;
+            }else{
+                return 1000;
+            }
+
+        }
+	</script>
+</html>

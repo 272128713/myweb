@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>fixedPane</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<style>
+			html, body {
+				background-color: #dfdede;
+			}
+			li {
+				padding: 3px 10px;
+				border-bottom: 1px solid #d4d3d3;
+			}
+			.liActive {
+				background-color: #ccc;
+			}
+			li a {
+				display: block;
+				padding: 10px 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li tapmode="liActive" class="login">
+					<a class="home" class="username">您好，请登录</a>
+				</li>
+				<li tapmode="liActive" class="loginok" style="display: none">
+					<a class="home" class="username"></a>
+				</li>
+				<li tapmode="liActive" onclick="">
+					<a class="nav1">查看订单</a>
+				</li>
+				<li tapmode="liActive" onclick="">
+					<a class="nav2">管理收货地址</a>
+				</li>
+				<li tapmode="liActive" onclick="">
+					<a class="nav3">查看物流</a>
+				</li>
+			</ul>
+		</nav>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/jquery.min.js"></script>
+	<script>
+		apiready = function() {
+			//监听个人中心
+			api.addEventListener({
+				name : 'viewappear'
+			}, function(ret, err) {
+				  getMyss();
+			});
+			api.setStatusBarStyle({
+				style : 'dark',
+				color : '#000'
+			});
+			$api.fixStatusBar($api.dom('nav'));
+		};
+		$('.login').click(function(){
+		
+			login();
+		});
+		function login() {
+				api.openWin({
+					name : 'login',
+					url : 'win_login.html'
+				});
+		}
+//		function nolog(val){
+//			api.toast({
+//	            msg:'欢迎'+val
+//          });
+//		}
+		function getMyss(){
+			api.getPrefs({
+	            key:'uname'
+            },function(ret,err){
+            	if(ret.value){
+            		uname = ret.value;
+            		$('.login').hide();
+            		$('.loginok').show();
+            		$('.loginok').children().html("您好,"+ret.value);
+            	}else{
+            		$('.loginok').hide();
+            		$('.login').show();
+            	}
+            });
+		
+		
+		}
+	</script>
+</html>

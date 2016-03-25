@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				background-color: #ccc;
+			}
+			*{
+				padding:0px;
+				margin: 0px;
+			}
+			ul{
+				list-style: none;
+			}
+			#header{
+				height:50px;
+				line-height: 50px;
+				background-color: #303030;
+				color:#FFF;
+				font-size: 18px;
+				text-align: center;
+			}
+			.wrapper{
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+			.p-l{
+				float: left;
+			}
+			.p-r{
+				float: right;
+			}
+			.content{
+				padding:10px;
+			}
+			.title{
+				border-left: 7px solid #d47426;
+				color:#000;
+				font-size: 18px;
+				height:20px;
+				padding-left: 10px;
+				line-height: 20px;
+			}
+			ul{
+				margin-top: 10px;
+			}
+			ul li{
+				width:50%;
+				float: left;
+				margin-top: 20px;
+			}
+			ul li a{
+
+				text-decoration: none;
+			}
+			ul li a img{
+				width:90%;
+				height:150px;
+				border-radius: 3px;
+				border:3px solid #fff;
+				
+			}
+			ul li a span{
+				width:93%;
+				opacity: .8;
+				text-align: center;
+				color:#FFF;
+				height:30px;
+				line-height: 30px;
+				background-color: #000;
+				display: block;
+				margin-top: -35px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="header">
+			<div class="wrapper">
+				<img src="../image/icon-back.png" width="17px" height="25px" style="margin-top:17px;" class="p-l" onclick="api.closeWin();">
+				娱在宝鸡
+				</div>
+		</div>
+		<div class="content">
+			<ul>
+				<li onclick="openwin()">
+					<a href="javascript:void(0);">
+						<img src="../image/yu1.jpg">
+						<span>[月亮湾漂流] ￥39元</span>
+					</a>
+				</li>
+				<li onclick="openwin()">
+					<a href="javascript:void(0);">
+						<img src="../image/yu2.jpg">
+						<span>[领秀温泉] ￥68元</span>
+					</a>
+				</li>
+				<li onclick="openwin()">
+					<a href="javascript:void(0);">
+						<img src="../image/yu3.jpg">
+						<span>[百度KTV] ￥39元</span>
+					</a>
+				</li>
+				<li onclick="openwin()">
+					<a href="javascript:void(0);">
+						<img src="../image/yu4.jpg">
+						<span>[深山漂流] ￥68元</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		
+	</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+	openwin = function(){
+		api.openWin({name:"yutijiao",url:"./yu-tijiao.html"});
+	}
+    apiready = function(){
+	var header = $api.byId("header");
+    $api.fixIos7Bar(header);
+    };
+</script>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>forder_ok</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+		 <link rel="stylesheet" type="text/css" href="../css/order_success.css"/>
+		<style>
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<p class="p1">恭喜您，您已预定成功！</p>
+			<div class="pro_list">
+				<div class="proimg">
+					<img src="">
+				</div>
+				<div class="proinfo">
+					<p class="name"></p>
+					<p class="count"></p>
+				</div>
+				<div class="clear"></div>
+				<div class="order_id"></div>
+			</div>
+			<div class="qrcode">
+				<img src="../image/qrcode.png">
+				<p>身边触手可及的健康产品</p>
+			</div>
+			<p>使用医信商城APP，订购更优惠；</p>
+			<p>使用医信商城APP，订单、物流查询更简单；</p>
+			<p>使用医信商城APP，还有更多...</p>
+		</div>
+		<script type="text/javascript" src="../script/api.js"></script>
+		<script type="text/javascript" src="../script/common.js"></script>
+		<script type="text/javascript" src="../script/jquery.min.js"></script>
+
+		<script type="text/javascript">
+		    //浏览器适配 兼容所有浏览器 rem单位专用 设置html root 字号
+		    (function (doc, win) {
+		        var docEl = doc.documentElement,
+		            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		            recalc = function () {
+		                var clientWidth = docEl.clientWidth;
+		                if (!clientWidth) return;
+		                docEl.style.fontSize = 10 * (clientWidth / 320) + 'px';
+		            };
+		        if (!doc.addEventListener) return;
+		        win.addEventListener(resizeEvt, recalc, false);
+		        doc.addEventListener('DOMContentLoaded', recalc, false);
+		    })(document, window);
+		</script>
+		<script>
+
+			apiready = function() {
+				api.closeWin({name:api.pageParam.name});
+				//pageParam
+				img_url = api.pageParam.img_url;
+				goods_num = api.pageParam.goods_num;
+				goods_name = api.pageParam.goods_name;
+				oid = api.pageParam.oid;
+				$('.proimg').children('img').attr('src',img_url);
+				$('.proinfo').children('.name').html(goods_name);
+				$('.proinfo').children('.count').html(goods_num+'件');
+				$('.order_id').html("请牢记订单号："+oid);
+				}
+		</script>
+	</body>
+</html>

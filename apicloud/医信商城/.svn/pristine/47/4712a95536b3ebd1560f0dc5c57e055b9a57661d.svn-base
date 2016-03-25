@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>login</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+		<style>
+			.form {
+				margin-top:80px;
+			}
+			input {
+				border: 1px solid #8B8080;
+				font-size: 15px;
+				color: #333;
+				padding: 0 10px 0 10px;
+				width: 80%;
+				height: 40px;
+				display: block;
+				margin: 20px auto;
+				line-height: 40px;
+				border-radius:7px;
+			}
+			.reg{
+				width:82%;
+				margin:0 auto;
+				font-size: 14px;
+			
+			}
+			.reg a{
+				color:#666;
+			
+			}
+			.submit{
+				font-size: 15px;
+				color: #fff;
+				padding: 0 10px 0 10px;
+				width: 80%;
+				height: 40px;
+				margin: 0 auto;
+				margin-top:50px;
+				line-height: 40px;
+				border-radius:7px;
+				text-align: center;
+				background:#82782F;
+			}
+			.subactive{
+				background: #AD9E31;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="form">
+			<input type="number" id="un" placeholder="填写手机号码" maxlength="11"/>
+			<input type="password" id="pw" placeholder="填写密码" maxlength="20"/>
+			<div class="reg">
+				<a onclick="reg()">注册</a><a onclick="api.toast({
+	                 msg:'敬请期待'
+                 });" style="float:right">忘记密码?</a>
+			</div>
+			<div onclick="login()" tapmode="subactive" class="submit">登&nbsp;&nbsp;&nbsp;&nbsp;录</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/jquery.min.js"></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script>
+		apiready = function() {
+		
+		}
+		function reg(){
+			api.openWin({
+	            name: 'reg',
+	            url: 'win_reg.html'
+            });
+		
+		}
+		function login(){
+			un = $("#un").val();
+			pw = $("#pw").val();
+			if(!testTel(un)){
+				api.toast({
+	                msg:'请填写正确的手机号码'
+                });
+			}else if(!testPwd(pw)){
+				api.toast({
+	                msg:'请填写正确的密码'
+                });
+			}else{
+			
+				loginajax();
+			}
+			function loginajax(){
+			
+				api.ajax({
+		            url:commonUrl+'logindo.php',
+		            data:{
+			            values : {
+								un : un,
+								pw : pw,
+							}
+		            },
+		            method:'post',
+		            dataType:'json'
+	            },function(ret,err){
+	            console.log(ret);
+	            	if(ret.code==1){
+	            		ss=ret.result[3];
+	            		ss = ss.split("=");
+	            		ss = ss[1];
+	            		uname = ret.uname;
+	            		api.removePrefs({
+	                        key:'uname'
+                        });
+                        api.removePrefs({
+	                        key:'ss'
+                        });
+                        var str = '{"uname":"'+uname+'","ss":"'+ss+'"}';  
+						var datas = JSON.parse(str);  
+	            		api.setPrefs({
+	                        key:'uname',
+	                        value:uname
+                        });
+                        api.setPrefs({
+	                        key:'ss',
+	                        value:ss
+                        });
+                        api.setPrefs({
+	                        key:'phone',
+	                        value:un
+                        });
+	            		api.closeWin();
+	            	}else{
+	            		api.toast({
+	                        msg:ret.msg
+                        });
+	            	}
+	            	
+	            });
+			}
+			
+		}
+		
+		
+		 //校验密码
+        function testPwd(val1){
+
+
+            var reg = /^\w{8,20}$/;
+
+            if(!reg.test(val1)){
+                return false;
+            }else{
+                return true;
+            }
+
+        }
+		 //校验手机号
+        function testTel(val){
+
+            var reg = /^1[034578][0-9]{9}$/;
+
+            if(!reg.test(val)){
+                return false;
+            }else{
+                return true;
+            }
+		}
+	</script>
+</html>

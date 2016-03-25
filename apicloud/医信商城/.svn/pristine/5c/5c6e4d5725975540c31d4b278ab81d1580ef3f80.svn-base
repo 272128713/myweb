@@ -1,0 +1,93 @@
+.banner{
+	width: 100%;
+	position: relative;
+}
+.banner img{
+	display: block;
+}
+.banner .img1{
+	width: 100%;
+}
+.banner .img2{
+	width: 46.67%;
+	margin-left: 2.5%;
+}
+.baseinfo{
+	width: 100%;
+}
+.baseinfo .price{
+	font-size: 24px;
+	line-height: 24px;
+	color:#fe5722;
+	padding-left: 2.5%;
+	margin-top:10px;
+	margin-bottom: 10px;
+	font-weight: 700;
+}
+.baseinfo .english{
+	font-size: 15px;
+	line-height: 15px;
+	color:#b2b2b2;
+	padding-left: 2.5%;
+	margin-bottom: 13px;
+}
+.baseinfo .name{
+	font-size: 18px;
+	line-height: 18px;
+	color: #333;
+	padding-left: 2.5%;
+}
+.baseinfo .yong{
+	background-image: url(../image/yongbg.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	font-size: 13px;
+	line-height:18px;
+	color: #fff;
+	padding:14px 7% 14px 2.5%;
+	text-align:left;
+	margin-top:11px;
+}
+.proinfo{
+	width:100%;
+	padding-bottom: 64px;
+}
+.proinfo img{
+	width:95%;
+	display: block;
+	margin:0 auto;
+	margin-top: 10px;
+}
+.bottom{
+	width:100%;
+	margin-top:10px;
+}
+.bottom img{
+	width:100%;
+	display: block;
+}
+.button{
+	width:100%;
+	position:fixed;
+	bottom: 0;
+	background:#fff;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.button .buy{
+	width:40%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align:center;
+	margin:0 auto;
+	font-size: 18px;
+	background:#ff7e16;
+	border-radius: 5px;
+	color:#fff;
+}
+.button .buy img{
+	height:20px;
+	margin-right:10px;
+	position: relative;
+	top:3px;
+}

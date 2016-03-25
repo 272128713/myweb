@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>winlogin</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/order.css"/>
+		<style>
+		</style>
+	</head>
+	<body>
+		<div class="counts">
+			<div class="yd">预定数量：</div>
+			<div class="sl">
+				<span class="dec">-</span>
+				<span class="num">0</span>
+				<span class="inc">+</span>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="content">
+			<p class="title">为了方便与您联系，请填写预订人信息：</p>
+			<div class="row">
+				<div class="heading">预订人姓名</div>
+				<input class="heading detail" placeholder="填写真实姓名"/>
+				<div class="clear"></div>
+			</div>
+			<div class="row">
+				<div class="heading">联系电话</div>
+				<input class="heading detail" placeholder="填写联系手机号码"/>
+				<div class="clear"></div>
+			</div>
+			<p class="title">提供收货人信息：</p>
+			<div class="row">
+				<div class="heading">姓名</div>
+				<input class="heading detail" type="text" maxlength="10"/>
+				<div class="clear"></div>
+			</div>
+			<div class="row">
+				<div class="heading">联系电话</div>
+				<input class="heading detail" type="number"/>
+				<div class="clear"></div>
+			</div>
+			<div class="row pcarea" id="birth_p">
+				<div class="heading">所在省市区</div>
+				<div class="heading detail" id="birth_pVal"></div>
+				<div class="clear"></div>
+			</div>
+			<div class="row">
+				<div class="heading">详细地址</div>
+				<input class="heading detail" />
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="submit">确定提交</div>
+		<script type="text/javascript" src="../script/api.js"></script>
+		<script type="text/javascript" src="../script/jquery.min.js"></script>
+		<script type="text/javascript" src="../script/area.js"></script>
+		<script>
+			$(function(){
+				var count = 0;
+				$('.dec').click(function(){
+					if(count!=0) count-=1;
+					$('.num').html(count);
+				});
+				$('.inc').click(function(){
+					count+=1;
+					$('.num').html(count);
+				});
+				
+				$('.pcarea').click(function(){
+	                var pcid = $(this).children('.detail').attr('id');
+	                setCookie('pcVal',pcid,7);
+	                getProvinceBuy();
+	                
+	                var pcid = $(this).silblings('text').attr('src');
+	                getProvenceBuy();
+	            });
+	            
+	            $('.submit').click(function(){
+	            	window.location.href = 'order_success.html';
+	            });
+			});
+		</script>
+	</body>
+	
+</html>

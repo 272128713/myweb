@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>forder_ok</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+		 <link rel="stylesheet" type="text/css" href="../css/order_success.css"/> 
+		<style>
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<p class="p1">恭喜您，您已预定成功！</p>
+			<div class="pro_list">
+				<div class="proimg">
+					<img src="../image/product2.png">
+				</div>
+				<div class="proinfo">
+					<p class="name">颈椎牵引治疗仪颈椎牵引治疗仪颈椎牵引治疗仪颈椎牵引治疗仪颈椎牵引治疗仪</p>
+					<p class="count">2件</p>
+				</div>
+				<div class="clear"></div>
+				<div class="order_id">请牢记订单号：YXsc2016yjz02</div>
+			</div>
+			<div class="qrcode">
+				<img src="../image/qrcode.png">
+				<p>身边触手可及的健康产品</p>
+			</div>
+			<p>使用医信商城APP，订购更优惠；</p>
+			<p>使用医信商城APP，订单、物流查询更简单；</p>
+			<p>使用医信商城APP，还有更多...</p>
+		</div>
+		<script type="text/javascript" src="../script/api.js"></script>
+		<script type="text/javascript" src="../script/common.js"></script>
+		<script type="text/javascript" src="../script/jquery.min.js"></script>
+		
+		<script type="text/javascript">
+		    //浏览器适配 兼容所有浏览器 rem单位专用 设置html root 字号
+		    (function (doc, win) {
+		        var docEl = doc.documentElement,
+		            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		            recalc = function () {
+		                var clientWidth = docEl.clientWidth;
+		                if (!clientWidth) return;
+		                docEl.style.fontSize = 10 * (clientWidth / 320) + 'px';
+		            };
+		        if (!doc.addEventListener) return;
+		        win.addEventListener(resizeEvt, recalc, false);
+		        doc.addEventListener('DOMContentLoaded', recalc, false);
+		    })(document, window);
+		</script>
+		<script>
+		
+			apiready = function() {
+			
+				api.closeWin({name:api.pageParam.name});
+				//pageParam
+				
+		</script>
+	</body>
+</html>

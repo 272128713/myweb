@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>脖颈疼痛与颈椎牵引治疗仪器</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/app.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../css/jingzhui.css" />
+	</head>
+	
+	<body>
+	<div class="content">
+		
+	</div>	
+		<script type="text/javascript" src="../script/api.js"></script>
+		<script type="text/javascript" src="../script/common.js"></script>
+		<script type="text/javascript" src="../script/jquery.min.js"></script>
+		<script>
+			apiready = function() {
+				$content = $('.content');
+				gid = api.pageParam.gid;
+				html = '';
+				console.log(gid);
+				api.ajax({
+	                url:commonUrl+'get_goods_detail.php',
+	                data: {
+	                	values:{
+	                		gid:gid
+	                	},
+	                },
+	                method:'post',
+	                dataType:'json'
+                },function(ret,err){
+                	console.log(ret.result[0]);
+                	status = ret.result;
+                	console.log(status.img_url);
+					html += '<div class="banner">';
+					html += '	<img class="img1" src="'+status.img_url+'" />';
+					html += '</div>';
+					html += '<div class="baseinfo">';
+					html += '	<p class="price">￥'+status.goods_price+'</p>';
+					html += '	<p class="english">'+status.goods_en_name+'</p>';
+					html += '	<p class="name">'+status.goods_name+'</p>';
+					html += '	<p class="yong">'+status.goods_summary+'</p>';
+					html += '</div>';
+					html += '<div class="proinfo">';
+					html += '	'+status.goods_content+'';
+					html += '</div>';
+					html += '<div class="button">';
+					html += '	<div class="buy">';
+					html += '		<img src="../image/car.png" onclick="yuding('+gid+')">立即预定';
+					html += '	</div>';
+					html += '</div>';
+					
+					$content.html(html);
+					                	
+                });
+			};
+		
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>侧边导航</title>
+		<style>
+			html {
+				height: 100%;
+				background-color: #fff;
+			}
+			body {
+				background-color: #fff;
+				padding: 0;
+				margin: 0;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				height: 100%;
+				-webkit-box-orient: vertical;
+				-webkit-flex-flow: column;
+				flex-flow: column;
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+			apiready = function() {
+				api.openFrame({
+					name : 'test',
+					url : 'html/test_window.html',
+					rect : {
+						x : 0,
+						y : 0,
+						w : 'auto',
+						h : 'auto'
+					}
+				});
+				
+				//关闭应用
+				back();
+				var chromeDebug = api.require('chromeDebug');
+				chromeDebug.openDebug(function(ret, err) {
+					if (212 == ret.code) {
+						alert(JSON.stringify(ret));
+					} else {
+						console.log(ret);
+					}
+				});
+				var rong = api.require('rongCloud2');
+				rong.init(function(ret, err) {
+					if (ret.status == 'error')
+						api.toast({
+							msg : err.code
+						});
+				});
+			}
+			//两次退出
+			var first = null;
+			function back() {
+				api.addEventListener({
+					name : 'keyback'
+				}, function(ret, err) {
+					if (!first) {
+						first = new Date().getTime();
+						api.toast({
+							msg : '再按一次退出',
+							duration : 1500,
+							location : 'bottom'
+						});
+						setTimeout(function() {
+							first = null;
+						}, 1000);
+					} else {
+						if (new Date().getTime() - first < 1000) {
+							api.closeWidget({
+								silent : true
+							});
+						}
+					}
+				});
+			}
+		</script>
+	</body>
+</html>

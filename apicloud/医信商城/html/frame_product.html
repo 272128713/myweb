@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>product</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/app.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../css/index.css" />
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<div class="taocan">
+			<img src="../image/999.png">
+			<div class="buynow">
+				<div class="btn">立即购买</div>
+				<img src="../image/arrow.png">
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="taocan taocan2">
+			<img src="../image/599.png">
+			<div class="more">
+				<div class="btn">点击查看详情</div>
+			</div>
+		</div>
+		<div class="taocan taocan3">
+			<img src="../image/699.png">
+			<div class="more">
+				<div class="btn">点击查看详情</div>
+			</div>
+		</div>
+		<div class="footer">
+			<img src="../image/qrcode.png">
+			<p class="p1">扫一扫</p>
+			<p class="p1">下载空中医院APP</p>
+			<p class="p2">有最适合你的私人医生</p>
+			<p class="p1">陕西省西安市高新区绿地蓝海10F</p>
+			<p class="p1">空中医信网络科技有限公司</p>
+			<p class="p1">www.kospital.com</p>
+			<span></span>
+		</div>
+		<script src="../script/jquery.min.js" type="text/javascript" charset="UTF-8"></script>
+		<script type="text/javascript">
+			//浏览器适配 兼容所有浏览器 rem单位专用 设置html root 字号
+			(function(doc, win) {
+				var docEl = doc.documentElement, resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize', recalc = function() {
+					var clientWidth = docEl.clientWidth;
+					if (!clientWidth)
+						return;
+					docEl.style.fontSize = 100 * (clientWidth / 320) + 'px';
+				};
+				if (!doc.addEventListener)
+					return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<script>
+			$('.taocan2 .more').click(function() {
+				api.openWin({
+	                name: 'jingzhui',
+	                url: 'win_prodetail.html',
+	                pageParam: {
+				        gid: '1'
+				    }
+                });
+			});
+			$('.taocan3 .more').click(function() {
+				api.openWin({
+	                name: 'yaozhui',
+	                url: 'win_prodetail.html',
+	                pageParam: {
+				        gid: '2'
+				    }
+                });
+			});
+		</script>
+		<script type="text/javascript" src="../script/api.js"></script>
+		<script type="text/javascript" src="../script/common.js"></script>
+		<script>
+			function sliding() {
+				api.openSlidPane({
+					type : 'left'
+				});
+			}
+
+			apiready = function() {
+				$api.fixStatusBar($api.dom('.header'));
+				
+				//两次关闭应用
+				first = null;
+				back();
+			};
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,236 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>winlogin</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/order.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/area.css"/>
+		<style>
+		</style>
+	</head>
+	<body>
+		<div class="counts">
+			<div class="yd">
+				预定数量：
+			</div>
+			<div class="sl">
+				<span class="dec">-</span>
+				<span class="num" id="goods_num">1</span>
+				<span class="inc">+</span>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="content">
+			<p class="title">
+				为了方便与您联系，请填写预订人信息：
+			</p>
+			<div class="row">
+				<div class="heading">
+					预订人姓名
+				</div>
+				<input class="heading detail" type="text" id="uname" placeholder="填写真实姓名" maxlength="10"/>
+				<div class="clear"></div>
+			</div>
+			<div class="row">
+				<div class="heading">
+					联系电话
+				</div>
+				<input class="heading detail" id="utel" type="text" placeholder="填写联系手机号码" maxlength="11"/>
+				<div class="clear"></div>
+			</div>
+			<p class="title">
+				提供收货人信息：
+			</p>
+			<div class="row">
+				<div class="heading">
+					姓名
+				</div>
+				<input class="heading detail" id="sname" type="text" maxlength="10"/>
+				<div class="clear"></div>
+			</div>
+			<div class="row">
+				<div class="heading">
+					联系电话
+				</div>
+				<input class="heading detail" id="stel" type="text" maxlength="11"/>
+				<div class="clear"></div>
+			</div>
+			<div class="row pcarea" id="birth_p">
+				<div class="heading">
+					所在省市区
+				</div>
+				<div class="heading detail" id="birth_pVal"></div>
+				<div class="clear"></div>
+			</div>
+			<div class="row">
+				<div class="heading">
+					详细地址
+				</div>
+				<input class="heading detail" id="saddr" type="text" maxlength="30"/>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="submit">
+			确定提交
+		</div>
+		<script type="text/javascript" src="../script/api.js"></script>
+		<script type="text/javascript" src="../script/common.js"></script>
+		<script type="text/javascript" src="../script/jquery.min.js"></script>
+		<script type="text/javascript" src="../script/area.js"></script>
+		<script>
+			apiready = function() {
+				//pageParam
+				gid = api.pageParam.gid;
+				price = '';
+				receive_name = '';
+				receive_phone = '';
+				area_code = '';
+				area = '';
+				address = '';
+//				
+//				counts = $api.offset($api.dom('.counts')).t;
+//				$('.dqld_div').css('top',counts);
+				//prefs
+				api.getPrefs({
+					key : 'uname'
+				}, function(ret, err) {
+					console.log(ret);
+					if (ret.value) {
+						uname = ret.value;
+						$('#uname').val(uname);
+					}
+				});
+				api.getPrefs({
+					key : 'phone'
+				}, function(ret, err) {
+					console.log(ret);
+					if (ret.value) {
+						utel = ret.value;
+						$('#utel').val(utel);
+					}
+				});
+				api.getPrefs({
+					key : 'ss'
+				}, function(ret, err) {
+					console.log(ret);
+					if (ret.value) {
+						ss = ret.value;
+						//ajax
+						api.ajax({
+							url : commonUrl + 'get_user_address.php',
+							data : {
+								values : {
+									ss : ss,
+								}
+							},
+							method : 'post',
+							dataType : 'json'
+						}, function(ret, err) {
+							if (ret) {
+								if (ret.result) {
+									//收货信息
+									console.log(ret.result);
+									receive_name = ret.result.receive_name;
+									receive_phone = ret.result.receive_phone;
+									area_code = ret.result.area_code;
+									area = ret.result.area;
+									address = ret.result.address;
+									
+									$('#sname').val(receive_name);
+									$('#stel').val(receive_phone);
+									$('#birth_pVal').attr("vl",area_code);
+									$('#birth_pVal').html(area);
+									$('#saddr').val(address);
+								}
+							} else {
+								console.log(err);
+							}
+						});
+					} else {
+						api.alert({
+							msg : '对不起，请登录'
+						}, function(ret, err) {
+							api.closeWin();
+							api.openWin({
+								name : 'login',
+								url : 'win_login.html',
+								pageParam : {
+									winname : 'worder'
+								}
+							});
+						});
+					}
+				});
+			}
+			$(function() {
+				var count = 1;
+				$('.dec').click(function() {
+					if (count != 1)
+						count -= 1;
+					$('.num').html(count);
+				});
+				$('.inc').click(function() {
+					count += 1;
+					$('.num').html(count);
+				});
+				$('.pcarea').click(function() {
+					var pcid = $(this).children('.detail').attr('id');
+					setCookie('pcVal', pcid, 7);
+					getProvinceBuy();
+				});
+				$('.submit').click(function() {
+					goods_num = $('#goods_num').html();
+					//商品数量
+					//	            	console.log(goods_num);
+					un = $('#un').val();
+					utel = $('#utel').val();
+					sname = $('#sname').val();
+					stel = $('#stel').val();
+					birth_pVal = $('#birth_pVal').attr("vl");
+					//	            	console.log(birth_pVal);	//320101
+					saddr = $('#saddr').val();
+					api.ajax({
+						url : commonUrl + 'goods_buy.php',
+						data : {
+							values : {
+								rn : uname,
+								un : utel,
+								srn : sname,
+								stel : stel,
+								spro : birth_pVal,
+								saddr : saddr,
+								gid : gid,
+								goods_num : goods_num,
+								price : price * goods_num,
+							}
+						},
+						method : 'post',
+						dataType : 'json'
+					}, function(ret, err) {
+						//coding...
+						if(ret){
+							if(ret.code==1){
+							
+								api.closeWin();
+								api.openWin({
+	                                name: 'worder_ok',
+	                                url: 'win_order_ok.html',
+	                                pageParam: {
+	                                	name:api.frameName
+	                                }
+                                });					
+							}else{
+								api.toast({
+	                                msg:ret.msg
+                                });
+							}
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

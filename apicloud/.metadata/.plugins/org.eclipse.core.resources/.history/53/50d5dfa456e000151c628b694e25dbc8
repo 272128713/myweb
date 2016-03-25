@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>脖颈疼痛与颈椎牵引治疗仪器</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/app.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../css/jingzhui.css" />
+	</head>
+	<body>
+		<div class="content"></div>
+		<script type="text/javascript" src="../script/api.js"></script>
+		<script type="text/javascript" src="../script/common.js"></script>
+		<script type="text/javascript" src="../script/jquery.min.js"></script>
+		<script>
+			apiready = function() {
+				api.showProgress({
+					title : '加载中...',
+					modal : false
+				});
+				$content = $('.content');
+				gid = api.pageParam.gid;
+				html = '';
+				console.log(gid);
+				api.ajax({
+					url : commonUrl + 'get_goods_detail.php',
+					data : {
+						values : {
+							gid : gid
+						},
+					},
+					cache : true,
+					method : 'post',
+					dataType : 'json'
+				}, function(ret, err) {
+					if (ret) {
+						console.log(ret.result);
+						status = ret.result[0];
+						console.log(status.goods_name);
+						img_url = "'" + ret.result[0].img_url + "'";
+						goods_name = "'" + ret.result[0].goods_name + "'";
+						html += '<div class="banner">';
+						html += '	<img class="img1" src="' + ret.result[0].img_url + '" />';
+						html += '</div>';
+						html += '<div class="baseinfo">';
+						html += '	<p class="price">￥' + ret.result[0].goods_price + '</p>';
+						html += '	<p class="english">' + ret.result[0].goods_en_name + '</p>';
+						html += '	<p class="name">' + ret.result[0].goods_name + '</p>';
+						html += '	<p class="yong">' + ret.result[0].goods_summary + '</p>';
+						html += '</div>';
+						html += '<div class="proinfo">';
+						html += '	' + ret.result[0].goods_content + '';
+						html += '</div>';
+						html += '<div class="button">';
+						html += '	<div class="buy" onclick="yuding(' + gid + ',' + ret.result[0].goods_price + ',' + img_url + ',' + goods_name + ')">';
+						html += '		<img src="../image/car.png">立即预定';
+						html += '	</div>';
+						html += '</div>';
+						$content.html(html);
+						api.hideProgress();
+						api.refreshHeaderLoadDone();
+					}
+				});
+			};
+			function yuding(gid, price, img_url) {
+				api.openWin({
+					name : 'worder',
+					url : 'win_order.html',
+					pageParam : {
+						gid : gid,
+						price : price,
+						img_url : img_url,
+						goods_name : goods_name,
+					}
+				});
+			}
+		</script>
+	</body>
+</html>

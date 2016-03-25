@@ -1,0 +1,104 @@
+/*
+ 在线咨询
+ *
+ * */
+html, body {
+	background-color: #fff;
+	word-wrap: break-word;
+	font-family: "微软雅黑";
+}
+.mui-content {
+	background-color: #fff;
+	width: 95%;
+	margin: 0 auto;
+}
+p {
+	margin: 0;
+	padding: 0;
+}
+header h1 {
+}
+ul, li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+h4 {
+	line-height: 1.5em;
+}
+h6 {
+	color: #666666;
+	line-height: 1.3em;
+	text-indent: 0.2em;
+}
+a {
+	color: #fff;
+}
+.blue {
+	color: #30C6DF;
+}
+.red {
+	color: red;
+}
+.center {
+	width: 95%;
+	margin: 0 auto;
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+.clear {
+	clear: both;
+}
+p {
+	color: #666666;
+}
+.jiluzixun {
+	height: 44px;
+	position: relative;
+	z-index: 100;
+}
+.mui-bar {
+	padding: 0;
+	height: 45px;
+}
+.mui-bar .mui-title {
+	text-align: left;
+	left: 23px;
+	width: 5em;
+	font-size: 16px;
+}
+
+/*头部样式*/
+header {
+	background-color: #555;
+}
+.header {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+}
+.header a {
+	display: block;
+	padding: 23px;
+}
+.title {
+	line-height: 46px;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;
+	text-align: center;
+	color: #fff;
+}
+.headeractive {
+	background: #444;
+}
+.header .menu {
+	background-size: 30px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image: url("../image/iconfont-left01.png");
+}

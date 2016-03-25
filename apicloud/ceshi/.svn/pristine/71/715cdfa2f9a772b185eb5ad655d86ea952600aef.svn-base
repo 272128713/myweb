@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0, width=device-width"/>
+    <title>api</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+</head>
+<body>
+    <div id="wrap">
+        <div id="main">
+            <div id="news">
+                <ul id="txtNewsList">
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script>
+apiready = function() {
+    initPage();
+    //pull to refresh
+    api.setRefreshHeaderInfo({
+        visible: true,
+        // loadingImgae: 'wgt://image/refresh-white.png',
+        bgColor: '#f2f2f2',
+        textColor: '#4d4d4d',
+        textDown: '下拉刷新...',
+        textUp: '松开刷新...',
+        showTime: true
+    }, function(ret, err){
+    	initPage();
+    });
+};
+
+function initPage(){
+	api.showProgress({
+        title: '加载中...',
+        modal: false
+    });
+    var html = '';
+    api.ajax({
+	    url:'http://210.14.72.52/firstaid/1.0/eg_weixin.php',
+	    dataType: 'json'
+    },function(ret,err){
+        if (ret) {
+            var obj = $api.byId('txtNewsList');
+            for (var i = 0, len = ret.length; i < len; i++) {
+            	var thisItem = ret[i];
+            	var nType = thisItem.type;
+            	html += '<li><a  class="item Fix hightitem"  onclick="abc(' +thisItem.id+ ');"><img src="http://news.yongzihao.cn/res/'+thisItem.pic+'" />';
+            	html += '<div class="content">'+ thisItem.title.substr(0,18) +'<p>'+ thisItem.description.substr(11,55)
+            			+ '</p></div></a></li>';
+            }
+			$api.html(obj, html);
+			api.hideProgress();
+			api.refreshHeaderLoadDone();
+        } else {
+           	alert(JSON.stringify(err));
+           	api.hideProgress();
+        }
+    });
+    
+}
+function abc(el){
+	api.openWin({
+        name: 'name',
+        url: 'act_view.html?ID='+el,
+        opaque: true,
+        vScrollBarEnabled: false
+   	 });
+   	 	};  
+</script>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				background-color: #FFF;
+			}
+			.hide{
+				display:none;
+			}
+			*{
+				padding:0px;
+				margin: 0px;
+			}
+			#header{
+				height:50px;
+				line-height: 50px;
+				background-color: #303030;
+				color:#FFF;
+				font-size: 18px;
+				text-align: center;
+			}
+			.wrapper{
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+			.p-l{
+				float: left;
+			}
+			.p-r{
+				float: right;
+			}
+			.title{
+				font-weight: 900;
+				font-size: 16px;
+				color:#353535;
+				padding:20px 0px;
+			}
+			p{
+
+				line-height: 15px; 
+				height:15px;
+				padding: 10px 0px;
+			}
+			p span{
+				line-height: 15px; 
+				height:15px;
+				margin-left: 10px;
+			}
+			.btn{
+				display:block;
+				padding:10px;
+				background-color: #d47426;
+				color:#FFF;
+				text-align: center;
+				margin-bottom: 100px;
+				clear:both;
+				text-decoration: none;
+				margin-top: 20px;
+			}
+			.small{
+				padding:20px 0px;
+			}
+			.decoration{
+				border-bottom: 1px dashed #ccc;
+				clear: both;
+			}
+			.qrcode{
+				text-align:center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="header">
+			<div class="wrapper">
+				<img src="../image/icon-back.png" width="17px" height="25px" style="margin-top:17px;" class="p-l" onclick="api.closeWin();">
+				我的旅游计划列表
+			</div>
+		</div>
+		<div class="wrapper">
+			<div class="title">
+				佛骨圣地游  共计<font style="color:#f00">280</font>元
+			</div>
+			<p style="float:left">
+				<img src="../image/icon-sel.png" width="15px" height="15px"  class="p-l">
+				<span>法门寺</span>
+				<span>￥<font style="color:red;">120</font>元</span>
+			</p>
+			<div class="decoration"></div>
+			<div class="title">
+				三星级酒店  共计<font style="color:#f00">864</font>元
+			</div>
+			<p style="float:left">
+				<img src="../image/icon-sel.png" width="15px" height="15px"  class="p-l">
+				<span>关中风情园商务标准间宿费 </span>
+				<span>￥<font style="color:red;">864</font>元</span>
+			</p>
+			<div class="decoration"></div>
+			<div class="title">
+				宝鸡特产  共计<font style="color:#f00">180</font>元
+			</div>
+			<p>
+				<img src="../image/icon-sel.png" width="15px" height="15px"  class="p-l">
+				<span>徐香猕猴桃</span>
+				<span>￥<font style="color:red;">120</font>元</span>
+			</p>
+			<p>
+				<img src="../image/icon-sel.png" width="15px" height="15px"  class="p-l">
+				<span>凤翔六营泥塑虎</span>
+				<span>￥<font style="color:red;">120</font>元</span>
+			</p>
+			<div class="decoration"></div>
+			<a href="javascript:void(0);" onclick="sub()" class="btn">立即启程</a>
+		</div>
+		<div class="qrcode hide" id="qrcode">
+			<img src="../image/qrcode.png" />
+		</div>
+	</body>
+	
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/zepto.js"></script>
+<script type="text/javascript">
+	sub = function(){
+		api.alert({title:"温馨提示",msg:"恭喜您，二维码已经生成在下方！"});
+		$("#qrcode").removeClass("hide");
+	}
+    apiready = function(){
+	var header = $api.byId("header");
+    $api.fixIos7Bar(header);
+    };
+</script>
+</html>

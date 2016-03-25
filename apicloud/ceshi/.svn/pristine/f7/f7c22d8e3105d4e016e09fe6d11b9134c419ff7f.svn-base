@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>Hello APP</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../css/idangerous.swiper.css">
+
+
+    <style>
+        html,body{height:100%;background-color: #eee;}
+        .h10 {height: 10px;}
+        .row {display: -webkit-box;display: -webkit-flex;}
+        .col {-webkit-box-flex:1; -webkit-flex:1; flex:1;}
+
+        /* 头部导航样式 */
+        .header {position: relative;height: 50px;line-height: 50px;background-color: #3993cf;}
+        .header .left  {position: absolute;left: 0;height: 50px;}
+        .header .right {position: absolute;right: 0;height: 50px;}
+        .header .right img {height: 30px;padding: 10px;}
+
+        .item {background-color: #fff;height: 60px;}
+        .item .itemlogo  {padding: 2px;border: 1px solid #e0e0e0;float: left;margin-top: 5px;margin-left: 15px;}
+        .item .itemlogo img {width: 40px;}
+        .item .itemshelf {display: inline-block;margin-left: 10px;}
+        .item .itemshelf .shelfinfo02 img {height: 14px;margin-top: 5px;}
+        .item .itemshelf .shelfinfo01 {margin-top: 10px;}
+        .item .collect {float: right;color: #fff;background-color: #3893CF;padding: 5px 15px;margin-right: 10px;margin-top: 15px;}
+        
+        .row {background-color: #fff;}
+        .col {text-align: center;border-right: 1px solid #e0e0e0;}
+        .col:last-child {border-right: 0;}
+        .col .title {font-size: 20px;margin-top: 15px;}
+        .col .subtitle {font-size: 12px;color: #666;margin-top: 5px;margin-bottom: 10px;}
+        /*.section1con {border: 1px solid #e0e0e0;}*/
+
+
+        /* card 样式*/
+        .cardtitle {height: 40px;line-height: 40px;background-color: #fff;padding-left: 10px;color: #888;font-size: 18px;}
+        .cardcon {background-color: #fff;padding: 10px;font-size: 14px;line-height: 20px;color: #555;}
+        .jian {color: #fff;font-size: 12px;background-color: #cd22e2;padding: 1px;border-radius: 3px;margin-right: 5px;}
+        .pei {color: #fff;font-size: 12px;background-color: #82782f;padding: 1px;border-radius: 3px;margin-right: 5px;}
+        .ticket {color: #fff;font-size: 12px;background-color: #3585b7;padding: 2px;border-radius: 3px;margin-right: 5px;}
+        .support div:last-child {margin-top: 5px;}
+        .desc div .zhongshi {color: #fff;background-color: #bbb;padding: 3px;border-radius: 3px;font-size: 12px;margin-bottom: 5px;}
+        /* 外部包裹 */
+        .isoarea {margin:10px 10px 0 10px;border: 1px solid #e0e0e0;border-bottom: 0; }
+        .isoarea2 {margin:0px 10px 0 10px;border: 1px solid #e0e0e0;}
+
+        /* 悬浮样式 */
+        .itemhover {background-color: #eee !important;}
+        .collect-hover {background-color: rgba(56, 147, 207, 0.4) !important;}
+        img {max-width:100%;}
+
+    </style>
+</head>
+<body>
+<div id='mains'></div>
+        <!-- card 样式 -->
+  
+
+        <div class="h10"></div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/common.js"></script>
+<script type="text/javascript" src="../script/doT.min.js"></script>
+<script type="text/javascript">
+    apiready = function(){	var url = location.search; //获取url中"?"符后的字串
+	   var theRequest = new Object();
+	   if (url.indexOf("?") != -1) {
+	      var str = url.substr(1);     
+	      strs = str.split("=");
+	      for(var i = 0; i < strs.length; i ++) {
+	      
+	         theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[2]);
+	      }
+	   }
+	   var id = strs[1].split("=")[0];	
+	api.ajax({
+		url: 'http://news.yongzihao.cn//apicloud/twlist/n/',
+	  	method: 'post',
+	 	cache: false,
+	  	timeout: 30,
+	  	dataType: 'json',
+	  	data: {
+	    	values:{ID: id}
+	  	}
+		},function(ret,err){
+	
+			if (ret) {
+str ='<div class="cardtitle isoarea">'+ret.id+''+ret.title+'</div><div class="cardcon isoarea2">'+ret.body+'</div><div class="cardcon isoarea2"><span class="jian">减</span>'+ret.description+'</div>';
+$api.byId('mains').innerHTML = str;			
+		} else {
+			api.alert({
+				msg : ('错误码：'+err.code+'；错误信息：'+err.msg+'网络状态码：'+err.statusCode)
+		    });
+		};
+	});	
+}
+
+
+</script>
+</html>

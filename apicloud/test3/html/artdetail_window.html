@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>window</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<style>
+			html, body {
+				height: 100%;
+				min-width: 320px;
+			}
+			body {
+				font-size: 14px;
+			}
+			/*header*/
+			.header {
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-pack: center;
+				-webkit-box-align: center;
+				background-color: #323232;
+			}
+			.header-title {
+				-webkit-box-flex: 1;
+				-webkit-flex: 1;
+				flex: 1;
+				color: #FFFFFF;
+				font-size: 18px;
+				text-align: center;
+				line-height: 46px;
+			}
+			.header a {
+				display: block;
+				background-size: 23px 23px;
+				/* padding: 20px; */
+				width: 46px;
+				width: 46px;
+				height: 46px;
+				background-repeat: no-repeat;
+				background-position: 50% 11.5px;
+				z-index: 999;
+			}
+			.header .back {
+				background-image: url("../image/left.png");
+			}
+			.header .logo {
+				background-size: 45px;
+				background-image: url("../image/logo.png");
+			}
+			.header .share {
+				background-image: url("../image/share.png");
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="header">
+				<a class="back" tapmode="" onclick="api.closeWin();"></a>
+				<div class="header-title">
+					资讯详情
+				</div>
+				<a class="share" onclick="findwx()"></a>
+			</div>
+		</header>
+		<script type="text/javascript" src="../script/api.js"></script>
+		<script>
+			apiready = function() {
+				var $header = $api.dom('.header');
+				$api.fixStatusBar($api.dom('.header'));
+				var $header_h = $api.offset($header).h;
+				pageParam = api.pageParam;
+				id = pageParam.id;
+				api.openFrame({
+					name : 'artdetail_frame1',
+					url : 'artdetail_frame1.html',
+					rect : {
+						x : 0,
+						y : $header_h,
+						w : 'auto',
+						h : 'auto'
+					},
+					pageParam : {
+						id : id
+					},
+				})
+			}
+			//微信
+			function findwx() {
+				var wx = api.require('wx');
+				wx.shareWebpage({
+					scene : 'session',
+					title : localStorage['title'],
+					description : localStorage['description'],
+					thumb : 'widget://a.jpg',
+					contentUrl : 'http://a.app.qq.com/o/simple.jsp?pkgname=com.k272128713.ijy'
+				}, function(ret, err) {
+					if (ret.status) {
+						alert('分享成功');
+					} else {
+						alert(err.code);
+					}
+				});
+			}
+		</script>
+	</body>
+</html>

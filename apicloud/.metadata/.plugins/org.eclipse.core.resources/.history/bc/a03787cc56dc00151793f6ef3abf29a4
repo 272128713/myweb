@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>脖颈疼痛与颈椎牵引治疗仪器</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/app.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../css/jingzhui.css" />
+	</head>
+	
+	<body>
+		<div class="banner">
+			<img class="img1" src="../image/product2.png" />
+		</div>
+		<div class="baseinfo">
+			<p class="price">￥599.00</p>
+			<p class="english">DiskOne CERVICAL</p>
+			<p class="name">脖颈疼痛与颈椎牵引治疗仪器</p>
+			<p class="yong">DISK ONE CERVICAL是用于治疗椎间盘突出、椎管狭窄等疾病，采用充气方式牵引颈部(颈椎)的医疗器械。</p>
+		</div>
+		<div class="proinfo">
+			<img src="../image/proinfo2.png">
+			<img src="../image/prote2.png">
+			<img src="../image/jing_tj.png">
+			<img src="../image/jingzhuinv.png">
+		</div>
+		<div class="button">
+			<div class="buy">
+				<img src="../image/car.png">立即预定
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="../script/api.js"></script>
+		<script type="text/javascript" src="../script/common.js"></script>
+		<script>
+			apiready = function() {
+				gid = api.pageParam.gid;
+			};
+		
+		</script>
+	</body>
+
+</html>

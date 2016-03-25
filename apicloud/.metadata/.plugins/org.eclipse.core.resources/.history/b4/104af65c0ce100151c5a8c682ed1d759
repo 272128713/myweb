@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>忘记密码</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+		<style>
+			.form {
+				margin-top:80px;
+			}
+			input {
+				border: 1px solid #8B8080;
+				font-size: 15px;
+				color: #333;
+				padding: 0 10px 0 10px;
+				width: 80%;
+				height: 40px;
+				display: block;
+				margin: 20px auto;
+				line-height: 40px;
+				border-radius:7px;
+			}
+			.reg{
+				width:82%;
+				margin:0 auto;
+				font-size: 14px;
+			
+			}
+			.reg a{
+				color:#666;
+			
+			}
+			.submit{
+				font-size: 15px;
+				color: #fff;
+				padding: 0 10px 0 10px;
+				width: 80%;
+				height: 40px;
+				margin: 0 auto;
+				margin-top:50px;
+				line-height: 40px;
+				border-radius:7px;
+				text-align: center;
+				background:#82782F;
+			}
+			.subactive{
+				background: #AD9E31;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="form">
+			<input type="number" id="un" placeholder="填写手机号码" maxlength="11"/>
+			<div onclick="reset()" tapmode="subactive" class="submit">下一步</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+	<script type="text/javascript" src="../script/jquery.min.js"></script>
+	<script type="text/javascript" src="../script/common.js"></script>
+	<script>
+		apiready = function() {
+			api.getPrefs({
+	            key:'header_h'
+            },function(ret,err){
+            	//coding...
+            	header_h = ret.value;
+            });
+		}
+		function reset(){
+			un = $('#un').val();
+			api.ajax({
+	            url:commonUrl+'resetpwd.php',
+	            method:'post',
+	            data:{
+	            	values:{
+						fasion:	un            	
+	            	}
+	            },
+	            dataType:'json',
+            },function(ret,err){
+            	//coding...
+            	api.openFrame({
+	                name: 'reset2',
+	                url: 'frame_reset2.html',
+	                rect: {
+		                x:0,
+		                y:header_h,
+		                w:'auto',
+		                h:'auto'
+	                },
+	                pageParam:{
+	                	un:un
+	                }
+                });
+            });
+		
+		}
+	</script>
+</html>

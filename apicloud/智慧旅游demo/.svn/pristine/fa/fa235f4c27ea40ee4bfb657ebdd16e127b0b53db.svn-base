@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<meta charset="utf-8">
+		<title>联通APP-DEMO</title>
+		<style type="text/css">
+			body{
+				background-color: #303030;
+				-webkit-touch-callout:none;
+
+				-webkit-text-size-adjust:none;
+			
+				-webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+			
+				-webkit-user-select:none;
+			}
+			*{
+				padding:0px;
+				margin: 0px;
+			}
+			ul{
+				list-style: none;
+			}
+			.head{
+				margin-top: 50px;
+				text-align: center;
+			}
+			ul{
+				margin-top: 20px;
+			}
+			ul li{
+				display: block;
+				padding:0px 10px; 
+				background-color: #353535;
+				margin-top: 1px;
+				height: 50px;
+				line-height: 50px;
+			}
+			ul li:hover{
+				background-color: #505050;
+			}
+			ul li a{
+				color:#b9b9b9;
+				text-decoration: none;
+				width:100%;
+			}
+			.p-l{
+				float: left;
+			}
+			.p-r{
+				float: right;
+			}
+			.cls{
+				clear: both;
+			}
+			ul li a img{
+				height:50px;
+				width:30px;
+
+				margin-right: 10px;
+			}
+			.label{
+				height:5px;
+				margin-top: 10px;
+				line-height: 5px;
+				display:block;
+				padding:10px;
+				background-color: #d47426;
+				color:#FFF;
+				font-size: 18px;
+				border-radius: 60px;
+				margin-right:80px;
+			}
+			.link{
+				font-size:12px;
+				color:#ccc;
+				text-align:center;
+				padding-right:60px;
+				clear:both;
+				margin:20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="head">
+			<img src="../image/icon-head.png" width="60px" height="60px" style="margin-left:-60px;">
+		</div>
+		<ul>
+			<li  onclick="openwin(1)">
+				<a href="javascript:void(0);">
+					<img src="../image/icon-sense.png" class="p-l">
+					<span class="p-l">网上观景</span>
+				</a>
+			</li>
+			<li onclick="openwin(2)">
+				<a href="javascript:void(0);">
+					<img src="../image/icon-info.png" class="p-l">
+					<span class="p-l">旅游资讯</span>
+					<span class="label p-r">5</span>
+				</a>
+			</li>
+			<li  onclick="openwin(3)">
+				<a href="javascript:void(0);">
+					<img src="../image/icon-eat.png" class="p-l">
+					<span class="p-l">吃在宝鸡</span>
+				</a>
+			</li>
+			<li onclick="openwin(4)">
+				<a href="javascript:void(0);">
+					<img src="../image/icon-hotel.png" class="p-l">
+					<span class="p-l">住在宝鸡</span>
+				</a>
+			</li>
+			<!--<li onclick="openwin(5)">
+				<a href="javascript:void(0);">
+					<img src="../image/icon-walk.png" class="p-l">
+					<span class="p-l">行在宝鸡</span>
+				</a>
+			</li>-->
+			<li onclick="openwin(6)">
+				<a href="javascript:void(0);">
+					<img src="../image/icon-you.png" class="p-l">
+					<span class="p-l">游在宝鸡</span>
+				</a>
+			</li>
+			<li onclick="openwin(7)">
+				<a href="javascript:void(0);">
+					<img src="../image/icon-gou.png" class="p-l">
+					<span class="p-l">购在宝鸡</span>
+				</a>
+			</li>
+			<li onclick="openwin(8)">
+				<a href="javascript:void(0);">
+					<img src="../image/icon-yu.png" class="p-l">
+					<span class="p-l">娱在宝鸡</span>
+				</a>
+			</li>
+			<li onclick="openwin(9)">
+				<a href="javascript:void(0);">
+					<img src="../image/icon-jihua.png" class="p-l">
+					<span class="p-l">我的旅游计划列表</span>
+				</a>
+			</li>
+		</ul>
+		<!--<div class="link">西安比熊网络科技有限公司</div>-->
+	</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/fixed.js"></script>
+</html>

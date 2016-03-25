@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>牵引治疗器械</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/app.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+		<link rel="stylesheet" type="text/css" href="../css/yaozhui.css" />
+	</head>
+	
+	<body>
+		<div class="banner">
+			<img class="img1" src="../image/product1.png" />
+		</div>
+		<div class="baseinfo">
+			<p class="price">￥699.00</p>
+			<p class="english">DiskOne PREMIUM</p>
+			<p class="name">腰部疼痛与腰椎间盘突出牵引治疗器械</p>
+			<p class="yong">DISK ONE PREMIUM是用于治疗椎间盘突出、椎管狭窄等疾病，采用充气方式牵引腰部(脊椎)的医疗器械。</p>
+		</div>
+		<div class="proinfo">
+			<img src="../image/proinfo1.png">
+			<img src="../image/prote1.png">
+			<img src="../image/yao_tj.png">
+			<img src="../image/yaozhuinv.png.png" />
+		</div>
+		<div class="button">
+			<div class="buy">
+				<img src="../image/car.png">立即预定
+			</div>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="将资源“test3/image/iconfont-fenxiang.png”重命名为“share.png”" description="重命名资源“iconfont-fenxiang.png”" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="image/iconfont-fenxiang.png" name="share.png" stamp="1456122072198" updateReferences="true"/>
+</session>

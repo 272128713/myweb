@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+		<title>forder_ok</title>
+		<link rel="stylesheet" type="text/css" href="../css/api.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+		 <link rel="stylesheet" type="text/css" href="../css/order_success.css"/> 
+		<style>
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<p class="p1">恭喜您，您已预定成功！</p>
+			<div class="pro_list">
+				<div class="proimg">
+					<img src="../image/product2.png">
+				</div>
+				<div class="proinfo">
+					<p class="name">颈椎牵引治疗仪颈椎牵引治疗仪颈椎牵引治疗仪颈椎牵引治疗仪颈椎牵引治疗仪</p>
+					<p class="count">2件</p>
+				</div>
+				<div class="clear"></div>
+				<div class="order_id">请牢记订单号：YXsc2016yjz02</div>
+			</div>
+			<div class="qrcode">
+				<img src="../image/qrcode.png">
+				<p>身边触手可及的健康产品</p>
+			</div>
+			<p>使用医信商城APP，订购更优惠；</p>
+			<p>使用医信商城APP，订单、物流查询更简单；</p>
+			<p>使用医信商城APP，还有更多...</p>
+		</div>
+		<script type="text/javascript" src="../script/api.js"></script>
+		<script type="text/javascript" src="../script/common.js"></script>
+		<script type="text/javascript" src="../script/jquery.min.js"></script>
+		
+		<script type="text/javascript">
+		    //浏览器适配 兼容所有浏览器 rem单位专用 设置html root 字号
+		    (function (doc, win) {
+		        var docEl = doc.documentElement,
+		            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		            recalc = function () {
+		                var clientWidth = docEl.clientWidth;
+		                if (!clientWidth) return;
+		                docEl.style.fontSize = 10 * (clientWidth / 320) + 'px';
+		            };
+		        if (!doc.addEventListener) return;
+		        win.addEventListener(resizeEvt, recalc, false);
+		        doc.addEventListener('DOMContentLoaded', recalc, false);
+		    })(document, window);
+		</script>
+		<script>
+		
+			apiready = function() {
+			
+			api.closeWin({name:api.pageParam.name});
+				//pageParam
+				gid = api.pageParam.gid;
+				price = '';
+				receive_name = '';
+				receive_phone = '';
+				area_code = '';
+				area = '';
+				address = '';
+//				
+//				counts = $api.offset($api.dom('.counts')).t;
+//				$('.dqld_div').css('top',counts);
+				//prefs
+				api.getPrefs({
+					key : 'uname'
+				}, function(ret, err) {
+					console.log(ret);
+					if (ret.value) {
+						uname = ret.value;
+						$('#uname').val(uname);
+					}
+				});
+				api.getPrefs({
+					key : 'phone'
+				}, function(ret, err) {
+					console.log(ret);
+					if (ret.value) {
+						utel = ret.value;
+						$('#utel').val(utel);
+					}
+				});
+				api.getPrefs({
+					key : 'ss'
+				}, function(ret, err) {
+					console.log(ret);
+					if (ret.value) {
+						ss = ret.value;
+						//ajax
+						api.ajax({
+							url : commonUrl + 'get_user_address.php',
+							data : {
+								values : {
+									ss : ss,
+								}
+							},
+							method : 'post',
+							dataType : 'json'
+						}, function(ret, err) {
+							if (ret) {
+								if (ret.result) {
+									//收货信息
+									console.log(ret.result);
+									receive_name = ret.result.receive_name;
+									receive_phone = ret.result.receive_phone;
+									area_code = ret.result.area_code;
+									area = ret.result.area;
+									address = ret.result.address;
+									
+									$('#sname').val(receive_name);
+									$('#stel').val(receive_phone);
+									$('#birth_pVal').attr("vl",area_code);
+									$('#birth_pVal').html(area);
+									$('#saddr').val(address);
+								}
+							} else {
+								console.log(err);
+							}
+						});
+					} else {
+						api.alert({
+							msg : '对不起，请登录'
+						}, function(ret, err) {
+//							api.closeWin();
+							api.openWin({
+								name : 'login',
+								url : 'win_login.html',
+								pageParam : {
+									winname : 'worder'
+								}
+							});
+						});
+					}
+				});
+			}
+			$(function() {
+				var count = 1;
+				$('.dec').click(function() {
+					if (count != 1)
+						count -= 1;
+					$('.num').html(count);
+				});
+				$('.inc').click(function() {
+					count += 1;
+					$('.num').html(count);
+				});
+				$('.pcarea').click(function() {
+					var pcid = $(this).children('.detail').attr('id');
+					setCookie('pcVal', pcid, 7);
+					getProvinceBuy();
+				});
+				$('.submit').click(function() {
+					goods_num = $('#goods_num').html();
+					//商品数量
+					//	            	console.log(goods_num);
+					un = $('#un').val();
+					utel = $('#utel').val();
+					sname = $('#sname').val();
+					stel = $('#stel').val();
+					birth_pVal = $('#birth_pVal').attr("vl");
+					//	            	console.log(birth_pVal);	//320101
+					saddr = $('#saddr').val();
+					api.ajax({
+						url : commonUrl + 'goods_buy.php',
+						data : {
+							values : {
+								rn : uname,
+								un : utel,
+								srn : sname,
+								stel : stel,
+								spro : birth_pVal,
+								saddr : saddr,
+								gid : gid,
+								goods_num : goods_num,
+								price : price * goods_num,
+							}
+						},
+						method : 'post',
+						dataType : 'json'
+					}, function(ret, err) {
+						//coding...
+						if(ret){
+							if(ret.code==1){
+								api.openWin({
+	                                name: '',
+	                                url: ''
+                                });					
+							}else{
+								api.toast({
+	                                msg:ret.msg
+                                });
+							}
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="将资源“医信商城/html/win_pro.html”重命名为“win_prodetail.html”" description="重命名资源“win_pro.html”" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="html/win_pro.html" name="win_prodetail.html" stamp="1456710697099" updateReferences="true"/>&#x0A;<refactoring comment="将资源“医信商城/html/frame_order.html 的副本”重命名为“frame_order.html”" description="重命名资源“frame_order.html 的副本”" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="html/frame_order.html 的副本" name="frame_order.html" stamp="1456732483480" updateReferences="true"/>
+</session>

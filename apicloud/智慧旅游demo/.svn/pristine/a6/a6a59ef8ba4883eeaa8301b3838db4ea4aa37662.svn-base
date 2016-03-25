@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    	<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				background-color: #F5F5F5;
+			}
+			*{
+				padding:0px;
+				margin: 0px;
+			}
+			#header{
+				height:50px;
+				line-height: 50px;
+				background-color: #303030;
+				color:#FFF;
+				font-size: 18px;
+				text-align: center;
+			}
+			.wrapper{
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+			.p-l{
+				float: left;
+			}
+			.p-r{
+				float: right;
+			}
+			ul{
+				list-style: none;
+				margin-top: 10px;
+				overflow: hidden;
+			}
+			ul li{
+				margin-top: 10px;
+				clear: both;
+				overflow: hidden;
+				height:150px;
+				display:block;
+				padding:5px;
+				background-color:#FFF;
+				border-radius:3px;
+				box-shadow:1px 1px 3px #ccc;
+			}
+			ul li a img{
+				border-radius: 3px;
+			}
+			ul li .btn{
+				width:120px;
+				height:30px;
+				line-height: 30px;
+				margin:-50px auto;
+				background-color: transparent;
+				color:#FFF;
+				text-align: center;
+				text-decoration: none;
+				border:2px solid #ccc;
+				border-radius: 3px;
+				position: relative;
+				z-index: 2;
+				display: block;
+				
+				opacity: .8;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="header">
+			<div class="wrapper">
+			<img src="../image/icon-back.png" width="17px" height="25px" class="p-l" style="margin-top:17px;" onclick="api.closeWin()">
+				
+				网上观景
+			</div>
+		</div>
+		<div class="content">
+			<div class="wrapper">
+				<ul>
+					<li>
+						<a href="javascript:void(0);">
+							<img src="../image/sense-samp1.jpg" width="100%" height="150px">
+						</a>
+
+						<a href="javascript:void(0);"  class="btn" onclick="sub()">
+							在线观看实景
+						</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">
+							<img src="../image/sense1.jpg" width="100%" height="150px">
+						</a>
+
+						<a href="javascript:void(0);"  class="btn" onclick="sub()">
+							在线观看实景
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+	sub = function(){
+		api.alert({title:"温馨提示",msg:"恭喜您，可观看实时景区！"});
+	}
+    apiready = function(){
+	var header = $api.byId("header");
+    $api.fixIos7Bar(header);
+    };
+</script>
+</html>

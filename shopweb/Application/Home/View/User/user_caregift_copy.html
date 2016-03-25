@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/user_caregift_copy.css" />
+		
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+		/*function listCK(obj) {
+			var classname = $(obj).attr('class');
+			$(".r div").css({"display": "none"});
+			$(".r div." + classname).css({"display": "block"});	
+			$(".all .l").scrollTop((parseInt($(obj).position().top)));
+		}*/
+		$(document).ready(function(){
+			var wh =$(window).height();
+			var titles=$('div .l ul li');
+			$('.all').height(wh);
+			titles.click(function(){
+				$(this).addClass('selected').siblings().removeClass('selected');
+				var index = titles.index(this);
+				$('div .r > div').eq(index).show().siblings().hide();
+				$('.all .l').scrollTop((parseInt($(this).position().top)));
+			});
+		});
+	</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background:#0ac9c2;position: fixed;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="history.go(-1)"></a>
+			<h1 class="mui-title" style="color:#fff;width:6em;" onclick="history.go(-1)">慢性病关爱包</h1>
+		</header>
+		<div class="all">
+			<div class="l">
+				<ul>
+					<li class="selected">
+						<div class="wrap">
+							<a href="#">糖尿病</a>
+						</div>
+					</li>
+					<li>
+						<div class="wrap">
+							<a href="#">高血压</a>
+						</div>
+					</li>
+					<li>
+						<div class="wrap">
+							<a href="#">慢性肾炎</a>
+						</div>
+					</li>
+					<li>
+						<div class="wrap">
+							<a href="#">糖尿病</a>
+						</div>
+					</li>
+					<li>
+						<div class="wrap">
+							<a href="#">慢性肾炎</a>	
+						</div>
+					</li>
+					<li>
+						<div class="wrap">
+							<a href="#">甲亢</a>
+						</div>
+					</li>
+					<li>
+						<div class="wrap">
+							<a href="#">风湿性关节炎风湿性关节炎</a>
+						</div>
+					</li>
+					<li>
+						<div class="wrap">
+							<a href="#">糖尿病</a>
+						</div>
+					</li>
+					<li>
+						<div class="wrap">
+							<a href="#">肝硬化</a>
+						</div>
+					</li>
+					<li>
+						<div class="wrap">
+							<a href="#">肺结核</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="r">
+				<div class="gift-list" style="display:block;">
+					<li>
+						<div class="gift-img">
+							<img src="images/list-img.png" style="width:100%" />
+						</div>
+						<div class="gift-intro">
+							<p class="p1">关爱礼盒装一</p>
+							<p class="p2">六件降血压保健品组合装，绝对超值的价格。</p>
+						</div>
+						<div class="clear"></div>
+						<div class="jiage">
+							<del>原价：￥4095</del><span>￥3400</span>
+							<a href="#" class="buy">立即抢购</a>
+						</div>
+					</li>
+					<li>
+						<div class="gift-img">
+							<img src="images/list-img.png" style="width:100%" />
+						</div>
+						<div class="gift-intro">
+							<p class="p1">关爱礼盒装一</p>
+							<p class="p2">六件降血压保健品组合装，绝对超值的价格。</p>
+						</div>
+						<div class="clear"></div>
+						<div class="jiage">
+							<del>原价：￥4095</del><span>￥3400</span>
+							<a href="#" class="buy">立即抢购</a>
+						</div>
+					</li>
+					<li>
+						<div class="gift-img">
+							<img src="images/list-img.png" style="width:100%" />
+						</div>
+						<div class="gift-intro">
+							<p class="p1">关爱礼盒装一</p>
+							<p class="p2">六件降血压保健品组合装，绝对超值的价格。</p>
+						</div>
+						<div class="clear"></div>
+						<div class="jiage">
+							<del>原价：￥4095</del><span>￥3400</span>
+							<a href="#" class="buy">立即抢购</a>
+						</div>
+					</li>
+					<li>
+						<div class="gift-img">
+							<img src="images/list-img.png" style="width:100%" />
+						</div>
+						<div class="gift-intro">
+							<p class="p1">关爱礼盒装一</p>
+							<p class="p2">六件降血压保健品组合装，绝对超值的价格。</p>
+						</div>
+						<div class="clear"></div>
+						<div class="jiage">
+							<del>原价：￥4095</del><span>￥3400</span>
+							<a href="#" class="buy">立即抢购</a>
+						</div>
+					</li>
+					<li>
+						<div class="gift-img">
+							<img src="images/list-img.png" style="width:100%" />
+						</div>
+						<div class="gift-intro">
+							<p class="p1">关爱礼盒装一</p>
+							<p class="p2">六件降血压保健品组合装，绝对超值的价格。</p>
+						</div>
+						<div class="clear"></div>
+						<div class="jiage">
+							<del>原价：￥4095</del><span>￥3400</span>
+							<a href="#" class="buy">立即抢购</a>
+						</div>
+					</li>
+					<li>
+						<div class="gift-img">
+							<img src="images/list-img.png" style="width:100%" />
+						</div>
+						<div class="gift-intro">
+							<p class="p1">关爱礼盒装一</p>
+							<p class="p2">六件降血压保健品组合装，绝对超值的价格。</p>
+						</div>
+						<div class="clear"></div>
+						<div class="jiage">
+							<del>原价：￥4095</del><span>￥3400</span>
+							<a href="#" class="buy">立即抢购</a>
+						</div>
+					</li>
+				</div>
+				<div class="gift-list">
+					<li>
+						<div class="gift-img">
+							<img src="images/list-img.png" style="width:100%" />
+						</div>
+						<div class="gift-intro">
+							<p class="p1">关爱礼盒装二</p>
+							<p class="p2">六件降血压保健品组合装，绝对超值的价格。</p>
+						</div>
+						<div class="clear"></div>
+						<div class="jiage">
+							<del>原价：￥4095</del><span>￥3400</span>
+							<a href="#" class="buy">立即抢购</a>
+						</div>
+					</li>
+				</div>
+				<div class="gift-list">
+					<li>
+						<div class="gift-img">
+							<img src="images/list-img.png" style="width:100%" />
+						</div>
+						<div class="gift-intro">
+							<p class="p1">关爱礼盒装三</p>
+							<p class="p2">六件降血压保健品组合装，绝对超值的价格。</p>
+						</div>
+						<div class="clear"></div>
+						<div class="jiage">
+							<del>原价：￥4095</del><span>￥3400</span>
+							<a href="#" class="buy">立即抢购</a>
+						</div>
+					</li>
+				</div>
+				<div class="gift-list">
+					<li>
+						<div class="gift-img">
+							<img src="images/list-img.png" style="width:100%" />
+						</div>
+						<div class="gift-intro">
+							<p class="p1">关爱礼盒装四</p>
+							<p class="p2">六件降血压保健品组合装，绝对超值的价格。</p>
+						</div>
+						<div class="clear"></div>
+						<div class="jiage">
+							<del>原价：￥4095</del><span>￥3400</span>
+							<a href="#" class="buy">立即抢购</a>
+						</div>
+					</li>
+				</div>
+				<div class="gift-list">
+					<li>
+						<div class="gift-img">
+							<img src="images/list-img.png" style="width:100%" />
+						</div>
+						<div class="gift-intro">
+							<p class="p1">关爱礼盒装五</p>
+							<p class="p2">六件降血压保健品组合装，绝对超值的价格。</p>
+						</div>
+						<div class="clear"></div>
+						<div class="jiage">
+							<del>原价：￥4095</del><span>￥3400</span>
+							<a href="#" class="buy">立即抢购</a>
+						</div>
+					</li>
+				</div>
+				<div class="gift-list">
+					<li>
+						<div class="gift-img">
+							<img src="images/list-img.png" style="width:100%" />
+						</div>
+						<div class="gift-intro">
+							<p class="p1">关爱礼盒装六</p>
+							<p class="p2">六件降血压保健品组合装，绝对超值的价格。</p>
+						</div>
+						<div class="clear"></div>
+						<div class="jiage">
+							<del>原价：￥4095</del><span>￥3400</span>
+							<a href="#" class="buy">立即抢购</a>
+						</div>
+					</li>
+				</div>
+				<div class="gift-list">
+					<li>
+						<div class="gift-img">
+							<img src="images/list-img.png" style="width:100%" />
+						</div>
+						<div class="gift-intro">
+							<p class="p1">关爱礼盒装七</p>
+							<p class="p2">六件降血压保健品组合装，绝对超值的价格。</p>
+						</div>
+						<div class="clear"></div>
+						<div class="jiage">
+							<del>原价：￥4095</del><span>￥3400</span>
+							<a href="#" class="buy">立即抢购</a>
+						</div>
+					</li>
+				</div>
+				<div class="gift-list">
+					<li>
+						<div class="gift-img">
+							<img src="images/list-img.png" style="width:100%" />
+						</div>
+						<div class="gift-intro">
+							<p class="p1">关爱礼盒装八</p>
+							<p class="p2">六件降血压保健品组合装，绝对超值的价格。</p>
+						</div>
+						<div class="clear"></div>
+						<div class="jiage">
+							<del>原价：￥4095</del><span>￥3400</span>
+							<a href="#" class="buy">立即抢购</a>
+						</div>
+					</li>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/caregift.js"></script>
+	</body>
+
+</html>

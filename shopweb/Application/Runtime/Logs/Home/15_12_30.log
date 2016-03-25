@@ -1,0 +1,6 @@
+[ 2015-12-30T13:03:16+08:00 ] 192.168.21.82 /shopweb/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.035002s ]
+ERR: 无法加载控制器:Index
+

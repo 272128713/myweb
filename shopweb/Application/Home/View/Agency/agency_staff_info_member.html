@@ -1,0 +1,13 @@
+		<volist name="result['member']" id="member">
+			<li class="userinfo">
+				<img class="userphoto" src="<?php echo getImg($member['worker_thumbnail_image_url']);?>" />
+				<div class="moreinfo">
+					<p>
+						<span class="nam">{$member['member_truename']|default="未设置"}</span>
+						<img class="icon" src="images/lv{$member['member_level']}.png"/>
+					</p>
+					<p style="color:#000;">{$member['member_address']|default="未设置"}</p>
+				</div>
+				<div class="clear"></div>
+			</li>
+		</volist>

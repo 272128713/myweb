@@ -1,0 +1,22 @@
+
+            	<foreach item="v" name='result'>
+		            <div class="cash_list">
+		            	<p class="p1">流水号：{$v.id}
+		            	
+		            		<?php 
+		            			switch($v['apply_status']){
+								case 0:
+									echo "<span>待处理</span>";
+									break;
+								case 1:
+									echo "<span class='fin'>已处理</span>";
+									break;
+								case 2:
+									echo "<span class='wrong'>失败</span>";
+									break;
+							}
+	            		?>
+		            	</p>
+		            	<p class="p2">￥{$v.money}<span>{$v.apply_time}</span></p>
+		            </div>
+	            </foreach>

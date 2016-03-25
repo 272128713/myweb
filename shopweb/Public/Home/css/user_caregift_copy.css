@@ -1,0 +1,147 @@
+.all {
+			position: relative;
+			width: 100%;
+		}
+			.all .l {
+				float: left;
+				position: relative;
+				width: 25%;
+				height: 100%;
+				overflow: hidden;
+				overflow-x: hidden; 
+				overflow-y: auto;
+			}
+				.all .l ul {
+					position: absolute;
+					left: 0;
+					top: 0;
+					width: 100%;
+					list-style: none;
+					display: block;
+					background: #efefef;
+				}
+					.all .l ul li {
+						position: relative;
+						width: 100%;
+						height: 47px;
+						text-align: center;
+						display: block;
+						vertical-align: middle; 
+						border-bottom: 1px solid #cfcfcf;
+						border-right: 1px solid #cfcfcf;
+						cursor: pointer;
+						font-size: 13px;
+						display: table;
+					}
+					.all .l ul  .selected{
+						border-right: 0;
+					}
+			.all .r {
+				float: left;
+				position: relative;
+				width: 75%;
+				height: 100%;
+			}
+				.all .r  .gift-list{
+					position: absolute;
+					left: 0;
+					top: 0;
+					width: 100%;
+					height: 100%;
+					padding-left:2%;
+					padding-right:2%;
+					overflow: hidden;
+					display: none;
+					overflow-x: hidden; 
+					overflow-y: auto;
+				}
+.wrap a{
+	color:#555555;
+}
+.all .l ul li a{
+	text-align:center;
+	display:block;
+	word-wrap: break-all;
+}	
+.selected{
+	background:#fff;
+}
+.selected a{
+	color:#0ac9c2;
+}
+.gift-list li{
+	border-bottom:1px solid #dcdcdc;
+	padding-top:14px;
+	padding-bottom:14px;
+}
+.gift-list .gift-img{
+	padding:1px;
+	width:30%;
+	float:left;
+	border:1px solid #e5e5e5;
+}
+.gift-list .gift-img img{
+	width:100%;
+}
+.gift-list .gift-intro{
+	width:70%;
+	float:left;
+	padding-left:3%;
+}
+.gift-intro .p1{
+	font-size:15px;
+	color:#000;
+	margin-bottom:7px;
+}
+.gift-intro .p2{
+	font-size:13px;
+	color:#666666;
+}
+.clear{
+	clear:both;
+}
+.jiage{
+	margin-top:15px;
+	font-size:12px;
+	position:relative;
+	color:#606060;
+}
+.jiage span{
+	color:red;
+	font-size:14px;
+	margin-left:3%;
+}
+
+.buy{
+	background:#09c9c2;
+	border-radius:3px;
+	color:#fff;
+	padding:5px 10px;
+	float:right;
+	position:absolute;
+	right:1%;
+	top:-6px;
+	font-size:14px;
+}
+.buy:hover{
+	color:#fff000;
+}
+.price span{
+	color:red;
+	font-size:18px;
+	font-weight:bold;
+	margin-left:5px;
+} 
+.wrap{
+      display: table-cell;
+      text-align:center;
+      vertical-align: middle;
+      *position:absolute;
+      *top: 50%;
+      *left: 0;
+}
+.all .l ul li a {
+            	*position: relative;
+            	*top: -50%;
+            	*left: 0;
+}  

@@ -1,0 +1,105 @@
+header img{
+	height: 44px;
+	cursor: pointer;
+}
+.cont-container{
+	width:100%;
+	font-size:14px;
+	margin-top:44px;
+	overflow: scroll;
+}
+ul{
+	list-style:none;
+	padding:0;
+	margin:0;
+}
+.navigation{
+	width:25%;
+	height:100%;
+	float:left;
+	background:#efefef;
+}
+.navigation li{
+	height:40px;
+	line-height:40px;
+	border-bottom:1px solid #bbb;
+	border-right:1px solid #bbb;
+	cursor: pointer;
+}
+.navigation .selected {
+	border-right:none;
+	background:#fff;
+}
+.navigation .selected a{
+	color:#0ac9c2;
+}
+.navigation li a{
+	color:#000;
+	line-height:40px;
+	text-align:center;
+	display:block;
+	word-wrap: break-word;
+}
+.cont-container .gift-list{
+	width:75%;
+	float:right;
+	padding-left:2%;
+	padding-right:2%;
+}
+.gift-list li{
+	border-bottom:1px solid #bbb;
+	border-bottom-style: dotted;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.gift-list .gift-img{
+	width:30%;
+	float:left;
+}
+.gift-list .gift-intro{
+	width:70%;
+	float:left;
+	padding-left:2%;
+}
+.gift-intro .p1{
+	line-height:30px;
+	font-size:16px;
+	font-weight:bold;
+}
+.gift-intro .p2{
+	line-height:25px;
+	font-size:14px;
+}
+.clear{
+	clear:both;
+}
+.jiage{
+	margin-top:5px;
+	height:30px;
+	line-height:30px;
+	font-size:14px;
+	position:relative;
+}
+.jiage span{
+	color:red;
+	font-size:18px;
+	margin-left:5px;
+}
+
+.buy{
+	background:#8ec931;
+	border-radius:5px;
+	color:#fff;
+	font-weight:bold;
+	padding:2px 2px;
+	float:right;
+	position:absolute;
+	top:-4px;
+	right:0px;
+}
+.price span{
+	color:red;
+	font-size:18px;
+	font-weight:bold;
+	margin-left:5px;
+}

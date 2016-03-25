@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>活动详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="__CSS__/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="__CSS__/app.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/common.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/user_health_activity.css" />
+
+	</head>
+<style>
+	#profit_list{display:none}	
+	.main img{
+		max-width:100%;
+		width:100%;
+	}
+</style>
+	
+	<body>
+		<!--header class="mui-bar mui-bar-nav" style="background:#0ac9c2;position: fixed;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="goToUserA()"></a>
+			<h1 class="mui-title" style="color:#fff" onclick="goToUserA()">活动详情</h1>
+			
+		</header-->
+		<div class="main">
+				{$result.activity_desc}
+		</div>
+		<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/common.js" type="text/javascript" charset="utf-8"></script>
+		
+	</body>
+
+</html>
+

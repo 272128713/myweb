@@ -1,0 +1,47 @@
+
+        		<foreach item="v" name="shop">
+					<li class="assign1">
+					
+								<php>
+								if($v["member_truename"]==''){
+									$membername= "未设置";
+								}else{
+									$membername= $v['member_truename'];
+								}
+				
+								$img=getImg($v['thumbnail_image_url']);
+								
+								
+								$prolist = $v['product_list'];
+								if(count($prolist)==1){
+									$prolist = $prolist[0];
+									$pname = $prolist['goods_name'];
+									$img=C('NC_UPLOAD_PATH').'shop/store/goods/1/'.$prolist['goods_image'];
+								}else{
+									foreach($prolist as $k){
+										$pname .= $k['goods_name'].",";
+									}
+									$img='__IMG__/pakage.jpg';
+									$pname = $v['pakage_name'];
+									
+								}
+								</php>
+						<div class="aleft">
+							<img src="{$img}" />
+						</div>
+						<div class="aleft-view">
+							<div class="aleft-title">
+								{$pname}
+							</div>
+						</div>
+						<div class="aleft-view n1">
+							<p class="p1">￥{$v.order_amount}</p>
+							<p class="p2">{$v.add_time} 购买</p>
+							<div class="right-staff">
+								{$membername}
+								<img src="__IMG__/list-img2.png" />
+							</div>
+						</div>
+						<div class="clear"></div>
+					</li> 
+				</foreach> 

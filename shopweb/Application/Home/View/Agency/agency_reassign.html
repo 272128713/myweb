@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>医信商城</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="__CSS__/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="__CSS__/app.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/common.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/agency_reassign.css" />
+
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background:#e45335;position: fixed;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="history.go(-1)"></a>
+			
+		</header>
+		<div class="userinfo">
+				<img class="userphoto" src="<?php echo getImg($member_info['thumbnail_image_url']);?>" />
+				<div class="moreinfo">
+					<p>
+						<span class="nam">{$member_info['member_truename']|default="未设置"}</span>
+						<img class="icon" src="__IMG__/lv{$member_info['member_level']}.png"/>
+						<span class="sex">{$member_info['member_sex']|default="未设置"}</span>
+						<span class="year">{$member_info['member_birthday']|default="未设置"}</span>
+					</p>
+					<p style="color:#fff;">{$member_info['member_address']|default="未设置"}</p>
+					
+					<div class="tel"><img src="__IMG__/tel.png" style="width:25px;" />{$member_info['mobile']}</div>
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+				<div class="otherinfo">
+					<div class="tx">
+						<span class="tx-nike">{$member_info['worker_truename']}</span>
+						<img src="<?php echo getImg($member_info['worker_thumbnail_image_url']);?>"  />
+					</div>
+				</div>
+		</div>
+		<div class="sec-top"></div>
+		<ul class="content" id="w_list">
+		<volist name="worker_list" id="worker">
+			<li class="assign" wid="{$worker['member_id']}">
+				<div class="aleft">
+					<img src="<?php echo getImg($worker['thumbnail_image_url']);?>" />
+						<span class="xm">{$worker['member_truename']|default="未设置"}</span>						
+				</div>
+				<div class="right" style="position:relative;top:-23px;">
+					<span class="gl">管理用户({$worker['now_num']}/{$worker['total_num']})</span>
+					<div class="mui-icon mui-icon-arrowright right arrow" style="position:relative;top:-46px;"></div>
+				</div>
+			</li>
+		</volist>	
+		</ul>
+		<input type="hidden" id="mid" value="{$member_info['member_id']}">
+<php>
+    if(count($result)>=C('PAGE_VAL')){
+</php>
+<div id="order_list" onclick="get_more()" class="getmore">
+    点击加载更多
+</div>
+<php>
+    }
+</php>		
+		<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var get_circle_wid = $('.userphoto').width();
+				var get_circle_wid1 = $('.tx img').width();
+				$('.userphoto').height(get_circle_wid);
+				$('.tx img').height(get_circle_wid1);
+			});
+		</script>
+		<script type="text/javascript">
+			$(function(){
+				$('.confirm_btn').click(function(){
+					layer_confirm();
+				});
+			});				
+			function layer_confirm(){
+				layer.open({
+				    type: 1,
+				    title:false,
+				    closeBtn: false,
+				    shadeClose:true,
+				    area:'80%',
+				    content:$('#hid-confirm')
+				});
+			}
+		</script>
+<script>
+   var sanlingyi_page_a=2;
+    function get_more(){
+        //加载消费记录
+        var article=$('#w_list');
+        var url="{:U('Agency/reAssignMember')}";
+        $.get(
+                url,{"page":sanlingyi_page_a,"ajax":1},function(date){
+                    if(date!=0){
+                        sanlingyi_page_a+=1;
+                        article.append(date);
+                       // alert(date);
+
+                    }else{
+                        $('#order_list').html('暂无更多')
+                    }
+                }
+                ,'html' );
+    }
+    
+    $('.assign').click(function(){
+    	//alert($(this).attr('wid'));
+    	
+    	var wid=$(this).attr('wid');//员工id
+    	var mid=$('#mid').val();//会员id
+    	
+		$.ajax({
+			url: "{:U('Agency/doReAssignMember')}",
+			type: 'POST',
+			data:{wid:wid,mid:mid},
+			error: function () { 
+				//alert(data); 
+			},
+			success: function(data){
+				if(data==1){ //分配成功
+					//layer_confirm();
+				}else{ //分配失败
+					//layer_confirm_error();
+				}
+			}
+		});
+    	
+    });
+    
+</script> 		
+	</body>
+
+</html>

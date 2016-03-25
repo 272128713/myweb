@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>医信商城</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="__CSS__/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="__CSS__/app.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/common.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/user_consumeRec.css" />
+
+	</head>
+<style>
+	#profit_list{display:none}	
+</style>
+	
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background:#0ac9c2;position: fixed;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="goToUserA()"></a>
+			<h1 class="mui-title" style="color:#fff" onclick="goToUserA()">我的财富</h1>
+			<div class="right">
+				<!-- a><img src="__IMG__/iconfont-duihao.png" /></a-->
+			</div>
+		</header>
+		<div class="totalWealth">
+			<p class="p1">
+				<!--img src="images/kapian.png" style="width:20px;position:relative;top:4px;margin-right:2px;"/-->
+				财富总额：</p>
+			<p class="p2">￥{$total_money}</p>
+		</div>
+		<div class="consumRecord" >
+			<div class="retitle">
+				<a class="a1 active" id="buy" >
+					消费记录
+				</a>
+				<a  id="profit" href="javascript:;">
+					收益记录
+				</a>
+			</div>
+			<ul id="buy_list">
+                <foreach name="consum" item="vo">
+				<li class="consumList">
+					<img src="__NC_UPLOAD_PATH_GOODS__<?php echo $vo['product_list'][0]['goods_image'] ?>" />
+					<div class="listintro">
+						<p class="name">
+                            <php>
+                                if(count($vo['product_list'])>1){
+                                echo $vo['pakage_name'];
+                                echo '(';
+                                foreach($vo['product_list'] as $k=>$v){
+                                if($k!=0){
+                                echo ','.$v['goods_name'];
+                                }else{
+                                echo $v['goods_name'];
+                                }
+                                }
+                                echo ')';
+                                }else{
+                                echo $vo['product_list'][0]['goods_name'];
+                                }
+                            </php>
+                        </p>
+						<p class="p3"><span>
+                            ￥{$vo.order_amount}
+                            <php>
+                                if($vo['use_points']>0){
+                                echo '('.$vo['use_points'].'积分)';
+                                }
+                            </php>
+                        </span><php>echo date('Y-m-d',$vo['add_time'])</php>购买</p>
+						<p class="p4">
+                            <php>
+                                if($vo['order_state']==20){
+
+                            </php>
+                            <span>提货码：</span>{$vo.order_code}
+                            <php>
+                                }else{
+                            </php>
+                            <span style="background: none; color: #666"><php> echo get_order_staus($vo['order_state'])</php></span>
+                            <php>}</php>
+
+                        </p>
+					</div>
+					<div class="list-clear"></div>
+				</li>
+                </foreach>
+			</ul>			
+			<ul id="profit_list">	
+				<volist name="result" id="res">
+					<li class="consumList">
+							<span class="span1">￥{$res.pdr_amount}</span>
+							<span class="span2">{$res.pdr_payment_name}</span>
+							<span class="span3">{$res.pdr_add_time}</span>	
+						<div class="list-clear"></div>
+					</li>
+				</volist>								
+			</ul>		
+		</div>
+
+<php>
+    if(count($result)>=C('PAGE_VAL')){
+</php>
+<div id="order_list" onclick="get_more()" class="getmore">
+    点击加载更多
+</div>
+<php>
+    }
+</php>
+		<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" src="__JS__/common.js"></script>
+       <script type="text/javascript">
+            $(function(){
+                sanlingyi_show_tab=1;
+                $('#buy').click(function(){       
+                    sanlingyi_show_tab=1;
+                    $('#order_list').html('点击加载更多')
+                    $('#profit_list').css('display','none');
+                    $('#buy_list').css('display','block');
+                    $(this).addClass('active');
+                    $('#profit').removeClass('active');
+                });
+                $('#profit').click(function(){
+                    sanlingyi_show_tab=0;
+                    $('#order_list').html('点击加载更多')
+                    $('#profit_list').css('display','block');
+                    $('#buy_list').css('display','none');
+                    $(this).addClass('active');
+                    $('#buy').removeClass('active');
+                });
+            });
+        </script>	
+<script>
+    sanlingyi_page_a=2;
+    sanlingyi_page_c=2;
+    function get_more(){
+        if(sanlingyi_show_tab==1){
+            //加载消费记录
+            var article=$('#buy_list');
+            var url="{:U('User/updateBuyAjax')}";
+            $.get(
+                    url,{"page":sanlingyi_page_a,"ajax":1},function(date){
+                        if(date!=0){
+                            sanlingyi_page_a+=1;
+                            article.append(date);
+                           // alert(date);
+
+                        }else{
+                            $('#order_list').html('暂无更多')
+                        }
+                    }
+                    ,'html' );
+
+        }else{
+        	  //加载收益记录
+            var article=$('#profit_list');
+            var url="{:U('User/updateProfit')}";
+            $.get(
+                    url,{"page":sanlingyi_page_c,"ajax":1},function(date){
+
+                        if(date!=0){
+                            sanlingyi_page_c+=1;
+                            article.append(date);
+                           // alert(date);
+
+                        }else{
+                            $('#order_list').html('暂无更多')
+                        }
+                    }
+                    ,'html' );
+        }
+    }
+</script>        
+	</body>
+
+</html>

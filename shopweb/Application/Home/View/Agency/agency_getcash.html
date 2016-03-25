@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>医信健康</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="__CSS__/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="__CSS__/app.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/common.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/agency_getcash.css" />
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background:#e45335;position: fixed;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="goToA()"></a>
+			<h1 class="mui-title" style="color:#fff" onclick="goToA()">提现</h1>
+			<div class="right">
+				<a ><img src="__IMG__/shezhi.png" class="jiluzixun" /></a>
+			</div>
+		</header>
+		<!--
+        	时间：2015-06-29
+        	描述：主要内容
+        -->
+        <div class="mui-content">
+        	<div class="jilu">
+	        	<img src="__IMG__/getcash.png" class="jiluimg"/>
+	        	<span class="jilup">
+	        		账户信息
+	        	</span>
+        	</div>
+        	<div class="bank">
+        		开户银行：{$bank_name}
+        	</div>
+        	<div class="bank">
+        		银行账户：{$bank_num}&nbsp;&nbsp;&nbsp;&nbsp;{$account_name}
+        	</div>
+        	<div class="cash">	
+	        	<!--div class="circle">
+	        		<p>可提现金额<br />￥{$agency_money}</p>
+	        	</div-->
+	        	<div class="lingxing">
+	        		<img src="__IMG__/lingxing.png" />
+	        		<div class="jine">可提现金额<br />￥{$agency_money}</div>
+	        	</div>
+	        	<div class="cash_btn">
+	        		<img src="__IMG__/tixian.png"/>提现
+	        	</div>
+        	</div>
+        	<div class="cash_head">
+        		以下是全部提现记录
+        	</div>
+        	<div class="bg-line"></div>
+        	<!--
+            	作者：272128713@qq.com
+            	时间：2015-08-18
+            	描述：
+            -->
+            <div id="cash-box">
+            	
+           
+            	<foreach item="v" name='cashlist'>
+		            <div class="cash_list">
+		            	<p class="p1">流水号：{$v.id}
+		            	
+		            		<?php 
+		            			switch($v['apply_status']){
+								case 0:
+									echo "<span>待处理</span>";
+									break;
+								case 1:
+									echo "<span class='fin'>已处理</span>";
+									break;
+								case 2:
+									echo "<span class='wrong'>失败</span>";
+									break;
+							}
+	            		?>
+		            	</p>
+		            	<p class="p2">￥{$v.money}<span>{$v.apply_time}</span></p>
+		            </div>
+	            </foreach> 
+            </div>
+        </div>
+        	
+			<php>
+			if(count($cashlist)>=C('PAGE_VAL')){
+			</php>
+			<div id="order_list" onclick="get_more()" class="getmore">
+			点击加载更多
+			</div>
+			<php>
+			}
+			</php>
+        
+        
+        
+        
+        
+        <!--
+        	作者：272128713@qq.com
+        	时间：2015-08-18
+        	描述：设置账户
+        -->
+        <div id="hid-pl" class="hid-pl">
+			<div class="hid-title">
+				<img src="__IMG__/iconfont-jinggao.png"/>设置银行账户
+			</div>
+			<div class="hid-con">
+				<form action="{:U('setBank')}" method="post" id="bank">
+					<input type="text" name="bank_name" id="bank_name" value="" placeholder="请填写开户行" maxlength="20" /><br />
+					<input type="text" name="bank_num" onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')" id="bank_num" value="" placeholder="请填写您的银行账户" maxlength="19" /><br />
+					<input type="text" name="account_name" id="account_name" value="" placeholder="开户人的姓名" maxlength="10" />
+				</form>
+			</div>
+			<div class="hid-sub bank-submit">
+				完&nbsp;&nbsp;&nbsp;&nbsp;成
+			</div>
+		</div>
+		
+        <!--
+        	作者：272128713@qq.com
+        	时间：2015-08-18
+        	描述：提现
+        -->
+        <div id="hid-pl-2" class="hid-pl-2">
+			<div class="hid-title">
+				<img src="__IMG__/iconfont-jinggao.png"/>提现申请
+			</div>
+			<div class="hid-con-2">
+				您提交了提现申请，申请金额为
+				<form action="{:U('Agency/applyMoney')}" method="post" id="bank-2">
+					<input type="text" name="money" id="money" value="" placeholder="可提现余额{$agency_money}元"/><br />
+				</form>
+				请核对您的账户信息
+				<div class="bank-sys">
+					<p>{$bank_name}</p>
+					<p>银行账户:{$bank_num}&nbsp;&nbsp;&nbsp;&nbsp;{$account_name}</p>
+				</div>
+			</div>
+			<div class="hid-sub2">
+				<div class="confirm">
+					确认无误
+				</div>
+				<div class="set-bank">
+					设置银行账户
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		
+		<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var get_circle_wid = $('.circle').width();
+				$('.circle').height(get_circle_wid);
+				$('.jiluzixun').click(function(){
+					layer_sz();
+				});
+				$('.bank-submit').click(function(){
+					var bank_name=$('#bank_name').val();
+					var bank_num=$('#bank_num').val();
+					var account_name=$('#account_name').val();
+					
+					if(!(bank_name.length&&account_name.length&&bank_num.length)){
+						layer.msg("请填写完整");
+						}else if(!reg2.test(bank_name+account_name)){
+							layer.msg("对不起，名称只能<br />是汉字");
+						}else if(bank_num.length<=14){
+							layer.msg("银行卡号有误");
+						}else{
+						$('#bank').submit();
+						}
+					});
+					$('.cash_btn').click(function(){
+						layer_tx();
+					});
+					$('.confirm').click(function(){
+						var cash = $('#money').val();
+						
+						if(cash>=100){
+							$('#bank-2').submit();
+						}else{
+							layer.msg("提现金额有误,<br />不得少于100元");
+						}
+					});
+					$('.set-bank').click(function(){
+						
+						layer.closeAll();
+						layer_sz();
+					});
+			});			
+			function layer_sz(){
+				layer.open({
+				    type: 1,
+				    title:false,
+				    closeBtn: false,
+				    shadeClose:true,
+				    area:'80%',
+				    content: $('#hid-pl')
+				});
+			}			
+			function layer_tx(){
+				layer.open({
+				    type: 1,
+				    title:false,
+				    closeBtn: false,
+				    shadeClose:true,
+				    area:'80%',
+				    content: $('#hid-pl-2')
+				});
+			}
+			
+			
+			
+		    sanlingyi_page_a=2;
+		    function get_more(){
+		            //加载
+		            var article=$('#cash-box');
+		            var url="{:U('Agency/agency_getcashAjax')}";
+		            $.get(
+		                    url,{"page":sanlingyi_page_a,"ajax":1},function(date){
+		                        if(date!=0){
+		                            sanlingyi_page_a+=1;
+		                            article.append(date);
+		                            //alert(date);
+		
+		                        }else{
+		                            $('#order_list').html('暂无更多')
+		                        }
+		                    }
+		                    ,'html' );
+		    }
+		</script>
+	</body>
+
+</html>

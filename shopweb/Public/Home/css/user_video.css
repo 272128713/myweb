@@ -1,0 +1,10 @@
+.video-list{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.video-list .list-p{
+	font-size: 14px;
+	color: #000;
+	background: #eee;
+	padding: 0.5em 1em;
+}

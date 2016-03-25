@@ -1,0 +1,80 @@
+header .right img{
+	height:44px;
+	padding:10px;
+	z-index:1000;
+	cursor: pointer;
+}
+.totalWealth{
+	width:100%;
+	background:#25bab6;
+	margin-top:44px;
+	padding:20px 15px 30px 15px;
+}
+.totalWealth .p1{
+	font-size:16px;
+	color:#fff;
+	line-height:20px;
+}
+.totalWealth .p2{
+	font-size:22px;
+	color:#fff;
+	text-align:center;
+	line-height:30px;
+}
+.sec-top{
+	width:100%;
+	height:10px;
+	border-bottom:1px solid #bbb;
+}
+.consumRecord{
+	padding:10px 0 10px 0;
+}
+.retitle{
+	width:60%;
+	margin:5px auto;
+	height:32px;
+	border:1px solid #0ac9c2;
+	border-radius:5px;
+}
+.retitle a{
+	width:50%;
+	float: left;
+	text-align: center;
+	display: block;
+	color: #0ac9c2;
+	font-size: 14px;
+	line-height: 30px;
+}
+.retitle .active{
+	background: #0ac9c2;
+	color: #fff;
+}
+.retitle .a1{
+	border-right: 1px solid #0ac9c2;
+}
+.consumList{
+	width:95%;
+	margin:auto;
+	padding-top:10px;
+	padding-bottom:10px;
+	border-bottom:1px solid #bbb;
+}
+.consumList span{
+	display:block;
+	width:33%;
+	float:left;
+}
+.consumList .span1{
+	color:#ff5722;
+	font-weight:bold;
+	text-align:left;
+}
+.consumList .span2{
+	text-align:center;
+}
+.consumList .span3{
+	text-align:right;
+}
+.list-clear{
+	clear:both;
+}

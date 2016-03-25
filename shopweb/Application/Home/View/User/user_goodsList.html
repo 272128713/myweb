@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>慢性病关爱包</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__CSS__/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="__CSS__/app.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/common.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/user_caregift_copy.css" />
+		
+		<script type="text/javascript" src="__JS__/jquery.min.js"></script>
+	<script type="text/javascript">
+        snalingyi_cid="{$cid}";
+        sanlingyi_page_a=2;
+		/*function listCK(obj) {
+			var classname = $(obj).attr('class');
+			$(".r div").css({"display": "none"});
+			$(".r div." + classname).css({"display": "block"});	
+			$(".all .l").scrollTop((parseInt($(obj).position().top)));
+		}*/
+		$(document).ready(function(){
+			var wh =$(window).height();
+			var titles=$('div .l ul li');
+			$('.all').height(wh);
+			titles.click(function(){
+				$(this).addClass('selected').siblings().removeClass('selected');
+				var index = titles.index(this);
+				$('div .r > div').eq(index).show().siblings().hide();
+				$('.all .l').animate({scrollTop:$(this).position().top}, 200);
+                //加载数据
+                var url="{:U('user_goodsList')}";
+                var cid=$(this).attr('cid');
+                snalingyi_cid=cid;
+                sanlingyi_page_a=2;
+                layer.closeAll();
+                layer.load(2)
+                $.get(url,{"cid":cid,"update":1},function(data){
+                    if(data!=0){
+                        layer.closeAll('loading');
+                        $('.gift-list').html(data);
+                    }else{
+                        layer.closeAll('loading');
+                        $('.gift-list').html('');
+                        layer.msg('暂无数据');
+
+                    }
+                },'text');
+
+			});
+		});
+	</script>
+	</head>
+
+	<body>
+		<!--header class="mui-bar mui-bar-nav" style="background:#0ac9c2;position: fixed;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="goToUserA()"></a>
+			<h1 class="mui-title" style="color:#fff;width:6em;" onclick="goToUserA()">慢性病关爱包</h1>
+		</header-->
+		<div class="all">
+			<div class="l">
+				<ul>
+					<foreach item="v" name="goodsclass">
+						<li cid="{$v.gc_id}" <?php if($key==0){?> class="selected" <?php }?>>
+							<div class="wrap">
+								<a>{$v.gc_name}</a>
+							</div>
+						</li>
+					</foreach>
+				</ul>
+			</div>
+			<div class="r">
+
+					<div class="gift-list" style="display: block;" >
+                        <div id="data_box" >
+						<foreach item="vo" name="result">
+							<li>
+								<div class="gift-img">
+									<img src="__NC_UPLOAD_PATH_GOODS__{$vo.goods_image}" style="width:100%" />
+								</div>
+								<div class="gift-intro">
+									<p class="p1">{$vo.goods_name}</p>
+									<p class="p2">{$vo.goods_jingle}</p>
+								</div>
+								<div class="clear"></div>
+								<div class="jiage">
+									<del>原价：￥{$vo.goods_marketprice}</del><span>￥{$vo.goods_price}</span>
+									<a href="{:U('goodsDetial',array('id'=>$vo['goods_id']))}" class="buy">立即抢购</a>
+								</div>
+							</li>
+						</foreach>
+                       </div>
+
+                        <php>
+                            if($nums>=C('PAGE_VAL')){
+                        </php>
+                        <div id="order_list" onclick="get_more()" class="getmore">
+                            点击加载更多
+                        </div>
+                        <php>
+                            }
+                        </php>
+
+					</div>
+
+			</div>
+
+
+
+		</div>
+		<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="__JS__/jquery.min.js"></script>
+		<script type="text/javascript" src="__JS__/caregift.js"></script>
+		<script type="text/javascript" src="__JS__/common.js"></script>
+        <script src="__JS__/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+        <script>
+            //分页
+
+            function get_more(){
+                layer.load(2);
+                var article=$('#data_box');
+                var url="{:U('user_goodsList')}";
+                $.get(
+                        url,{"page":sanlingyi_page_a,"cid":snalingyi_cid},function(date){
+                            if(date!=0){
+                                sanlingyi_page_a+=1;
+                                article.append(date);
+                                // alert(date);
+                                layer.closeAll('loading');
+                            }else{
+                                layer.closeAll('loading');
+                                layer.msg('暂无更多数据');
+                            }
+                        }
+                        ,'html' );
+
+
+            }
+            var get_pro_width = $('.gift-img').width();
+            $('.gift-img').height(get_pro_width / 1.2);
+        </script>
+	</body>
+
+</html>

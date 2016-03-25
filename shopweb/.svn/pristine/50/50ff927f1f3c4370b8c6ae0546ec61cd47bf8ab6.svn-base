@@ -1,0 +1,47 @@
+<foreach name="consum" item="vo">
+    <li class="consumList">
+        <img src="__NC_UPLOAD_PATH_GOODS__<?php echo $vo['product_list'][0]['goods_image'] ?>" />
+        <div class="listintro">
+            <p class="name">
+                <php>
+                    if(count($vo['product_list'])>1){
+                    echo $vo['pakage_name'];
+                    echo '(';
+                    foreach($vo['product_list'] as $k=>$v){
+                    if($k!=0){
+                    echo ','.$v['goods_name'];
+                    }else{
+                    echo $v['goods_name'];
+                    }
+                    }
+                    echo ')';
+                    }else{
+                    echo $vo['product_list'][0]['goods_name'];
+                    }
+                </php>
+            </p>
+            <p class="p3"><span>
+                            ￥{$vo.order_amount}
+                            <php>
+                                if($vo['use_points']>0){
+                                echo '('.$vo['use_points'].'积分)';
+                                }
+                            </php>
+                        </span><php>echo date('Y-m-d',$vo['add_time'])</php>购买</p>
+            <p class="p4">
+                <php>
+                    if($vo['order_state']==20){
+
+                </php>
+                <span>提货码：</span>{$vo.order_code}
+                <php>
+                    }else{
+                </php>
+                <span style="background: none; color: #666"><php> echo get_order_staus($vo['order_state'])</php></span>
+                <php>}</php>
+
+            </p>
+        </div>
+        <div class="list-clear"></div>
+    </li>
+</foreach>

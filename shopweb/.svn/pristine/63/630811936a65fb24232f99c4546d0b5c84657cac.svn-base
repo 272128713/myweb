@@ -1,0 +1,20 @@
+<volist name="result['member']" id="me">
+				<li class="userinfo">
+					<img class="userphoto" src="<?php echo getImg($v['member_thumbnail_image_url']);?>" />
+					<div class="moreinfo">
+						<p class="tp">
+							<php>if($me['member_truename']){
+								$membername=$me['member_truename'];
+								}else{
+								$membername="未设置";
+								}</php>
+							<span class="nam">{$membername}</span>
+							<img class="icon" src="__IMG__/lv{$me.member_level}.png"/>
+							<img class="xuanze" src="__IMG__/xuanze.png">
+						</p>
+						<p style="color:#000;">{$result['member_address']}</p>
+					</div>
+					<input  type="hidden" val="{$me['member_id']}" name="member_id[]" class="member_id" value="" />
+					<div class="clear"></div>
+				</li>
+</volist>				

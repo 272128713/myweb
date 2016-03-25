@@ -1,0 +1,162 @@
+header .right img{
+	height: 22px;
+	cursor: pointer;
+	top:5px;
+	position:relative;
+}
+.sec-top{
+	width:100%;
+	margin:auto;
+	margin-top:44px;
+	color:#000;
+	border-bottom: 1px solid #bbb;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+.sec-top p{
+	line-height:35px;
+	color:#000;
+	margin:0 2.5% 0 2.5%;
+}
+ul{
+}
+.p1{
+	font-size:16px;
+}
+.p2{
+	font-size:16px;
+}
+.lisec{
+	width:100%;
+	height:5px;
+	background:#D1D1D1;
+	border-bottom:1px solid #bbb;
+}
+.userinfo{
+	width:95%;
+	margin:auto;
+	padding:10px 0 10px 0 ; 
+	border-bottom:1px solid #bbb;
+}
+.userinfo .userphoto{
+	width:20%;
+	border-radius:5px;
+	float:left;
+}
+.userinfo .moreinfo{
+	width:80%;
+	float:left;
+	padding-left:5%;
+}
+.moreinfo {
+	positoin:relative;
+}
+.moreinfo p{
+	line-height:35px;
+}
+.moreinfo p span{
+	color:#000;
+}
+.moreinfo .nam{
+	font-size:16px;
+}
+.moreinfo .icon{
+	width:20px;
+	margin-left:2%;
+	margin-right:5%;
+	top:3px;
+	position:relative;
+}
+.moreinfo .xuanze{
+	width:18px;
+	position:absolute;
+	right:0;
+	top:23px;
+	cursor: pointer;
+}
+.tp{
+	position:relative;
+}
+.bottom{
+	width:100%;
+	height:40px;
+	line-height:34px;
+	background:#eee;
+	border-top:1px solid #bbb;
+	position:fixed;
+	bottom:0;
+	padding:2px 2.5% 2px 2.5%;
+}
+.bottom img{
+	width:14px;
+}
+.bottom span{
+	font-size:14px;
+	color:#e43d37;
+	margin-left:3px;
+}
+.bottom .btn{
+	float:right;
+	width:25%;
+	height:35px;
+	line-height:35px;
+	background:#e43d37;
+	border-radius: 5px;
+	text-align:center;
+	color:#fff;
+	border:1px solid #f54b18;
+
+	
+}	
+
+
+.hid-pl{
+	width: 100%;
+	padding: 9px 0 9px 0;
+	background-color:#fff;
+	display: none;
+	border-radius: 5px;
+}
+.hid-title{
+	border-bottom: 1px solid #bbbbbb;
+	line-height: 30px;
+	font-size: 18px;
+	padding-left: 15px;
+	padding-bottom: 5px;
+	color:#777;
+}
+.hid-title img{
+	height:22px;
+	margin-right: 4px;
+	position: relative;
+	top:4px;
+}
+.hid-con{
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.hid-con input{
+	width:90%;
+	height: 35px;
+	line-height: 35px;
+	font-size: 16px;
+	font-family: "微软雅黑";
+	border-radius: 5px;
+	border:1px solid #bbb;
+	padding-left:10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	color: #000;
+}
+.hid-sub{
+	cursor: pointer;
+	line-height:35px;
+	font-size: 16px;
+	text-align: center;
+	background:#e45335;
+	width:30%;
+	border-radius: 5px;
+	margin:auto;
+	color:#fff;
+}

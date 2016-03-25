@@ -1,0 +1,35 @@
+
+		    	<foreach item="v" name="workerInfo">	
+					<a href="{:U('staffInfo',array('ss'=>session(yixin_ss),'wid'=>$v['member_id']))}">
+					<li class="assign">
+					
+						<div class="aleft">
+							<php>
+							$img=getImg($v['thumbnail_image_url']);
+							</php>
+							<img src="{$img}" />
+						</div>
+							
+						<div class="glnum" >
+							<span class="xm">
+								<php>
+								if($v['member_truename']==""){
+									echo "未设置";
+								}else{
+									echo $v['member_truename'];
+								}
+								</php>
+							</span>
+							<div class="gl">
+								管理用户({$v.now_num}/{$v.total_num})
+								<img src="__IMG__/iconfont-jiantouyou.png"/>
+							</div>
+						</div>
+						
+						<div class="clear"></div>
+					</li></a>
+					<script type="text/javascript">
+						var getImgwid = $('.aleft img').width();
+						$('.assign').css('line-height',getImgwid+'px');
+					</script>
+		        </foreach>

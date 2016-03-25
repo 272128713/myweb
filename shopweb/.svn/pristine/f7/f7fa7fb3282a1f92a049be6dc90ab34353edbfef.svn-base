@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+
+
+	</head>
+	<body>
+		<php>
+			dump($rs);
+			//dump(session());
+		
+		</php>
+			
+			<foreach name="rs" item="v">
+				<div>{$v.member_truename}</div>
+				<php>$Himg=getImg($v['thumbnail_image_url'])</php>
+				<div><img src="{$Himg}" /></div>
+			
+			</foreach>
+	</body>
+
+</html>

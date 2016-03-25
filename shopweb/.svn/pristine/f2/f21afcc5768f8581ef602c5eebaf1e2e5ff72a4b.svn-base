@@ -1,0 +1,19 @@
+<foreach item="v" name="rs">
+    <li class="userinfo" onclick="jump()" url="{:U('oneMember',array('uid'=>$v['member_id']))}">
+        <img class="userphoto" src="<?php echo getImg($v['thumbnail_image_url']);?>" />
+        <div class="moreinfo">
+            <p>
+						<span class="nam">
+                            <php>
+                                if_empty($v['member_name']);
+                            </php>
+                        </span>
+                <img class="icon" src="__IMG__/lv{$v.member_level}.png"/>
+                <span class="sex"><php>if_empty($v['member_sex']);</php></span>
+                <span class="year"><?php getDay($v['member_birthday']); ?></span>
+            </p>
+            <p style="color:#000;"><php>if_empty($v['member_address']);</php></p>
+        </div>
+        <div class="clear"></div>
+    </li>
+</foreach>

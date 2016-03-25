@@ -1,0 +1,166 @@
+.userinfo1{
+	width:100%;
+	background:url(../images/beijing.png);
+	backrtound-repeat:no-repeat;
+	padding-bottom:20px; 
+}
+.touxiang{
+	text-align:center;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.userinfo1 .userphoto1{
+	width:30%;
+	border:2px solid #feb832;
+	border-radius:50%;
+}
+.userinfo1 p{
+	text-align:center;
+	color:#fff;
+}
+.userinfo1 p span{
+	font-size:16px;
+	color:#fff;
+	margin-right:5px;
+}
+.userinfo1 .manage{
+	text-align:center;
+}
+.manage div{
+	display:inline-block;
+	height:30px;
+	line-height:30px;
+}
+.mameright img{
+	width:20px;
+	position:relative;
+	top:4px;
+	right:1px;
+}
+.manage .fen .img1{
+	right:-1px;
+}
+.mame{
+	color:#fff;
+	margin-right:5%;
+}
+.manage .fen{
+	font-size:14px;
+	color:#fff;
+	padding-right:9px;
+}
+.manage .tin{
+	font-size:14px;
+	color:#fff;
+	padding-left:5px;
+}
+
+/*.userinfo1 .moreinfo1{
+	width:80%;
+	float:left;
+	padding-left:5%;
+	padding-right:5%;
+}
+.moreinfo1 p{
+	line-height:35px;
+	color:#fff;
+}
+.moreinfo1 .tel{
+	height:35px;
+	line-height:35px;
+}
+.moreinfo1 p span{
+	color:#fff;
+}
+.moreinfo1 .nam{
+	font-size:16px;
+}
+.moreinfo1 .icon{
+	width:20px;
+	margin-left:2%;
+	margin-right:5%;
+	top:3px;
+	position:relative;
+}
+.moreinfo1 .sex{
+	margin-right:5%;
+}
+.moreinfo1 .year{
+	margin-right:8%;
+}
+.moreinfo1 .tel{
+	color:#fff;
+	font-size:14px;
+	float:right;
+}
+.moreinfo1 .tel .img1{
+	width:14px;
+	position:relative;
+	top:2px;
+	right:2px;
+}
+.moreinfo1 .tel .img2{
+	width:18px;
+	position:relative;
+	top:4px;
+	right:1px;
+}
+.tel div{
+	display:inline-block;
+	height:18px;
+	line-height:18px;
+	color:#000;
+}
+.tel .fen{
+	border-right:1px solid #666;
+	padding-right:9px;
+}
+.tel .tin{
+	padding-left:5px;
+}*/
+
+
+.userinfo{
+	width:95%;
+	margin:auto;
+	padding:10px 0 10px 0 ; 
+	border-bottom:1px solid #bbb;
+}
+.userinfo .userphoto{
+	width:20%;
+	border-radius:5px;
+	float:left;
+}
+.userinfo .moreinfo{
+	width:80%;
+	float:left;
+	padding-left:5%;
+	padding-right:5%;
+}
+.moreinfo {
+	positoin:relative;
+}
+.moreinfo p{
+	line-height:35px;
+}
+.moreinfo p span{
+	color:#000;
+}
+.moreinfo .nam{
+	font-size:16px;
+}
+.moreinfo .icon{
+	width:12px;
+	margin-left:2%;
+	margin-right:5%;
+	top:1px;
+	position:relative;
+}
+.moreinfo .sex{
+	margin-right:5%;
+}
+.moreinfo .year{
+	position:absolute;
+	right:2.5%;
+}
+

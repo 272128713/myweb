@@ -1,0 +1,61 @@
+header .right img{
+	height: 22px;
+	cursor: pointer;
+	top:5px;
+	position:relative;
+}
+.sec-top{
+	width:95%;
+	line-height:30px;
+	margin:auto;
+	margin-top:54px;
+	margin-bottom:10px;
+	color:#000;
+	background: #bbb;
+	text-align:center;
+	border-radius: 5px;
+}
+.userinfo{
+	width:95%;
+	margin:auto;
+	padding:10px 0 10px 0 ; 
+	border-bottom:1px solid #bbb;
+}
+.userinfo .userphoto{
+	width:20%;
+	border-radius:5px;
+	float:left;
+}
+.userinfo .moreinfo{
+	width:80%;
+	float:left;
+	padding-left:5%;
+	padding-right:5%;
+}
+.moreinfo {
+	positoin:relative;
+}
+.moreinfo p{
+	line-height:35px;
+}
+.moreinfo p span{
+	color:#000;
+}
+.moreinfo .nam{
+	font-size:16px;
+}
+.moreinfo .icon{
+	width:20px;
+	margin-left:2%;
+	margin-right:5%;
+	top:3px;
+	position:relative;
+}
+.moreinfo .sex{
+	margin-right:5%;
+}
+.moreinfo .year{
+	position:absolute;
+	right:2.5%;
+}
+

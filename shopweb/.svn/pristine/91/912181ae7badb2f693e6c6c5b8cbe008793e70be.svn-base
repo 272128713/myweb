@@ -1,0 +1,27 @@
+
+				<foreach item="v" name="mall">
+					<php>
+						$prolist = $v['product_list'];
+								if(count($prolist)==1){
+									$prolist = $prolist[0];
+									$pname = $prolist['goods_name'];
+									$img=C('NC_UPLOAD_PATH').'shop/store/goods/1/'.$prolist['goods_image'];
+								}else{
+									foreach($prolist as $k){
+										$pname .= $k['goods_name'].",";
+									}
+									$img='__IMG__/pakage.jpg';
+									$pname = $v['pakage_name'];
+									
+								}
+					</php>
+					<li class="consumList delivery">
+						<img src="__NC_UPLOAD_PATH_GOODS__{$prolist['goods_image']}" />
+						<div class="listintro">
+							<p class="name">{$pname}</p>
+							<p class="p3"><span>￥{$v.order_amount}</span>
+							<p class="p5">{$v.add_time}购买</p>
+						</div>
+						<div class="list-clear"></div>
+					</li>
+				</foreach>

@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>Swiper demo</title>
+	<link rel="stylesheet" href="__CSS__/activecss/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="__CSS__/activecss/style.css">
+	<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+			$(document).ready(function(){
+				var wh = $(window).height();
+				var sh = $('.pull-left img').height();
+				var bw = $('.bmtext').width();
+				var bh = bw * 0.3412;
+				var btn_width = $('.button').width();
+				var btn_height = btn_width * 0.3985;
+				
+				$('.container').height(wh);
+				$('.swiper-slide').height(sh + 22);
+				$('.button').css('top',(bh + 47 - btn_height)/2);
+			});
+	</script>
+	<style>
+		.container{
+		
+	background-image: url(__IMG__/active/bg.png);
+		}
+	
+	</style>
+</head>
+<body>
+	<div class="container">
+		<img class="header" src="__IMG__/active/pic2.png" />
+		<div class="detail">
+			<img src="__IMG__/active/pic3.png">
+		</div>
+		<div class="baoming">
+			<img class="bmtext" src="__IMG__/active/baoming.png">
+			<p><span class="count">{$num.now_num}</span>/{$num.max_num}</p>
+			<php>
+				if($unum==0){
+			</php>
+			<img  class="button" id="button" src="__IMG__/active/button.png">
+			<php>
+				}else{
+			</php>
+			<img  class="button" src="__IMG__/active/button.png">
+			<php>
+				}
+			</php>
+		</div>
+		<div class="sec-bot">
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+		
+				<?php
+					for($i=0;$i*4<$count;$i++){
+				?>
+					<div class="swiper-slide">
+						<?php
+							$ki = ($count-4*$i)/4;
+							if($ki>=1){
+								$y = 4;
+							}else{
+								$y = ($count-4*$i)%4;
+							}
+							for($j=0;$j<$y;$j++){
+								$jj = $i*4+$j;
+								$name = $rs[$jj]['member_truename'];
+								$Himg=getImg($rs[$jj]['thumbnail_image_url']);
+						?>
+								<div class="pull-left">
+								
+									<img src="{$Himg}" />
+									<p><php>
+										if($name){
+											echo $name;
+											}else{
+											echo "***";
+											}
+									</php></p>
+								</div>
+								
+								<?php
+								}
+						?>
+						
+						
+					</div>
+				<?php		
+					}
+				?>
+					
+					
+					
+				
+				
+			</div>
+			<!--添加前进后退按钮-->
+			<div class="swiper-button-next" style="background-image: url(__IMG__/active/next.png);right: 0;position:absolute;"></div>
+			<div class="swiper-button-prev" style="background-image: url(__IMG__/active/prev.png);left: 0;"></div>
+		</div>
+		</div>
+	</div>
+	<div id="loading" style="display:none;position:absolute;left:50%;top:50%;z-index: 999999;width:32px;height:32px;background:url('__IMG__/loading.gif');background-size:32px 32px;margin-left:-16px;margin-top:-16px;"></div>
+	<script src="__JS__/swiper.min.js"></script>
+	<script type="text/javascript">
+  	var mySwiper = new Swiper('.swiper-container',{
+    	loop: true,
+		autoplay: 0,
+		nextButton: '.swiper-button-next',
+    	prevButton: '.swiper-button-prev',
+  	});
+  	$('.button').click(function(){
+
+  		//报名
+			var url= "{:U('User/joinActivity')}";
+			console.log(url);
+			$.ajax({
+				type:'POST',
+				url:url,
+				data:"{}",
+				beforeSend:function(){
+					$('#loading').show();
+				},
+				success:function(data){
+					$('#loading').hide();
+					if(data.code==1){
+						now1 = {$num.now_num}+1;
+						$('.count').html(now1);
+					}else{
+						console.log(data.code);
+					}
+				},
+				error:function(data){
+					$('#loading').hide();
+					console.log("error");
+					console.log(data);
+					
+				},
+				dataType:'json',
+			});
+  	});
+	</script>
+</body>
+</html>

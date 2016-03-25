@@ -1,0 +1,117 @@
+.mui-icon{
+	color:#01a789;
+}
+.mui-title{
+	text-align:center;
+}
+.pro_profile{
+	width:100%;
+	background:#fff;
+	padding:10px 2.5% 10px 2.5%;
+}
+.pro_profile .title{
+	font-size:16px;
+	font-weight:bold;
+}
+.pro_profile p{
+	line-height:30px;
+}
+.oriprice{
+	color:#ff0000;
+	font-size:18px;
+	font-weight:bold;
+}
+.moborder{
+	color:#fff;
+	background:#01a789;
+	border-radius: 3px;
+	margin-left:15px;
+	margin-right:8px;
+}
+.save{
+	color:#ff0000;
+}
+.proshow{
+	text-align:center;
+	width:100%;
+	padding:10px 2.5% 10px 2.5%;
+	background:#f0f0f0;
+}
+.proshow .prod{
+	width:33%;
+	float:left;
+	padding-left:0.5%;
+	padding-right:0.5%;
+}
+.proshow img{
+	width:100%;
+}
+.prod p{
+	text-align:left;
+	line-height:25px;
+}
+.proname{
+	overflow:hidden;
+	white-space:nowrap;
+	width:8em;
+	text-overflow:ellipsis;
+}
+.prod .pri{
+	color:#ff0000;
+}
+.intro-title{
+	height:40px;
+	line-height:40px;
+	background:#e7e7e7;
+}
+.rect{
+	width:5px;
+	height:20px;
+	background:#01a789;
+	display:inline-block;
+	margin-right:5px;
+	position:relative;
+	top:4px;
+}
+.intro-title .title{
+	font-size:16px;
+}
+.proinfo{
+	width:100%;
+	margin:auto;
+	padding:15px 2.5% 50px 2.5%;
+}
+.proinfo img{
+	width:100%;
+	margin-top:10px;
+}
+.bottomsec{
+	width:100%;
+	padding:0px 2.5% 0px 2.5%;
+	position:fixed;
+	bottom:0;
+}
+.bottomsec .content{
+	width:95%;
+	margin:auto;
+	border:1px solid #bbb;
+	height:40px;
+	border-radius:3px;
+}
+.content .zixun{
+	width:33.3%;
+	float:left;
+	border-right:1px solid #bbb;
+	line-height:40px;
+	text-align:center;
+	font-size:14px;
+}
+.zixun img{
+	width:18px;
+	position:relative;
+	top:3px;
+}
+.buy{
+	background:#01a789;
+	color:#fff;
+}

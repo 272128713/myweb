@@ -1,0 +1,12 @@
+		<volist name="worker_list" id="worker">
+			<li class="assign" wid="{$worker['member_id']}">
+				<div class="aleft">
+					<img src="<?php echo getImg($worker['thumbnail_image_url']);?>" />
+						<span class="xm">{$worker['member_truename']|default="未设置"}</span>						
+				</div>
+				<div class="right" style="position:relative;top:-23px;">
+					<span class="gl">管理用户({$worker['now_num']}/{$worker['total_num']})</span>
+					<div class="mui-icon mui-icon-arrowright right arrow" style="position:relative;top:-46px;"></div>
+				</div>
+			</li>
+		</volist>

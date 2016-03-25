@@ -1,0 +1,39 @@
+
+				<foreach item="v" name="member">
+					<a href="{:U('getMemberDetail',array('ss'=>session(yixin_ss),'uid'=>$v['member_id']))}">
+						<li class="assign1">
+								
+							<div class="aleft">
+								<php>
+								$img=getImg($v['member_thumbnail_image_url']);
+								</php>
+								<img src="{$img}" />
+							</div>
+							<div class="aleft-view">
+								<p class="p1"><php>if($v['member_truename']==""){
+									echo "未设置";
+								}else{
+									echo $v['member_truename'];
+								}</php></p>
+								<p class="p2"><php>if($v['member_address']==""){
+									echo "未设置";
+								}else{
+									echo $v['member_address'];
+								}</php></p>
+							</div>
+							<div class="right-staff2">
+								<php>
+								if($v["worker_truename"]==''){
+									echo "未设置";
+								}else{
+									echo $v['worker_truename'];
+								}
+				
+								$img=getImg($v['worker_thumbnail_image_url']);
+								</php>
+								<img src="{$img}" />
+							</div>
+							<div class="clear"></div>
+						</li>
+					</a>
+				</foreach>  

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>医信商城</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="__CSS__/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="__CSS__/app.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/common.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/agency_detail.css" />
+
+	</head>
+	<body>
+		<div class="userinfo">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="history.go(-1)" style="height:44px;line-height:44px;"></a>
+			<h1 class="mui-title" style="color:#fff;font-size:16px;margin:0;text-align:left;left:2em;width:5em" onclick="history.go(-1)">会员详情</h1>
+			<div class="right" onclick="fp()">
+				<img src="__IMG__/fenpei.png" style="margin-top: 7px;margin-right: 2px;"/><span style="color: #fff;height: 44px;width:3em;text-align:center;line-height:44px;font-size:14px;padding-right:15px;"></span>
+			</div>
+			<div class="clear"></div>
+			<div class="contain">
+				<php>
+					$uimg=getImg($result['thumbnail_image_url']);
+					$wimg=getImg($result['worker_thumbnail_image_url']);
+				</php>
+				<img class="userphoto" src="{$uimg}" />
+				<div class="moreinfo">
+						<p>
+							<span class="nam">{$result.member_truename}</span>
+							<img class="icon" src="__IMG__/lv1.png"/>
+							<span class="sex">{$result.member_sex}</span>
+							<span class="year">{$result.member_birthday}</span>
+						</p>
+						<p class="address">{$result.member_address}</p>
+						<p class="tel">联系电话：{$result.mobile}</p>
+						<div class="doct">
+							<img src="{$wimg}"/>
+							营养师：{$result.worker_truename}
+						</div>
+				</div>
+				<div class="clear"></div>
+				<!--div class="otherinfo">
+					<div class="tx">
+						<span class="tx-nike">宋丹丹</span>
+						<img src="__IMG__/headimg.png"  />
+					</div>
+				</div-->
+				
+				</div>
+		</div>
+		<div class="consumRecord">
+			<ul id="p-box">
+				<foreach item="v" name="mall">
+					<php>
+						$prolist = $v['product_list'];
+								if(count($prolist)==1){
+									$prolist = $prolist[0];
+									$pname = $prolist['goods_name'];
+									$img=C('NC_UPLOAD_PATH').'shop/store/goods/1/'.$prolist['goods_image'];
+								}else{
+									foreach($prolist as $k){
+										$pname .= $k['goods_name'].",";
+									}
+									$img='__IMG__/pakage.jpg';
+									$pname = $v['pakage_name'];
+									
+								}
+					</php>
+					<li class="consumList delivery">
+						<img src="{$img}" />
+						<div class="listintro">
+							<p class="name">{$pname}</p>
+							<p class="p3">￥{$v.order_amount}</p>
+							<p class="p5">{$v.add_time}购买</p>
+						</div>
+						<div class="list-clear"></div>
+					</li>
+				</foreach>
+			</ul>
+			<php>
+			if(count($mall)>=C('PAGE_VAL')){
+			</php>
+			<div id="order_list" onclick="get_more()" class="getmore">
+			点击加载更多
+			</div>
+			<php>
+			}
+			</php>
+			</div>
+		<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/common.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+				var get_circle_wid = $('.userphoto').width();
+				var get_circle_wid1 = $('.tx img').width();
+				$('.userphoto').height(get_circle_wid);
+				$('.tx img').height(get_circle_wid1);
+			});
+			sanlingyi_page_a=2;
+			function get_more(){
+	            //加载
+	            var article=$('#p-box');
+	            var url="{:U('Agency/getMemberDetailajax')}";
+	            $.get(
+	                    url,{"page":sanlingyi_page_a,"ajax":1},function(date){
+	                        if(date!=0){
+	                            sanlingyi_page_a+=1;
+	                            article.append(date);
+	                            //alert(date);
+	
+	                        }else{
+	                            $('#order_list').html('暂无更多')
+	                        }
+	                    }
+	                    ,'html' );
+	    }
+			function fp(){
+				window.location.href="{:U('Agency/reAssignMember',array('ss'=>session('yixin_ss'),'uid'=>$result['member_id'],'sid'=>$result['store_id']))}";
+			}
+		</script>
+		
+	</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>医信商城</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="__CSS__/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="__CSS__/app.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/common.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/agency_staff_info.css" />
+
+	</head>
+	<body>
+		<div class="userinfo1">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="history.go(-1)" style="height:44px;line-height:44px;"></a>
+			<h1 class="mui-title" style="color:#fff;font-size:18px;margin:0;" onclick="history.go(-1)">员工详情</h1>
+			<div class="clear"></div>
+			<div class="touxiang">
+				<img class="userphoto1" src="<?php echo getImg($member['thumbnail_image_url']);?>" />
+			</div>
+			<p>
+				<span class="nam">{$result['worker_truename']}</span>
+				{$result['shop_name']}
+			</p>
+			<div class="manage">
+				<span class="mame">管理会员(<php> echo $result['total_num']-$result['has_num'];</php>/{$result['total_num']})</span>
+				<div class="mameright">
+					<div class="fen">
+						<a href="{:U('Agency/assignMember',array('sid'=>$result['shop_id'],'wid'=>$result['worker_id'],'ss'=>session('yixin_ss')))}"><img src="__IMG__/fenpei1.png" class="img1" />分配</a>
+					</div>
+					<div class="tin" id="CloseMember">
+						<img src="__IMG__/tingyong.png"/>停用
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		
+		<ul id="m_list">
+		<volist name="result['member']" id="member">
+			<li class="userinfo">
+				<img class="userphoto" src="<?php echo getImg($member['worker_thumbnail_image_url']);?>" />
+				<div class="moreinfo">
+					<p>
+						<span class="nam">{$member['member_truename']|default="未设置"}</span>
+						<img class="icon" src="__IMG__/lv{$member['member_level']}.png"/>
+					</p>
+					<p style="color:#000;">{$member['member_address']|default="未设置"}</p>
+				</div>
+				<div class="clear"></div>
+			</li>
+		</volist>	
+		</ul>
+	<php>
+	    if(count($result['member'])>=C('PAGE_VAL')){
+	</php>
+	<div id="order_list" onclick="get_more()" class="getmore">
+	    点击加载更多
+	</div>
+	<php>
+	    }
+	</php>			
+		<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var get_circle_wid = $('.userphoto').width();
+				var get_circle_wid1 = $('.tx img').width();
+				$('.userphoto').height(get_circle_wid);
+				$('.tx img').height(get_circle_wid1);
+			});
+		</script>
+		<script type="text/javascript">
+			$(function(){
+				$('.confirm_btn').click(function(){
+					layer_confirm();
+				});
+			});				
+			function layer_confirm(){
+				layer.open({
+				    type: 1,
+				    title:false,
+				    closeBtn: false,
+				    shadeClose:true,
+				    area:'80%',
+				    content:$('#hid-confirm')
+				});
+			}
+		</script>
+<script>
+   var sanlingyi_page_a=2;
+    function get_more(){
+        //加载消费记录
+        var article=$('#m_list');
+        var url="{:U('Agency/staffInfo')}";
+        var wid="{$result['worker_id']}"; //员工id
+        $.get(
+        		
+                url,{'wid':wid,"page":sanlingyi_page_a,"ajax":1},function(date){
+                    if(date!=0){
+                        sanlingyi_page_a+=1;
+                        article.append(date);
+                       // alert(date);
+
+                    }else{
+                        $('#order_list').html('暂无更多')
+                    }
+                }
+                ,'html' );
+    }
+    
+    $('#CloseMember').click(function(){
+    	var wid="{$result['worker_id']}"; //员工id
+    	
+		$.ajax({
+			url: "{:U('Agency/closeWorker')}",
+			type: 'POST',
+			data:{wid:wid},
+			error: function () { 
+				//alert(data); 
+			},
+			success: function(data){
+				if(data==1){ //停用成功
+					
+					layer.alert("停用成功");
+				}else{ //停用失败
+					layer.alert("停用失败");
+				}
+			}
+		});
+    	
+    });
+    
+</script> 		
+	</body>
+
+</html>

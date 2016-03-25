@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>医信商城</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="__CSS__/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="__CSS__/app.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/common.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/agency_assignmember.css" />
+
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background:#e45335;position: fixed;">
+
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="history.go(-1)"></a>
+			<h1 class="mui-title" style="color:#fff" onclick="history.go(-1)">分配会员</h1>
+		</header>
+		<div class="sec-top">
+			<p class="p1">{$result['shop_name']}未分配会员{$result['reallocation_num']}人</p>
+			<p class="p2"><b>{$result['worker_truename']}</b><span>管理会员({$result['now_num']}/{$result['total_num']})</span></p>
+		</div>
+		<div class="lisec"></div>
+		<ul id="m_list">
+			<volist name="result['member']" id="me">
+				<li class="userinfo">
+					<img class="userphoto" src="<?php echo getImg($v['member_thumbnail_image_url']);?>" />
+					<div class="moreinfo">
+						<p class="tp">
+							<php>if($me['member_truename']){
+								$membername=$me['member_truename'];
+								}else{
+								$membername="未设置";
+								}</php>
+							<span class="nam">{$membername}</span>
+							<img class="icon" src="__IMG__/lv{$me.member_level}.png"/>
+							<img class="xuanze" src="__IMG__/xuanze.png">
+						</p>
+						<p style="color:#000;">{$result['member_address']}</p>
+					</div>
+					<input  type="hidden" val="{$me['member_id']}" name="member_id[]" class="member_id" value="" />
+					<div class="clear"></div>
+				</li>
+			</volist>				
+		</ul>
+		<input type="hidden" id="wid" value="{$result['worker_id']}">
+	<php>
+	    if(count($result['member'])>=C('PAGE_VAL')){
+	</php>
+	<div id="order_list" onclick="get_more()" class="getmore">
+	    点击加载更多
+	</div>
+	<php>
+	    }
+	</php>	
+	<div style="height:40px;"></div>	
+		<div id="hid-pl" class="hid-pl">
+			<div class="hid-cont">
+				<img src="__IMG__/iconfont-jinggao2.png"/>分配成功!
+			</div>
+			<div class="hid-sub know">
+				知道了
+			</div>
+		</div>	
+		<div id="hid-er" class="hid-pl">
+			<div class="hid-cont">
+				<img src="__IMG__/iconfont-jinggao2.png"/>分配失败，请重新分配!
+			</div>
+			<div class="hid-sub know">
+				知道了
+			</div>
+		</div>				
+		<div class="bottom">
+			<img src="__IMG__/person.png"  /><span>已选择<span id="totalCheck">0</span>人</span>
+			<div class="btn confirm_btn">确定</div>
+		</div>
+		<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var get_circle_wid = $('.userphoto').width();
+				var get_circle_wid1 = $('.tx img').width();
+				$('.userphoto').height(get_circle_wid);
+				$('.tx img').height(get_circle_wid1);
+			});
+		</script>
+		<script type="text/javascript">
+		<php>
+			$session_ss=session('yixin_ss');
+		</php>
+		layer.config({
+		    extend: ['skin/agency/style.css'], //加载您的扩展样式
+		    skin: 'layer-ext-agency'
+		});
+			$(function(){
+				$('.confirm_btn').click(function(){
+					var wid=$('#wid').val();
+					
+					var mid=""; 
+					$('.member_id').each(function(){ 
+						//mid+=$(this).val();
+						//alert($(this).val());
+						if($(this).val()!=''){
+							mid=mid+','+$(this).val();
+						}
+					});
+					layer.confirm("确认分配会员",{title:false,closeBtn: false},function(){
+						doajax();
+					});
+					function doajax(){
+						$.ajax({
+							url: "{:U('Agency/doAssignMember')}",
+							type: 'POST',
+							data:{wid:wid,mid:mid},
+							error: function () { 
+								//alert(data); 
+							},
+							success: function(data){
+								if(data==1){ //分配成功
+									layer.alert("分配成功!",{title:false,closeBtn: false},function(){
+										
+										window.location.href="{:U('staffInfo',array('ss'=>session('yixin_ss'),'wid'=>$result['worker_id']))}";
+									});
+								}else{ //分配失败
+									layer.alert('分配失败，请重新分配!',{title:false,closeBtn: false});
+								}
+							}
+						});
+					}
+					
+				});
+				$('.userinfo').click(function(){
+					var get_xuanze = $(this).children('.moreinfo').children('.tp').children('.xuanze');					
+					if(get_xuanze.attr('src')=='__IMG__/xuanze.png'){
+																		
+						get_xuanze.attr('src','__IMG__/yixuan.png');
+						$('#totalCheck').text($('#totalCheck').text()*1+1);
+						
+						var val=$(this).children('.member_id');
+						val.attr('value',val.attr('val'));
+					}else{					
+						get_xuanze.attr('src','__IMG__/xuanze.png');
+						$('#totalCheck').text($('#totalCheck').text()*1-1);
+						
+						var val=$(this).children('.member_id');
+						val.attr('value','');
+					}
+				});
+			});			
+		</script>
+<script>
+   var sanlingyi_page_a=2;
+    function get_more(){
+        //加载消费记录
+        var article=$('#m_list');
+        var url="{:U('Agency/assignMember')}";
+        var wid="{$result['worker_id']}"; //员工id
+        var sid="{$result['sid']}"; //店id
+        $.get(
+        		
+                url,{'sid':sid,'wid':wid,"page":sanlingyi_page_a,"ajax":1},function(date){
+                    if(date!=0){
+                        sanlingyi_page_a+=1;
+                        article.append(date);
+                       // alert(date);
+
+                    }else{
+                        $('#order_list').html('暂无更多')
+                    }
+                }
+                ,'html' );
+    }
+    
+</script> 		
+	</body>
+
+</html>

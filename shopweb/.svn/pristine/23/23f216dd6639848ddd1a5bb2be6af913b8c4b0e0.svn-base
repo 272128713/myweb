@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+
+        	<php>
+        		if($_GET['sst']){
+        			$sst=$_GET['sst'];
+        		}else{
+        			$sst=0;
+        		}
+        	
+        	</php>
+	<head>
+		<meta charset="utf-8">
+		<title>医信商城</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="__CSS__/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="__CSS__/app.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/common.css" />
+        <link rel="stylesheet" type="text/css" href="__CSS__/agency_detail_staff.css" />
+		<style rel="stylesheet" type="text/css">
+		#layui-layer2,#layui-layer3,#layui-layer4,#layui-layer5,#layui-layer6,#layui-layer7,#layui-layer8,#layui-layer9{
+			left:0;
+		}
+		</style>
+	</head>
+    <body>
+    <header class="mui-bar mui-bar-nav" style="background:#e45335;position: fixed;">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="goToA()"></a>
+        <h1 class="mui-title" style="color:#fff" onclick="goToA()">店面详情</h1>
+
+        <div class="right">
+            <a ><img src="__IMG__/newuser.png" class="jiluzixun"/></a>
+        </div>
+    </header>
+    <!--
+        时间：2015-06-29
+        描述：主要内容
+    -->
+    <div class="mui-content">
+        <div class="detail-head">
+        	
+	            <p class="p1">{$info.shop_name}</p>
+	            <p class="p2">{$info.shop_address}</p>
+	            <p class="p2">开张日期：{$info.shop_time}</p>
+	            <p class="p2">累计销售额：<span>￥{$info.shop_money}</span></p>
+        	
+        </div>
+
+    </div>
+    <div class="nav"></div>
+    <div class="content">
+        <div class="retitle">
+            <a class="a1 <?php
+            	if($sst==0){
+            	echo 'active';
+            	}
+            ?> " id="staff">
+            	    员工{$info.shop_woker_num}
+            </a>
+            <a  class="a1 <?php
+            	if($sst==1){
+            	echo 'active';
+            	}
+            ?>  " id="user">
+            	    用户{$info.shop_member_num}
+            </a>
+            <a class=" <?php
+            	if($sst==2){
+            	echo 'active';
+            	}
+            ?>  " id="shop">
+        	        销售记录
+            </a>
+            <div class="clear"></div>
+        </div>
+        <!--
+        	作者：272128713@qq.com
+        	时间：2015-08-26
+        	描述：staff-box
+        -->
+        <div id="staff-box">
+			<ul>
+		    	<foreach item="v" name="workerInfo">	
+					<a href="{:U('staffInfo',array('ss'=>session(yixin_ss),'wid'=>$v['member_id']))}">
+					<li class="assign">
+					
+						<div class="aleft">
+							<php>
+							$img=getImg($v['thumbnail_image_url']);
+							</php>
+							<img src="{$img}" />
+						</div>
+							
+						<div class="glnum" >
+							<span class="xm">
+								<php>
+								if($v['  _truename']==""){
+									echo "未设置";
+								}else{
+									echo $v['member_truename'];
+								}
+								</php>
+							</span>
+							<div class="gl">
+								管理用户({$v.now_num}/{$v.total_num})
+								<img src="__IMG__/iconfont-jiantouyou.png"/>
+							</div>
+						</div>
+						
+						<div class="clear"></div>
+					</li></a>
+					<script type="text/javascript">
+						var getImgwid = $('.aleft img').width();
+						$('.assign').css('line-height',getImgwid+'px');
+					</script>
+		        </foreach>
+       		</ul>
+       	</div>
+        <!--
+        	作者：272128713@qq.com
+        	时间：2015-08-26
+        	描述：user-box
+        -->
+        <div id="user-box">
+        	<ul>
+				<foreach item="v" name="member">
+					<a href="{:U('getMemberDetail',array('ss'=>session(yixin_ss),'uid'=>$v['member_id']))}">
+						<li class="assign1">
+								
+							<div class="aleft">
+								<php>
+								$img=getImg($v['member_thumbnail_image_url']);
+								</php>
+								<img src="{$img}" />
+							</div>
+							<div class="aleft-view">
+								<p class="p1" style="width:7em;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;"><php>if($v['member_truename']==""){
+									echo "未设置";
+								}else{
+									echo $v['member_truename'];
+								}</php></p>
+								<p class="p2"><php>if($v['member_address']==""){
+									echo "未设置";
+								}else{
+									echo $v['member_address'];
+								}</php></p>
+							</div>
+							<div class="right-staff2">
+								<php>
+								if($v["worker_truename"]==''){
+									echo "未设置";
+								}else{
+									echo $v['worker_truename'];
+								}
+				
+								$img=getImg($v['worker_thumbnail_image_url']);
+								</php>
+								<img src="{$img}" />
+							</div>
+							<div class="clear"></div>
+						</li>
+						</a>
+						</foreach>        		
+        	</ul>
+        </div>
+        <!--
+        	作者：272128713@qq.com
+        	时间：2015-08-26
+        	描述：shop-box
+        -->
+        <div id="shop-box">
+        	<ul>
+        		<foreach item="v" name="shop">
+					<li class="assign1">
+					
+								<php>
+								if($v["member_truename"]==''){
+									$membername= "未设置";
+								}else{
+									$membername= $v['member_truename'];
+								}
+				
+								
+								
+								$prolist = $v['product_list'];
+								if(count($prolist)==1){
+									$prolist = $prolist[0];
+									$pname = $prolist['goods_name'];
+									$img=C('NC_UPLOAD_PATH').'shop/store/goods/1/'.$prolist['goods_image'];
+								}else{
+									foreach($prolist as $k){
+										$pname .= $k['goods_name'].",";
+									}
+									$img='__IMG__/pakage.jpg';
+									$pname = $v['pakage_name'];
+									
+								}
+								</php>
+						<div class="aleft">
+							<img src="{$img}" />
+						</div>
+						<div class="aleft-view">
+							<div class="aleft-title">
+								{$pname}
+							</div>
+						</div>
+						<div class="aleft-view n1">
+							<p class="p1">￥{$v.order_amount}</p>
+							<p class="p2">{$v.add_time} 购买</p>
+							<div class="right-staff">
+								{$membername}
+								<img src="__IMG__/list-img2.png" />
+							</div>
+						</div>
+						<div class="clear"></div>
+					</li> 
+				</foreach>     		
+        	</ul>
+        </div>
+    </div>
+
+		<php>
+		if(count($workerInfo)>=C('PAGE_VAL')){
+		</php>
+		<div id="order_list_staff"  onclick="get_more()" class="getmore">
+		点击加载更多
+		</div>
+		<php>
+		}
+		</php>	 
+
+		<php>
+		if(count($member)>=C('PAGE_VAL')){
+		</php>
+		<div id="order_list_user"  onclick="get_more()" class="getmore">
+		点击加载更多
+		</div>
+		<php>
+		}
+		</php>	 
+		
+		<php>
+		if(count($shop)>=C('PAGE_VAL')){
+		</php>
+		<div id="order_list_shop"  onclick="get_more()" class="getmore">
+		点击加载更多
+		</div>
+		<php>
+		}
+		</php>	 
+
+    <!--
+        作者：272128713@qq.com
+        时间：2015-08-20
+        描述：新增员工
+    -->
+    <div id="hid-pl" class="hid-pl">
+        <div class="hid-title">
+            <img src="__IMG__/warning.png"/>新增员工
+        </div>
+        <div class="hid-con">
+            <form action="{:U('addWoker',array('sid'=>$_GET['sid']))}" method="post" id="bank">
+                <input type="text" name="mobile" onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')" id="bank-input" value="" placeholder="请填写会员的手机号码"/><br />
+            </form>
+        </div>
+        <div class="hid-sub bank-submit">
+            完&nbsp;&nbsp;&nbsp;&nbsp;成
+        </div>
+    </div>
+    <script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__JS__/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__JS__/common.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+			var getImgwid = $('.aleft img').width();
+			$('.assign').css('line-height',getImgwid+'px');
+        $('.jiluzixun').click(function(){
+            layer_sz();
+        });
+        $('.bank-submit').click(function(){
+        	var telphone = $("#bank-input").val();  
+            if(telphone == ""){  
+				layer.msg('手机号不能为空！'); 
+            }  
+            else  
+            {  
+                if(telRuleCheck2(telphone)){  
+                    $('#bank').submit();
+                }  
+                else  
+                {  
+    				layer.msg('手机号码格式不正确！'); 
+                };  
+            };
+        });
+        function layer_sz(){
+            layer.open({
+                type: 1,
+                title:false,
+                closeBtn: false,
+                shadeClose:true,
+                area:'80%',
+                content: $('#hid-pl')
+
+            });
+        }
+        $(function(){
+        	sanlingyi_show_tab={$sst};
+        	if(sanlingyi_show_tab==0){	
+        		$('.jiluzixun').css('display','block');
+        		$('#staff-box').css('display','block');
+        		$('#user-box').css('display','none');
+        		$('#shop-box').css('display','none');
+        		$('#order_list_staff').css('display','block');
+        		$('#order_list_user').css('display','none');
+        		$('#order_list_shop').css('display','none');
+        	}else if(sanlingyi_show_tab==1){
+        		$('.jiluzixun').css('display','none');
+        		$('#staff-box').css('display','none');
+        		$('#user-box').css('display','block');
+        		$('#shop-box').css('display','none');
+        		$('#order_list_staff').css('display','none');
+        		$('#order_list_user').css('display','block');
+        		$('#order_list_shop').css('display','none');
+        		
+        	}else if(sanlingyi_show_tab==2){
+        		$('.jiluzixun').css('display','none');
+        		$('#staff-box').css('display','none');
+        		$('#user-box').css('display','none');
+        		$('#shop-box').css('display','block');
+        		$('#order_list_staff').css('display','none');
+        		$('#order_list_user').css('display','none');
+        		$('#order_list_shop').css('display','block');
+        		
+        	}
+        	$('#staff').click(function(){
+        		sanlingyi_show_tab=0;
+        		$('.jiluzixun').css('display','block');
+        		$(this).addClass('active');
+        		$('#user').removeClass('active');
+        		$('#shop').removeClass('active');
+        		$('#staff-box').css('display','block');
+        		$('#user-box').css('display','none');
+        		$('#shop-box').css('display','none');
+        		$('#order_list_staff').css('display','block');
+        		$('#order_list_user').css('display','none');
+        		$('#order_list_shop').css('display','none');
+        	});
+        	$('#user').click(function(){
+        		sanlingyi_show_tab=1;
+        		$('.jiluzixun').css('display','none');
+        		$(this).addClass('active');
+        		$('#staff').removeClass('active');
+        		$('#shop').removeClass('active');
+        		$('#staff-box').css('display','none');
+        		$('#user-box').css('display','block');
+        		$('#shop-box').css('display','none');
+        		$('#order_list_staff').css('display','none');
+        		$('#order_list_user').css('display','block');
+        		$('#order_list_shop').css('display','none');
+        	});
+        	$('#shop').click(function(){
+        		sanlingyi_show_tab=2;
+        		$('.jiluzixun').css('display','none');
+        		$(this).addClass('active');
+        		$('#user').removeClass('active');
+        		$('#staff').removeClass('active');
+        		$('#staff-box').css('display','none');
+        		$('#user-box').css('display','none');
+        		$('#shop-box').css('display','block');
+        		$('#order_list_staff').css('display','none');
+        		$('#order_list_user').css('display','none');
+        		$('#order_list_shop').css('display','block');
+        	});
+        });
+
+        sanlingyi_page_a=2;
+        sanlingyi_page_b=2;
+        sanlingyi_page_c=2;
+        function get_more(){
+            if(sanlingyi_show_tab==0){
+                //员工列表
+                var article=$('#staff-box');
+                var url="{:U('Agency/updatestaffAjax')}";
+                $.get(
+                        url,{"page":sanlingyi_page_a},function(date){
+                            if(date!=0){
+                                sanlingyi_page_a+=1;
+                                article.append(date);
+                               //alert(date);
+
+                            }else{
+                                $('#order_list_staff').html('暂无更多')
+                            }
+                        }
+                        ,'html' );
+
+            }else if(sanlingyi_show_tab==1){
+            	  //会员列表
+                var article=$('#user-box');
+                var url="{:U('Agency/updateuserAjax')}";
+                $.get(
+                        url,{"page":sanlingyi_page_b},function(date){
+
+                            if(date!=0){
+                                sanlingyi_page_b+=1;
+                                article.append(date);
+                               //alert(date);
+
+                            }else{
+                                $('#order_list_user').html('暂无更多')
+                            }
+                        }
+                        ,'html' );
+            }else{
+            	//商品列表
+            	var article=$('#shop-box');
+                var url="{:U('Agency/updateshopAjax')}";
+                $.get(
+                        url,{"page":sanlingyi_page_c},function(date){
+
+                            if(date!=0){
+                                sanlingyi_page_c+=1;
+                                article.append(date);
+                                //alert(date);
+
+                            }else{
+                                $('#order_list_shop').html('暂无更多')
+                            }
+                        }
+                        ,'html' );
+            }
+        }      
+
+    </script>
+    </body>
+
+</html>

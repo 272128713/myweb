@@ -1,0 +1,154 @@
+/*
+头条列表css
+ * 
+ * */
+html,
+body {
+	background-color: #efeff4;
+	/*overflow: hidden;*/
+}
+.mui-bar~.mui-content .mui-fullscreen {
+	top: 44px;
+	height: auto;
+}
+.mui-pull-top-tips {
+	position: absolute;
+	top: -20px;
+	left: 50%;
+	margin-left: -25px;
+	width: 40px;
+	height: 40px;
+	border-radius: 100%;
+}
+.mui-bar~.mui-pull-top-tips {
+	top: 24px;
+}
+.mui-pull-top-wrapper {
+	width: 42px;
+	height: 42px;
+	display: block;
+	text-align: center;
+	background-color: #efeff4;
+	border: 1px solid #ddd;
+	border-radius: 25px;
+	background-clip: padding-box;
+	box-shadow: 0 4px 10px #bbb;
+	overflow: hidden;
+}
+
+.mui-pull-top-tips.mui-transitioning {
+	-webkit-transition-duration: 200ms;
+	transition-duration: 200ms;
+}
+.mui-pull-top-tips .mui-pull-loading {
+	/*-webkit-backface-visibility: hidden;
+	-webkit-transition-duration: 400ms;
+	transition-duration: 400ms;*/
+	
+	margin: 0;
+}
+.mui-pull-top-wrapper .mui-icon,
+.mui-pull-top-wrapper .mui-spinner {
+	margin-top: 7px;
+}
+.mui-pull-top-wrapper .mui-icon.mui-reverse {
+	/*-webkit-transform: rotate(180deg) translateZ(0);*/
+}
+.mui-pull-bottom-tips {
+	text-align: center;
+	background-color: #efeff4;
+	font-size: 15px;
+	line-height: 40px;
+	color: #777;
+}
+.mui-pull-top-canvas {
+	overflow: hidden;
+	background-color: #fafafa;
+	border-radius: 40px;
+	box-shadow: 0 4px 10px #bbb;
+	width: 40px;
+	height: 40px;
+	margin: 0 auto;
+}
+.mui-pull-top-canvas canvas {
+	width: 40px;
+}
+.mui-slider-indicator.mui-segmented-control {
+	background-color: #efeff4;
+}
+.mui-title{
+	color:#fff;
+}
+a{
+	color:#fff;
+}
+.linav{
+	margin-top: 1.5em;color:#999999;font-size: 12px;
+}
+.linav:first-child{
+	color:red
+}
+.linav3{
+	float:right;
+}
+
+.mui-table-view .mui-media-object{
+    max-width: 30%;
+}
+.bigpic{
+	margin-top: 1em;
+}
+.space{
+	white-space: normal;
+}
+.logo8{
+	width: 12px;
+	height: 12px;
+	float: left;
+	margin-top: 2px;
+	margin-right: 0.3em;
+}
+.pic3{
+	width:30%;
+	float: left;
+	margin-right: 3%;
+}
+.pic3 img{
+	height:60px;
+	}
+.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{
+	color: #EC971F;
+}
+p{
+	color:#000;
+	font-size: 16px;
+}
+.downarr{
+	position: absolute;right: 0;z-index: 100;height:38px;width:7%;background: #EFEFF4;padding-top:0.7em;
+}
+
+#nav_box{
+    position: fixed; display: none; width: 100%; margin: 0; padding: 0; height: 100%; left: 0;top:40px;z-index:100; background: #EFEFF4;
+}
+#nav_box a{ margin:0; line-height: 30px;  padding:0; color: #333;  margin:10px 0; font-size: 15px; margin-left: 4%; display: block; width: 20%; text-align: center; float: left;
+            border: 1px solid #ccc;
+            -moz-border-radius:2px;
+            -webkit-border-radius:5px;
+        }
+.down_img {
+    -webkit-transform: rotateZ(180deg);
+    -moz-transform: rotateZ(180deg);
+    -o-transform: rotateZ(180deg);
+    -ms-transform: rotateZ(180deg);
+    transform: rotateZ(180deg);
+}
+.mui-segmented-control .mui-control-item{
+	line-height: 20px;
+	margin-top: 11px;
+}
+.mui-slider .mui-segmented-control.mui-segmented-control-inverted~.mui-slider-group .mui-slider-item{
+	border-top: 0;
+}
+.mui-segmented-control.mui-scroll-wrapper .mui-control-item{
+	padding:0 12px;
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>用户看自己未解决</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/doctorindex.css" />
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background:#30c6df;position: fixed;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="history.go(-1)"></a>
+			<h1 class="mui-title" style="color:#fff">医苑天地</h1>
+
+			<div class="right">
+				<span style="color: #fff;display: block;height: 44px;width:3em;text-align:center;line-height:44px;font-size:16px;"><img class="xiala" src="images/xiala.png"  /></span>
+			</div>
+		</header>
+		<!--
+        	时间：2015-06-29
+        	描述：主要内容
+        -->
+		<div class="navi">
+			<div class="bg"></div>
+			<p><a href=""><img src="images/xb (2).png"/>热点话题</a></p>
+			<p><a href=""><img src="images/xb (3).png"/>学术交流</a></p>
+			<p><a href=""><img src="images/xb (4).png"/>有问必答</a></p>
+			<p><a href=""><img src="images/xb (5).png"/>病例分析</a></p>
+			<p><a href=""><img src="images/xb (6).png"/>行业观察</a></p>
+			<p><a href=""><img src="images/xb (7).png"/>我的记录</a></p>
+			<p class="p_btm"><a href="">
+				<img src="images/xb (1).png"/>
+				<br />
+				发表
+				</a>
+			</p>
+		</div>
+		<div class="mui-content">
+			<div class="hot">
+				<div class="left"><img src="images/hot.png"/>热点话题</div>
+				<div class="mui-icon mui-icon-arrowright right arrow" ></div>
+				<div class="clear"></div>
+			</div>
+			<div class="hot-box">
+				<img src="images/banner1.png"/>
+				<p class="hot-title">孕检常规检查血清铁蛋白，你怎么看？</p>
+				<p class="hot-content">孕检常规检查血清铁蛋白，你怎么看？孕检常规检查血清铁蛋白，你怎么看？孕检常规检查血清铁蛋白，你怎么看？</p>
+				<p class="canyu"><img src="images/canyu.png"/>已参与<span class="red">127万</span>人次 <span class="right">2015-06-18 12:33</span></p>
+
+			</div>
+				<div class="newat">最新动态</div>
+				<ul class="new-list">
+					<li>
+						<img src="images/list-img.png"/>
+						<div class="list-box">
+							<p class="p1 ">
+								赵本山							
+								<p class="p2">2015-06-18 12:33</p>
+								<div class="clear"></div>
+							</p>
+
+							<p class="p3"><span class="blue">【病例分析】</span>塞纳河畔见证法国近代 变迁的魂宝塞纳河畔证魂宝...</p>
+						</div>
+						<div class="clear"></div>
+					</li>
+					<li>
+						<img src="images/list-img.png"/>
+						<div class="list-box">
+							<p class="p1 ">
+								赵本山							
+								<p class="p2">2015-06-18 12:33</p>
+								<div class="clear"></div>
+							</p>
+
+							<p class="p3"><span class="blue">【病例分析】</span>塞纳河畔见证法国近代 变迁的魂宝塞纳河畔证魂宝...</p>
+						</div>
+						<div class="clear"></div>
+					</li>
+				</ul>
+		</div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				  var get_navi = $('.navi');
+				  $(".xiala").click(function(){
+				  		get_navi.slideToggle('fast');
+				  });
+				  $('.mui-content').click(function(){
+				  		if(get_navi.css('display')=="block"){
+				  		get_navi.slideUp('fast');
+				  		}
+				  });
+			});
+		</script>
+	</body>
+
+</html>

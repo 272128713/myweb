@@ -1,0 +1,225 @@
+.jilu{
+	line-height: 31px;
+	margin-top: 5px;
+}
+.jilu img{
+	width: 25px;
+	position: relative;
+	top:7px;
+}
+.jilu span{
+	font-size: 17px;
+	color: #000;
+}
+.bank{
+	font-size: 14px;
+	color: #333;
+	margin-left: 24px;
+}
+.cash{
+	position: relative;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+/*.circle{
+	width: 40%;
+	margin: auto;
+	background: #ff7043;
+	border-radius: 200px;
+	text-align: center;
+	margin-top: 10px;
+}*/
+.lingxing{
+	width:100%;
+	text-align:center;
+	position:relative;
+}
+.lingxing img{
+	width:75%;
+	margin-bottom:10px;
+	z-index:999;
+}
+.lingxing .jine{
+	width:100%;
+	position: absolute;
+	top:33%;
+	color: #fff;
+	font-size: 16px;
+	z-index:1000;
+}
+.cash_btn{
+	background:#e43d37;
+	width: 40%;
+	margin:auto;
+	text-align: center;
+	font-size: 15px;
+	border-radius: 2px;
+	cursor: pointer;
+	color:#fff;
+	padding:5px 10px 5px 10px;
+}
+.cash_btn img{
+	width: 17px;
+	position: relative;
+	top:3.5px;
+	margin-right: 3px;
+}
+.cash_head{
+	text-align: center;
+	color: #999;
+	font-size: 16px;
+	width: 150px;
+	margin: auto;
+	margin-top:15px;
+	background: #fff;
+	position: relative;
+	z-index: 10;
+}
+.bg-line{
+	width: 100%;
+	height: 1px;
+	background-image: url('../images/bg-line.png');
+	background-repeat: repeat-x;
+	position: relative;
+	top:-9px;
+	margin-bottom: 5px;
+}
+.cash_list{
+	position: relative;
+	border-bottom: 1px solid #d1d1d1;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.cash_list .p1 span{
+	position: absolute;
+	right: 0;
+	color: #259b24;
+}
+.cash_list .p1 .fin{
+	color: red;
+}
+.cash_list .p2{
+	line-height: 40px;
+	color: red;
+	font-size: 17px;
+}
+.cash_list .p2 span{
+	position: absolute;
+	right: 0;
+}
+.hid-pl{
+	width: 100%;
+	padding: 9px 0 9px 0;
+	background-color:#fff;
+	display: none;
+	border-radius: 5px;
+}
+.hid-title{
+	border-bottom: 1px solid #bbbbbb;
+	line-height: 30px;
+	font-size: 18px;
+	padding-left: 15px;
+	padding-bottom: 5px;
+	color:#777;
+}
+.hid-title img{
+	height:22px;
+	margin-right: 4px;
+	position: relative;
+	top:4px;
+}
+.hid-con{
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.hid-con input{
+	width: 80%;
+	height: 35px;
+	line-height: 35px;
+	font-size: 16px;
+	font-family: "微软雅黑";
+	border-radius: 5px;
+	border:1px solid #bbb;
+	padding-left:10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	color: #000;
+}
+.hid-sub{
+	cursor: pointer;
+	line-height:35px;
+	font-size: 16px;
+	text-align: center;
+	background:#e45335;
+	width:80%;
+	border-radius: 5px;
+	margin:auto;
+	color:#fff;
+}
+.hid-pl-2{
+	width: 100%;
+	padding: 9px 0 9px 0;
+	background: #fff;
+	display: none;
+	border-radius:5px;
+	margin:auto;
+}
+.hid-sub2{
+	cursor: pointer;
+	line-height:35px;
+	font-size: 16px;
+	text-align: center;
+	width:90%;
+	border-radius: 5px;
+	margin:auto;
+	color:#fff;
+}
+.hid-con-2{
+	text-align: left;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 16px;
+	padding-left: 15px;
+	
+}
+.hid-con-2 input{
+	margin-top: 8px;
+	margin-bottom: 8px;
+	width: 80%;
+	height: 35px;
+	line-height: 35px;
+	padding: 2px 0 2px 2px;
+	font-size: 16px;
+	border-radius: 5px;
+	border:1px solid #bbb;
+	color: #000;
+	padding-left: 2em;
+	background-image: url(../images/iconfont-renminbi.png);
+	background-position: left center;
+	background-size: 24px;
+	background-repeat: no-repeat;
+}
+.bank-sys{
+	margin-top: 5px;
+}
+.bank-sys p{
+	color:#ff5722;
+	font-size:14px;
+}
+.confirm{
+	float: left;
+	font-size:16px;
+	text-align: center;
+	width: 49%;
+	border-radius: 5px;
+	background:#e45335;
+}
+.set-bank{
+	float: right;
+	font-size:16px;
+	text-align: center;
+	width: 49%;
+	border-radius: 5px;
+	background:#e45335;
+}

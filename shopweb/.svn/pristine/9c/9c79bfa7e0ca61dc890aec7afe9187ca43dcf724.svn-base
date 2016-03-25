@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>医信商城</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/staff_list.css" />
+
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background:#30c6df;position: fixed;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="goToUserA()"></a>
+			<h1 class="mui-title" style="color:#fff" onclick="goToUserA()">我的会员</h1>
+			<div class="right" onlick="goToChatallA()">
+				<span style="color: #fff;display: block;height: 44px;width:3em;text-align:center;line-height:44px;font-size:16px;"><img src="images/chat.png" /></span>
+			</div>
+		</header>
+		<p class="sec-top">
+			已管理会员72人，还能管理28人
+		</p>
+		<ul>
+			<li class="userinfo">
+				<img class="userphoto" src="images/headimg.png" />
+				<div class="moreinfo">
+					<p>
+						<span class="nam">赵本山</span>
+						<img class="icon" src="images/lv1.png"/>
+						<span class="sex">男</span>
+						<span class="year">1947-10-7</span>
+					</p>
+					<p style="color:#000;">西安市雁塔区益丰苑A栋12501</p>
+				</div>
+				<div class="clear"></div>
+			</li>
+			<li class="userinfo">
+				<img class="userphoto" src="images/headimg.png" />
+				<div class="moreinfo">
+					<p>
+						<span class="nam">赵本山</span>
+						<img class="icon" src="images/lv1.png"/>
+						<span class="sex">男</span>
+						<span class="year">1947-10-7</span>
+					</p>
+					<p style="color:#000;">西安市雁塔区益丰苑A栋12501</p>
+				</div>
+				<div class="clear"></div>
+			</li>
+		</ul>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+				var get_circle_wid = $('.userphoto').width();
+				var get_circle_wid1 = $('.tx img').width();
+				$('.userphoto').height(get_circle_wid);
+				$('.tx img').height(get_circle_wid1);
+			});
+		</script>
+		<script type="text/javascript">
+			$(function(){
+				$('.confirm_btn').click(function(){
+					layer_confirm();
+				});
+			});				
+			function layer_confirm(){
+				layer.open({
+				    type: 1,
+				    title:false,
+				    closeBtn: false,
+				    shadeClose:true,
+				    area:'80%',
+				    content:$('#hid-confirm')
+				});
+			}
+		</script>
+		
+	</body>
+
+</html>

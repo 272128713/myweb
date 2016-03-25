@@ -1,0 +1,24 @@
+	/*
+ *这是单独为hello mui准备的个性化css，可以覆盖标准mui的css定义；
+ * 在实际项目开发时，建议为App单独写一个css文件，从而实现项目的自定义皮肤功能；
+ * 
+ * */
+.mui-android header.mui-bar{
+	display: none;
+}
+.mui-android .mui-bar-nav~.mui-content{
+	padding: 0;
+}
+.mui-bar-nav{
+	box-shadow: none;
+}
+.mui-checkbox input[type=checkbox]:checked:before, .mui-radio input[type=radio]:checked:before{
+	color: #01a789;
+}
+.mui-checkbox.mui-left input[type=checkbox], .mui-radio.mui-left input[type=radio] {
+    left: 2.5%;
+}
+.mui-checkbox.mui-left label, .mui-radio.mui-left label{
+	font-size:14px;
+	padding-left:46px;
+}

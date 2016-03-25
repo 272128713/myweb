@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>医信健康</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="__CSS__/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="__CSS__/app.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/common.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/agency_remind.css" />
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background:#e45335;position: fixed;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="goToA()"></a>
+			<h1 class="mui-title" style="color:#fff" onclick="goToA()">消息提醒</h1>
+		</header>
+		<!--
+        	时间：2015-06-29
+        	描述：主要内容
+        -->
+        <div class="mui-content">
+        		<foreach item="v" name="msg">
+	        			<div class="news-list">
+							<div class="p1"><img src="{$v.msg_ico_url}"/>{$v.msg_type_name}<span>{$v.msg_time|date='Y-m-d H:i:s',###}</span>
+							<php>
+								if($v['msg_status']==0){
+							</php>
+								<div class="news"></div>
+							<php>
+								}
+							</php>
+							</div>
+							<p class="p2">{$v.msg_content}</p>
+						</div>
+        		</foreach>
+		</div>
+		
+		<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+   		<script src="__JS__/common.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

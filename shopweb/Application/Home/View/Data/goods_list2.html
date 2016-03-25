@@ -1,0 +1,33 @@
+<div id="data_box" >
+    <foreach item="vo" name="result">
+        <li>
+            <div class="gift-img">
+                <img src="__NC_UPLOAD_PATH_GOODS__{$vo.goods_image}" style="width:100%" />
+            </div>
+            <div class="gift-intro">
+                <p class="p1">{$vo.goods_name}</p>
+                <p class="p2">{$vo.goods_jingle}</p>
+            </div>
+            <div class="clear"></div>
+            <div class="jiage">
+                <del>原价：￥{$vo.goods_marketprice}</del><span>￥{$vo.goods_price}</span>
+                <a href="{:U('goodsDetial',array('id'=>$vo['goods_id']))}" class="buy">立即抢购</a>
+            </div>
+        </li>
+    </foreach>
+</div>
+
+<php>
+    if($nums>=C('PAGE_VAL')){
+</php>
+<div id="order_list" onclick="get_more()" class="getmore">
+    点击加载更多
+</div>
+<php>
+    }
+</php>
+<script>
+
+var get_pro_width = $('.gift-img').width();
+$('.gift-img').height(get_pro_width / 1.2);
+</script>

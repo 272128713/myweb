@@ -1,0 +1,234 @@
+.right img{
+	height: 44px;
+	cursor: pointer;
+	position:relative;
+	right:-7px;
+}
+.userinfo{
+	width:100%;
+	background:url(../images/beijing2.png);
+	background-repeat:no-repeat;
+	padding:0 2.5% 30px 2.5%; 
+}
+.userinfo  .user{
+	width:20%;
+	float:left;
+	text-align:center;
+	color:#fff;
+	margin-top:10px;
+}
+.user .userphoto{
+	width:100%;
+	border:1px solid #fff;
+	border-radius:50%;
+}
+.userinfo .moreinfo{
+	width:80%;
+	float:left;
+	padding-left:3%;
+	margin-top:15px;
+}
+.moreinfo p{
+	color:#fff;
+}
+.moreinfo p span{
+	color:#fff;
+}
+.moreinfo .nam{
+	font-size:15px;
+	line-height:15px;
+}
+.moreinfo .icon{
+	width:12px;
+	margin-left:2%;
+	margin-right:2%;
+	top:1px;
+	position:relative;
+}
+.moreinfo .sex{
+	font-size:12px;
+	margin-right:2%;
+}
+.moreinfo .year{
+	font-size:12px;
+}
+.address{
+	font-size:12px;
+	line-height:18px;
+	margin-top:7px;
+}
+.phone{
+	font-size:12px;
+	line-height:12px;
+	margin-top:10px;
+}
+.moreinfo .doct{
+	color:#9f4300;
+	font-size:13px;
+	margin-top:13px;
+	line-height:13px;
+}
+.moreinfo .doct img{
+	height:13px;
+	position:relative;
+	top:1px;
+}
+.userinfo .otherinfo{
+	margin:auto;
+	width:95%;
+	height:40px;
+	margin-top:15px;
+	border-top:1px solid #d88117;
+	padding:10px 0px;
+}
+.otherinfo .other-cont{
+	width:50%;
+	float:left;
+	border-right:1px solid #d88117;
+	text-align:left;
+	line-height:30px;
+	color:#fff;
+	font-size:14px;
+	padding:0px 15px;
+}
+.other-cont img{
+	width:14px;
+	position:relative;
+	top:2px;
+}
+.other-cont .img2{
+	width:14px;
+	margin-right:4px;
+	top:2px;
+}
+.consumRecord{
+	padding:10px 0 10px 0;
+}
+.retitle{
+	margin:5px auto;
+	height:30px;
+	position: relative;
+	z-index: 1;
+	width: 6em;
+	background: #fff;
+}
+.retitle span{
+	display:block;
+	width:100%;
+	height:30px;
+	line-height:27px;
+	text-align:center;
+	float:left;
+	font-size: 18px;
+	color: #a0a0a0;
+}
+.nav{
+	width: 100%;
+	height: 1px;
+	background: #bbb;
+	position: relative;
+	top:-22px;
+	background:url(../images/bg-line.png);
+	z-index: 0;
+	
+}
+.consumList{
+	width:95%;
+	margin:auto;
+	padding-top:18px;
+	padding-bottom:18px;
+	border-bottom:1px solid #dcdcdc;
+}
+.consumList img{
+	width:30%;
+	float:left;
+}
+.consumList .listintro{
+	width:65%;
+	margin-left:3%;
+	float:left;
+	line-height:25px;
+}
+.list-clear{
+	clear:both;
+}
+.listintro .p3{
+	color:#ea5f5f;
+	font-size:16px;
+	line-height:16px;
+	margin-top:13px;
+}
+.listintro .p5{
+	color:#606060;
+	font-size:12px;
+	
+	line-height:22px;
+	margin-top:15px;
+}
+.listintro .name{
+	font-size:15px;
+	line-height:15px;
+	font-weight:bold;
+	margin-top: 19px;
+}
+.listintro .p4 span{
+	margin-left:1em;
+	font-weight:bold;
+}
+.delivery .p5 span{
+	padding:5px 6px 5px 6px;
+	background:#ea5f5f;
+	border-radius:5px;
+	float:right;
+	position:absolute;
+	cursor: pointer;
+	color:#fff;
+	font-size:12px;
+	line-height:12px;
+}
+#layui-layer1{
+	border-radius:10px;
+}
+.hid-pl{
+	width: 100%;
+	padding: 9px 0 9px 0;
+	background: #fff;
+	display: none;
+	border-radius:5px;
+}
+.hid-title{
+	border-bottom: 1px solid #bbbbbb;
+	line-height: 25px;
+	font-size: 16px;
+	padding-left: 15px;
+	padding-bottom: 5px;
+}
+.hid-con{
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.hid-con input{
+	width:90%;
+	height: 35px;
+	line-height: 35px;
+	font-size: 16px;
+	font-family: "微软雅黑";
+	border-radius: 5px;
+	border:1px solid #bbb;
+	padding-left:10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	color: #000;
+}
+.hid-sub{
+	cursor: pointer;
+	line-height:35px;
+	font-size: 16px;
+	text-align: center;
+	background:#ffac28;
+	width:35%;
+	border-radius: 5px;
+	margin:auto;
+	color:#fff;
+}

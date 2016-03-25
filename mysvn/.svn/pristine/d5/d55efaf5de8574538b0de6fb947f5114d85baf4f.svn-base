@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>管理志愿者</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/volunteer.css" />
+	</head>
+	
+	<body>
+		<div class="container">
+			<div class="tab">
+				<a class="tab_title active">在册志愿者</a>
+				<a class="tab_title" href="applying.html">正在申请中</a>
+				<div class="clear"></div>
+			</div>
+			<ul id="zaice">
+				<li class="volist">
+					<img src="images/tx.png">
+					<div class="name">李灵黛</div>
+					<div class="time">
+						上次公益：2015-12-20
+					</div>
+					<div class="clear"></div>
+				</li>
+				<li class="volist">
+					<img src="images/tx.png">
+					<div class="name">李灵黛</div>
+					<div class="time">
+						上次公益：2015-12-20
+					</div>
+					<div class="clear"></div>
+				</li>
+				<li class="volist">
+					<img src="images/tx.png">
+					<div class="name">李灵黛</div>
+					<div class="time delete">
+						移除
+					</div>
+					<div class="clear"></div>
+				</li>
+			</ul>
+		</div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var tx_width = $('.volist img').width();
+				$('.volist .name').css('margin-top',(tx_width - 16)/2);
+				$('.volist .time').css('margin-top',(tx_width - 12)/2);
+				$('.volist .delete').css('padding-top',(tx_width - 16)/2 + 10);
+				$('.volist .delete').css('padding-bottom',(tx_width - 16)/2 + 10);
+				$('.volist .delete').css('margin-top',0);
+			})
+		</script>
+	</body>
+
+</html>

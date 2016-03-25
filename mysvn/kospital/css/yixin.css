@@ -1,0 +1,152 @@
+
+.bannerimg {
+    background-position: center;
+    background-size: cover;
+    height: 583px;
+    width: 100%;
+}
+.tec{
+    padding-top:71px;
+    padding-bottom: 43px;
+}
+.tectitle{
+    font-size: 26px;
+    text-align: center;
+}
+.shotline{
+    width: 34px;
+    height: 2px;
+    background-color: #898989;
+    margin:0 auto;
+    margin-top: 21px;
+}
+.tecen{
+    font-size: 22px;
+    margin-top: 21px;
+    color: #898989;
+    text-align: center;
+
+}
+.tecimg{
+    width:1000px;
+    height: 651px;
+    background-size: contain;
+    margin-top: 57px;
+}
+.arrownav{
+    width: 100%;
+    height: 39px;
+    background: #ebebeb;
+    padding-top: 12px;
+    cursor: pointer;
+}
+.arrow{
+    width: 28px;
+    height: 28px;
+    margin: 0 auto;
+    background: url("../images/arrow.png");
+    background-size: contain;
+
+}
+.download{
+    padding-top:55px;
+    padding-bottom:22px;
+    text-align: center;
+
+}
+.downloadtitle{
+    font-size:50px;
+    color: #516275;
+}
+.titleshot{
+    font-size:15.75px;
+    color:#fff;
+    width: 215px;
+    background: #4dbbaa;
+    height: 29px;
+    line-height: 29px;
+    margin: 0 auto;
+    margin-top:17px;
+
+}
+.downloadlist{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin-top: 78px;
+    padding-left:220px;
+    padding-right: 220px;
+}
+.downloadlist .dlist{
+    float: left;
+    margin-right: 220px;
+
+}
+.downloadlist .dlist:nth-child(2){
+    margin-right: 0;
+}
+.dlist{
+    width: 170px;
+
+}
+.dlist img{
+    width: 100%;
+}
+.dlist .dp{
+    margin-top:27px;
+    font-size:25px;
+    color:#516275;
+
+}
+.ar{
+    width: 28px;
+    height: 28px;
+    display: block;
+    margin: 0 auto;
+    margin-top:131px;
+    cursor: pointer;
+}
+.product{
+    width: 100%;
+    background: #ededed;
+}
+.content-p{
+    margin:0 auto;
+    padding-top:124px;
+    padding-bottom:113px;
+    width: 1000px;
+    height:756px;
+    background: url("../images/yixinphone.png");
+    background-repeat: no-repeat;
+    background-position: 183px 210px;
+    position: relative;
+}
+.product-box{
+    position: absolute;
+    left: 73px;
+    width: 366px;
+}
+.product-box-2{
+    position: absolute;
+    top: 694px;
+    left: 2px;
+    width: 366px;
+}
+.product-box-3{
+    position: absolute;
+    top: 624px;
+    left: 610px;
+    width: 366px;
+}
+.p-title{
+    text-align: center;
+    color: #4dbbaa;
+    font-size: 28px;
+
+}
+.p-detail{
+    margin-top: 24px;
+    line-height: 34px;
+    font-size: 21px;
+    color:#516275;
+
+}

@@ -1,0 +1,23 @@
+<html>
+<head>
+<title></title>
+    <meta charset="utf-8">
+</head>
+<body>
+<script language="JavaScript">
+    <!--
+function getOs() {
+
+   if(isiphone=navigator.userAgent.indexOf("iPhone")>0){
+		window.location.href="https://itunes.apple.com/cn/app/jian-kang-bao-cai-fu-yin-xing/id960931071?mt=8"
+   }
+   if(isAndroid=navigator.userAgent.indexOf("Android")>0){
+        window.location.href="/android/healthpay.apk"
+   }
+   
+}
+getOs();
+    -->
+</script>
+</body>
+</html>

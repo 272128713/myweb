@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>提供收货信息</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/area.css" />
+		<link rel="stylesheet" type="text/css" href="css/recinfo.css" />
+    	
+	</head>
+	
+	<body>
+		<div class="mui-content">
+			<div class="infobox pcarea" id="birth_p">
+				<p>省市区</p>
+				<input type="text" class="detail" id="birth_pVal" value="" placeholder="所在地区">
+			</div>
+			<div class="infobox">
+				<p>街道</p>
+				<input type="text" placeholder="所在街道">
+			</div>
+			<div class="infobox box2">
+				<input type="text" placeholder="请输入详细地址">
+			</div>
+			<div class="infobox box2">
+				<input type="text" placeholder="请输入收货人姓名">
+			</div>
+			<div class="infobox box2">
+				<input type="text" placeholder="请输入收货人联系电话">
+			</div>
+			<div class="pay">立即支付</div>
+		</div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/area.js"></script>
+		<script type="text/javascript">
+			$(function(){
+	            $('.pcarea').click(function(){
+	                var pcid = $(this).children('.detail').attr('id');
+	                setCookie('pcVal',pcid,7);
+	                getProvinceBuy();
+	            });
+	     });
+		</script>
+	</body>
+
+</html>

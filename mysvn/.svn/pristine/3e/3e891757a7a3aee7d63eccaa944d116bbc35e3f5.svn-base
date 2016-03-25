@@ -1,0 +1,57 @@
+.container{
+	width:100%;
+}
+.container .tab{
+	width:100%;
+	padding-top:18px;
+	position: relative;
+}
+.tab .tab_title{
+	width:50%;
+	float: left;
+	text-align: center;
+	padding-bottom: 18px;
+	font-size: 15px;
+	color:#333333;
+}
+.active{
+	border-bottom: 2.5px solid #dd403b;
+}
+.container ul{
+	width:95%;
+	margin:0 auto;
+}
+.container ul li{
+	width:100%;
+	border-bottom: 1px solid #cccccc;
+}
+.volist img,.volist .name{
+	float:left;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.volist .time{
+	float:right;
+	font-size: 12px;
+	color:#666666;
+	line-height:12px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.volist .delete{
+	background:#dd403b;
+	padding-left:40px;
+	padding-right:40px;
+	font-size: 16px;
+	line-height: 16px;
+	color:#fff;
+}
+.volist img{
+	width:10%;
+}
+.volist .name{
+	font-size: 16px;
+	color:#222222;
+	line-height:16px;
+	margin-left: 3%;
+}

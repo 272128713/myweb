@@ -1,0 +1,160 @@
+.content-t{
+	padding-top:120px;
+	padding-bottom: 210px;
+    width: 1000px;
+    margin: 0px auto;
+}
+.login{
+	width:494px;
+	float: left;
+}
+.notyet{
+	width:506px;
+	float: left;
+	position:relative;
+}
+.login .header{
+	font-size:22.25px;
+	color:#4d4c4c;
+}
+.login .header span{
+	font-size:20.02px;
+	color:#636363;
+	margin-left: 5px;
+}
+.login .loginbox{
+	padding-top:39px;
+}
+.login .loginbox .input1 input{
+	width:223px;
+	height:32px;
+	line-height: 32px;
+    font-size: 19px;
+    padding:0 10px;
+    border: 1px solid #a0a0a0;
+    outline: 0;
+    color:#636363;
+}
+.login .loginbox .input1{
+	font-size:19px;
+	color:#636363;
+	margin-bottom: 32px;
+}
+.login .loginbox .input2{
+	font-size:19px;
+	color:#636363;
+	margin-bottom: 19px;
+}
+.login .loginbox img{
+	position:relative;
+	top:7px;
+	margin-right:7px;
+}
+.login .loginbox .input1 label{
+	margin-left:12px;
+	margin-right:15px;
+}
+input[type=checkbox] {
+	visibility: hidden;
+}
+.checkboxFive{
+	height:15.57px;
+	line-height:15.57px;
+	margin-left:106px;
+	position: relative;
+}
+.checkboxFive label {
+	cursor: pointer;
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	top: 0;
+  	left: 0;
+	background: #fff;
+	border:1px solid #a6a6a6;
+}
+.checkboxFive label:after {
+	opacity: 0;
+	content: '';
+	position: absolute;
+	width: 8px;
+	height: 5px;
+	background: transparent;
+	top: 2px;
+	left: 3px;
+	border: 2px solid #4d4c4c;
+	border-top: none;
+	border-right: none;
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+.checkboxFive input[type=checkbox]:checked + label:after {
+	opacity: 1;
+}
+.checkboxFive .state{
+	font-size:15.57px;
+	color:#636363;
+	margin-left:7px;
+}
+.checkboxFive .line{
+	margin-left:10px;
+	margin-right:15px;
+	color:#636363;
+}
+.checkboxFive a{
+	text-decoration: none;
+	color:#636363;
+	display:inline;
+}
+.checkboxFive a:hover{
+	text-decoration: underline;
+}
+.button{
+	width:245px;
+	height:30px;
+	line-height: 30px;
+	color:#fff;
+	font-size:18px;
+	background: #4dbbaa;
+	text-align: center;
+	margin-top:23px;
+	margin-left:104px;
+	cursor: pointer;
+}
+.notyet img{
+	margin-top:38px;
+}
+.notyet .noresign{
+	font-size: 16.92px;
+	color:#636363;
+	position:absolute;
+	top:185px;
+	left:85px;
+}
+.notyet .noright{
+	font-size: 16.92px;
+	color:#636363;
+	position:absolute;
+	top:185px;
+	right:120px;
+}
+.notyet .join{
+	width:154px;
+	height:32px;
+	line-height: 32px;
+	font-size: 15.23px;
+	color:#636363;
+	position:absolute;
+	top:234px;
+	left:176px;
+	background:#ebeaea;
+	text-align: center;
+	cursor: pointer;
+}
+.notyet .join img{
+	margin-top:0;
+	margin-left:2px;
+}

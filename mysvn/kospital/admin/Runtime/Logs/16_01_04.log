@@ -1,0 +1,341 @@
+[ 2016-01-04T09:56:01+08:00 ] 192.168.20.8 /mysvn/kospital/admin/index.php/Admin/Public/login.html
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.002000s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.060004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.064004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-01-04T09:56:03+08:00 ] 192.168.20.8 /mysvn/kospital/admin/index.php/Admin/Public/login.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `onethink_ucenter_member` [ RunTime:0.007001s ]
+SQL: SELECT * FROM `onethink_ucenter_member` WHERE ( `username` = 'admin' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: UPDATE `onethink_ucenter_member` SET `last_login_time`=1451872563,`last_login_ip`='3232240648' WHERE ( `id` = 1 ) [ RunTime:0.015600s ]
+SQL: SHOW COLUMNS FROM `onethink_member` [ RunTime:0.020601s ]
+SQL: SELECT `uid`,`nickname`,`sex`,`birthday`,`qq`,`score`,`login`,`reg_ip`,`reg_time`,`last_login_ip`,`last_login_time`,`status` FROM `onethink_member` WHERE ( `uid` = 1 ) LIMIT 1   [ RunTime:0.015600s ]
+SQL: SHOW COLUMNS FROM `onethink_action` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `onethink_action` WHERE ( `name` = 'user_login' ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `onethink_action_log` [ RunTime:0.000000s ]
+SQL: INSERT INTO `onethink_action_log` (`action_id`,`user_id`,`action_ip`,`model`,`record_id`,`create_time`,`remark`) VALUES (1,1,-1062726648,'member',1,1451872563,'admin在2016-01-04 09:56登录了后台') [ RunTime:0.000000s ]
+SQL: SELECT * FROM `onethink_action` WHERE ( `name` = 'user_login' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8] Undefined offset: 1 E:\myweb\mysvn\kospital\admin\Application\Common\Common\function.php 第 665 行.
+NOTIC: [2] array_key_exists() expects parameter 2 to be array, null given E:\myweb\mysvn\kospital\admin\Application\Common\Common\function.php 第 665 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_action_log` WHERE ( `action_id` = 1 ) AND ( `user_id` = 1 ) AND ( `create_time` > 1451786163 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: UPDATE `onethink_member` SET `login`=`login`+1,`last_login_time`=1451872563,`last_login_ip`='3232240648' WHERE ( `uid` = 1 ) [ RunTime:0.004000s ]
+
+[ 2016-01-04T09:56:04+08:00 ] 192.168.20.8 /mysvn/kospital/admin/index.php/Admin/Index/index.html
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.009000s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.008000s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Index/index%' ) LIMIT 1   [ RunTime:0.015001s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.027001s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=1 ) LIMIT 1   [ RunTime:0.004000s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 1 )  [ RunTime:0.004001s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 1 ) AND ( `hide` = 0 )  [ RunTime:0.005000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ AdminIndex ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.007000s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'SiteStat' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.007001s ]
+SQL: SHOW COLUMNS FROM `onethink_member` [ RunTime:0.005000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_member` LIMIT 1   [ RunTime:0.004001s ]
+SQL: SHOW COLUMNS FROM `onethink_action_log` [ RunTime:0.055003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_action_log` LIMIT 1   [ RunTime:0.017001s ]
+SQL: SHOW COLUMNS FROM `onethink_document` [ RunTime:0.007001s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_document` LIMIT 1   [ RunTime:0.008001s ]
+SQL: SHOW COLUMNS FROM `onethink_category` [ RunTime:0.008000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_category` LIMIT 1   [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `onethink_model` [ RunTime:0.028002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_model` LIMIT 1   [ RunTime:0.006000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.280016s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.025002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003000s ]
+INFO: Run SiteStat [ RunTime:0.263015s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'SystemInfo' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.004000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.495028s ]
+SQL: select version() as v; [ RunTime:0.004000s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.039002s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.181010s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.218012s ]
+INFO: Run SystemInfo [ RunTime:0.220013s ]
+INFO: [ AdminIndex ] --END-- [ RunTime:0.484028s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.045003s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.181010s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.224013s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2016-01-04T09:57:05+08:00 ] 192.168.20.8 /mysvn/kospital/admin/index.php/Admin/Article/mydocument.html
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.004000s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Article/mydocument%' ) LIMIT 1   [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.006001s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.004000s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 2 )  [ RunTime:0.005001s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 2 ) AND ( `hide` = 0 )  [ RunTime:0.004000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '内容' ) AND ( `pid` = 2 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.007001s ]
+SQL: SHOW COLUMNS FROM `onethink_auth_group_access` [ RunTime:0.007000s ]
+SQL: SELECT `extend_id` FROM onethink_auth_group_access g INNER JOIN onethink_auth_extend c on g.group_id=c.group_id  WHERE ( g.uid='1' and c.type='1' and !isnull(extend_id) )  [ RunTime:0.004001s ]
+SQL: SHOW COLUMNS FROM `onethink_category` [ RunTime:0.007000s ]
+SQL: SELECT `id`,`title`,`pid`,`allow_publish` FROM `onethink_category` WHERE ( `status` = 1 ) ORDER BY pid,sort  [ RunTime:0.004001s ]
+SQL: SHOW COLUMNS FROM `onethink_document` [ RunTime:0.007000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_document` WHERE ( `status` IN ('0','1','2') ) AND ( `uid` = 1 ) AND ( `pid` = 0 ) LIMIT 1   [ RunTime:0.004000s ]
+SQL: SELECT `id`,`uid`,`name`,`title`,`category_id`,`description`,`root`,`pid`,`model_id`,`type`,`position`,`link_id`,`cover_id`,`display`,`deadline`,`attach`,`view`,`comment`,`extend`,`level`,`create_time`,`update_time`,`status` FROM `onethink_document` WHERE ( `status` IN ('0','1','2') ) AND ( `uid` = 1 ) AND ( `pid` = 0 ) ORDER BY update_time desc LIMIT 0,10   [ RunTime:0.006001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: show_draftbox E:\myweb\mysvn\kospital\admin\Runtime\Cache\Admin\9cbe2ce630b3f2a030f0076f4d17e323.php 第 67 行.
+SQL: SHOW COLUMNS FROM `onethink_document` [ RunTime:0.009001s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_document` WHERE ( pid=91 ) LIMIT 1   [ RunTime:0.006001s ]
+SQL: SELECT `title` FROM `onethink_category` WHERE ( id=43 ) LIMIT 1   [ RunTime:0.008000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_document` WHERE ( pid=92 ) LIMIT 1   [ RunTime:0.009000s ]
+SQL: SELECT `title` FROM `onethink_category` WHERE ( id=43 ) LIMIT 1   [ RunTime:0.004000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_document` WHERE ( pid=87 ) LIMIT 1   [ RunTime:0.005000s ]
+SQL: SELECT `title` FROM `onethink_category` WHERE ( id=40 ) LIMIT 1   [ RunTime:0.004000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_document` WHERE ( pid=86 ) LIMIT 1   [ RunTime:0.005000s ]
+SQL: SELECT `title` FROM `onethink_category` WHERE ( id=40 ) LIMIT 1   [ RunTime:0.008001s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_document` WHERE ( pid=83 ) LIMIT 1   [ RunTime:0.004001s ]
+SQL: SELECT `title` FROM `onethink_category` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.004000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_document` WHERE ( pid=84 ) LIMIT 1   [ RunTime:0.004001s ]
+SQL: SELECT `title` FROM `onethink_category` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.004000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_document` WHERE ( pid=81 ) LIMIT 1   [ RunTime:0.008000s ]
+SQL: SELECT `title` FROM `onethink_category` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.004000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_document` WHERE ( pid=79 ) LIMIT 1   [ RunTime:0.005000s ]
+SQL: SELECT `title` FROM `onethink_category` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.004001s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_document` WHERE ( pid=76 ) LIMIT 1   [ RunTime:0.004000s ]
+SQL: SELECT `title` FROM `onethink_category` WHERE ( id=43 ) LIMIT 1   [ RunTime:0.004001s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_document` WHERE ( pid=77 ) LIMIT 1   [ RunTime:0.004000s ]
+SQL: SELECT `title` FROM `onethink_category` WHERE ( id=43 ) LIMIT 1   [ RunTime:0.004001s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.405023s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.405023s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-01-04T10:08:11+08:00 ] 192.168.20.8 /mysvn/kospital/admin/index.php/Admin/Article/index/cate_id/43/pid/92.html
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.004000s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Article/index%' ) LIMIT 1   [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.007000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=3 ) LIMIT 1   [ RunTime:0.009001s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.004000s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 2 )  [ RunTime:0.004001s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 2 ) AND ( `hide` = 0 )  [ RunTime:0.004000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '内容' ) AND ( `pid` = 2 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `onethink_auth_group_access` [ RunTime:0.004000s ]
+SQL: SELECT `extend_id` FROM onethink_auth_group_access g INNER JOIN onethink_auth_extend c on g.group_id=c.group_id  WHERE ( g.uid='1' and c.type='1' and !isnull(extend_id) )  [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `onethink_category` [ RunTime:0.007000s ]
+SQL: SELECT `id`,`title`,`pid`,`allow_publish` FROM `onethink_category` WHERE ( `status` = 1 ) ORDER BY pid,sort  [ RunTime:0.004000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `onethink_category` WHERE ( `status` = 1 ) ORDER BY sort  [ RunTime:0.012000s ]
+SQL: SHOW COLUMNS FROM `onethink_model` [ RunTime:0.010001s ]
+SQL: SELECT * FROM `onethink_model` WHERE ( `name` = 'document' ) LIMIT 1   [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `onethink_document` [ RunTime:0.008000s ]
+SQL: SELECT * FROM `onethink_document` WHERE ( `id` = 92 ) LIMIT 1   [ RunTime:0.006001s ]
+SQL: SHOW COLUMNS FROM `onethink_document` [ RunTime:0.006000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM onethink_document l INNER JOIN onethink_document_article r ON l.id=r.id  WHERE ( `status` IN ('0','1','2') ) AND ( `pid` = '92' ) ORDER BY l.id DESC LIMIT 1   [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `onethink_document` [ RunTime:0.005000s ]
+SQL: SELECT l.id id,l.pid pid,l.category_id,l.title title,l.update_time update_time,l.uid uid,l.status status,r.content content FROM onethink_document l INNER JOIN onethink_document_article r ON l.id=r.id  WHERE ( `status` IN ('0','1','2') ) AND ( `pid` = '92' ) ORDER BY l.id DESC LIMIT 0,10   [ RunTime:0.004000s ]
+SQL: SELECT `id`,`title`,`type` FROM `onethink_document` WHERE ( `id` = 92 ) LIMIT 1   [ RunTime:0.016001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined variable: show_draftbox E:\myweb\mysvn\kospital\admin\Runtime\Cache\Admin\ffb703e244a3b60bccfabb187e72a14c.php 第 67 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.229013s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.231013s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2016-01-04T10:08:26+08:00 ] 192.168.20.8 /mysvn/kospital/admin/index.php/Admin/Article/index/cate_id/43.html
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.004000s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Article/index%' ) LIMIT 1   [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.005001s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=3 ) LIMIT 1   [ RunTime:0.003000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.004000s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 2 )  [ RunTime:0.011000s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 2 ) AND ( `hide` = 0 )  [ RunTime:0.004001s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '内容' ) AND ( `pid` = 2 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `onethink_auth_group_access` [ RunTime:0.005001s ]
+SQL: SELECT `extend_id` FROM onethink_auth_group_access g INNER JOIN onethink_auth_extend c on g.group_id=c.group_id  WHERE ( g.uid='1' and c.type='1' and !isnull(extend_id) )  [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `onethink_category` [ RunTime:0.006000s ]
+SQL: SELECT `id`,`title`,`pid`,`allow_publish` FROM `onethink_category` WHERE ( `status` = 1 ) ORDER BY pid,sort  [ RunTime:0.009000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `onethink_category` WHERE ( `status` = 1 ) ORDER BY sort  [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `onethink_model` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `onethink_model` WHERE ( `name` = 'document' ) LIMIT 1   [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `onethink_document` [ RunTime:0.008001s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_document` WHERE ( `status` IN ('0','1','2') ) AND ( `pid` = 0 ) AND ( `category_id` = 43 ) LIMIT 1   [ RunTime:0.014001s ]
+SQL: SELECT `id`,`uid`,`name`,`title`,`category_id`,`description`,`root`,`pid`,`model_id`,`type`,`position`,`link_id`,`cover_id`,`display`,`deadline`,`attach`,`view`,`comment`,`extend`,`level`,`create_time`,`update_time`,`status` FROM `onethink_document` WHERE ( `status` IN ('0','1','2') ) AND ( `pid` = 0 ) AND ( `category_id` = 43 ) ORDER BY level DESC,id DESC LIMIT 0,10   [ RunTime:0.006000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined variable: show_draftbox E:\myweb\mysvn\kospital\admin\Runtime\Cache\Admin\7a4184ffe8f804b12b2e7f8851dd8f7d.php 第 67 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.278016s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.278016s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003001s ]
+
+[ 2016-01-04T10:08:28+08:00 ] 192.168.20.8 /mysvn/kospital/admin/index.php/Admin/article/index/cate_id/43/pid/92.html
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.005000s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Article/index%' ) LIMIT 1   [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.005000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=3 ) LIMIT 1   [ RunTime:0.003000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.004000s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 2 )  [ RunTime:0.004000s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 2 ) AND ( `hide` = 0 )  [ RunTime:0.004000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '内容' ) AND ( `pid` = 2 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `onethink_auth_group_access` [ RunTime:0.006000s ]
+SQL: SELECT `extend_id` FROM onethink_auth_group_access g INNER JOIN onethink_auth_extend c on g.group_id=c.group_id  WHERE ( g.uid='1' and c.type='1' and !isnull(extend_id) )  [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `onethink_category` [ RunTime:0.006000s ]
+SQL: SELECT `id`,`title`,`pid`,`allow_publish` FROM `onethink_category` WHERE ( `status` = 1 ) ORDER BY pid,sort  [ RunTime:0.004001s ]
+SQL: SELECT `id`,`title`,`pid` FROM `onethink_category` WHERE ( `status` = 1 ) ORDER BY sort  [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `onethink_model` [ RunTime:0.006001s ]
+SQL: SELECT * FROM `onethink_model` WHERE ( `name` = 'document' ) LIMIT 1   [ RunTime:0.006001s ]
+SQL: SHOW COLUMNS FROM `onethink_document` [ RunTime:0.007000s ]
+SQL: SELECT * FROM `onethink_document` WHERE ( `id` = 92 ) LIMIT 1   [ RunTime:0.005001s ]
+SQL: SHOW COLUMNS FROM `onethink_document` [ RunTime:0.006000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM onethink_document l INNER JOIN onethink_document_article r ON l.id=r.id  WHERE ( `status` IN ('0','1','2') ) AND ( `pid` = '92' ) ORDER BY l.id DESC LIMIT 1   [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `onethink_document` [ RunTime:0.008001s ]
+SQL: SELECT l.id id,l.pid pid,l.category_id,l.title title,l.update_time update_time,l.uid uid,l.status status,r.content content FROM onethink_document l INNER JOIN onethink_document_article r ON l.id=r.id  WHERE ( `status` IN ('0','1','2') ) AND ( `pid` = '92' ) ORDER BY l.id DESC LIMIT 0,10   [ RunTime:0.004000s ]
+SQL: SELECT `id`,`title`,`type` FROM `onethink_document` WHERE ( `id` = 92 ) LIMIT 1   [ RunTime:0.005000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.001001s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001001s ]
+NOTIC: [8] Undefined variable: show_draftbox E:\myweb\mysvn\kospital\admin\Runtime\Cache\Admin\ffb703e244a3b60bccfabb187e72a14c.php 第 67 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.218013s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.220013s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-01-04T10:08:31+08:00 ] 192.168.20.8 /mysvn/kospital/admin/index.php/Admin/Article/index/cate_id/43.html
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.005000s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Article/index%' ) LIMIT 1   [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.005000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=3 ) LIMIT 1   [ RunTime:0.005001s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.004000s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 2 )  [ RunTime:0.004001s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 2 ) AND ( `hide` = 0 )  [ RunTime:0.004000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '内容' ) AND ( `pid` = 2 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.009000s ]
+SQL: SHOW COLUMNS FROM `onethink_auth_group_access` [ RunTime:0.007000s ]
+SQL: SELECT `extend_id` FROM onethink_auth_group_access g INNER JOIN onethink_auth_extend c on g.group_id=c.group_id  WHERE ( g.uid='1' and c.type='1' and !isnull(extend_id) )  [ RunTime:0.006001s ]
+SQL: SHOW COLUMNS FROM `onethink_category` [ RunTime:0.006000s ]
+SQL: SELECT `id`,`title`,`pid`,`allow_publish` FROM `onethink_category` WHERE ( `status` = 1 ) ORDER BY pid,sort  [ RunTime:0.005000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `onethink_category` WHERE ( `status` = 1 ) ORDER BY sort  [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `onethink_model` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `onethink_model` WHERE ( `name` = 'document' ) LIMIT 1   [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `onethink_document` [ RunTime:0.006000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `onethink_document` WHERE ( `status` IN ('0','1','2') ) AND ( `pid` = 0 ) AND ( `category_id` = 43 ) LIMIT 1   [ RunTime:0.008001s ]
+SQL: SELECT `id`,`uid`,`name`,`title`,`category_id`,`description`,`root`,`pid`,`model_id`,`type`,`position`,`link_id`,`cover_id`,`display`,`deadline`,`attach`,`view`,`comment`,`extend`,`level`,`create_time`,`update_time`,`status` FROM `onethink_document` WHERE ( `status` IN ('0','1','2') ) AND ( `pid` = 0 ) AND ( `category_id` = 43 ) ORDER BY level DESC,id DESC LIMIT 0,10   [ RunTime:0.007000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined variable: show_draftbox E:\myweb\mysvn\kospital\admin\Runtime\Cache\Admin\7a4184ffe8f804b12b2e7f8851dd8f7d.php 第 67 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.286016s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.288016s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-01-04T10:08:34+08:00 ] 192.168.20.8 /mysvn/kospital/admin/index.php/Admin/Article/edit/id/92/model/1/cate_id/43.html
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.007001s ]
+SQL: SELECT * FROM `onethink_menu` WHERE ( `pid` = 0 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.004000s ]
+SQL: SELECT `id` FROM `onethink_menu` WHERE ( url like '%Article/edit%' ) LIMIT 1   [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `onethink_menu` [ RunTime:0.006000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=5 ) LIMIT 1   [ RunTime:0.004000s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=3 ) LIMIT 1   [ RunTime:0.009001s ]
+SQL: SELECT `id`,`pid`,`title` FROM `onethink_menu` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.004000s ]
+SQL: SELECT DISTINCT  `group` FROM `onethink_menu` WHERE ( pid = 2 )  [ RunTime:0.004001s ]
+SQL: SELECT `id`,`url` FROM `onethink_menu` WHERE ( `pid` = 2 ) AND ( `hide` = 0 )  [ RunTime:0.004000s ]
+SQL: SELECT `id`,`pid`,`title`,`url`,`tip` FROM `onethink_menu` WHERE ( `group` = '内容' ) AND ( `pid` = 2 ) AND ( `hide` = 0 ) ORDER BY sort asc  [ RunTime:0.004001s ]
+SQL: SHOW COLUMNS FROM `onethink_auth_group_access` [ RunTime:0.005000s ]
+SQL: SELECT `extend_id` FROM onethink_auth_group_access g INNER JOIN onethink_auth_extend c on g.group_id=c.group_id  WHERE ( g.uid='1' and c.type='1' and !isnull(extend_id) )  [ RunTime:0.004001s ]
+SQL: SHOW COLUMNS FROM `onethink_category` [ RunTime:0.006000s ]
+SQL: SELECT `id`,`title`,`pid`,`allow_publish` FROM `onethink_category` WHERE ( `status` = 1 ) ORDER BY pid,sort  [ RunTime:0.004000s ]
+SQL: SELECT `id`,`title`,`pid` FROM `onethink_category` WHERE ( `status` = 1 ) ORDER BY sort  [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `onethink_document` [ RunTime:0.005000s ]
+SQL: SELECT `id`,`uid`,`name`,`title`,`category_id`,`description`,`root`,`pid`,`model_id`,`type`,`position`,`link_id`,`cover_id`,`display`,`deadline`,`attach`,`view`,`comment`,`extend`,`level`,`create_time`,`update_time`,`status` FROM `onethink_document` WHERE ( `id` = 92 ) LIMIT 1   [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `onethink_document_article` [ RunTime:0.005001s ]
+SQL: SELECT `id`,`parse`,`content`,`template`,`bookmark` FROM `onethink_document_article` WHERE ( `id` = 92 ) LIMIT 1   [ RunTime:0.011000s ]
+SQL: SHOW COLUMNS FROM `onethink_model` [ RunTime:0.006000s ]
+SQL: SELECT `extend` FROM `onethink_model` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.004001s ]
+SQL: SHOW COLUMNS FROM `onethink_attribute` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `onethink_attribute` WHERE ( `model_id` IN ('2','1') )  [ RunTime:0.005001s ]
+SQL: SELECT `field_sort` FROM `onethink_model` WHERE ( `id` = 2 ) LIMIT 1   [ RunTime:0.004000s ]
+SQL: SELECT `type` FROM `onethink_category` WHERE ( `id` = 43 ) LIMIT 1   [ RunTime:0.004001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined variable: show_draftbox E:\myweb\mysvn\kospital\admin\Runtime\Cache\Admin\761055de2f430bef08441163fbb8bda7.php 第 67 行.
+INFO: [ adminArticleEdit ] --START--
+SQL: SHOW COLUMNS FROM `onethink_addons` [ RunTime:0.005000s ]
+SQL: SELECT `config` FROM `onethink_addons` WHERE ( `name` = 'EditorForAdmin' ) AND ( `status` = 1 ) LIMIT 1   [ RunTime:0.003001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.169010s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.033002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.034002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: Run EditorForAdmin [ RunTime:0.080005s ]
+INFO: [ adminArticleEdit ] --END-- [ RunTime:0.080005s ]
+SQL: SHOW COLUMNS FROM `onethink_picture` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `onethink_picture` WHERE ( `status` = 1 ) AND ( `id` = 16 ) LIMIT 1   [ RunTime:0.009001s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.062003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.034002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.027001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002001s ]
+

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>公益活动</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<style>
+			.mui-segmented-control .mui-control-item {
+			color: #333;
+			border-left:0;
+			line-height:15px;
+			padding-bottom:14px;
+			}
+			.mui-segmented-control {
+				font-size: 15px;
+				width: 100%;
+				border: 0;
+				border-radius: 0;
+			}
+			.mui-segmented-control .mui-control-item.mui-active {
+				color: #333;
+				background-color: #fff;
+				border-bottom:3px solid #dd403b;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="tab">
+				<div id="segmentedControl" class="mui-segmented-control">
+					<a class="mui-control-item mui-active" href="#item1">最新活动</a>
+					<a class="mui-control-item" href="#item2">我的公益</a>
+				</div>
+			</div>
+			<div class="inner">
+				<div id="item1" class="mui-control-content mui-active">
+					<ul>
+						<li class="volist">
+							<p class="p1">第三届“千里返乡 让爱回家”</p>
+							<p class="p2">活动剩余名额：25人</p>
+							<p class="p2 p3">活动地址：西安市雁塔区锦业路25号</p>
+							<div class="count">
+								<p class="renshu">
+									<img src="images/ologo1.png">
+									空中急救志愿者联盟
+								</p>
+								<p class="huodong">
+									5小时前发布
+								</p>
+								<div class="clear"></div>
+							</div>
+							<div class="djs">活动开始倒计时<br/><span>25天</span></div>
+						</li>
+						<li class="volist">
+							<p class="p1">第三届“千里返乡 让爱回家”</p>
+							<p class="p2">活动剩余名额：25人</p>
+							<p class="p2 p3">活动地址：西安市雁塔区锦业路25号</p>
+							<div class="count">
+								<p class="renshu">
+									<img src="images/ologo1.png">
+									空中急救志愿者联盟
+								</p>
+								<p class="huodong">
+									5小时前发布
+								</p>
+								<div class="clear"></div>
+							</div>
+							<div class="djs">活动开始倒计时<br/><span>25天</span></div>
+						</li>
+					</ul>
+				</div>
+				<div id="item2" class="mui-control-content">
+					<ul>
+						<li class="volist">
+							<p class="p1">第三届“千里返乡 让爱回家”</p>
+							<p class="p2">活动剩余名额：25人</p>
+							<p class="p2 p3">活动地址：西安市雁塔区锦业路25号</p>
+							<div class="count">
+								<p class="renshu">
+									<img src="images/ologo1.png">
+									空中急救志愿者联盟
+								</p>
+								<p class="huodong jx">
+									正在进行
+								</p>
+								<div class="clear"></div>
+							</div>
+							<div class="djs">活动开始倒计时<br/><span>2天</span></div>
+						</li>
+						<li class="volist">
+							<p class="p1">第三届“千里返乡 让爱回家”</p>
+							<p class="p2">活动剩余名额：25人</p>
+							<p class="p2 p3">活动地址：西安市雁塔区锦业路25号</p>
+							<div class="count">
+								<p class="renshu">
+									<img src="images/ologo1.png">
+									空中急救志愿者联盟
+								</p>
+								<p class="huodong">
+								已结束
+								</p>
+								<div class="clear"></div>
+							</div>
+							<div class="djs">活动开始倒计时<br/><span>2天</span></div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$('.volist').click(function(){
+				window.location.href="activity_detail.html";
+    		});
+		</script>
+	</body>
+</html>

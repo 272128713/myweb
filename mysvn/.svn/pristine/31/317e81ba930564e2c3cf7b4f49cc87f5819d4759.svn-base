@@ -1,0 +1,125 @@
+.footer{
+	width: 100%;
+    background: #0a1220;
+    padding-top: 52px;
+    padding-bottom: 71px;
+    text-align: center;
+}
+.tiline{
+    background: #fff;
+    width:87px;
+    height: 4px;
+    border-left: 1px solid rgba(1,1,1,0.5);
+    border-right: 1px solid rgba(1,1,1,0.5);
+    margin: 0 auto;
+}
+.ticor{
+    margin:19px auto 61px auto;
+    font-size: 22.5px;
+    color: #4dbbaa;
+}
+.ulbox{
+
+    width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    color:#fff;
+}
+.ulbox a{
+    color:#fff;
+}
+.ulbox a:hover{
+    text-decoration:overline;
+}
+.ulbox{
+    margin: 0 auto;
+    width: 496px;
+}
+.litab li{
+    float: left;
+    margin-left: 14px;
+    margin-right: 14px;
+    margin-top:14px;
+    padding-bottom: 5px;
+    font-size:24px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border-bottom: 3px solid #0a1220;
+}
+.litab li:hover{
+    border-bottom: 3px solid #fff;
+
+}
+.rights{
+    margin: 0 auto;
+    font-size:22px;
+    color:#4dbbaa;
+    margin-top: 31px;
+    font-family: "方正兰亭细黑_GBK", "方正兰亭中黑_GBK";
+}
+
+
+.toolbar{
+    width:100px;
+    background:rgba(81,98,117,0.4);
+    padding-top:23px;
+    padding-bottom:16px;
+    position:fixed;
+    right:0;
+    z-index:9999;
+    top:179px;
+}
+.toolbar .toolbar-item{
+    width:100%;
+    text-align:center;
+    margin-bottom:15px;
+    position:relative;
+}
+.toolbar .toolbar-item p{
+    font-family:"方正兰亭细黑_GBK";
+    font-size:11.25px;
+    color:#e6e9e9;
+    margin-top:5px;
+}
+.toolbar .enter{
+    height:36px;
+    background:rgba(68,85,104,0.4);
+    cursor: pointer;
+}
+.toolbar .enter img,.toolbar .enter .wz{
+    float:left;
+    position:relative;
+}
+.toolbar .enter img{
+	width:12px;
+    margin-left:15px;
+    margin-right:6px;
+    top:14.5px;
+}
+.toolbar .enter .wz{
+    font-family:"方正兰亭黑_GBK";
+    font-size:10px;
+    line-height:12px;
+    color:#fff;
+    width:50px;
+    top:6px;
+}
+.toolbar a:hover{
+    text-decoration: underline;
+}
+.toolbar .toolbar-item .weixin{
+	position:absolute;
+	top:-25px;
+	right:100px;
+	display: none;
+}
+.toolbar .toolbar-item .weibo{
+	position:absolute;
+	top:-25px;
+	right:100px;
+	display: none;
+}
+.toolbar .toolbar-item .wei img{
+	width:140px;
+	height:140px;
+}

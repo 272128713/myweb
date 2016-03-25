@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>管理志愿者</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/volunteer.css" />
+		<style>
+			.mui-segmented-control .mui-control-item {
+			color: #333;
+			border-left:0;
+			line-height:15px;
+			padding-bottom:14px;
+			}
+			.mui-segmented-control {
+				font-size: 15px;
+				width: 100%;
+				border: 0;
+				border-radius: 0;
+			}
+			.mui-segmented-control .mui-control-item.mui-active {
+				color: #333;
+				background-color: #fff;
+				border-bottom:2.5px solid #dd403b;
+			}
+			.layui-layer-page .layui-layer-content{
+				border-radius:10px;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div class="container">
+			<div class="tab">
+				<div id="segmentedControl" class="mui-segmented-control">
+					<a class="mui-control-item mui-active" href="#item1">在册志愿者</a>
+					<a class="mui-control-item" href="#item2">正在申请中</a>
+				</div>
+			</div>
+			<div>
+				<div id="item1" class="mui-control-content mui-active">
+					<ul id="zaice">
+						<li class="volist">
+							<img src="images/tx.png">
+							<div class="name">李灵黛</div>
+							<div class="delete">删除</div>
+							<div class="clear"></div>
+						</li>
+						<li class="volist">
+							<img src="images/tx.png">
+							<div class="name">李灵黛</div>
+							<div class="delete">删除</div>
+							<div class="clear"></div>
+						</li>
+						<li class="volist">
+							<img src="images/tx.png">
+							<div class="name">李灵黛</div>
+							<div class="delete">删除</div>
+							<div class="clear"></div>
+						</li>
+					</ul>
+				</div>
+				<div id="item2" class="mui-control-content">
+					<ul>
+						<li class="applylist">
+							<img src="images/tx.png">
+							<div class="name">李灵黛</div>
+							<div class="time">3分钟前</div>
+							<div class="agree">同意</div>
+							<div class="clear"></div>
+				        </li>
+				        <li class="applylist">
+							<img src="images/tx.png">
+							<div class="name">李灵黛</div>
+							<div class="time">3分钟前</div>
+							<div class="agree">同意</div>
+							<div class="clear"></div>
+				        </li>
+				        <li class="applylist">
+							<img src="images/tx.png">
+							<div class="name">李灵黛</div>
+							<div class="time">3分钟前</div>
+							<div class="agree">同意</div>
+							<div class="clear"></div>
+				        </li>
+					</ul>
+				</div>
+			</div>
+			<div id="hid-delete" class="hid-delete">
+				<p class="title">确定要删除吗？</p>
+				<div class="confirm">
+					<div class="no">取消</div>
+					<div class="yes">确定</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/layer/layer.js"></script>
+		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var tx_width = $('.volist img').width();
+				$('.volist .name').css('margin-top',(tx_width - 16)/2);
+				$('.volist .delete').css('margin-top',(tx_width - 15)/2);
+				$('.applylist .name').css('margin-top',(tx_width - 16)/2);
+				$('.applylist .time').css('margin-top',(tx_width - 12)/2);
+				$('.applylist .agree').css('margin-top',(tx_width - 15)/2);
+				
+				$('.delete').click(function(){
+		       		layer_delete();
+		    	});
+		    	function layer_delete(){
+					layer.open({
+					    type: 1,
+					    title:false,
+					    closeBtn: false,
+					    shadeClose:true,
+					    area:'65%',
+					    content: $('#hid-delete')
+					});
+				}	
+				$('.no').click(function(){
+		       		layer.closeAll();
+		    	});
+			})
+			
+		</script>
+	</body>
+
+</html>

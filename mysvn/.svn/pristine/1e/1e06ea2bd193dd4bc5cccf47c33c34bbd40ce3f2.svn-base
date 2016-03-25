@@ -1,0 +1,113 @@
+.header{
+	width: 100%;
+	color: #fff;
+	position: relative;
+}
+a{
+    text-decoration: none;
+    color:#fff;
+}
+.header .top{
+	height: 57px;
+	background: #516275;
+	font-size: 17px;
+	line-height: 17px;
+}
+.top ul{
+	float:right;
+}
+.top ul li{
+	float:left;
+	padding-top:20px;
+	padding-bottom: 20px;
+}
+.top ul li a{
+	padding-left: 8px;
+	padding-right: 8px;
+	cursor: pointer;
+    color:#fff;
+}
+.top ul .signup a{
+	border-right: 1px solid #354354;
+}
+.top ul .signup a{
+	border-left: 1px solid #6b819a;
+	border-right: 1px solid #354354;
+}
+.top ul .logindo a{
+	border-left: 1px solid #6b819a;
+	padding-right: 0px;
+}
+.headli .signup a{
+
+    cursor: auto;
+}
+.headli .signup a:hover,.headli .logindo a:hover{
+    color:#b0b8b9;
+}
+.navbar{
+	width:100%;
+	background: #4dbbaa;
+}
+.navbar .nav-left{
+	padding-top: 22px;
+	padding-bottom: 22px;
+	float: left;
+}
+
+.navbar .nav-left img{
+	width:54px;
+	height:67px;
+	float:left;
+}
+.navbar .nav-left .logo_tit{
+	font-size: 32px;
+	float: left;
+	margin-top: 16px;
+	margin-left: 16px;
+	line-height: 32px;
+}
+.nav-right{
+	float:right;
+	padding-top: 44px;
+	padding-bottom: 44px;
+	position: relative;
+}
+.nav-right ul{
+	
+}
+.navbar .nav-right ul li{
+	padding: 0px 25px 0px 25px;
+	border-right: 1px solid #36998a;
+	border-left: 1px solid #5ed5c3;
+	float: left;
+	z-index:1;
+	position: relative;
+}
+.navbar .nav-right ul li a{
+	font-size: 19px;
+	line-height: 19px;
+	cursor: pointer;
+    color:#fff;
+}
+.navbar .nav-right ul li a:hover{
+
+    padding-bottom:2px;
+    border-bottom: 2px solid #fff;
+
+}
+.navbar .nav-right ul li:first-child{
+	padding-left: 0px;
+	border-left: none;
+}
+.navbar .nav-right ul li:last-child{
+	padding-right: 0px;
+	border-right: none;
+}
+.navbar .nav-right ul .selected a{
+	padding-bottom:2px;
+	border-bottom: 2px solid #fff;
+}
+.logt{
+    display: none;
+}

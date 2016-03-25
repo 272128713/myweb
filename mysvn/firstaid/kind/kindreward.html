@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>善有善报</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/kindreward.css" />
+		
+		<style>
+			.mui-segmented-control {
+			    font-size: 15px;
+			    width: 100%;
+				border: 0;
+				border-radius: 0;
+			}
+			.mui-segmented-control .mui-control-item {
+				color: #fff;
+			    border-left: 0;
+			    background-color: #dd403b;
+			    line-height: 50px;
+			}
+			.mui-segmented-control .mui-control-item.mui-active {
+				color: #fff;
+				background-color: #dd403b;
+				background-image: url("./images/jiao.png");
+                background-repeat: no-repeat;
+                background-position: bottom center;
+                background-size: 15px 8px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="banner" style="background-image:url(images/shan.png)">
+				<div class="text">
+					<p class="p1">￥178260.00</p>
+					<p class="p2">空中急救公益基金向公益慈善机构提供</p>
+					<p class="p2">资金支持，推动中国公益事业的良性发展</p>
+				</div>
+			</div>
+			<div class="tab">
+				<div id="segmentedControl" class="mui-segmented-control">
+					<a class="mui-control-item mui-active" href="#item1">奉献爱心</a>
+					<a class="mui-control-item" href="#item2">资助项目</a>
+				</div>
+			</div>
+			<div>
+				<div id="item1" class="mui-control-content mui-active">
+					<div class="top">
+						<p>每消费一件爱心产品，消费金额的<span>10%</span>就以你的</p><p>名义赞助给空中急救基金会，用于公益慈善活动</p>
+						<div class="btn">立即奉献爱心</div>
+					</div>
+					<ul>
+						<li>
+							<div class="tx"><img src="images/tx.png"></div>
+							<div class="info">
+								<div class="left">
+									<p class="name">赵雷</p>
+									<p class="tz">购买价值125元爱心产品</p>
+								</div>
+								<div class="right">
+									<p class="zan">赞助基金<span>￥12.5</span></p>
+									<p class="tz time">2015-12-25</p>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="clear"></div>
+						</li>
+						<li>
+							<div class="tx"><img src="images/tx.png"></div>
+							<div class="info">
+								<div class="left">
+									<p class="name">赵雷</p>
+									<p class="tz">购买价值125元爱心产品</p>
+								</div>
+								<div class="right">
+									<p class="zan">赞助基金<span>￥12.5</span></p>
+									<p class="tz time">2015-12-25</p>
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="clear"></div>
+						</li>
+					</ul>
+				</div>
+				<div id="item2" class="mui-control-content">
+					<p class="tit">当前还没有接受赞助的项目</p>
+					<ul>
+						<li class="volist">
+							<p class="jine">申请￥5000</p>
+							<p class="p1">第三届“千里返乡 让爱回家”</p>
+							<p class="p2">活动参与人数：50人</p>
+							<p class="p2 p3">活动地址：西安市雁塔区锦业路25号</p>
+							<div class="count">
+								<p class="renshu">
+									<img src="images/ologo1.png">
+									空中急救志愿者联盟
+								</p>
+								<p class="huodong">
+									2015-12-20
+								</p>
+								<div class="clear"></div>
+							</div>
+						</li>
+						<li class="volist">
+							<p class="jine">申请￥5000</p>
+							<p class="p1">第三届“千里返乡 让爱回家”</p>
+							<p class="p2">活动参与人数：50人</p>
+							<p class="p2 p3">活动地址：西安市雁塔区锦业路25号</p>
+							<div class="count">
+								<p class="renshu">
+									<img src="images/ologo1.png">
+									空中急救志愿者联盟
+								</p>
+								<p class="huodong">
+									2015-12-20
+								</p>
+								<div class="clear"></div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript">
+		    //浏览器适配 兼容所有浏览器 rem单位专用 设置html root 字号
+		    (function (doc, win) {
+		        var docEl = doc.documentElement,
+		            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		            recalc = function () {
+		                var clientWidth = docEl.clientWidth;
+		                if (!clientWidth) return;
+		                docEl.style.fontSize = 100 * (clientWidth / 320) + 'px';
+		            };
+		        if (!doc.addEventListener) return;
+		        win.addEventListener(resizeEvt, recalc, false);
+		        doc.addEventListener('DOMContentLoaded', recalc, false);
+		    })(document, window);
+		</script>
+	</body>
+
+</html>

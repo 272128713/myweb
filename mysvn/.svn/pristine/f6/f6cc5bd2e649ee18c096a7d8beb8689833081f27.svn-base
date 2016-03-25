@@ -1,0 +1,202 @@
+
+.bannerimg {
+    background-position: center;
+    background-size: cover;
+    height: 583px;
+    width: 100%;
+}
+.recruit{
+    padding-top:87px;
+
+}
+.tese{
+    font-size: 36.48px;
+    color:#4c4c4c;
+    text-align: center;
+}
+.lingxing{
+    text-align: center;
+    margin-top:10px;
+    margin-bottom:58px;
+}
+.recbox{
+    width:1000px;
+    border: 1px solid #b3b3b3;
+    box-sizing: content-box;
+    margin-bottom: 10px;
+}
+.job{
+    width: 226px;
+    float: left;
+    border-right:1px solid #b3b3b3;
+
+}
+.job ul li {
+    display: block;
+    height: 63px;
+    line-height: 63px;
+    text-align: center;
+    font-size: 20px;
+    color:#4dbbaa;
+    border-bottom:1px solid #b3b3b3;
+    cursor: pointer;
+}
+.job ul li:last-child{
+    border: 0;
+}
+.job ul .select{
+    background: #4dbbaa;
+    color:#fff;
+}
+.job ul .select:before {
+    content: url('../images/xingxing.png');
+}
+.showjob{
+    float: left;
+    width: 583px;
+    min-height: 515px;
+    padding: 25px 30px;
+    color: #516275;
+    font-size: 18px;
+    line-height: 27px;
+    font-family: "方正兰亭细黑_GBK";
+    overflow: auto;
+}
+.showjob li{
+    list-style-type: inherit;
+    display: list-item;
+    margin-left: 30px;
+    color: #516275;
+    font-size: 16px;
+    line-height: 24px;
+}
+.showjob ul,.showjob ol{
+    -webkit-padding-start: 20px;
+}
+.emailjob{
+    display: block;
+    min-height:575px;
+    float: left;
+    width: 129px;
+    border-left: 1px solid #b3b3b3;
+    text-align: center;
+    cursor: pointer;
+}
+.emailjob img{
+
+}
+.emailjob .p1{
+
+    color:#4dbbaa;
+    font-size: 20px;
+    line-height: 30px;
+}
+.emailjob .p2{
+    color:#4dbbaa;
+    font-size: 12px;
+    line-height: 20px;
+}
+.du{
+    padding-top: 80px;
+    width:100%;
+}
+.du-box{
+    height: 713px;
+    background: #e5e5e5;
+    padding-top: 56px;
+}
+.du-listbox,.du-imgbox{
+    text-align: center;
+    width:330px;
+    height: 330px;
+    background: #4dbbaa;
+    float: left;
+
+}
+.du-listbox .p1{
+    margin: 0 auto;
+    margin-top:107px;
+    width:127px;
+    height: 45px;
+    line-height: 45px;
+    color:#4dbbaa;
+    font-size: 30px;
+    background: #fff;
+}
+.du-listbox .p2{
+    margin: 0 auto;
+    width:34px;
+    height:2px;
+    background: #fff;
+    margin-top: 16px;
+    margin-bottom: 24px;
+
+}
+.du-listbox .p3{
+
+    font-size: 22px;
+    color:#fff;
+
+}
+.healthform{
+    padding-top: 90px;
+}
+.ff{
+    margin-bottom: 67px;
+}
+.ff .inp{
+    width:418px;
+    float: left;
+}
+.ff .inp input{
+    width:358px;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 23px;
+    font-size: 20.6px;
+    padding:0 30px;
+    border: 3px solid #e5e5e5;
+    border-radius: 3px;
+    outline: 0;
+    color:#516275;;
+    font-family: "方正兰亭中粗黑_GBK";
+}
+.ff .inp input:focus{
+    border: 3px solid #4dbbaa;
+}
+.ff textarea{
+    width:477px;
+    height:188px;
+    margin-left:35px;
+    float:left;
+    font-size: 20.6px;
+    padding:10px 30px;
+    border: 3px solid #e5e5e5;
+    border-radius: 3px;
+    line-height: 30px;
+    overflow: hidden;
+    outline: 0;
+    color:#516275;
+    font-family: "方正兰亭中粗黑_GBK";
+}
+.ff textarea:focus{
+
+    border: 3px solid #4dbbaa;
+}
+.submit{
+    width: 211px;
+    height: 60px;
+    border-radius: 3px;
+    background: #4dbbaa;
+    line-height: 60px;
+    font-size: 25px;
+    color:#fff;
+    margin: 0 auto;
+    margin-top:43px;
+    text-align: center;
+    cursor: pointer;
+}
+.submit img{
+    position: relative;
+    top: 11px;
+}

@@ -1,0 +1,160 @@
+.container{
+	width:100%;
+	position: relative;
+}
+.banner_health{
+	width: 100%;
+    position: relative;
+}
+.banner_health .bg{
+	width:100%;
+	height:583px;
+    position: relative;
+    z-index:1;
+    background: url(../images/banner-bg.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.banner_health .health{
+	width:100%;
+	height:644px;
+	background: url(../images/health.png) 50% 0px no-repeat;
+	position: absolute;
+	z-index: 2;
+	top:0;
+}
+.platform{
+	width:100%;
+	padding-top: 146px;
+	padding-bottom: 63px;
+	text-align: center;
+	position: relative;
+	border-bottom:44px solid #ebebeb;
+}
+.platform .choose{
+	font-family: "方正兰亭中黑_GBK";
+	font-size:50px;
+	color: #516275;
+}
+.platform .subtitle{
+	font-family: "方正兰亭黑_GBK";
+	font-size:15.75px;
+	color: #fff;
+	margin-top:18px;
+}
+.subtitle span{
+	background-color:#4dbbaa;
+	margin:0 auto;
+	padding:5px 25px 5px 25px;
+	display:inline-block;
+}
+.platform .download{
+	width:770px;
+	margin:0 auto;
+	margin-top: 78px;
+}
+.platform .download .plat{
+	width: 163px;
+	float:left;
+}
+.platform .download .plat2{
+	margin-left:131.5px;
+	margin-right: 131.5px;
+}
+.platform .download .plat img{
+	width: 163px;
+	height: 163px;
+	border:3px solid #e5e5e5;
+	border-radius: 5px;
+}
+.platform .download span{
+	font-family: "方正兰亭黑_GBK";
+	font-size: 24.94px;
+	color: #516275;
+	margin-top: 25px;
+	display:inline-block;
+}
+.health_treasure{
+	width: 100%;
+	text-align: center;
+	padding-bottom: 75px;
+	position: relative;
+}
+.health_treasure .title{
+	font-family: "方正兰亭黑_GBK";
+	font-size: 37.54px;
+	color:#516275;
+	margin-top:76px;
+}
+.health_treasure .title span{
+	color:#4dbbaa;
+}
+.health_treasure .line{
+	width:34px;
+	height:2px;
+	background:#898989;
+	margin-top:24px;
+	display:inline-block;
+}
+.health_treasure .subtitle{
+	font-family: "方正兰亭中黑_GBK";
+	font-size: 22px;
+	color: #808080;
+	margin-top: 22px;
+}
+.health_treasure .row{
+	height: 232px;
+	margin-top: 85px;
+}
+.health_treasure .row2,.health_treasure .row3{
+	margin-top: 145px;
+}
+.health_treasure .row .left,.health_treasure .row .right{
+	width:300px;
+	float:left;
+	position:relative;
+	margin-top:25px;
+}
+.health_treasure .row3 .left{
+	margin-top:10px;
+}
+.health_treasure .row .middle{
+	width:202px;
+	float: left;
+	margin-left:99px;
+	margin-right: 99px;
+}
+.health_treasure .row .left{
+	text-align: right;
+}
+.health_treasure .tit{
+	font-family: "方正兰亭中黑_GBK";
+	font-size: 28.13px;
+	line-height:28.13px;
+	color: #4dbbaa;	
+	margin-bottom: 10px;
+}
+.health_treasure .tit2{
+	font-size: 18.75px;
+	line-height: 18.45px;
+	color: #4dbbaa;
+	margin-bottom: 23px;
+}
+.health_treasure .tit3{
+	font-family: "方正兰亭黑_GBK";
+	font-size: 25px;
+	line-height: 36px;
+	color: #516275;
+}
+.health_treasure .row .middle img{
+	position:relative;
+	display:block;
+}
+.health_treasure .row .right{
+	text-align:left;
+}
+.health_treasure .big{
+	font-size:187.54px;
+	line-height: 187.54px;
+	color:#d2d2d2;
+}

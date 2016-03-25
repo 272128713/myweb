@@ -1,0 +1,310 @@
+.banner_dreamhouse{
+	width: 100%;
+    position: relative;
+}
+.banner_dreamhouse .bg{
+	width:100%;
+	height:583px;
+    position: relative;
+    z-index:1;
+    background: url(../images/banner_dreamhouse.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.banner_dreamhouse .dream{
+	width:100%;
+	height:384px;
+	background: url(../images/dream1.png) 50% 0px no-repeat;
+	position: absolute;
+	z-index: 2;
+	top:99.5px;
+}
+.dreamhouse{
+	width:100%;
+	position:relative;
+}
+.dreamhouse .three{
+	padding-top:133px;
+	position:relative;
+	text-align:center;
+}
+.dreamhouse .three .toimg{
+	width:100%;
+	position:absolute;
+	top:-86.5px;
+	left:0;
+	z-index:3;
+}
+.dreamhouse .three .toimg  div{
+	float:left;
+	width:33.333%;
+	height:173px;
+}
+.dreamhouse .three .toimg .img1,.dreamhouse .three .toimg .img3{
+	background:rgba(84,173,160,0.8);
+}
+.dreamhouse .three .toimg .img2{
+	background:rgba(113,201,187,0.8);
+}
+.dreamhouse .three .toimg img{
+	margin-top:33px;
+}
+.dreamhouse .three .toimg p{
+	color:#fff;
+	font-size:20px;
+	font-family: "方正兰亭黑_GBK";
+	margin-top:16px;
+	line-height: 24px;
+}
+.dreamhouse .three .toimg .p1{
+	padding-left:105px;
+	padding-right:105px;
+}
+.dreamhouse .three .toimg .p2{
+	padding-left:75px;
+	padding-right:75px;
+}
+.title{
+	font-family: "方正兰亭黑_GBK";
+	font-size:36px;
+	color:#4dbbaa;
+}
+.pen{
+	display:block;
+	margin-left:493px;
+}
+.subtitle{
+	width:257px;
+	height:32px;
+	line-height: 32px;
+	background:#bfbfbf;
+	font-size:22px;
+	color:#fff;
+	font-family: "方正兰亭中黑_GBK";
+	margin-top:10px;
+	margin-left:371.5px;
+}
+.pension .serv .serv-text,.pension .serv img{
+	float:left;
+}
+.pension .serv .serv-text{
+	width:333.5px;
+	position:relative;
+}
+.pension .serv img{
+	width:333px;
+}
+.pension .serv .right{
+	text-align: right;
+}
+.pension .serv .left{
+	text-align: left;
+}
+.pension .serv .serv-text .title{
+	font-size: 29.62px;
+	color:#245153;
+	font-family: "方正兰亭黑_GBK";
+}
+.pension .serv .serv-text .free{
+	width:56px;
+	height:28px;
+	line-height: 28px;
+	color:#fff;
+	font-size:22.22px;
+	font-family: "方正兰亭黑_GBK";
+	background:#ffbb84;
+	text-align: center;
+	margin-left:276px;
+	margin-top:5px;
+}
+.pension .serv .serv-text .freeR{
+	margin-left:0px;
+}
+.pension .serv .serv-text .cost{
+	background:#ff6535;
+}
+.pension .serv .serv-text .explan{
+	font-size:22.22px;
+	color:#808080;
+	font-family: "方正兰亭黑_GBK";
+	margin-top:5px;
+}
+.pension .serv .serv-text .one{
+	margin-top:44px;
+}
+.pension .serv .serv-text .third{
+	margin-top:135px;
+}
+.pension .serv .serv-text .five{
+	margin-top:150px;
+}
+.pension .serv .serv-text .seven{
+	margin-top:159px;
+}
+.pension .serv .serv-text .two{
+	margin-top:133px;
+}
+.pension .serv .serv-text .four{
+	margin-top:133px;
+}
+.pension .serv .serv-text .six{
+	margin-top:138px;
+}
+.dreamhouse .three .ling{
+	margin-top:22px;
+}
+.dreamhouse .three .three-text{
+	width:100%;
+	position:relative;
+	margin-top:6px;
+	margin-bottom:50px;
+}
+.dreamhouse .three .three-text .text{
+	width:250px;
+	float:left;
+	font-size:22.99px;
+	font-family: "方正兰亭黑_GBK";
+	color:#4dbbaa;
+}
+.text p{
+	position:relative;
+}
+.text1{
+	left:-23px;
+}
+.text2{
+	left:-10px;
+}
+.text3{
+	left:5px;
+}
+.text4{
+	left:18px;
+}
+.skygarden{
+	width:100%;
+	background:#4dbbaa;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+.skygarden .title2{
+	color:#fff;
+	font-size:36px;
+	font-family: "方正兰亭黑_GBK";
+	text-align: center;
+}
+.lingxing{
+	text-align: center;
+	margin-top:10px;
+}
+.skygarden .intro{
+	color:#fff;
+	font-size:26px;
+	font-family: "方正兰亭黑_GBK";
+	padding-left:135px;
+	padding-right:135px;
+	text-align:center;
+	line-height:43px;
+	margin-top:20px;
+}
+.pension{
+	width:100%;
+	height:1220px;
+	background: url(../images/housebg.png) no-repeat;
+	background-position: center;
+    background-size: cover;
+    z-index:-1;
+    padding-top:60px;
+}
+.tit{
+	text-align: center;
+}
+.sub2{
+	text-align:center;
+	width:177px;
+	margin-left:411.5px;
+}
+.pension .serv{
+	width:1000px;
+	margin-top:46px;
+}
+.goal{
+	width:100%;
+	height:515px;
+	background: url(../images/housebg2.png) no-repeat;
+	background-position: center;
+    background-size: cover;
+    padding-top:70px;
+    z-index: 1;
+    position: relative;
+}
+.goal .content{
+	position: relative;
+}
+.goal .content .topsec .txt{
+	color:#6f6f6f;
+	font-size:30px;
+	font-family: "方正兰亭黑_GBK";
+}
+.goal .content .img2{
+	width:1000px;
+	height:267px;
+	margin-top:75px;
+	position:relative;
+}
+.goal .content .topsec{
+	width:100%;
+}
+.goal .content .topsec .txt,.goal .content .topsec .img1{
+	float:left;
+}
+.goal .content .topsec .img1{
+	position:relative;
+	top:10px;
+	left:8px;
+}
+.goal .content .img2 .goal1{
+	width:250px;
+	top:155px;
+	left:0;
+	position:absolute;
+	color:#fff;
+	font-size: 22px;
+	font-family: "方正兰亭黑_GBK";
+	text-align: center;
+	line-height: 28px;
+}
+.goal .content .img2 .goal2{
+	left:250px;
+}
+.goal .content .img2 .goal3{
+	left:500px;
+}
+.goal .content .img2 .goal4{
+	left:750px;
+}
+.facility{
+	width:100%;
+	height:807px;
+	background: url(../images/housebg3.png) no-repeat;
+	background-position: center;
+    background-size: cover;
+    z-index: 1;
+    position: relative;
+    text-align:center;
+    padding-top:93px;
+}
+.facility .pen2{
+	margin-top:10px;
+}
+.facility .sub3{
+	width:314px;
+	margin-left:343px;
+}
+.facility .dreamzi{
+	margin-top:80px;
+}
+.facility .dreamfoot{
+	width:1000px;
+	margin-top:95px;
+}

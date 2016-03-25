@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>志愿者</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/volunteerinfo.css" />
+	</head>
+	<body>
+		<div class="mui-content">
+			<div class="grxx">
+				<img src="images/photo.png" />
+				<div class="text">
+					<p class="name">朱凯莉</p>
+					<p class="secline">女<span>28岁</span>汉族</p>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="more address">
+				<p class="p1">家庭住址：</p>
+				<p class="p2">陕西省西安市碑林区友谊西路西工大家属院78号</p>
+				<div class="clear"></div>
+			</div>
+			<div class="more">
+				<p class="p1">联系电话：</p>
+				<p class="p2">13866996699</p>
+				<div class="clear"></div>
+			</div>
+			<div class="more">
+				<p class="p1">联系邮箱：</p>
+				<p class="p2">kaili@qq.com</p>
+				<div class="clear"></div>
+			</div>
+			<div class="more">
+				<p class="p1">教育程度：</p>
+				<p class="p2">本科</p>
+				<div class="clear"></div>
+			</div>
+			<p class="p3">专业特长：</p>
+			<p class="p3">书法、古典音乐、具备多年健康管理服务经验，可提供健康保健。</p>
+			<p class="p3">学校/单位：西安三聆医信息有限公司</p>
+			<p class="p3">志愿经历：</p>
+			<p class="p3">2012年8月，由支教队员自主组建“梦圆帕米尔”支教之家正式成立，参加海南支教一年。</p>
+		</div>
+		<script type="text/javascript">
+		    //浏览器适配 兼容所有浏览器 rem单位专用 设置html root 字号
+		    (function (doc, win) {
+		        var docEl = doc.documentElement,
+		            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		            recalc = function () {
+		                var clientWidth = docEl.clientWidth;
+		                if (!clientWidth) return;
+		                docEl.style.fontSize = 100 * (clientWidth / 320) + 'px';
+		            };
+		        if (!doc.addEventListener) return;
+		        win.addEventListener(resizeEvt, recalc, false);
+		        doc.addEventListener('DOMContentLoaded', recalc, false);
+		    })(document, window);
+		</script>
+	</body>
+</html>

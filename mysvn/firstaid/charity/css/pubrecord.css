@@ -1,0 +1,82 @@
+.content{
+	padding-bottom: 100px;
+    width: 3.2rem;
+}
+.content .pro_list{
+	width:100%;
+	padding-top:15px;
+	padding-left: 0.08rem;
+	padding-right: 0.08rem;
+	border-bottom: 5px solid #ededed;
+	margin-bottom:8px;
+	position: relative;
+}
+.content .pro_list:last-child{
+	border-bottom: 0;
+}
+.content .pro_list .pic{
+	width:1.2rem;
+	float:left;
+}
+.content .pro_list .proinfo{
+	width:1.84rem;
+	padding-left: 0.15rem;
+	float:left;
+	position: relative;
+}
+.content .pro_list .pic img{
+	width:100%;
+	display: block;
+}
+.proinfo .pro_name{
+	font-size:15px;
+	line-height: 0.22rem;
+	color:#333333;
+	height: 0.66rem;
+	display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+.proinfo .time{
+	font-size:12px;
+	line-height: 0.12rem;
+	margin-top:0.02rem;
+	color:#666666;
+}
+.proinfo .time img{
+	width:12px;
+	top:2px;
+	margin-right:5px;
+	position: relative;
+}
+.content .pro_list .bott{
+	padding-top:9px;
+	padding-bottom:9px;
+	border-top:1px solid #ccc;
+	margin-top:7px;
+}
+.content .pro_list .bott .left{
+	float:left;
+}
+.content .pro_list .bott .left img{
+	width:16px;
+	position: relative;
+	top:3px;
+	margin-right:5px;
+}
+.content .pro_list .bott .right{
+	float:right;
+}
+.content .pro_list .bott .right img{
+	width:16px;
+	position: relative;
+	top:3px;
+	margin-right:5px;
+}
+.p1,.p3{
+	color:#4caf50;
+}
+.p2{
+	color:#dd403b;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>志愿者注册</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/publish.css" />
+		<link rel="stylesheet" type="text/css" href="css/volregister.css" />
+		<link rel="stylesheet" href="css/normalize3.0.2.min.css" />
+		<link href="css/date/mobiscroll.css" rel="stylesheet" />
+		<link href="css/date/mobiscroll_date.css" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<div class="container">
+			<div class="header">
+				<p class="p1">欢迎加入我们的志愿者队伍。</p>
+				<p class="p2">请认真填写注册表单，并保证你所填信息均为真实信息。</p>
+			</div>
+			<div class="baseinfo">
+				<div class="row">
+					<div class="heading">姓名</div>
+					<input class="heading detail" />
+					<div class="clear"></div>
+				</div>
+				<div class="row">
+					<div class="heading">性别</div>
+					<input class="heading detail" />
+					<div class="clear"></div>
+				</div>
+				<div class="row">
+					<div class="heading">出生日期</div>
+					<input class="heading detail" id="timer"/>
+					<div class="clear"></div>
+				</div>
+				<div class="row">
+					<div class="heading">民族</div>
+					<input class="heading detail" />
+					<div class="clear"></div>
+				</div>
+				<div class="row">
+					<div class="heading">住址</div>
+					<input class="heading detail" />
+					<div class="clear"></div>
+				</div>
+				<div class="row">
+					<div class="heading">联系电话</div>
+					<input class="heading detail" />
+					<div class="clear"></div>
+				</div>
+				<div class="row">
+					<div class="heading">联系邮件</div>
+					<input class="heading detail" />
+					<div class="clear"></div>
+				</div>
+				<div class="row">
+					<div class="heading">教育程度</div>
+					<input class="heading detail" />
+					<div class="clear"></div>
+				</div>
+				<div class="content">专业特长</div>
+				<textarea placeholder="请填写..."/></textarea>
+				<div class="row">
+					<div class="heading">学校/单位</div>
+					<input class="heading detail" />
+					<div class="clear"></div>
+				</div>
+				<div class="content">志愿经历</div>
+				<textarea placeholder="请填写..."/></textarea>
+			</div>
+			<div class="submit">提交注册</div>
+		</div>
+		
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/date/mobiscroll_date.js" charset="gb2312"></script> 
+		<script src="js/date/mobiscroll.js"></script> 
+	    <script type="text/javascript">
+	  		$(function () {
+				var currYear = (new Date()).getFullYear();	
+				var opt={};
+				opt.date = {preset : 'date'};
+				opt.datetime = {preset : 'datetime'};
+				opt.time = {preset : 'time'};
+				opt.default = {
+					theme: 'android-ics light', //皮肤样式
+					display: 'modal', //显示方式 
+					mode: 'scroller', //日期选择模式
+					dateFormat: 'yyyy-mm-dd',
+					lang: 'zh',
+					showNow: true,
+					nowText: "今天",
+					startYear: currYear - 50, //开始年份
+					endYear: currYear + 10 //结束年份
+				};
+			
+				$("#timer").mobiscroll($.extend(opt['date'], opt['default']));
+			
+			});
+	    </script>
+	</body>
+
+</html>

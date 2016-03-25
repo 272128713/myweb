@@ -1,0 +1,157 @@
+.banner_contact {
+    background-position: center;
+    background-size: cover;
+    height: 336px;
+    width: 100%;
+    position: relative;
+}
+.banner_contact .bannerzi{
+	width:1000px;
+	margin:0 auto;
+	text-align: center;
+	padding-top:114px;
+}
+.bannerzi p{
+	font-size:40px;
+	line-height:40px;
+	font-family: myfont4;
+	color:#fff;
+	letter-spacing:5px;
+}
+.bannerzi .line{
+	width:34px;
+	height:2px;
+	background:#fff;
+	margin-left:483px;
+	margin-top:44px;
+}
+.content_us{
+	position:relative;
+	height:1660px;
+}
+.content_us img{
+	position:absolute;
+	top:-97px;
+	left:0;
+	z-index:1;
+}
+.text{
+	position:absolute;
+	z-index:2;
+}
+.atitle{
+	background:#eaeaea;
+	color:#405662;
+	font-size: 22px;
+	line-height:22px;
+	font-family: myfont4;
+	padding:16px 18px;
+	display: inline-block;
+	*display: inline;
+	zoom: 1; 
+}
+.company{
+	font-size: 24px;
+	line-height:24px;
+	color:#4dbbaa;
+	font-family: myfont4;
+	margin-top:20px;
+}
+.address,.tel{
+	font-size:18px;
+	line-height:18px;
+	font-family: myfont2;
+	color:#999999;
+	margin-top:7px;
+}
+.kospital{
+	top:79px;
+	right:334px;
+	text-align: right;
+}
+.kfirstaid{
+	top:428px;
+	left:0;
+	text-align: left;
+}
+.klinic{
+	top:597px;
+	right:279px;
+	text-align: right;
+}
+.yixinshop{
+	top:952px;
+	left:643px;
+	text-align: left;
+}
+.healthpay{
+	top:982px;
+	right:600px;
+	text-align: right;
+}
+.dreamhouse{
+	top:1436px;
+	left:397px;
+	text-align: left;
+}
+.bot_bg {
+    background-position: center;
+    background-size: cover;
+    height: 680px;
+    width: 100%;
+    position: relative;
+    font-family: myfont2;
+    color:#fff;
+}
+.center{
+	width:1000px;
+	margin:0 auto;
+	position:relative;
+}
+.border{
+	width:228px;
+	height:447px;
+	border:5px solid #fff;
+	position:absolute;
+	top:136px;
+	left:471px;
+}
+.learnmore{
+	width:185px;
+	height:46px;
+	border:5px solid #fff;
+	position:absolute;
+	top:335px;
+	right:130px;
+	font-size:30px;
+	background:url(../images/botbg.png) no-repeat center center;
+	text-align: center;
+	line-height: 46px;
+}
+.about{
+	width:534px;
+	height:213px;
+	background:url(../images/botbg.png) no-repeat center center;
+	font-size: 24px;
+	line-height: 24px;
+	position: absolute;
+	top:255px;
+	right:415px;
+	text-align: right;
+}
+.about .p1{
+	margin-top:26px;
+}
+.about .p2{
+	margin-top:21px;
+}
+.p3{
+	width:195px;
+	height:22px;
+	position:absolute;
+	top:391px;
+	right:130px;
+	font-size:20px;
+	line-height:22px;
+	text-align: center;
+}

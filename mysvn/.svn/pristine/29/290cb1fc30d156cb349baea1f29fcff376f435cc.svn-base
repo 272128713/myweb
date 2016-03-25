@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>空中医院</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+
+	</head>
+	<body>
+		<header>
+			<a href="mobileindex.html"><img src="img/logo_03.png" /></a>
+			<ul class="mui-pull-right ul-head">
+				<a href="mobileindex.html"><li class="li1">首页</li></a>
+				<li class="li1 hui">|</li>				
+				<a href="mobilehd.html"><li class="active">活动</li></a>
+				<li class="">&nbsp;&nbsp;&nbsp;&nbsp;</li>				
+			</ul>
+		</header>
+		<p class="hdp1" align="center">百万投资助梦医生多点执业<br /> 尊享合伙O2O五星级空中诊所</p>
+		<div class="content">
+			
+			<p class="hdp2">天使行动背景</p>
+			<p class="indent">随着多点执业的逐渐放开，国家积极鼓励社会办医、社会资本与医生联手探索多点执业的新模式。而医生开设个人诊所是多点执业放开后医生从“医院医生”逐步走向“人医生”、“家庭医生”重要的支点。“空中医院”作为移动医疗领域的探索者和践行者，多年来一直致力运用互联网技术为医生创造价值”。在国家鼓励医生多点执业的背景下，积极倡导“每个医生都该拥属于自己的诊所”的新理念。</p>
+			<p class="indent">此次隆重推出“天使行动”，斥巨资为具有先锋精神的医生投资实体所，就是用真金白银助力医生多点执业，也是构建“空中医院”移动医疗O2O的重要一环</p>
+			<p class="hdp2">天使行动主题</p>
+			<p class="indent">百万投资助梦医生多点执业，尊享合伙O2O五星级空中诊所</p>
+			<p class="hdp2">天使行动时间</p>
+			<p class="indent">2015年6月~9月，历时三个月</p>
+			<p class="hdp2">参与天使行动</p>
+			<p class="indent">自天使行动发起日起，“空中医院”全国诊所投资预选工作正式开始！</p>	
+			<p >1、用户参与方式：</p>
+			<p >（1）参与抽奖，有机会获得手环、移动电子血压计、一年免费私人医生服务等大奖；</p>
+			<p >（2）与空中医院天使行动车合影，上传至空中医院健康圈，即可参与 抽奖，有机会获得手环、移动电子血压计、一年免费私人医生服务等大奖。</p>
+			<p >2、医生参与方式：</p>
+			<p class="indent">任意三位医生自由合伙，即可联名申请一所诊所获得百万投资。</p>
+				
+		<p><a href="http://www.skyhospital.net/twocode.html"><img src="img/abtdown.jpg" style="width: 40%;margin-top: 1rem;max-width: 200px;"/></a></p>
+		<p class="clear green">1、注册成为医生，在“空中医院”APP首页处点击“申请实体诊所”提交申请。</p><p class="clear green">2、注册成为用户，在首页抽奖活动中参与抽奖。</p>	
+		<div class="hrg"></div>
+		<p>官方新浪微博：http://weibo.com/u/5591367843</p>
+		<p>官方微信号：kzyygfzh5</p>
+		<p>客服电话：400-669-3636</p>
+		<p>空中医院QQ交流群：119798449</p>
+		</div>
+			
+			<div class="footer">
+				<div class="hr">
+					
+				</div>
+				<p>Copyright © 2015 skyhospital.net All Rights Reserved. <br />陕ICP备07014607号</p>
+			</div>
+	</body>
+
+</html>

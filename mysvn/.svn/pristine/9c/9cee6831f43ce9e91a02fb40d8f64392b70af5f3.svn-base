@@ -1,0 +1,333 @@
+.swiper-container {
+    width: 100%;
+    height: 625px;
+    position: relative;
+}
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    height: 582px;
+}
+.mask{
+	width:100%;
+	height:582px;
+	background: rgba(0,0,0,0.5);
+	position:absolute;
+	top:0;
+	left:0;
+	text-align:center;
+}
+.mask img{
+	width:1000px;
+	margin-top:214px;
+}
+.klinic{
+	width:100%;
+	text-align: center;
+	padding-bottom:114px;
+	position:relative;
+}
+.title{
+	font-family: "方正兰亭黑_GBK";
+	font-size: 36px;
+	color:#4dbbaa;
+	margin-top:64px;
+}
+.line{
+	width:34px;
+	height:2px;
+	background:#898989;
+	margin-top:24px;
+	display:inline-block;
+}
+.subtitle{
+	font-family: "方正兰亭中黑_GBK";
+	font-size: 22px;
+	color: #808080;
+	margin-top: 22px;
+}
+.klinic .chain{
+	margin-top:90px;
+}
+.klinic .chain img{
+	display: block;
+}
+.klinic .chain .txt{
+	width:236px;
+	float:left;
+	text-align:center;
+}
+.txt .heading{
+	font-family: "方正兰亭中黑_GBK";
+	font-size: 22.51px;
+	line-height: 22.51px;
+	color:#4dbbaa;
+	margin-top: 20px;
+}
+.txt .bewrite{
+	font-family: "方正兰亭黑_GBK";
+	font-size: 16px;
+	line-height: 24px;
+	color:#516275;
+	margin-top: 16px;
+}
+.klinic .chain .txt2{
+	margin-left:146px;
+	margin-right:146px;
+}	
+.clinic_dis{
+	width:100%;
+	text-align:center;
+	background:#ececec;
+	padding-top:48px;
+	position:relative;
+}
+.clinic_dis .title{
+	margin-top:0;
+}
+.clinic_dis .subtitle{
+	line-height:32px;
+	color:#516275;
+}
+.clinic_dis .real{
+	margin-top:45px;
+}
+.clinic_dis .real .pic{
+	width:333.33px;
+	float:left;
+}
+.clinic_dis .real .pic img{
+	display:block;
+}
+.clinic_dis .arrow{
+	width:100%;
+	height:50px;
+	background:#ececec;
+	border-top:15px solid #fff;
+}
+.clinic_dis .arrow img{
+	margin-top:11px;
+	cursor: pointer;
+}
+.apply{
+	margin-top:15px;
+	margin-bottom: 83px;
+}
+.apply .reserve,.apply .doc{
+	width:500px;
+	height:325px;
+	float:left;
+}
+.apply .reserve{
+	background:#63768b;
+}
+.apply .reserve .text{
+	margin-top:45px;
+	margin-left:70px;
+	color:#fff;
+}
+.apply .reserve .text .p1{
+	font-family: "方正兰亭黑_GBK";
+	font-size:30px;
+}
+.apply .reserve .text .hr{
+	width:31px;
+	height:4px;
+	background:#fff;
+	margin-top:22px;
+	margin-bottom:32px;
+}
+.apply .reserve .text .p2{
+	font-family: "方正兰亭黑_GBK";
+	font-size:20px;
+	line-height:20px;
+	margin-bottom: 15px;
+}
+.apply .reserve .text .p2 span{
+	margin-left: 15px;
+}
+.apply .reserve .text .button{
+	width:148px;
+	height:39px;
+	text-align:center;
+	background:#4dbbaa;
+	font-size:20.8px;
+	font-family: "方正兰亭中黑_GBK";
+	line-height:39px;
+	border-radius: 5px;
+}
+.apply .reserve .text .p3{
+	margin-bottom: 27px;
+}
+.private_doctor{
+	border-top:4px dotted #d2d2d2;
+	padding-bottom: 70px;
+}
+.private_doctor .border{
+	width:668px;
+	height:186px;
+	margin:0 auto;
+	border:2px solid #dcdcdc;
+	margin-top:96px;
+	text-align:center;
+	position:relative;
+}
+.private_doctor .border .line{
+	margin-top:42px;
+}
+.private_doctor .subtitle{
+	line-height:32px;
+	color:#516275;
+}
+.private_doctor .border .title{
+	width:203px;
+	line-height:36px;
+	font-family: "方正兰亭黑_GBK";
+	font-size: 36px;
+	color:#4dbbaa;
+	background:#fff;
+	position: absolute;
+	top:-18px;
+	left:234px;
+	margin-top:0;
+}
+.private_doctor .border .icon-down{
+	width:203px;
+	height:28px;
+	background:#fff;
+	position: absolute;
+	bottom:-14px;
+	left:234px;
+	margin-top:0;
+}
+.tese{
+	width:100%;
+	height: 818px;
+	background:#ececec;
+	padding-top:119px;
+	padding-bottom: 115px;
+}
+.tese .content{
+	position:relative;
+}
+.tese .top,.tese .bottom{
+	width:100%;
+}
+.tese .bottom{
+	position:absolute;
+	top:402px;
+	left:0;
+}
+.tese .top .topl,.tese .bottom .bottomr{
+	width:520px;
+	float:left;
+}
+.tese .top .topr,.tese .bottom .bottoml{
+	width:480px;
+	float:left;
+	
+}
+.tese .top .topr .line2,.tese .bottom .bottoml .line2{
+	width:39px;
+	height:3px;
+	background:#4dbbaa;
+}
+.tese .top .topr .text{
+	margin-top:78px;
+	margin-left:80px;
+}
+.tese .top .topr .text .item,.tese .bottom .bottoml .text .item{
+	font-family: "方正兰亭黑_GBK";
+	font-size:22px;
+	line-height:27px;
+	color:#516275;
+	margin-top:30px;
+}
+.tese .top .topr .text .item img,.tese .bottom .bottoml .text .item img{
+	margin-right:10px;
+}
+.tese .bottom .bottoml .text{
+	margin-top:78px;
+	margin-right:80px;
+}
+.tese .bottom .bottoml .text .item1{
+	margin-top:60px;
+}
+.con-three{
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+}
+.txt-three{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 241px;
+	text-align: center;
+	color: #fff;
+	background: rgba(110,198,184,0.5);
+	display: none;
+}
+.txt-three div{
+	width:96px;
+	height:25px;
+	font-family: "方正兰亭黑_GBK";
+	font-size: 14px;
+	color:#fff;
+	display: block;
+	border:1px solid #fff;
+	border-radius: 5px;
+	margin-left: 124.5px;
+	margin-top:104px;
+	line-height:25px;
+}
+#jswbox{
+	width:1049px; 
+	margin:0 auto;
+	position:relative;
+	margin-top:30px;
+}
+#jswbox ul{
+	position:relative;
+	height:267px;
+}
+#jswbox li{
+	position:absolute;
+	width:0;
+	height:0;
+	z-index:0;
+	cursor:pointer;
+	overflow:hidden;
+	top:152px; 
+	left:10px;
+}
+#jswbox li img{
+	width:100%;
+	height:100%;
+	vertical-align:top; 
+	float:left; 
+	border:0;
+}
+#jswbox .prev{ 
+	display:block;
+	z-index:100;
+	position:absolute;
+	left:-68px;
+	top:107.5px;
+	width:30px;
+	height:52px;
+	background:url(../images/prev2.png) no-repeat center center;
+	background-size:30px 52px;
+}
+#jswbox .next{ 
+	display:block;
+	z-index:100;
+	position:absolute;
+	right:-68px;
+	top:107.5px;
+	width:30px;
+	height:52px;
+	background:url(../images/next2.png) no-repeat center center;
+	background-size:30px 52px;
+}

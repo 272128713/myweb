@@ -1,0 +1,59 @@
+<html>
+<head>
+<title></title>
+    <meta charset="utf-8">
+    <style>
+    	*{
+    		margin:0;
+    		padding:0;
+    	}
+    	#mask{
+    		width:100%;
+    		height:100%;
+			background-image: url(images/22.png);
+			background-size: 100% 100%;
+			z-index:-1;
+			display:none;
+    	}
+    </style>
+</head>
+<body>	
+	<div id="mask"></div>
+<script language="JavaScript">
+    <!--  
+function getOs() {
+		if(is_weixin()){
+			var ele = document.getElementById("mask");
+			ele.style.display = "block";
+		}else{
+
+		   if(isiphone=navigator.userAgent.indexOf("iPhone")>0){
+				window.location.href="https://itunes.apple.com/cn/app/kong-zhong-ji-jiu/id1065753699?mt=8"
+		   }
+		   if(isAndroid=navigator.userAgent.indexOf("Android")>0){
+				window.location.href="http://www.skyhospital.net/android/kfirstaid.apk"
+		   }
+	   }
+   }
+   
+
+getOs();
+    -->
+    
+     function is_weixin(){   
+    var ua = navigator.userAgent.toLowerCase();  
+    if(ua.match(/MicroMessenger/i)=="micromessenger"){   
+        return true;   
+    }  
+    else{   
+        return false;   
+    }   
+}
+</script>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,133 @@
+.title{
+    margin-top: 100px;
+    font-size: 22px;
+    color:#636363;
+    margin-bottom: 20px;
+}
+.title span{
+    font-size: 20px;
+    position: relative;
+    top:1.5px;
+}
+.xieyi{
+    color:#4dbbaa;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+.formbox{
+    margin-bottom: 172px;
+}
+.form{
+    float: left;
+    width: 500px;
+    height: 377px;
+}
+.formimg{
+    float: left;
+    width: 500px;
+    height: 377px;
+    background: url("../images/regist.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.formimg .p1{
+    position: absolute;
+    top:153px;
+    left: 81px;
+    color:#636363;
+    font-size: 17px;
+}
+.formimg .p2{
+    position: absolute;
+    top:153px;
+    left: 288px;
+    color:#636363;
+    font-size: 17px;
+}
+.formimg .p3{
+    position: absolute;
+    top:199px;
+    left: 170px;
+    color:#636363;
+    font-size: 17px;
+    background: rgba(234,234,234,0.5);
+    border-radius: 2px;
+    line-height: 29px;
+    padding: 0 26px;
+}
+.int{
+    margin-bottom: 20px;
+}
+.int .lable{
+    float: left;
+    width: 88px;
+    height: 33px;
+    line-height: 33px;
+    color:#636363;
+    font-size: 20px;
+    text-align: right;
+}
+.int .ipt{
+    float: left;
+}
+.int .ipt input{
+    height: 31px;
+    width: 245px;
+    margin-left: 20px;
+    outline: none;
+    line-height: 31px;
+    color:#636363;
+    font-size: 19px;
+    padding:0 10px;
+    border: 1px solid #a0a0a0;
+}
+.int .ipt select{
+    height: 31px;
+    min-width: 123px;
+    margin-left: 20px;
+    outline: none;
+    line-height: 31px;
+    color:#636363;
+    font-size: 19px;
+    padding:0 10px;
+    border: 1px solid #a0a0a0;
+}
+.ipt1{
+    float: left;
+}
+.ipt1 input{
+    height: 31px;
+    width: 135px;
+    margin-left: 20px;
+    outline: none;
+    line-height: 31px;
+    color:#636363;
+    font-size: 19px;
+    padding:0 10px;
+    border: 1px solid #a0a0a0;
+}
+.getcode{
+    margin-left: 13px;
+    width: 94px;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    background: #e9e9e9;
+    float: left;
+    cursor: pointer;
+    color:#636363;
+}
+.submit{
+    height: 33px;
+    width:266px;
+    background: #4dbbaa;
+    font-size: 20px;
+    line-height: 33px;
+    color:#fff;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 108px;
+    position: relative;
+    top:12px;
+}

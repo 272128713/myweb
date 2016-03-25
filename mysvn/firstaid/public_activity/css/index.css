@@ -1,0 +1,88 @@
+.container{
+	width: 100%;
+	position: relative;
+}
+.container .tab{
+	width:100%;
+	padding-top:18px;
+	position: relative;
+}
+.container .inner{
+	border-top:5px solid #ededed;
+}
+.container ul li{
+	width:100%;
+	padding-left:2.5%;
+	padding-right: 2.5%;
+	border-bottom: 5px solid #ededed;
+}
+.container .volist:last-child{
+	border-bottom:0;
+}
+.volist{
+	position:relative;
+}
+.volist .p1{
+	font-size:15px;
+	color:#333;
+	line-height:15px;
+	margin-top:15px;
+	margin-bottom:20px;
+}
+.volist .p2{
+	font-size:12px;
+	color:#666;
+	line-height:12px;
+}
+.volist .p3{
+	margin-top:15px;
+	margin-bottom:15px;
+}
+.volist .count{
+	width:100%;
+	border-top: 1px solid #ccc;
+	padding-top: 9px;
+	padding-bottom:9px;
+}
+.volist .count p{
+	font-size: 12px;
+	color:#333;
+}
+.volist .count .renshu{
+	float:left;
+}
+.volist .count .huodong{
+	float:right;
+}
+.volist .count .jx{
+	color:#f1623c;
+}
+.volist .count img{
+	height:14px;
+	top:2px;
+	margin-right: 5px;
+	position:relative;
+}
+.volist .djs{
+	width:5em;
+	position:absolute;
+	top:0;
+	font-size:12px;
+	color:#fff;
+	line-height:18px;
+	right:2.5%;
+	background-image: url(../images/time_bg.png);
+	background-repeat: no-repeat;
+	background-size:100% 100%;
+	background-position: center center;
+	padding-left:0.5em;
+	padding-right:0.5em;
+	text-align:center;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+.volist .djs span{
+	color:#fff;
+	font-size:15px;
+	line-height:23px;
+}

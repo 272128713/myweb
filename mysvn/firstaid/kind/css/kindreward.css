@@ -1,0 +1,180 @@
+.container{
+	width: 100%;
+}
+.container .banner{
+	width:100%;
+	position: relative;
+	background-position: center;
+    background-size: cover;
+}
+.container .banner .text{
+	padding-top:50px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+.text .p1{
+	font-size:30px;
+	color:#fff;
+	margin-bottom: 25px;
+}
+.text .p2{
+	font-size:12px;
+	color:#fff;
+}
+.container .banner img{
+	width:100%;
+	display: block;
+}
+#item1 .top{
+	padding-top:25px;
+	padding-bottom: 23px;
+	border-bottom: 5px solid #ededed;
+	position: relative;
+}
+#item1 .top img{
+	width:17px;
+	height:10px;
+	position: absolute;
+	top:-9px;
+	left:14%;
+}
+#item1 .top p{
+	font-size: 12px;
+	color:#333;
+	text-align: center;
+}
+#item1 .top p span{
+	color:#dd403b;
+}
+#item1 .top .btn{
+	width:42%;
+	font-size:14px;
+	color:#fff;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+	background:#dd403b;
+	border-radius: 5px;
+	margin:0 auto;
+	margin-top:20px;
+}
+#item1 ul{
+	width:3.04rem;
+	margin:0 auto;
+}
+#item1 ul li{
+	padding-top:10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #c8c8c8;
+}
+#item1 ul li:last-child{
+	border-bottom:0;
+}
+#item1 ul li .tx{
+	width:0.4rem;
+	padding-right:0.1rem;
+	float:left;
+} 
+#item1 ul li .tx img{
+	width:0.3rem;
+	margin-top:0.05rem;
+}
+#item1 ul li .info{
+	width:2.64rem;
+	float:left;
+}
+#item1 ul li .info .left{
+	float:left;
+}
+#item1 ul li .info .left .name{
+	font-size:13px;
+	line-height:0.2rem;
+	color:#323232;
+}
+#item1 ul li .info .tz{
+	font-size:12px;
+	line-height:0.2rem;
+	color:#666;
+}
+.time{
+	text-align: right;
+}
+#item1 ul li .info .right{
+	float:right;
+}
+#item1 ul li .info .right .zan{
+	color:#505050;
+	font-size: 12px;
+	line-height: 0.2rem;
+}
+#item1 ul li .info .right span{
+	font-size: 12px;
+	color:#dd403b;
+}
+#item2 .tit{
+	padding-top:25px;
+	text-align:center;
+	font-size: 12px;
+	color:#333;
+}
+#item2 ul li{
+	width:100%;
+	padding-left:2.5%;
+	padding-right: 2.5%;
+	border-bottom: 5px solid #ededed;
+}
+.volist .jine{
+	position: absolute;
+	top:0;
+	right:2.5%;
+	font-size: 15px;
+	color:#dd403b;
+	line-height:15px;
+}
+#item2 .volist:last-child{
+	border-bottom:0;
+}
+.volist{
+	position:relative;
+}
+.volist .p1{
+	font-size:15px;
+	color:#333;
+	line-height:15px;
+	margin-top:15px;
+	margin-bottom:20px;
+}
+.volist .p2{
+	font-size:12px;
+	color:#666;
+	line-height:12px;
+}
+.volist .p3{
+	margin-top:15px;
+	margin-bottom:15px;
+}
+.volist .count{
+	width:100%;
+	border-top: 1px solid #ccc;
+	padding-top: 9px;
+	padding-bottom:9px;
+}
+.volist .count p{
+	font-size: 12px;
+	color:#333;
+}
+.volist .count .renshu{
+	float:left;
+}
+.volist .count .huodong{
+	float:right;
+}
+.volist .count .jx{
+	color:#f1623c;
+}
+.volist .count img{
+	height:14px;
+	top:2px;
+	margin-right: 5px;
+	position:relative;
+}

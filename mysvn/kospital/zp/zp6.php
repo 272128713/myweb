@@ -1,0 +1,1 @@
+<p>【岗位职责】</p><ul class='ul1'><li style='list-style-type:none;margin: 0'>移动医疗软件推广，诊所服务的营销工作</li></ul><p style='margin-top: 25px'>【任职要求】</p><ul class='ul1'>    <li>大专以上学历 </li>    <li>有app推广经验优先</li>    <li>从事过金融销售、医药推广工作优先</li></ul>

@@ -1,0 +1,670 @@
+.container{
+	width:100%;
+	position: relative;
+}
+.banner_activity{
+	width: 100%;
+    position: relative;
+    text-align: center;
+}
+.banner_activity .bg{
+	width:100%;
+	height:932px;
+    position: relative;
+    z-index:1;
+    background: url(../images/banner_activity_bg.png) no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+}
+.banner_activity .activity{
+	width:100%;
+	position: absolute;
+	z-index: 2;
+	top:172px;
+    left:0;
+}
+.activity_intro{
+	width:100%;
+	height:593px;
+	background:#fbe8c5;
+	position: relative;
+}
+.activity_intro .acintro{
+	width:100%;
+	text-align:center;
+	position:absolute;
+	top:-56px;
+	z-index:3;
+}
+.activity_intro .content{
+	padding-top:157px;
+}
+.activity_intro .content .name{
+	width:380px;
+	float:left;
+	font-family:"方正兰亭中黑_GBK";
+}
+.activity_intro .content .detail{
+	float:left;
+	width:498px;
+	height:435px;
+	border:1px solid #df3c33;
+	padding-left: 60px;
+	padding-right: 60px;
+	background:#fff url(../images/ac_klinic.png) no-repeat;
+	background-position: bottom center;
+    background-size: 656px 161px;
+}
+.on{
+	display: block;
+}
+.off{
+	display: none;
+}
+.activity_intro .content .detail p{
+	font-size: 30px;
+	font-family: "方正兰亭黑_GBK";
+	color: #383838;
+	text-align:left;
+	line-height:40px;
+}
+.activity_intro .content .detail .p1{
+	margin-top:158.5px;
+}
+.activity_intro .content .detail .p2{
+	margin-top:158.5px;
+}
+.activity_intro .content .detail .p3{
+	margin-top:58.5px;
+}
+.activity_intro .content .name .title{
+	color:#df3c33;
+	font-size:46px;
+	line-height:46px;
+	padding-top:40px;
+	padding-bottom:18px;
+	padding-left:30px;
+}
+.activity_intro .content .name .first,.activity_intro .content .name .second{
+	border-bottom:3px solid #df3c33;
+	font-size: 30px;
+	color:#383838;
+	padding-top:18px;
+	padding-bottom:18px;
+}
+.activity_intro .content .name span{
+	color:#ff5f3a;
+	font-size:48px;
+}
+.activity_intro .content .name ul li{
+	padding-left:30px;
+	cursor: pointer;
+}
+.activity_intro .content .name ul .select{
+	background:#f26e41;
+	color:#fff;
+}
+.activity_intro .content .name ul .select span{
+	color:#fff;
+}
+.activity_intro .content .name .third{
+	font-size: 30px;
+	color:#383838;
+	padding-top:18px;
+	padding-bottom:18px;
+} 
+.activity_intro .content .name .third span{
+	font-size:38px;
+}
+.huodong{
+    background-position: center;
+    background-size: cover;
+    height: 579px;
+    width: 100%;
+    padding-top:80px;
+}
+.huodong .content{
+	
+}
+.huodong .headtitle{
+	font-size:60px;
+	color:#f6c4c4;
+	font-family: ""方正兰亭特黑_GBK"";
+	text-align:center;
+}
+.huodong .hdcon{
+	font-size:36px;
+	color:#fff;
+	line-height:62px;
+	text-align:center;
+	height:124px;
+	width:80%;
+	margin:0 auto;
+	margin-top:40px;
+}
+.huodong .hdcon .jingxi{
+	font-size:48px;
+	color:#fffeb7;
+}
+.huodong .hd-name{
+	margin-top:100px;
+	margin-left:217.5px;
+	position:relative;
+}
+.huodong .hd-name .line{
+	width:527px;
+	height:2px;
+	background:#fff;
+	position:absolute;
+	top:43px;
+	left:19px;
+	z-index:1;
+}
+.huodong .hd-name ul li{
+	float:left;
+	width:182px;
+	z-index:2;
+}
+.huodong .hd-name ul li p{
+	font-size:30px;
+	color:#fff;
+	font-family: "方正兰亭中黑_GBK";
+	position:relative;
+	left:-22.5px;
+}
+.huodong .hd-name ul .second,.huodong .hd-name ul .fourth{
+	position:relative;
+	top:35px;
+}
+.huodong .hd-name ul .third{
+	position:relative;
+}
+.huodong .hd-name ul .select p{
+	color:#ffcd47;
+}
+.address{
+	width:100%;
+	height:462px;
+	background:#ebd3a4;
+}
+.address .content .di{
+	width:998px;
+	height:347px;
+	background:url(../images/di.png) no-repeat;
+	background-size:100% 100%;
+	background-position: center;
+	top:57.5px;
+	left:1px;
+	position:relative;
+	
+}
+.address .content .di .tit2{
+	width:100%;
+	font-size:46px;
+	color:#383838;
+	font-family: "方正兰亭中黑_GBK";
+	line-height:96px;
+	text-align: center;
+	padding-top:12px;
+	margin-left:0;
+}
+.address .content .di span{
+	font-size:30px;
+	color:#df3c33;
+}
+.address .content .di p{
+	font-size:30px;
+	color:#383838;
+	font-family: "方正兰亭黑_GBK";
+	margin-left:78px;
+	line-height:45px;
+}
+.download{
+	width:100%;
+	position: relative;
+	background:#fbe8c5;
+	padding-bottom:90px;
+}
+.download .content{
+	position:relative;
+}
+.download .content .code{
+	width:100%;
+	text-align: center;
+	position:absolute;
+	top:-35px;
+}
+.download .content .code .code1{
+	float:left;
+	margin-left:216px;
+}
+.download .content .code .code2{
+	float:left;
+	margin-left:194px;
+}
+.download .content .code p{
+	font-size: 28px;
+	color:#333333;
+	margin-top:20px;
+}
+.download .content .two{
+	margin-top:120px;
+	margin-left:247.5px;
+}
+.download .content .subtitle{
+	text-align: center;
+	font-size:30px;
+	color:#4c4c4c;
+	margin-top:35px;
+	font-family: "方正兰亭中黑_GBK";
+}
+.download .content .jiaose{
+	width:100%;
+}
+.download .content .jiaose .tit3{
+	width:170px;
+	height:48px;
+	background:#df3c33;
+	line-height:48px;
+	color:#fff;
+	font-size: 30px;
+	font-family:"方正兰亭中黑_GBK";
+	margin-left:415px;
+	text-align:center;
+	margin-top:60px;
+}
+.download .content .jiaose img{
+	margin-left:92.5px;
+}
+.download .content .jiaose .lxjh{
+	width:100%;
+}
+.lxjh .lx{
+	float:left;
+	width:196px;
+	height:196px;
+	background:url(../images/ac_lx.png) no-repeat;
+	background-size:100% 100%;
+	background-position: center;
+	font-size:42px;
+	font-family:"方正兰亭中黑_GBK";
+	color:#fff;
+	text-align:center;
+}
+.lxjh .lx p{
+	margin-top:77px;
+}
+
+.lxjh .first{
+	top:-4px;
+	left:-5px;
+	position: relative;
+}
+.lxjh .second{
+	margin-left:72px;
+	margin-right:72px;
+	top:-4px;
+	left:-2px;
+	position: relative;
+}
+.lxjh .third{
+	margin-right:72px;
+	top:-4px;
+	position: relative;
+}
+.lxjh .fourth{
+	top:-4px;
+	left:4px;
+	position: relative;
+}
+.download .content .jiaose .jsintro{
+	width:100%;
+}
+.jsintro p{
+	width:196px;
+	float:left;
+	font-size:28px;
+	color:#516275;
+	font-family: "方正兰亭黑_GBK";
+	line-height:45px;
+	text-align:center;
+}
+.jsintro .p2{
+	width:252px;
+	margin-left:44px;
+	margin-right:44px;
+}
+.jsintro .p3{
+	width:230px;
+	margin-right:38px;
+}
+.hehuo{
+	width:100%;
+	position:relative;
+}
+.hehuo .banner{
+	width:100%;
+	height:1650px;
+    background:#fbe8c5 url(../images/100wan.png) no-repeat;
+    background-position: center;
+    background-size:100% 100%;
+	position:relative;
+	z-index:-1;
+}
+.hehuo .banner .xuedi{
+	width:1111px;
+	height:623px;
+    position: relative;
+    background: url(../images/xue.png) no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+	top:928px;
+	z-index:2;
+	margin:0 auto;
+}
+.hehuo .banner .xuedi div{
+	background: url(../images/3di.png) no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+	position:absolute;
+	color:#fff;
+	text-align:center;
+}
+.hehuo .banner .xuedi .div1,.hehuo .banner .xuedi .div2{
+	width:348px;
+	font-family: "方正兰亭中黑_GBK";
+	font-size:34.62px;
+	line-height:34.62px;
+	padding-top:145.2px;
+	padding-bottom:145.5px;
+}
+.hehuo .banner .xuedi .div1{
+	top:95px;
+	left:50px;
+	z-index:3;
+}
+.hehuo .banner .xuedi .div2{
+	top:195px;
+	left:390px;
+	z-index:4;
+}
+.hehuo .banner .xuedi .div3{
+	top:95px;
+	right:50px;
+	z-index:5;
+	font-size:25px;
+	line-height:38px;
+	padding:82px 70px;
+	text-align:left;
+	font-family: "方正兰亭黑_GBK";
+}
+.hehuo .banner .xuedi .div3 span{
+	font-family: "方正兰亭中黑_GBK";
+	font-size:34.62px;
+	line-height:46px;
+}
+.hehuo .banner p{
+	width:1000px;
+	text-align:center;
+	font-family: "方正兰亭特黑_GBK";
+	font-size:44px;
+	color:#fff;
+	margin:0 auto;
+	position:relative;
+	top:955px;
+}
+.hehuo .banner p span{
+	width:85px;
+	height:5px;
+	background:#fff;
+	display:block;
+	margin-left:457.5px;
+	margin-top:35px;
+}
+.tese{
+	width:100%;
+	height:3810px;
+	background:#fbe8c5;
+}
+.tese .content{
+	position:relative;
+}
+.tese .content .fuwu{
+	width:100%;
+	position:absolute;
+	top:115px;
+    left: 0;
+}
+.tese .content .fuwu .two{
+	margin-left:255px;
+}
+.tese .content .fuwu .head{
+	width:100%;
+	text-align:center;
+	margin-top:40px;
+	margin-bottom:47px;
+	font-size:30px;
+	color:#4c4c4c;
+	font-family: "方正兰亭中黑_GBK";
+}
+.tese .content .fuwu .di1{
+	width:1000px;
+	height:527px;
+	background: url(../images/di1.png) no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+	position:relative;
+	position:absolute;
+	text-align:center;
+}
+.tese .content .fuwu .di1 .title{
+	position:relative;
+	top:43px;
+	font-size:56px;
+	line-height:56px;
+	color:#ba0909;
+	font-family: "方正兰亭中黑_GBK";
+}
+.tese .content .fuwu .di1 .chatu{
+	margin-top:97px;
+}
+.tese .content .fuwu .di1 .state{
+	margin-top:8px;
+	font-size:22px;
+	line-height:22px;
+	color:#2c2c2c;
+	font-family: "方正兰亭细黑_GBK";
+}
+.tese .content .fuwu .di1 .red{
+	font-size:30px;
+	margin-top:12px;
+	color:#ba0909;
+	font-family: "方正兰亭中黑_GBK";
+}
+.tese .content .fuwu .di1 .last{
+	margin-top:12px;
+	font-size:22px;
+	line-height:22px;
+	color:#2c2c2c;
+	font-family: "方正兰亭细黑_GBK";
+}
+.tese .content .fuwu .di2{
+	width:1000px;
+	height:806px;
+	background: url(../images/di2.png) no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+	position:relative;
+	position:absolute;
+	text-align:center;
+	top:799px;
+}
+.tese .content .fuwu .di2 .title{
+	position:relative;
+	top:156px;
+	left:-16px;
+	font-size:56px;
+	line-height:56px;
+	color:#ba0909;
+	font-family: "方正兰亭中黑_GBK";
+}
+.tese .content .fuwu .di2 .con{
+	width:800px;
+	margin:0 auto;
+	top:237px;
+	position:relative;
+	text-align:right;
+}
+.tese .content .fuwu .di2 .con .lpart{
+	float:left;
+	width:430px;
+	padding-top:15px;
+}
+.di2 .con .lpart .one{
+	font-size:22px;
+	line-height:33px;
+	color:#2c2c2c;
+	font-family: "方正兰亭细黑_GBK";
+}
+.tese .content .fuwu .di2 .con .rpart{
+	float:left;
+	width:345px;
+	margin-left:25px;
+}
+.di2 .con .lpart .fuc{
+	font-size:30px;
+	color:#ba0909;
+	margin-top:8px;
+	margin-bottom:8px;
+	font-family: "方正兰亭中黑_GBK";
+}
+.tese .content .fuwu .di3{
+	width:1000px;
+	height:620px;
+	background: url(../images/di3.png) no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+	position:relative;
+	position:absolute;
+	text-align:center;
+	top:1465px;
+}
+.tese .content .fuwu .di3 .title{
+	top:110px;
+	left:-22px;
+}
+.tese .content .fuwu .di3 .con{
+	top:195px;
+	text-align:left;
+}
+.tese .content .fuwu .di3 .con .rpart{
+	margin-left:0;
+	margin-right:25px;
+}
+.tese .content .fuwu .di4{
+	width:1000px;
+	height:877px;
+	background: url(../images/di4.png) no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+	position:relative;
+	position:absolute;
+	text-align:center;
+	top:2056px;
+}
+.tese .content .fuwu .di4 .con .lpart{
+	padding-top:5px;
+}
+.tese .content .fuwu .di4 .con .rpart{
+	padding-top:16px;
+}
+.tese .content .fuwu .di5{
+	width:1000px;
+	height:585px;
+	background: url(../images/di5.png) no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+	position:relative;
+	position:absolute;
+	text-align:center;
+	top:2779px;
+}
+.tese .content .fuwu .di5 .title{
+	top:110px;
+	left: -25px;
+}
+.tese .content .fuwu .di5 .chatu{
+	margin-top:175px;
+}
+.tese .content .fuwu .four{
+	position:absolute;
+	top:3460px;
+	left:255px;
+}
+.clinic_dis{
+	width:100%;
+	text-align:center;
+	background:#fbe8c5;
+	position:relative;
+}
+#jswbox{
+	width:1049px; 
+	margin:0 auto;
+	position:relative;
+	padding-bottom:50px;
+}
+#jswbox ul{
+	position:relative;
+	height:267px;
+}
+#jswbox li{
+	position:absolute;
+	width:0;
+	height:0;
+	z-index:0;
+	cursor:pointer;
+	overflow:hidden;
+	top:152px; 
+	left:10px;
+}
+#jswbox li img{
+	width:100%;
+	height:100%;
+	vertical-align:top; 
+	float:left; 
+	border:0;
+}
+#jswbox li p{
+	color:#000;
+	font-size:24px;
+}
+#jswbox .prev{ 
+	display:block;
+	z-index:100;
+	position:absolute;
+	left:-68px;
+	top:107.5px;
+	width:30px;
+	height:52px;
+	background:url(../images/zuo.png) no-repeat center center;
+	background-size:30px 52px;
+}
+#jswbox .next{ 
+	display:block;
+	z-index:100;
+	position:absolute;
+	right:-68px;
+	top:107.5px;
+	width:30px;
+	height:52px;
+	background:url(../images/yoou.png) no-repeat center center;
+	background-size:30px 52px;
+}
+.clinic_dis .foot{
+	width:100%;
+	height:380px;
+	background:#fbe8c5 url(../images/dibu.png) no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+    position:relative;
+}

@@ -1,0 +1,127 @@
+.content{
+    padding-top: 20px;
+    background-image: url("../images/back.png") ;
+    padding-bottom: 10px;
+}
+.content .title{
+    font-size: 16px;
+    color:#4dbbaa;
+    line-height: 27px;
+    border:0;
+    border-bottom: 3px;
+    border-image:url("../images/line3.png");
+    text-align: center;
+    margin-bottom: 20px;
+}
+.title span{
+    line-height: 27px;
+    padding-bottom: 5px;
+    border-top:0;
+    border-image:url("../images/line3.png") 30 0;
+    font-size: 16px;
+}
+.content .p1{
+    color:#4c4c4c;
+    font-size: 13px;
+    line-height: 20px;
+    text-indent: 2em;
+    width: 80.5%;
+    margin:0 auto;
+
+}
+.content .p1 span{
+    color:#4dbbaa;
+}
+.imglist{
+    width: 70%;
+    margin: 10px auto;
+    margin-bottom: 0;
+}
+.imglist img{
+    width: 100%;
+}
+.pst{
+    text-align: center;
+    margin-bottom: 5px;
+}
+.pst span{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 2em;
+    color:#4dbbaa;
+    font-size: 13px;
+    background-image: url("../images/position.png");
+    background-repeat: no-repeat;
+    background-size: 17px 20px;
+}
+.tel{
+    text-align: left;
+}
+.tel span{
+
+    margin:0 auto;
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 2em;
+    color:#4dbbaa;
+    font-size: 13px;
+    background-image: url("../images/tel.png");
+    background-repeat: no-repeat;
+    background-size: 18px 17px;
+    background-position: 0 5px;
+}
+
+/*server服务*/
+.title2{
+    color:#666666;
+    font-size: 15px;
+    text-align: center;
+}
+.ultitle{
+    width: 80%;
+    color:#333;
+    font-size: 14px;
+    margin: 0 auto;
+}
+.content ul{
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 12px;
+
+}
+.content ul li {
+    color:#333;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+.content ul li:before{
+    content: '';
+    display: inline-block;
+    height: 19px;
+    width: 29px;
+    background-image: url("../images/01.png");
+    background-size: cover;
+    position: relative;
+    top:5px;
+    left:-2px;
+}
+.content ul li:nth-child(2):before{
+    background-image: url("../images/02.png");
+}
+.content ul li:nth-child(3):before{
+    background-image: url("../images/03.png");
+}
+.content ul li:nth-child(4):before{
+    background-image: url("../images/04.png");
+}
+.content ul li:nth-child(5):before{
+    background-image: url("../images/05.png");
+}
+.content ul li:nth-child(6):before{
+    background-image: url("../images/06.png");
+}
+.list2{
+    padding-left: 32px;
+    color:#4c4c4c;
+}

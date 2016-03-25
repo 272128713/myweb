@@ -1,0 +1,86 @@
+.mui-content{
+	padding-bottom: 100px;
+}
+.mui-content .title{
+	font-size:14px;
+	border-bottom:1px solid #ccc;
+	padding-top:10px;
+	padding-bottom: 8px;
+}
+.mui-content .pro_list{
+	width:100%;
+	padding-top:12px;
+	padding-bottom:10px;
+	position: relative;
+}
+.mui-content .pro_list .pic{
+	width:20%;
+	float:left;
+	border:1px solid #ccc;
+}
+.mui-content .pro_list .proinfo{
+	width:80%;
+	padding-left: 5%;
+	float:left;
+	position: relative;
+}
+.mui-content .pro_list .pic img{
+	width:100%;
+	display: block;
+}
+.proinfo .pro_name{
+	font-size:15px;
+	line-height:15px;
+	color:#333333;
+	margin-top:5px;
+}
+.proinfo .pro_detail{
+	font-size:12px;
+	color:#666666;
+	margin-top:10px;
+}
+.proinfo .price{
+	font-size:12px;
+	line-height:12px;
+	color:#ff0000;
+	margin-top:10px;
+}
+.mui-content .pro_list .proinfo span{
+	width:30px;
+	height:30px;
+	position:absolute;
+	right: 0;
+	bottom:-2px;
+	background:url(../images/xuan.png) no-repeat;
+	background-size:18px 18px;
+	background-position:center bottom;
+}
+.choosen{
+	width:100%;
+	padding-top:15px;
+	padding-bottom:15px;
+	padding-left:2.5%;
+	padding-right:2.5%;
+	position:fixed;
+	bottom:0;
+	border-top:1px solid #ccc;
+	background:#fefefe;
+}
+.choosen p{
+	font-size:14px;
+}
+.choosen .jine{
+	color:#ff0000;
+}
+.choosen .button{
+	width:26%;
+	padding-top:10px;
+	padding-bottom:10px;
+	background:#dd403b;
+	text-align: center;
+	color:#fff;
+	border-radius: 5px;
+	position:absolute;
+	right:2.5%;
+	top:15px;
+}

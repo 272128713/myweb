@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>公益慈善机构</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/charityOrg.css" />
+	</head>
+	
+	<body>
+		<div class="headtitle">
+			<div class="mui-content">
+				<p class="tit">已有志愿者机构：589家</p>
+				<div class="area">
+					<img class="sanjiao" src="images/rightbg.png">
+					<div class="text">地区筛选</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div class="org">
+			<div class="mui-content">
+				<img class="logo" src="images/ologo1.png">
+				<div class="orgintro">
+					<p class="name">空中急救志愿者联盟<p>
+					<p class="start">成立时间：2015年</p>
+					<p class="nature">机构性质：地方性企业组织</p>
+				</div>
+				<div class="clear"></div>
+				<div class="line"></div>
+				<div class="count">
+					<p class="renshu">
+						<img src="images/ren.png">
+						注册志愿者20人
+					</p>
+					<p class="huodong">
+						<img src="images/sidai.png">
+						发布慈善公益活动7次
+					</p>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+		<div class="org">
+			<div class="mui-content">
+				<img class="logo" src="images/ologo2.png">
+				<div class="orgintro">
+					<p class="name">中国心胸血管麻醉学会<p>
+					<p class="start">成立时间：2015年</p>
+					<p class="nature">机构性质：国家I级社会学术团体</p>
+				</div>
+				<div class="clear"></div>
+				<div class="line"></div>
+				<div class="count">
+					<p class="renshu">
+						<img src="images/ren.png">
+						注册志愿者258人
+					</p>
+					<p class="huodong">
+						<img src="images/sidai.png">
+						发布慈善公益活动12次
+					</p>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+		<div class="org">
+			<div class="mui-content">
+				<img class="logo" src="images/ologo3.png">
+				<div class="orgintro">
+					<p class="name">北京市紧急救援基金会<p>
+					<p class="start">成立时间：2006年5月</p>
+					<p class="nature">机构性质：地方性公募基金会</p>
+				</div>
+				<div class="clear"></div>
+				<div class="line"></div>
+				<div class="count">
+					<p class="renshu">
+						<img src="images/ren.png">
+						注册志愿者586人
+					</p>
+					<p class="huodong">
+						<img src="images/sidai.png">
+						发布慈善公益活动33次
+					</p>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+		<div class="org">
+			<div class="mui-content">
+				<img class="logo" src="images/ologo4.png">
+				<div class="orgintro">
+					<p class="name">榆林市青少年社工协会<p>
+					<p class="start">成立时间：2006年5月</p>
+					<p class="nature">机构性质：地方性公益组织</p>
+				</div>
+				<div class="clear"></div>
+				<div class="line"></div>
+				<div class="count">
+					<p class="renshu">
+						<img src="images/ren.png">
+						注册志愿者586人
+					</p>
+					<p class="huodong">
+						<img src="images/sidai.png">
+						发布慈善公益活动33次
+					</p>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

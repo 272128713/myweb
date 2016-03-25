@@ -1,0 +1,262 @@
+.swiper-container {
+    width: 100%;
+    height: 625px;
+    position: relative;
+}
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    height: 582px;
+}
+.swiper-button-prev.swiper-button-white, .swiper-container-rtl .swiper-button-next.swiper-button-white{
+	background-image:none;
+}
+.swiper-button-next.swiper-button-white, .swiper-container-rtl .swiper-button-prev.swiper-button-white{
+    background-image:none;
+}
+.mask{
+	width:100%;
+	height:582px;
+	background: rgba(0,0,0,0.5);
+	position:absolute;
+	top:0;
+	left:0;
+	text-align:center;
+}
+.mask img{
+	width:1000px;
+	margin-top:171.5px;
+}
+.head-title{
+	text-align:center;
+	font-size:34px;
+	color: #4dbbaa;
+	margin-top: 60px;
+	font-family: "方正兰亭中黑_GBK";
+}
+.head-title .hr{
+	width:56px;
+	height:3px;
+	background:#4dbbaa;
+	margin-left:18px;
+	margin-right:18px;
+	top:-11px;
+	display:inline-block;
+	position:relative;
+}
+
+.middle-title{
+	font-size: 62.5px;
+	color:#516275;
+	text-align:center;
+	margin-top:15px;
+	line-height:62.5px;
+	font-family: "方正兰亭特黑_GBK";
+}
+.foot-title{
+	font-size: 15.59px;
+	color:#fff;
+	text-align: center;
+	margin-top:18px;
+	font-family: "方正兰亭黑_GBK";
+}
+.foot-title span{
+	background-color:#4dbbaa;
+	margin:0 auto;
+	padding:5px 25px 5px 25px;
+	display:inline-block;
+}
+.download{
+	width: 100%;
+	height:745px;
+	position:relative;
+}
+.download .content{
+	padding-top: 238px;
+}
+
+.download_way{
+	font-family: "方正兰亭黑_GBK";
+	font-size: 29px;
+	color: #516275;
+}
+.iphone{
+	width:665px;
+	height:646px;
+	position:absolute;
+	bottom:0;
+	right:0;
+	z-index: -1;
+}
+.three{
+	margin-top:35px;
+}
+.three img{
+	display: block;
+	cursor: pointer;
+}
+.three .three-one{
+	width:158px;
+	margin-right:25px;
+	float:left;
+	text-align: center;
+}
+.three .three-one span{
+	font-family: "方正兰亭黑_GBK";
+	font-size: 23.23px;
+	color: #516275;
+	margin-top: 25px;
+	display:inline-block;
+}
+.fun{
+	width: 100%;
+	height: 536px;
+}
+.features{
+	height: 295px;
+	background: #e4e4e4;
+}
+.features .content{
+	padding-top: 45px;
+	position: relative;
+}
+.tese{
+	font-size: 36.48px;
+	color:#4c4c4c;
+	text-align: center;
+}
+.lingxing{
+	text-align: center;
+	margin-top:10px;
+}
+.four{
+	margin-top:70px;
+}
+.four .four-one{
+	width:250px;
+	padding-top: 25px;
+	padding-bottom: 30px;
+	float: left;
+	color:#fff;
+}
+.four .first{
+	background: #4dbbaa;
+}
+.four .second{
+	background: #5cc8b7;
+}
+.four .four-one img{
+	margin-left: 84.5px;
+	display: block;
+}
+
+.four .four-one .title{
+	font-family: "方正兰亭细黑_GBK";
+	font-size: 24.69px;
+	margin-top: 10px;
+	text-align: center;
+}
+.four .four-one .introduction{
+	font-family: "方正兰亭细黑_GBK";
+	font-size:14.15px;
+	line-height: 23px;
+	margin-top: 10px;
+	padding-left: 17px;
+	padding-right: 17px;
+}
+.clearfix{
+	clear: both;
+}
+.triangle{
+    position: absolute;
+    bottom:-24px;
+    left:447px;
+}
+.dynamic{
+	border-bottom: 45px solid #e4e4e4;
+}
+.dynamic .content{
+	padding-top: 45px;
+}
+.dynamic .content .news{
+	display: block;
+	margin-top: 60px;
+}
+.investment{
+	border-bottom: 60px solid #e4e4e4;
+	position:relative;
+}
+.investment img{
+	margin-top: 124px;
+	display: block;
+}
+.backR{
+	height:280px;
+	position:absolute;
+	right:0;
+	bottom:0;
+	background:#e4e4e4;
+}
+ul,li{margin:0;padding:0}
+#scrollDiv{
+    width:1000px;
+    margin-bottom: 170px;
+    margin-top:69px;
+}
+#scrollDiv li{
+    height:128px;
+    width: 50%;
+    float: left;
+    cursor: pointer;
+
+}
+#scrollDiv li:nth-child(1),#scrollDiv li:nth-child(4),#scrollDiv li:nth-child(5){
+    background: #eeeeee;
+}
+#scrollDiv li:hover{
+    background: #e5e5e5;
+
+}
+#scrollDiv .leftbox{
+    padding-top: 19px;
+    text-align: center;
+    width: 125px;
+    float: left;
+}
+#scrollDiv .leftbox .time-d{
+    font-size: 69.41px;
+    line-height: 69.41px;
+    color: #516275;
+}
+#scrollDiv .leftbox .time-y{
+    margin-top: 3px;
+    font-size: 17.35px;
+    line-height: 17.35px;
+    color: #516275;
+
+}
+#scrollDiv .rightbox{
+    padding-top: 25px;
+    padding-right: 28px;
+    float: left;
+    width: 346px;
+}
+#scrollDiv .rightbox .arttitle{
+    color: #516275;
+    width: 300px;
+    font-size: 23px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+#scrollDiv .rightbox .artdes{
+    color: #a0a0a0;
+    font-size: 14.5px;
+    line-height: 22px;
+    padding-top: 10px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}

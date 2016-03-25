@@ -1,0 +1,21 @@
+.container .header{
+	width:100%;
+	padding-top:20px;
+	padding-bottom: 15px;
+	border-bottom: 5px solid #ececec;
+}
+.container p{
+	padding-left:2.5%;
+	padding-right: 2.5%;
+	font-size:14px;
+}
+.container .p1{
+	color:#dd403b;
+}
+.container .p2{
+	color:#333333;
+	margin-top:5px;
+}
+.baseinfo .row:nth-child(4){
+	border-bottom: 1px solid #dd403b;
+}

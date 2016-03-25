@@ -1,0 +1,71 @@
+.container{
+	width:100%;
+}
+.container .tab{
+	width:100%;
+	padding-top:18px;
+	position: relative;
+}
+.container ul{
+	width:95%;
+	margin:0 auto;
+}
+.container ul li{
+	width:100%;
+	border-bottom: 1px solid #cccccc;
+}
+.volist img,.volist .name{
+	float:left;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.volist .delete{
+	float:right;
+	background:#dd403b;
+	padding:10px 20px;
+	font-size: 15px;
+	line-height: 15px;
+	color:#fff;
+	border-radius: 5px;
+}
+.volist img{
+	width:10%;
+}
+.volist .name{
+	font-size: 16px;
+	color:#222222;
+	line-height:16px;
+	margin-left: 3%;
+}
+.applylist img,.applylist .name{
+	float:left;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.applylist .time{
+	float:left;
+	font-size: 12px;
+	color:#666;
+	line-height:12px;
+	padding-top:10px;
+	padding-bottom:10px;
+	margin-left:29%;
+}
+.applylist .agree{
+	float:right;
+	background:#dd403b;
+	padding:10px 20px;
+	font-size: 15px;
+	line-height: 15px;
+	color:#fff;
+	border-radius: 5px;
+}
+.applylist img{
+	width:10%;
+}
+.applylist .name{
+	font-size: 16px;
+	color:#222222;
+	line-height:16px;
+	margin-left: 3%;
+}

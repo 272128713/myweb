@@ -1,0 +1,67 @@
+<extend name="Public/base" />
+
+<!-- 子导航 -->
+<!--block name="sidebar">
+    <include file="sidemenu" />
+</block-->
+
+<block name="body">
+	<script type="text/javascript" src="__STATIC__/uploadify/jquery.uploadify.min.js"></script>
+	<div class="main-title cf">
+		<h2>
+			编辑
+		</h2>
+	</div>
+	<!-- 标签页导航 -->
+<div class="tab-wrap">
+	<div class="tab-content">
+        <!-- 标题-->
+        <input type="text" id="title" class="text input-large" value="{$result['jobname']}" placeholder="请填写标题"/>
+	<!-- 表单 -->
+    </div>
+
+    <!-- 加载编辑器的容器 -->
+    <script id="container" name="content" type="text/plain">
+{$result['jobdetail']}
+    </script>
+
+    <div class="form-item cf" style="margin-top: 111px">
+        <button class="btn submit-btn ajax-post hidden" id="submit" type="submit" target-form="form-horizontal">确 定</button>
+        <button class="btn btn-return ajax-post hidden" onclick="history.back()" target-form="form-horizontal">返 回</button>
+    </div>
+    <script type="text/javascript" src="__STATIC__/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="__STATIC__/ueditor.all.min.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        ue = UE.getEditor('container');
+        function getContent(){
+            var content = ue.getContent();
+            return content;
+        }
+        $('#submit').click(function(){
+            var title = $('#title').val();
+            console.log(title);
+            var content = getContent();
+            console.log(content);
+            var id = {$id};
+            $.post("{:U('editDo')}",{'title':title,'content':content,'id':id},function(data){
+                if(data>0){
+                    window.location.href = "{:U('show')}";
+
+                }else{
+                    alert('修改失败');
+                }
+            },'json');
+
+        });
+    </script>
+</div>
+    <style>
+        #container{
+            margin-top: 20px;
+            width: 90%;
+            height: 400px;
+        }
+    </style>
+</block>

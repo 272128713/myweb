@@ -1,0 +1,155 @@
+<?php 
+	session_start();
+	$ss=$_SESSION['sos_ss'];
+	$id=$_GET['id'];
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>公益活动</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" href="css/swiper.min.css">
+		<link rel="stylesheet" type="text/css" href="css/public_index.css" />
+		<style>
+			.mui-content{
+				width: 96%;
+			}
+			.wrap{
+				padding:3px 0 10px 0;
+				width:100%;
+			}
+			.agency{
+				margin-top:5%;
+			}
+			.agency img{}
+			.loading{
+				position:absolute;
+				top: 50%;
+				background-size:40px 40px;
+				width: 40px;
+				height:40px;
+				margin-top:-20px;
+				margin-left:-20px;
+				left:50%;
+				z-index: 999;
+				background-image: url('images/loading.gif');
+				display: none;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="top-bg">
+				<div class="back"><img src="images/public_bg1.png"></div>
+				<div class="text">
+					
+				</div>
+			</div>
+			<!--底部滚动-->
+			<div class="scroll">
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="pull-left">
+								<p class="time">10.01</p>
+								<img class="timeline" src="images/timeline1.png">
+								<div class="ph_nike">
+									<img src="images/photo.png">
+									<p>李医生</p>
+								</div>
+							</div>
+							<div class="pull-left">
+								<p class="time">10.05</p>
+								<img class="timeline" src="images/timeline1.png">
+								<div class="ph_nike">
+									<img src="images/photo.png">
+									<p>李医生</p>
+								</div>
+							</div>
+							<div class="pull-left">
+								<p class="time">10.10</p>
+								<img class="timeline" src="images/timeline1.png">
+								<div class="ph_nike">
+									<img src="images/photo.png">
+									<p>李医生</p>
+								</div>
+							</div>
+							<div class="pull-left">
+								<p class="time">10.11</p>
+								<img class="timeline" src="images/timeline1.png">
+								<div class="ph_nike">
+									<img src="images/photo.png">
+									<p>李医生</p>
+								</div>
+							</div>
+							<div class="pull-left">
+								<p class="time">10.15</p>
+								<img class="timeline" src="images/timeline1.png">
+								<div class="ph_nike">
+									<img src="images/photo.png">
+									<p>李医生</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="triangle"></div>
+			</div>
+			
+			<div class="button">
+				<div class="btn">
+					<div class="btn1" onclick="window.location.href='public_list.php'">历届活动</div>
+				</div>
+				<div class="btn">
+					<div class="btn2">参与活动</div>
+				</div>
+			</div>
+		</div>
+		<div class="loading"></div>
+		<script src="../common/js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../common/js/swiper.min.js"></script>
+		<script type="text/javascript">
+		
+		
+		$(document).ready(function(){
+			var ww = $(window).width();
+			$('.triangle').css('left',(ww - 10)/2);
+		});
+		
+		
+		//图片滚动初始化
+			var mySwiper = new Swiper('.swiper-container',{
+		    	loop: true,
+				autoplay: 0,
+				loop : false,
+		  	});
+		ss='<?php echo $ss?>';
+		aid='<?php echo $id?>';
+		html="";
+		$.ajax({
+			type:"POST",
+			url:"../../1.0/get_public_welfare_activity_info.php",
+			data:{ss:ss,activity_id:aid},
+			dataType:"json",
+			beforeSend:function(){
+				$('.loading').show();
+			},
+			success:function(data){
+				rs=data.result;
+				$('.loading').hide();
+				html+="<p class='title'>"+rs.title+"</p><p>"+rs.content+"</p><p class="zhiyuan"><span class="xin"></span><span class="vol">志愿者</span><span class="num">15/"+rs.people_num+"</span></p>";
+				console.log(data);
+				$('.top-bg .text').html(html);
+			}
+			
+		});
+		</script>
+	</body>
+</html>

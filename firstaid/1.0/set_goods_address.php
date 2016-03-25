@@ -1,0 +1,99 @@
+<?php
+/*
+ * 空中急救模块API
+ * 1.3.6. set_org_active.php (提交机构活动)
+ */
+include(dirname(__FILE__) . "/common/inc.php");
+$config = new Config();
+$logger = Logger::getLogger(basename(__FILE__));
+$params = array(array("ss",true),array("area_code",true),array("address",true),array("receive_name",true),array("receive_phone",true),array("odnum",true));
+
+
+//print_r($_POST);
+$params = Filter::paramCheckAndRetRes($_POST, $params);
+if(!$params){
+	$logger->error(sprintf("params error. params is %s",v($_POST)));
+	ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER,1);
+}
+
+//获取参数
+$ss = $params['ss'];
+$area_code = $params['area_code'];
+$address = $params['address'];
+$receive_name = $params['receive_name'];
+$receive_phone = $params['receive_phone'];
+$odnum = $params['odnum'];
+
+
+$databaseManager = new DatabaseManager();
+$dbMaster = $databaseManager->getConn(); //连接sky_first_aid
+
+
+
+//数据库链接失败
+
+if(!$dbMaster){
+	$logger->error(sprintf("Database sky_first_aid connect fail."));
+	ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+}
+//验证session{}
+$sessionArr = $databaseManager->checkSession($ss);
+
+if(!$sessionArr){
+	$logger->error(sprintf(" Session fail."));
+	ErrCode::echoErr(ErrCode::API_ERR_INVALID_SESSION,1);
+
+}
+
+$userId = (int)$sessionArr['user_id'];
+
+//数据逻辑
+$sql = "insert into user_receive_address_info (user_id,area_code,address,createDate,receive_name,receive_phone) VALUES ('$userId','$area_code','$address',NOW(),'$receive_name','$receive_phone')";
+$res = $dbMaster->execute($sql);
+$sql = "select last_insert_id() from user_receive_address_info WHERE user_id = '$userId'";
+$resid = $dbMaster->getOne($sql);
+$logger->error(v($sql));
+$logger->error(v($resid));
+
+if($res){
+
+    $sql = "update user_buy_goods_info set order_state = 3,user_id='$userId',send_address_id='$resid' WHERE order_nums = '$odnum'";
+    $dbMaster->execute($sql);
+
+    ErrCode::echoJson('1','success',array());
+
+}
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

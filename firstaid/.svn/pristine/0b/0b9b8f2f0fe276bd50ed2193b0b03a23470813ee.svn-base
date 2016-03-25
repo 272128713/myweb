@@ -1,0 +1,663 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: cnx7
+ * Date: 2015/10/28
+ * Time: 17:17
+ */
+
+/**
+ * @param $uid 需要查询的用户id
+ * @return mixed|null 电话号码
+ * @throws Exception
+ */
+function getTel($uid)
+{
+    $dbObj = new DatabaseManager();
+    $dbSso = $dbObj->getSsoConn();
+    $sql = <<<T_ECHO
+SELECT mobile FROM sky_user_data_master.user_base_info WHERE user_id= "{$uid}";
+T_ECHO;
+    if ($tel = $dbSso->getOne($sql)) return $tel;
+    return null;
+}
+
+/**
+ * 查询SSO主表是否存在某用户
+ * @param $uid 用户ID
+ * @return bool|mixed 存在返回true否则返回false
+ */
+function isExistsUser($uid)
+{
+    $dbObj = new DatabaseManager();
+    $dbSso = $dbObj->getSsoConn();
+    $sql = <<<T_ECHO
+SELECT user_id FROM sky_user_data_master.user_base_info WHERE user_id= "{$uid}";
+T_ECHO;
+    return $dbSso->getOne($sql) ? true : false;
+}
+
+/**
+ * 查询是否存在好友
+ * @param $uid 用户ID
+ * @return bool|mixed 存在返回true否则返回false
+ */
+function isExistsFriend($uid, $linkman)
+{
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+    $sql = <<<T_ECHO
+SELECT friend_id FROM `sky_first_aid`.`user_friend_list` WHERE user_id= "{$uid}" and friend_id in ({$linkman});
+T_ECHO;
+
+    return $db->getOne($sql) ? true : false;
+
+}
+
+/**
+ * 获取用户是否拥有对某人的失联查看权限  有权限返回关系id
+ * @param $loginuid 当前用户ID
+ * @param $uid 被监护的用户id
+ * @return bool|mixed 权限表ID或者返回false无效
+ * @throws Exception
+ */
+function isAuthorized($loginuid, $uid)
+{
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+
+    $sql = <<<T_ECHO
+SELECT s.id FROM `sky_first_aid`.`user_supervise_info` AS s JOIN `sky_first_aid`.user_privilege_list AS p ON s.prey_id=p.user_id WHERE s.prey_id="{$uid}" AND s.hunter_id="{$loginuid}" AND s.TYPE=1 AND s.state=1
+T_ECHO;
+
+    if (!$s_id = $db->getOne($sql)) {
+        return false;
+    } else {
+        return $s_id;
+    }
+}
+
+/**
+ * 查询用户是否已存在主动监护人
+ * @param $uid 被查询的用户ID
+ * @return bool 是否已有主动监护人
+ * @throws Exception
+ */
+function hasPosLinkMan($uid)
+{
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+
+    $sql = <<<T_ECHO
+select hunter_id from `sky_first_aid`.`user_supervise_info` where prey_id="{$uid}" and type=1 and state=1;
+T_ECHO;
+
+    return $db->getOne($sql) ? true : false;
+}
+
+/**
+ * 查询用户是否已发送过监控请求
+ * @param $uid 当前用户id
+ * @param $linkman 被查询的用户ID
+ * @return bool 是否已有主动监护人
+ * @throws Exception
+ */
+function hasSendRequest($uid, $linkman)
+{
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+
+    $sql = <<<T_ECHO
+select hunter_id from `sky_first_aid`.`user_supervise_info` where prey_id="{$linkman}" and hunter_id="{$uid}" and type=1 and state=0;
+T_ECHO;
+
+    return $db->getOne($sql) ? true : false;
+}
+
+/**
+ * 设置失联联系人时 过滤已存在的
+ * @param $loginuser 被监护人
+ * @param $linkman 失联联系人列表
+ * @return mixed 过滤后的联系人列表
+ */
+function filterLinkMan($loginuser, $linkman)
+{
+
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+
+    $linkman_sql = implode(',', $linkman);
+
+    $sql = <<<T_ECHO
+SELECT hunter_id FROM `sky_first_aid`.`user_supervise_info` WHERE prey_id = '{$loginuser}' AND hunter_id IN ({$linkman_sql});
+T_ECHO;
+
+    if ($res = $db->getAll($sql)) {
+        foreach ($res as $k => $v) {
+            if (in_array($v['hunter_id'], $linkman)) {
+                foreach ($linkman as $lk => $lv) {
+                    if ($lv == $v['hunter_id']) unset($linkman[$lk]);
+                }
+            }
+        }
+    }
+
+    return !empty($linkman) ? $linkman : ErrCode::echoErr(ErrCode::API_ERR_LINKMAN_LAWLESS, 1);
+}
+
+function isLink($loginuser, $linkman)
+{
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+
+    $sql = <<<T_ECHO
+select hunter_id from `sky_first_aid`.`user_supervise_info` where prey_id="{$linkman}" and hunter_id="{$loginuser}" and type=0;
+T_ECHO;
+
+    return $db->getOne($sql) ? true : false;
+}
+
+/**
+ * 用户设置或删除救命稻草(被动监护人)
+ * @param $loginuser 当前登录用户ID（被监护人）
+ * @param $linkman 救命稻草（监护人）
+ * @param $flag 为真时删除操作
+ * @return bool
+ */
+function setLinkMan($loginuid, $linkman, $type, $flag = false)
+{
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+
+    if ($flag) {
+        /** 用户删除救命稻草   */
+        if (!empty($linkman[0])) {
+            if ($type) {
+                /** 删除围栏数据 */
+                $sql = <<<T_ECHO
+SELECT id FROM `sky_first_aid`.`user_supervise_info` WHERE prey_id='{$linkman}' AND hunter_id='{$loginuid}';
+T_ECHO;
+                if ($s_id = $db->getOne($sql)) {
+                    $sql = <<<T_ECHO
+DELETE FROM `sky_first_aid`.`user_activity_range` WHERE usid={$s_id};
+T_ECHO;
+                    $db->execute($sql);
+                }
+
+
+                //删除自己主动监护的人 单条
+                $sql = <<<T_ECHO
+DELETE FROM `sky_first_aid`.`user_supervise_info` WHERE prey_id="{$linkman}" AND hunter_id="{$loginuid}";
+T_ECHO;
+            } else {
+                //删除监护自己的人  单条
+                $sql = <<<T_ECHO
+DELETE FROM `sky_first_aid`.`user_supervise_info` WHERE prey_id="{$loginuid}" AND hunter_id="{$linkman}";
+T_ECHO;
+            }
+
+        } else {
+            /** 清空自己的被动监护人 */
+            $sql = <<<T_ECHO
+DELETE FROM `sky_first_aid`.`user_supervise_info` WHERE prey_id="{$loginuid} AND type=0";
+T_ECHO;
+        }
+    } else {
+        /** 用户添加救命稻草  */
+        $time = date('Y-m-d H:i:s', time());
+
+        if ($type) {//主动监护 默认是未通过 (登陆用户主动设置其他用户)
+            $sql = <<<T_ECHO
+INSERT INTO `sky_first_aid`.`user_supervise_info`(prey_id,hunter_id,type,createDate,state,on_off,on_time) VALUES("{$linkman}","{$loginuid}",1,"{$time}",0,1,"{$time}");
+T_ECHO;
+        } else {//被动监护直接设置
+            $str = "";
+            foreach ($linkman as $l) {
+                $str .= <<<T_ECHO
+("{$loginuid}","{$l}",0,"{$time}","1",1,"{$time}"),
+T_ECHO;
+            }
+
+            $sql = <<<T_ECHO
+INSERT INTO `sky_first_aid`.`user_supervise_info`(prey_id,hunter_id,type,createDate,state,on_off,on_time) VALUES{$str}
+T_ECHO;
+            $sql = substr($sql, 0, -1);
+        }
+    }
+
+    return $db->execute($sql) ? true : false;
+
+}
+
+/**
+ * 获取已设置的失联联系人（被监护人获取正在监护的人列表）
+ * @param $loginuid 被监护人id
+ * @return array|bool 正在监护我的人列表|空
+ * @throws Exception
+ *
+ * UPDATE：只获取被动监护的人员列表
+ * TIME:2015-10-29 16:54:45
+ */
+function getLinkMan($loginuid)
+{
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+//    $sql=<<<T_ECHO
+//    SELECT hunter_id FROM `sky_first_aid`.`user_supervise_info` WHERE prey_id="{$loginuid}" AND (TYPE=0 OR (TYPE=1 AND state=1 AND on_off=1));
+//T_ECHO;
+    $sql = <<<T_ECHO
+SELECT s.hunter_id,v.`image_ver` as pav,v.`base_ver` as piv FROM `sky_first_aid`.`user_supervise_info` s LEFT JOIN `sky_user_data_master`.`user_version_info` v ON s.hunter_id=v.user_id WHERE s.prey_id="{$loginuid}" AND s.TYPE=0;
+T_ECHO;
+    if ($res = $db->getAll($sql)) {
+        $rkMongo = new RKMongo();
+        $rkMongo->connect();
+        //GPS信息
+        for ($i = 0; $i < count($res); $i++) {
+            $temp = $rkMongo->getGPSAddress(1, $res[$i]['hunter_id']);
+            $res[$i]['gps'] = empty($temp['gps']) ? array() : $temp['gps'];
+            $res[$i]['address'] = empty($temp['address']) ? "" : $temp['address'];
+//            $res[$i]['gps']=$rkMongo->getMyLbs(1,$res[$i]['user_id']);
+        }
+        return $res;
+    } else {
+        return null;
+    }
+
+}
+
+/**
+ * 获取失联人信息（用户所监控的所有人员信息）
+ * @param $loginuid 用户id
+ * @return array|null 所监控的人员详情列表
+ * @throws Exception
+ */
+function getDamoclean($loginuid)
+{
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+    $sql = <<<T_ECHO
+SELECT u.user_id,u.user_name AS name,u.mobile,v.thumbnail_image_url AS img,v.image_ver AS pav,v.base_ver AS piv,p.linkman_flag,s.`type`,s.on_off,s.on_time
+FROM `sky_first_aid`.`user_supervise_info` AS s
+LEFT JOIN `sky_user_data_master`.`user_base_info` AS u ON s.prey_id=u.user_id
+LEFT JOIN `sky_user_data_master`.`user_version_info` AS v ON s.prey_id=v.user_id
+LEFT JOIN `sky_first_aid`.`user_privilege_list` AS p ON s.prey_id=p.user_id
+WHERE s.hunter_id={$loginuid} and (type=0 or ( type=1 and state=1))
+T_ECHO;
+
+    if ($res = $db->getAll($sql)) {
+        $rkMongo = new RKMongo();
+        $rkMongo->connect();
+        //GPS信息
+        for ($i = 0; $i < count($res); $i++) {
+            $temp = $rkMongo->getGPSAddress(1, $res[$i]['user_id']);
+            $res[$i]['gps'] = empty($temp['gps']) ? array() : $temp['gps'];
+            $res[$i]['address'] = empty($temp['address']) ? "" : $temp['address'];
+//            $res[$i]['gps']=$rkMongo->getMyLbs(1,$res[$i]['user_id']);
+        }
+
+        return $res;
+    } else {
+        return null;
+    }
+}
+
+/**
+ * 监控人开启监控开关
+ * @param $loginuid 监控人
+ * @param $uid 被监控人
+ * @param $flag 开关状态 1：开启 2：关闭
+ * @return bool
+ * @throws Exception
+ */
+function setOnOff($loginuid, $uid, $flag)
+{
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+
+    $sql = <<<T_ECHO
+UPDATE `sky_first_aid`.`user_supervise_info` SET on_off="{$flag}" WHERE prey_id="{$uid}" AND hunter_id="{$loginuid}";
+T_ECHO;
+
+    return $db->execute($sql) ? true : false;
+
+}
+
+/** 获取监控我的请求列表 */
+function getLinkManRequest($loginuid)
+{
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+
+    $sql = <<<T_ECHO
+SELECT hunter_id FROM `sky_first_aid`.`user_supervise_info` WHERE prey_id="{$loginuid}" AND TYPE=1 AND state=1;
+T_ECHO;
+
+    /** 如果已经存在监护人 则抛出错误 */
+    if ($db->getOne($sql)) ErrCode::echoErr(ErrCode::API_ERR_LINKMAN_EXISTS, 1);
+
+    $sql = <<<T_ECHO
+SELECT hunter_id,createDate FROM `sky_first_aid`.`user_supervise_info` WHERE prey_id="{$loginuid}" AND TYPE=1 AND state=0;
+T_ECHO;
+
+    if ($res = $db->getAll($sql)) {
+        return $res;
+    } else {
+        return null;
+    }
+}
+
+/**
+ * 同意或者拒绝监控请求
+ * @param $loginuid 被监护人ID
+ * @param $uid 监护人ID
+ * @param $flag 状态 1为同意 0关闭（无操作
+ * @return bool
+ */
+function repLinkManRequest($loginuid, $uid, $flag)
+{
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+
+    $time = date('Y-m-d H:i:s', time());
+
+
+    if ($flag) {
+        /** @var $sql 同意监控请求 */
+        $sql = <<<T_ECHO
+UPDATE `sky_first_aid`.`user_supervise_info` SET state={$flag},on_time="{$time}" WHERE prey_id="{$loginuid}" AND hunter_id="{$uid}";
+T_ECHO;
+
+    } else {
+
+        /** @var $sql 删除监控请求 发送通知 */
+        $sql = <<<T_ECHO
+DELETE FROM `sky_first_aid`.`user_supervise_info` WHERE prey_id="{$loginuid}" AND hunter_id="{$uid}";
+T_ECHO;
+    }
+
+    return $db->execute($sql) ? true : false;
+}
+
+/**
+ * 删除所有未通过的请求（在同意主动监控请求后调用）
+ * @param $uid 要清理的用户id
+ * @return bool
+ * @throws Exception
+ */
+function clearLinkManRequest($uid)
+{
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+
+    $sql = <<<T_ECHO
+DELETE FROM `sky_first_aid`.`user_supervise_info` WHERE prey_id="{$uid}" AND type=1 AND state=0;
+T_ECHO;
+    return $db->execute($sql) ? true : false;
+}
+
+/** 获取好友列表 添加主动监控使用 */
+function getLinkmanFriendList($uid)
+{
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+
+    /** 所有好友列表 */
+    $sql = <<<T_ECHO
+SELECT friend_id,image_ver pav,base_ver piv FROM `sky_user_data_master`.`user_base_info` b
+LEFT JOIN `sky_first_aid`.`user_friend_list` f ON f.friend_id=b.user_id
+LEFT JOIN `sky_user_data_master`.`user_version_info` v ON b.user_id=v.user_id
+WHERE f.user_id={$uid};
+T_ECHO;
+
+    if ($res = $db->getAll($sql)) {
+
+        foreach ($res as $r) {
+            $arr[] = $r['friend_id'];
+        }
+        $arr = implode(',', $arr);
+
+        /** 查出已经发送申请的好友 */
+        $sql = <<<T_ECHO
+SELECT * FROM `sky_first_aid`.`user_supervise_info` WHERE hunter_id="{$uid}" AND prey_id IN ({$arr}) and type=1 and state=0;
+T_ECHO;
+
+        $resarr = array();
+
+        /** 标记已经发送申请的好友 放到$resarr中 其他好友在$res中 */
+        if ($res2 = $db->getAll($sql)) {
+            $c = count($res);
+            for ($i = 0; $i < $c; $i++) {
+                foreach ($res2 as $r2) {
+                    if ($res[$i]['friend_id'] == $r2['prey_id']) {
+                        $res[$i]['wait'] = '1';
+                        array_unshift($resarr, $res[$i]);
+                        unset($res[$i]);
+                    }
+                }
+            }
+        }
+        $res = array_values($res);
+
+
+        /** 查出有被人主动监护的好友 */
+        foreach ($res as $r) {
+            $resstr[] = $r['friend_id'];
+        }
+        $resstr = implode(',', $resstr);
+        $sql = <<<T_ECHO
+SELECT prey_id FROM `user_supervise_info` WHERE TYPE=1 AND state=1 AND prey_id IN ({$resstr});
+T_ECHO;
+        /** 过滤掉有被人主动监护的好友 */
+        if ($res4 = $db->getAll($sql)) {
+            $count = count($res);
+            for ($i = 0; $i < $count; $i++) {
+                foreach ($res4 as $c) {
+                    if ($res[$i]['friend_id'] == $c['prey_id']) {
+                        unset($res[$i]);
+                    }
+                }
+            }
+        }
+        $res = array_values($res);
+
+
+        //查询所有被我被动监控的人  从好友列表中过滤
+        $sql = <<<T_ECHO
+SELECT prey_id FROM `sky_first_aid`.`user_supervise_info` WHERE hunter_id='{$uid}' AND TYPE=0
+T_ECHO;
+        /** 过滤掉让我被动监护的好友 */
+        if ($resbd = $db->getAll($sql)) {
+            $count = count($res);
+            for ($i = 0; $i < $count; $i++) {
+                foreach ($resbd as $c) {
+                    if ($res[$i]['friend_id'] == $c['prey_id']) {
+                        unset($res[$i]);
+                    }
+                }
+            }
+        }
+        return array_merge_recursive($resarr, $res);
+        /** $resarr 已申请的好友   $res 其他好友 */
+    }
+    return array();
+}
+
+/** 获取好友列表 添加救命稻草使用 */
+function getLinkmanFriendListJM($uid)
+{
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+
+    /** 所有好友列表 */
+    $sql = <<<T_ECHO
+SELECT friend_id uid,image_ver pav,base_ver piv FROM `sky_user_data_master`.`user_base_info` b
+LEFT JOIN `sky_first_aid`.`user_friend_list` f ON f.friend_id=b.user_id
+LEFT JOIN `sky_user_data_master`.`user_version_info` v ON b.user_id=v.user_id
+WHERE f.user_id={$uid};
+T_ECHO;
+
+    if ($res = $db->getAll($sql)) {
+
+        /** 查询出所有监控我的人 */
+        $sql = <<<T_ECHO
+SELECT hunter_id as friend_id FROM `sky_first_aid`.`user_supervise_info` WHERE prey_id="{$uid}"
+T_ECHO;
+
+        /** 把监控我的人从列表中过滤 */
+        if ($res3 = $db->getAll($sql)) {
+            for ($i = 0; $i < count($res); $i++) {
+                foreach ($res3 as $c) {
+                    if ($res[$i]['uid'] == $c['friend_id']) {
+                        unset($res[$i]);
+                    }
+                }
+            }
+        }
+        $res = array_values($res);
+
+        $rkMongo = new RKMongo();
+        $rkMongo->connect();
+        for ($i = 0; $i < count($res); $i++) {
+            $temp = $rkMongo->getGPSAddress(1, $res[$i]['uid']);
+            $res[$i]['gps'] = empty($temp['gps']) ? array() : $temp['gps'];
+            $res[$i]['address'] = empty($temp['address']) ? "" : $temp['address'];
+//            $res[$i]['gps']=$rkMongo->getMyLbs(1,$res[$i]['user_id']);
+        }
+
+
+        return $res;
+
+    }
+
+    return array();
+
+}
+
+/** 被监护人发送报警推送 */
+function sendWarnInfo($uid, $flag = 0,$longitude,$latitude)
+{
+
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+
+    $msgObj = array(
+        "type" => "FAH",
+        "ot" => !empty($flag) ? 6 : 5,
+        "src" => $uid,
+        "srcm" => getTel($uid),
+        "time" => time(),
+        "longitude"=>$longitude,
+        "latitude"=>$latitude,
+    );
+
+    if ($flag) {
+        /** 走出电子围栏 发送单条推送 */
+        $sql = <<<T_ECHO
+select hunter_id from `sky_first_aid`.`user_supervise_info` where prey_id="{$uid}" and type=1 and state=1 and on_off=1;
+T_ECHO;
+        $linkman = $db->getOne($sql);
+
+    } else {
+        /** 长时间未移动 发送多条推送 */
+        /** 更新：2015-11-16 10:31:02 走出电子围栏也发送多条推送   --DEL 2015-12-4 17:05:19 */
+        $sql = <<<T_ECHO
+    select hunter_id from `sky_first_aid`.`user_supervise_info` where prey_id="{$uid}" and (type=0 or ( type=1 and state=1)) and on_off=1;
+T_ECHO;
+        if ($res = $db->getAll($sql)) {
+            $linkman = array();
+            foreach ($res as $r) {
+                $linkman[] = $r['hunter_id'];
+            }
+        }
+    }
+
+    if (!empty($linkman)) {
+        $mecManager = new MecManager($uid, $msgObj, $dbObj->getUserInfoByUid($linkman));
+        $mecManager->sendMessage();
+    }
+
+}
+
+/** 清空失效的围栏信息 */
+/** 未使用 */
+function delActivityRange()
+{
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+
+    $sql = <<<T_ECHO
+DELETE FROM `sky_first_aid`.`user_activity_range` WHERE usid NOT IN (SELECT id FROM `sky_first_aid`.`user_supervise_info`)
+T_ECHO;
+
+    $db->execute($sql);
+}
+
+/** 获取用户的电子围栏信息 */
+function getUserActivity_range($s_id)
+{
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+    $sql = <<<T_ECHO
+SELECT range_info FROM `sky_first_aid`.`user_activity_range` WHERE usid={$s_id};
+T_ECHO;
+
+    return $db->getOne($sql);
+
+}
+
+/** 获取用户的主动监护人的监护id(已开启监控的) */
+function getUserLinkManA($uid)
+{
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+
+    $sql = <<<T_ECHO
+select id from `sky_first_aid`.`user_supervise_info` where prey_id="{$uid}" and type=1 and state=1 and on_off=1;
+T_ECHO;
+
+    return $db->getOne($sql);
+}
+
+/**
+ *求两个已知经纬度之间的距离,单位为米
+ * @param lng1 ,lng2 经度
+ * @param lat1 ,lat2 纬度
+ * @return float 距离，单位米
+ **/
+function getDistance($lng1, $lat1, $lng2, $lat2)
+{
+    //将角度转为狐度
+    $radLat1 = deg2rad($lat1);//deg2rad()函数将角度转换为弧度
+    $radLat2 = deg2rad($lat2);
+    $radLng1 = deg2rad($lng1);
+    $radLng2 = deg2rad($lng2);
+    $a = $radLat1 - $radLat2;
+    $b = $radLng1 - $radLng2;
+
+    $s = 2 * asin(sqrt(pow(sin($a / 2), 2) + cos($radLat1) * cos($radLat2) * pow(sin($b / 2), 2))) * 6378.137 * 1000;
+
+    return $s;
+
+}
+
+/** 获取好友的坐标信息 */
+function getMyFreindLbs($uid){
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+    $rkMongo = new RKMongo();
+    $rkMongo->connect();
+
+    $sql=<<<T_ECHO
+SELECT friend_id as uid FROM `sky_first_aid`.`user_friend_list` WHERE user_id={$uid}
+T_ECHO;
+
+    if ($res=$db->getAll($sql)) {
+        for ($i = 0; $i < count($res); $i++) {
+            $temp = $rkMongo->getGPSAddress(1, $res[$i]['uid']);
+            $res[$i]['gps'] = empty($temp['gps']) ? array() : $temp['gps'];
+        }
+        return $res;
+    }
+    return array();
+}
+

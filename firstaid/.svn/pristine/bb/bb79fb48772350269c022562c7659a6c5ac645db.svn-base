@@ -1,0 +1,102 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: mandrills
+ * Date: 15-10-28
+ * Time: 上午9:47
+ */
+
+/**
+ * @param $userID
+ * @param $friendList
+ * @return bool
+ */
+function delFriendList($userID, $friendList) {
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+    $leftSql = <<<T_ECHO
+    DELETE FROM user_friend_list
+        WHERE user_id=$userID AND friend_id IN ($friendList)
+T_ECHO;
+    $rightSql =<<<T_ECHO
+    DELETE FROM user_friend_list
+        WHERE user_id in ($friendList) AND friend_id=$userID
+T_ECHO;
+    try {
+        //删除相关的失联防范和电子围栏
+        $res = delContactsAndLossPrevention($userID,$friendList);
+        if($res){
+            $db->startTrans ();
+            $db->execute($leftSql);
+            $db->execute($rightSql);
+            if($db->hasFailedTrans()){
+                $db->completeTrans(false);
+                return false;
+            }
+            $db->completeTrans(true);
+            return true;
+        }
+
+    } catch (ErrorException $e) {
+        ErrCode::echoJson($e->getCode(),$e->getMessage());
+    }
+
+}
+
+function delContactsAndLossPrevention($userID,$friendList){
+
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+    $ids = implode(',',getContactsByUserIds($userID,$friendList));
+    $ids = $ids ? $ids : 0;
+    $contactsSql = <<<T_ECHO
+DELETE FROM sky_first_aid.user_supervise_info WHERE id IN ($ids);
+T_ECHO;
+    $lossPreventionSql = <<<T_ECHO
+DELETE FROM sky_first_aid.user_activity_range WHERE usid IN ($ids);
+T_ECHO;
+
+//    echo $contactsSql;
+    try {
+        $db->startTrans ();
+        $db->execute($contactsSql);
+        $db->execute($lossPreventionSql);
+        if($db->hasFailedTrans()){
+            $db->completeTrans(false);
+            return false;
+        }
+        $db->completeTrans(true);
+        return true;
+
+    } catch (ErrorException $e) {
+        ErrCode::echoJson($e->getCode(),$e->getMessage());
+    }
+
+}
+
+function getContactsByUserIds($userID,$friendList)
+{
+    $idArr = array();
+    //$user = implode(',',$user);
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+    $sql = <<<T_ECHO
+SELECT
+    id
+FROM
+sky_first_aid.user_supervise_info
+WHERE
+    prey_id IN ($userID,$friendList)
+AND
+    hunter_id IN ($userID,$friendList);
+T_ECHO;
+//    echo $sql;
+    if($res = $db->getAll($sql)){
+        foreach ($res as $id) {
+            $idArr[] = $id['id'];
+        }
+        return $idArr;
+    }
+    return $idArr;
+
+}

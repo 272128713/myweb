@@ -1,0 +1,45 @@
+<?php
+/*
+ * 1.7.7. get_postulant_by_province.php （按省份查询志愿者信息）
+ */
+header("content-type:text/html; charset=utf-8");
+include(dirname(__FILE__) . "/common/inc.php");
+include(dirname(__FILE__) . "/service/get_postulant_by_province.php");
+// require_once dirname(__FILE__) .'/service/repos_save_rescue_scene_image.php';
+$logger = Logger::getLogger(basename(__FILE__));
+//参数校验
+$params = array(array("ss", true),array("province", true));
+$params = Filter::paramCheckAndRetRes($_POST, $params);
+if (!$params) {
+	$logger->error(sprintf("params is err. params is %s", v($_POST)));
+	ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER,1);
+}
+//获取参数
+$session = $params["ss"];    //用户sesssion
+$province = $params["province"];   //省份id
+$databaseManager = new DatabaseManager();
+$database = $databaseManager->getConn();
+//数据库链接失败
+if (!$database) {
+	$logger->error("database connect error.");
+	ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+}
+//session校验
+$sessionInfo = $databaseManager->checkSession($session);
+if ($sessionInfo) {
+	$userID = $sessionInfo['user_id'];
+} else {
+	$databaseManager->destoryConn();
+	$logger->error(sprintf("Session check is fail. Error session is [%s]", $session));
+	Errcode::echoErr(ErrCode::API_ERR_INVALID_SESSION,1);
+}
+//实现业务逻辑区域
+
+$result= get_postulant_by_province($userID,$province);
+$databaseManager->destoryConn();
+if ($result) {
+	ErrCode::echoOkArr("1","操作成功",$result);
+}
+
+
+?>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>公益活动</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="format-detection" content="telephone=no" />
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+        <?php include "php/active_list.php";?>
+		<style>
+			.mui-segmented-control .mui-control-item {
+			color: #333;
+			border-left:0;
+			line-height:15px;
+			padding-bottom:14px;
+			}
+			.mui-segmented-control {
+				font-size: 15px;
+				width: 100%;
+				border: 0;
+				border-radius: 0;
+			}
+			.mui-segmented-control .mui-control-item.mui-active {
+				color: #333;
+				background-color: #fff;
+				border-bottom:3px solid #dd403b;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="tab">
+				<div id="segmentedControl" class="mui-segmented-control">
+					<a class="mui-control-item mui-active" href="#item1">最新公益</a>
+					<a class="mui-control-item" href="#item2">我的公益</a>
+				</div>
+			</div>
+			<div class="inner">
+				<div id="item1" class="mui-control-content mui-active">
+					<ul>
+                        <?php foreach ($list as $k=>$v) {?>
+						<li class="volist" onclick="window.location.href='activity_detail.php?aid=<?php echo $v->id;?>'">
+							<p class="p1"><?php echo $v->name;?></p>
+							<p class="p2">活动名额：<?php echo $v->people_nums;?>人</p>
+							<p class="p2 p3">活动时间：<?php echo date("Y.m.d",strtotime($v->activity_time_begin)).'-'.date("Y.m.d",strtotime($v->activity_time_finish));?></p>
+							<div class="count">
+								<p class="renshu">
+									<img src="<?php echo $v->logo_url;?>">
+									<?php echo $v->orgname;?>
+								</p>
+								<p class="huodong">
+									<?php echo date("Y.m.d",strtotime($v->apply_time));?>发布
+								</p>
+								<div class="clear"></div>
+							</div>
+
+						</li>
+                        <?php }?>
+					</ul>
+				</div>
+				<div id="item2" class="mui-control-content">
+					<ul>
+                        <?php foreach ($mylist as $k=>$v) {?>
+                            <li class="volist" onclick="window.location.href='activity_detail.php?aid=<?php echo $v->id;?>'">
+                                <p class="p1"><?php echo $v->name;?></p>
+                                <p class="p2">活动名额：<?php echo $v->people_nums;?>人</p>
+                                <p class="p2 p3">活动时间：<?php echo date("Y.m.d",strtotime($v->activity_time_begin)).'-'.date("Y.m.d",strtotime($v->activity_time_finish));?></p>
+                                <div class="count">
+                                    <p class="renshu">
+                                        <img src="<?php echo $v->logo_url;?>">
+                                        <?php echo $v->orgname;?>
+                                    </p>
+                                    <p class="huodong jx">
+                                        <?php
+                                            $nowdate = time();
+                                            $begindate = strtotime($v->activity_time_begin);
+                                            $finishdate = strtotime($v->activity_time_finish);
+                                            if($nowdate<$begindate){
+                                                echo "活动未开始";
+                                            }elseif($nowdate>=$begindate&&$nowdate<=$finishdate){
+                                                echo "进行中";
+                                            }elseif($nowdate>$finishdate){
+                                                echo "已结束";
+                                            }
+
+                                        ?>
+                                    </p>
+                                    <div class="clear"></div>
+                                </div>
+                            </li>
+                        <?php }?>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,87 @@
+<?php
+/**
+*应急预案购买 支付 使用 银联
+* 参数:
+*	ss：session（必填）
+*  	id 订单id
+*  
+* 查询银联tn号
+*/ 
+define('API_PATH', dirname(__FILE__));
+include(dirname(__FILE__) . "/common/inc.php");
+$php_self = isset($_SERVER['PHP_SELF']) ? $_SERVER['PHP_SELF'] : $_SERVER['SCRIPT_NAME'];
+if ('/' == substr($php_self, -1))
+{
+	$php_self .= 'index.php';
+}
+define('PHP_SELF', $php_self);
+$logger = Logger::getLogger(basename(__FILE__));
+
+$params = array(array("ss",true),array("id",true));
+//print_r($_POST);
+$params = Filter::paramCheckAndRetRes($_POST, $params);
+if(!$params){
+	$logger->error(sprintf("params error. params is %s",v($_POST)));
+	ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER);
+}
+$databaseManager = new DatabaseManager();
+$database = $databaseManager->getConn();
+//数据库链接失败
+if(!$database){
+	$logger->error(sprintf("Database connect fail."));
+	ErrCode::echoErr(ErrCode::SYSTEM_ERR);
+}
+$session = $params["ss"];
+//$cc=addslashes($params['cc']);//备注
+// $cc=($params['cc']);//备注
+$sessionInfo = $databaseManager->checkSession($session);
+if(!$sessionInfo){
+	$logger->error(sprintf("invalide session. session is %s",$session));
+	ErrCode::echoErr(ErrCode::API_ERR_INVALID_SESSION);
+}else{
+	$order_id = $params['id'];
+	include_once(API_PATH . '/../pay/UPMP/upmp_mobile.php');
+	$order['order_sn']=$order_id;
+
+
+
+    //取价格,商品名称
+    $sql = "select buy.price,info.goods_name from user_buy_goods_info AS buy LEFT JOIN first_aid_goods_info AS info ON info.id = buy.goods_id WHERE buy.order_nums = '$oid'";
+    $res = $database->getAll($sql);
+//var_dump($res);
+    $total = 0;
+    $gname = '';
+    foreach ($res as $p) {
+        $total = $total + $p['price'];
+        $gname .= $p['goods_name'].',';
+    }
+    $gname = substr($gname,0,-1);
+
+
+
+//	$sql_order="SELECT od.price,info.goods_name
+//				FROM user_buy_goods_info as od
+//				LEFT JOIN first_aid_goods_info as info
+//				ON info.id = od.goods_id
+//				WHERE od.order_nums='$order_id'
+//				and od.user_id=".$sessionInfo['user_id'];
+//	$orderInfo=$database->getRow($sql_order);
+	if (empty($res)){
+		$logger->info("支付订单不存在");
+		ErrCode::echoErr(ErrCode::API_ERR_EG_ORDER_NO);
+	}
+	//更新订单备注
+// 	$cc_sql = "UPDATE  eg_tmp_order SET buyer_intent='$cc' WHERE id=".$order_id;
+// 	$database->execute($cc_sql);
+
+	$order['order_amount']=$total;//价钱
+	$order['orderDescription']=$gname;//商品名称
+	$upop = new UPMP_MOBILE();
+	$tn = $upop->get_code($order,3);
+	$logger->info("request is".v($order)."response is".v($tn));
+	ErrCode::echoOkArr("1","ok",$tn);
+	
+}
+
+
+

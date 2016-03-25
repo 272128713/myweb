@@ -1,0 +1,99 @@
+;**Master Database Config  
+MASTER_HOST="192.168.20.12"
+MASTER_USER="rongke"
+MASTER_PASS="rongke!@#$%"
+MASTER_NAME="sky_first_aid"
+MASTER_CHARSET=utf8
+
+;**Sso Database Config  
+SSO_HOST="192.168.20.12"
+SSO_USER="rongke"
+SSO_PASS="rongke!@#$%"
+SSO_NAME="sky_user_data_master"
+SSO_CHARSET=utf8
+
+;**Master Database Config  
+;MASTER_HOST="192.168.20.12"
+;MASTER_USER="rongke"
+;MASTER_PASS="rongke!@#$%"
+;MASTER_NAME="sky_user_data_master"
+;MASTER_CHARSET=utf8
+
+;**Contact Database Config  
+CONTACT_HOST="192.168.20.12"
+CONTACT_USER="rongke"
+CONTACT_PASS="rongke!@#$%"
+CONTACT_NAME="sky_first_aid"
+CONTACT_CHARSET=utf8
+
+
+
+;**MongoDB Config
+MONGO_HOST = "192.168.20.12"
+MONGO_PORT = 27017
+MONGO_NAME = firstaid
+
+;server config of memcached
+sessionmemcacheserver="192.168.20.13:11211"
+sysinfomemcacheserver="192.168.20.13:11211"
+
+;picode relate config
+send_pincode_day_num = 6
+send_pincode_same_time = 1440   
+
+pincode_try_num = 3
+pincode_timeout = 1440
+
+;the config of group
+mmsgroupmax=5
+mmsgroupattendeemax=10
+mmstalkmax=100
+mmstalkattendeemax=100
+ischeckowner=0
+ischeckattendee=1
+share_space_total_size=100
+share_space_file_size=10
+
+;SMS api path
+smsapipath="http://sdk999ws.eucp.b2m.cn:8080/sdkproxy/sendsms.action"
+
+;SMS api user
+smsapiuser="9SDK-EMY-0999-JDXQL"
+;SMS api pwd
+smsapipwd="301301"
+
+;pincode message replace message as [XXX]
+regPincodeMessage="【空中医院】欢迎您使用空中医院！您的注册验证码为:[XXX]，24小时内有效。"
+forgetPwMessage="【空中医院】感谢您使用空中医院！重置密码所需验证码为:[XXX]，24小时内有效。"
+inviteJoinGroupMessage="【空中医院】[XXX]！"
+inviteHealthAgencyMessage="【空中医院】[XXX]！"
+;pincode message replace message as [XXX] 健康宝
+regPincodeMessage1="【空中医院】欢迎您使用健康宝！您的注册验证码为:[XXX]，24小时内有效。"
+forgetPwMessage1="【空中医院】感谢您使用健康宝！重置密码所需验证码为:[XXX]，24小时内有效。"
+;file service config
+[s3_server]
+
+[ali_server]
+
+[fastdfs]
+MASTER_DB_HOST="192.168.20.12"
+MASTER_DB_USER=rongke
+MASTER_DB_PASS="rongke!@#$%"
+MASTER_DB_NAME=sky_first_aid
+MASTER_DB_CHARSET=utf8
+
+[other]
+store_server=fastdfs
+thumbwidth=200
+thumbheight=200
+avatar_thumbwidth=100
+avatar_thumbheight=100
+
+LargeHeadImgSize=256
+max_file_size=4194304
+
+fdfs_data_path=/home/fastdfs/data/
+sso_url=http://192.168.20.11/sky_master/1.0/
+
+
+PAGE_NUM="20"

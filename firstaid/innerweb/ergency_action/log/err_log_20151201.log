@@ -1,0 +1,50 @@
+2015-12-01 09:38:14,553 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-01 09:38:17,795 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-01 09:38:21,727 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-01 09:38:46,031 [ERROR] (emergency_server.php:26) --  Session fail. 
+2015-12-01 10:21:27,291 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-01 10:21:30,557 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-01 10:21:31,964 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-01 10:32:02,007 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-01 10:32:05,574 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-01 10:32:37,414 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-01 10:32:39,092 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-01 10:33:57,325 [ERROR] (Tools.php:463) --  [8] Undefined variable: con  _File: E:\myweb\firstaid\innerweb\ergency_action\sort_list.php  line: 20  
+2015-12-01 10:33:58,458 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-01 11:11:05,974 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-01 11:15:32,403 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-01 13:29:16,942 [ERROR] (Tools.php:463) --  [8] Undefined index: tab  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_orderlist.php  line: 25  
+2015-12-01 13:29:19,292 [ERROR] (Tools.php:463) --  [8] Undefined index: tab  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_orderlist.php  line: 25  
+2015-12-01 13:29:39,730 [ERROR] (Tools.php:463) --  [8] Undefined index: tab  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_orderlist.php  line: 25  
+2015-12-01 13:29:41,695 [ERROR] (Tools.php:463) --  [8] Undefined index: tab  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_orderlist.php  line: 25  
+2015-12-01 13:29:49,955 [ERROR] (Tools.php:463) --  [8] Undefined index: tab  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_orderlist.php  line: 25  
+2015-12-01 13:29:50,501 [ERROR] (Tools.php:463) --  [8] Undefined index: tab  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_orderlist.php  line: 25  
+2015-12-01 13:29:50,684 [ERROR] (Tools.php:463) --  [8] Undefined index: tab  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_orderlist.php  line: 25  
+2015-12-01 13:29:50,872 [ERROR] (Tools.php:463) --  [8] Undefined index: tab  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_orderlist.php  line: 25  
+2015-12-01 13:29:57,459 [ERROR] (Tools.php:463) --  [8] Undefined index: tab  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_orderlist.php  line: 25  
+2015-12-01 13:30:03,960 [ERROR] (Tools.php:463) --  [8] Undefined index: tab  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_orderlist.php  line: 25  
+2015-12-01 13:30:06,947 [ERROR] (Tools.php:463) --  [8] Undefined index: tab  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_orderlist.php  line: 25  
+2015-12-01 13:30:11,548 [ERROR] (Tools.php:463) --  [8] Undefined index: tab  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_orderlist.php  line: 25  
+2015-12-01 13:30:18,390 [ERROR] (Tools.php:463) --  [8] Undefined index: tab  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_orderlist.php  line: 25  
+2015-12-01 13:30:21,214 [ERROR] (Tools.php:463) --  [8] Undefined index: tab  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_orderlist.php  line: 25  
+2015-12-01 13:49:12,810 [ERROR] (Tools.php:463) --  [8] Undefined index: tab  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_orderlist.php  line: 26  
+2015-12-01 13:49:12,810 [ERROR] (Tools.php:463) --  [8] Undefined index: uid  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_orderlist.php  line: 36  
+2015-12-01 13:49:12,820 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 362  
+2015-12-01 13:49:12,820 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 365  
+2015-12-01 14:01:24,872 [ERROR] (Tools.php:463) --  [8] Undefined index: tab  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_orderlist.php  line: 26  
+2015-12-01 14:01:24,882 [ERROR] (Tools.php:463) --  [8] Undefined index: uid  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_orderlist.php  line: 42  
+2015-12-01 14:01:24,882 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 362  
+2015-12-01 14:01:24,892 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 365  
+2015-12-01 14:02:16,891 [ERROR] (Tools.php:463) --  [8] Undefined index: tab  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_orderlist.php  line: 26  
+2015-12-01 14:11:33,591 [ERROR] (Tools.php:463) --  [8] Undefined index: tab  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_orderlist.php  line: 26  
+2015-12-01 14:12:34,016 [ERROR] (Tools.php:463) --  [8] Undefined index: uid  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_orderlist.php  line: 42  
+2015-12-01 14:12:34,046 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 362  
+2015-12-01 14:12:34,056 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 365  
+2015-12-01 15:07:16,902 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-01 15:27:00,605 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-01 15:52:06,041 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-01 15:52:30,614 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-01 15:52:32,558 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-01 15:56:50,506 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-01 16:31:14,712 [ERROR] (Tools.php:463) --  [8] Undefined index: tab  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_orderlist.php  line: 26  
+2015-12-01 17:40:03,709 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  

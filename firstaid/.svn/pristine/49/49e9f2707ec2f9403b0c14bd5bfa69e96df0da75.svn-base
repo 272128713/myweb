@@ -1,0 +1,132 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>稻草包</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="./css/mui.min.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css" />
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/package.css" />
+    <?php include "php/goods_list.php";?>
+</head>
+
+<body>
+<div class="mui-content">
+    <div class="title">
+        <p>给你的稻友赠送一份安全关怀!</p>
+        <!--a class="redbox" href="packageList.php">赠送记录</a-->
+        <div class="clear"></div>
+    </div>
+    <?php foreach($result as $k=>$v){ ?>
+    <div class="pro_list" gid="<?php echo $v->id;?>" sl="0">
+        <div class="pic">
+            <img src="<?php echo $v->img_url;?>">
+        </div>
+        <div class="proinfo">
+            <p class="pro_name"><?php echo $v->goods_name;?></p>
+            <p class="pro_detail"><?php echo $v->goods_summary;?></p>
+            <p class="price">￥<?php echo $v->goods_price;?></p>
+            <span></span>
+        </div>
+        <div class="clear"></div>
+        <input type="checkbox" value="<?php echo $v->id;?>" name="goodid[]" style="display: none"/>
+    </div>
+    <?php } ?>
+</div>
+<div class="choosen">
+    <p id="count">已选0件</p>
+<!--    <p>&nbsp;</p>-->
+    <!--p class="jine">共计￥30.00</p-->
+    <div class="button" id="submit">立即支付</div>
+</div>
+<script src="js/jquery.js"></script>
+<script src="../common/js/layer/layer.js"></script>
+<script>
+    i = 0;
+    $('.pro_list').click(function(){
+        sl = $(this).attr("sl");
+        if(sl != 1){
+            css = $(this).children('.proinfo').children('span');
+            css.css("background-image","url('./images/xuan1.png')");
+            $(this).attr("sl","1");
+            i ++;
+            $('#count').html("已选"+i+"件");
+            $(this).children('input').prop('checked',"true");
+        }else if(sl==1){
+            css = $(this).children('.proinfo').children('span');
+
+            css.css("background-image","url('./images/xuan.png')");
+            $(this).attr("sl","0");
+            i--;
+            $('#count').html("已选"+i+"件");
+            $(this).children('input').removeAttr('checked');
+        }
+    });
+    $('#submit').click(function(){
+//       window.location.href="recinfo.php";
+        if(i==0){
+            layer.msg("请选择商品！");
+        }else if(i>0){
+            value = $("input");
+            check_val="";
+            for(k in value){
+                if(value[k].checked){
+                    check_val+=value[k].value+',';
+                }
+            }
+            $.post(
+                "php/set_goods_order.php",
+                {'orderid':check_val,'suid':<?php echo $suid;?>},
+                function(data){
+                    if(data.code==1){
+                        console.log(data);
+                        result=data.result;
+                        odnum = result.odnum;
+                        totalprice = result.totalprice;
+                        paydata = {
+
+                            ss:"<?php echo $_SESSION['ss']?>",
+                            sn:odnum,
+                            total_price:totalprice
+                        };
+                        console.log(paydata);
+                        if(navigator.userAgent.match('iPhone')){
+                            gotoPay(paydata);
+                        }
+                        if(navigator.userAgent.match('Android')){
+                            Android.gotoPay(1);
+                        }
+                    }
+                },'json'
+            );
+
+
+        }
+    });
+
+
+</script>
+
+<script type="text/javascript">
+    //浏览器适配 兼容所有浏览器 rem单位专用 设置html root 字号
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+                var clientWidth = docEl.clientWidth;
+                if (!clientWidth) return;
+                docEl.style.fontSize = 10 * (clientWidth / 320) + 'px';
+            };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>应急预案详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/emergency_detail.css" />
+		<?php include 'emergency_server_goodsview.php';?>
+	</head>
+	
+	<body>
+		<div class="container">
+			<img class="tupian" src="<?php echo $goods["img_url"]?>">
+			<div class="emergency_detail">
+				<div class="item_t">
+					<p class="name"><?php echo $goods["goods_name"]?></p>
+					<p class="intro"><?php echo $goods["goods_summary"]?></p>
+					<p class="time">
+						<span class="price">￥<?php echo sprintf("%.2f", $goods["goods_price"]);?></span>
+						<!-- span class="gongyi">其中￥8.60将捐给公益事业
+							<span class="arrowright"></span>
+						</span-->
+					</p>
+					<div class="number">
+						<div class="sale">
+							<img src="images/man.png">
+							已销售<?php echo $goods["goods_sell_nums"]?>
+						</div>
+						<!-- div class="goodcom">
+							<img src="images/zan.png">
+							获得好评12.35万
+						</div-->
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+			<!-- div class="user_opinion">
+				<div class="usercom">
+					<p class="tit">用户评价（123456）</p>
+					<img src="images/photo.png">
+					<div class="comment">
+						<p class="user_name">赵晓丽</p>
+						<p class="com_text">评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容</p>
+						<p class="date">2015-10-29</p>
+					</div>
+					<div class="clearfix"></div>
+					<div class="all">查看全部评价</div>
+				</div>
+			</div-->
+			<div class="plan_detail">
+				<span class="yuan"></span>预案详情
+			</div>
+			<div class="goods_content">
+				<?php 
+				if($goods_content){
+					echo $goods_content;
+				}else{
+					echo "<div style='font-size:13px;line-height:1.5em;text-indent:2em;color:#999;margin-bottom:3em;'>暂无介绍！</div>";
+				}
+				?>
+			</div>
+			<div class="fixed" style="border:0">
+				<!-- div class="fl">
+					<span class="kefu"></span>客服
+				</div>
+				<div class="fl">
+					<span class="dianpu"></span>店铺
+				</div>
+				<div class="fl">
+					<span class="shoucang"></span>收藏
+				</div-->
+				
+				<div class="fr fr1" style="border:0;width:50%;display:none">加入购物车</div>
+				<div class="fr fr2" style="border:0;width:100%;height:50px">立即拥有</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</body>
+</html>

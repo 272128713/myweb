@@ -1,0 +1,95 @@
+.wrap{
+	width:100%;
+	padding:0 1% 0 2%;
+}
+.agency{
+	width:49%;
+	float:left;
+	background:#efefef;
+	border:1px solid #cbcbcb;
+	border-radius:5px;
+	margin-right:1%;
+	margin-top:5px;
+}
+.agency .img1{
+	width:100%;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+.agency .line{
+	height:1.5px;
+	width:100%;
+	background:#fff;
+	border-bottom: 1px solid #bababa;
+	box-shadow: 0px 2px 3px 1px #cacaca;
+}
+.agency .con{
+	padding-left:6px;
+	padding-right:6px;
+	padding-top:7px;
+	padding-bottom:7px;
+	font-family: "微软雅黑";
+}
+.con .title{
+	font-size:15px;
+	color:#323232;
+	line-height:16px;
+	padding-bottom:5px;
+	border-bottom:2px dotted #d2d2d2;
+}
+.con .intro{
+    font-size: 12px;
+    color: #787878;
+    line-height: 14px;
+    padding-top: 7px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+.con .time{
+	font-size:12px;
+	color:#787878;
+	line-height:1.5em;
+	padding-top: 7px;
+}
+.time .icon{
+	width:12px;
+	height:12px;
+	background-image: url(../images/time.png);
+	background-size: 12px 12px;
+	background-position: center;
+	margin-top:-6px;
+	margin-right:5px;
+	display:inline-block;
+	position:relative;
+	top:1.7px;
+}
+/*.con .intro1{
+	display:-webkit-box;
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp: 3;
+	overflow:hidden;
+}
+.con .intro2{
+	display:-webkit-box;
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp: 4;
+	overflow:hidden;
+}
+.con .intro3{
+	display:-webkit-box;
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp: 5;
+	overflow:hidden;
+}
+.con .intro4{
+	display:-webkit-box;
+	-webkit-box-orient:vertical;
+	-webkit-line-clamp: 7;
+	overflow:hidden;
+}*/
+.clearfix{
+	clear:both;
+}
+		

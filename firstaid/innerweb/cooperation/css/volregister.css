@@ -1,0 +1,45 @@
+.container{
+	padding-bottom: 70px;
+}
+.container .header{
+	width:100%;
+	padding-top:20px;
+	padding-bottom: 15px;
+	border-bottom: 5px solid #ececec;
+}
+.container p{
+	padding-left:2.5%;
+	padding-right: 2.5%;
+	font-size:14px;
+}
+.container .p1{
+	color:#dd403b;
+}
+.container .p2{
+	color:#333333;
+	margin-top:5px;
+}
+.baseinfo .row:nth-child(4){
+	border-bottom: 1px solid #dd403b;
+	border-bottom-color: rgba(221,64,59,0.5);
+}
+.submit{
+	width:100%;
+	background:#fff;
+	border-top:1px solid #ccc;
+	padding-top:10px;
+	padding-bottom: 10px;
+	position: fixed;
+	bottom: 0;
+}
+.submit .button{
+	width:40%;
+	background:#dd403b;
+	text-align:center;
+	color:#fff;
+	font-size:15px;
+	border-radius: 5px;
+	padding-top:10px;
+	padding-bottom:10px;
+	margin:0 auto;
+}

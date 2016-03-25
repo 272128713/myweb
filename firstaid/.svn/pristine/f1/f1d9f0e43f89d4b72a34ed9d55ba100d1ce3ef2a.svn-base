@@ -1,0 +1,76 @@
+<?php
+/**
+ * Func: 审批/驳回监控请求
+ * User: 王秀泽
+ * Date: 2015/10/30
+ * Time: 10:12
+ * Last: 2015-10-30 11:54:31 接受请求发送通知
+ */
+include_once dirname(__FILE__) . "/common/inc.php";
+include_once dirname(__FILE__) . "/common/database/DatabaseManager.php";
+include_once dirname(__FILE__) . "/service/user_damoclean_serv.php";
+include_once(dirname(__FILE__) . "/common/MecManager.php");
+
+$logger = Logger::getLogger(basename(__FILE__));
+
+#region 获取参数
+$params = array(array("ss", true),array("uid",true),array("flag",false));
+$params = Filter::paramCheckAndRetRes($_POST, $params);
+
+if (!$params) {
+    $logger->error(sprintf("params error. params is %s", v($_POST)));
+    ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER, 1);
+}
+
+$session = trim($params["ss"]);
+$uid = trim($params["uid"]);
+$flag = trim($params["flag"])?1:0;
+#endregion
+
+#region 获取数据库连接
+$config = new Config();
+$databaseManager = new DatabaseManager();
+
+if (!$db = $databaseManager->getConn()) {
+    $logger->error(sprintf("Database connect fail."));
+    ErrCode::echoErr(ErrCode::SYSTEM_ERR, 1);
+}
+
+#endregion
+
+#region 检查Session合法性
+$sessionArr = $databaseManager->checkSession($session);
+
+if (!$sessionArr || !$sessionArr['user_id']) {
+    $databaseManager->destoryConn();
+    $logger->error(sprintf("Session check is fail. Error session is [%s]", $session));
+    Errcode::echoErr(ErrCode::API_ERR_INVALID_SESSION, 1);
+}
+#endregion
+
+$loginid = (int)$sessionArr['user_id'];
+
+#region 审批/驳回请求
+if (repLinkManRequest($loginid,$uid,$flag)) {
+    /** 如果接受请求 发送通知 */
+    if($flag){
+        if (!$type && !$flag) {
+            $msgObj = array(
+                "type" => "FAH",
+                "ot" => "3",
+                "src" => $loginid,
+                "srcm" => getTel($loginid),
+                "time" => time()
+            );
+            $mecManager = new MecManager($loginid,$msgObj,$uid);
+            $mecManager->sendMessage();
+        }
+    }
+    /** 清理其他请求 */
+    clearLinkManRequest($loginid);
+    ErrCode::echoOk('成功', 1);
+} else {
+    ErrCode::echoErr(ErrCode::SYSTEM_ERR, 1);
+}
+
+#endregion

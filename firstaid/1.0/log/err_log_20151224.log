@@ -1,0 +1,7 @@
+2015-12-24 15:46:48,043 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 362  
+2015-12-24 15:46:48,053 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 365  
+2015-12-24 15:46:48,063 [ERROR] (set_user_question.php:177) -- accepter not exists ,uid  
+2015-12-24 15:47:08,633 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 362  
+2015-12-24 15:47:08,643 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 365  
+2015-12-24 15:47:08,650 [ERROR] (set_user_question.php:178) -- accepter not exists ,uid  
+2015-12-24 16:13:43,451 [ERROR] (Tools.php:463) --  [8] Undefined variable: token  _File: E:\myweb\firstaid\1.0\common\database\DatabaseManager.php  line: 529  

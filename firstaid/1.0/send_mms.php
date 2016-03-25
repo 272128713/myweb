@@ -1,0 +1,156 @@
+<?php
+/**
+* 上传MMS消息
+* 处理MMS的上传
+*/ 
+    header("content-type:text/html; charset=utf-8");
+	include(dirname(__FILE__) . "/common/inc.php");	
+	include(dirname(__FILE__) . "/common/MecManager.php");	
+	include(dirname(__FILE__) . "/common/MMS_FileManager.php");	
+	$logger = Logger::getLogger(basename(__FILE__));
+	$mime = "";
+	$config = new Config();
+	$params = array(array("ss",true),array("uid",true),array("mime",true),array("time",true),array("id",true));
+	$params = Filter::paramCheckAndRetRes($_POST, $params);
+	if(!$params){
+		$logger->error(sprintf("params is err. params is %s",v($_POST)));
+		ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER,1);
+	}
+	/*
+	print_r($_FILES);die();
+	Array (
+	      [file] => Array (
+	                    [name] => 1.jpg 
+	                    [type] => image/jpeg 
+	                    [tmp_name] => F:\wamp\tmp\phpC93A.tmp 
+	                    [error] => 0 
+	                    [size] => 6894 
+	                    ) 
+	         )
+	
+	
+	 */
+	
+	$tempParams = array_values(array_unique(explode(",", $params["uid"])));
+	$uidCount = count($tempParams); 
+	if($uidCount == 0){
+		$logger->error(sprintf("params error. error. member is %s",$params["uid"]));
+		ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER,1);
+	}
+	$params["uid"] = implode(",",$tempParams);
+
+	//校验SESSION
+	$session = $params["ss"];	
+	$databaseManager = new DatabaseManager();
+	$database = $databaseManager->getConn();
+	//数据库链接失败
+	if(!$database){
+		$logger->error("database connect error.");
+		ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+	}
+	//session校验
+	$sessionInfo = $databaseManager->checkSession($session);
+	if(!$sessionInfo){
+		$logger->error(sprintf("Session check is fail. Error session is [%s]",$session));
+	    ErrCode::echoErr(ErrCode::API_ERR_INVALID_SESSION,1);    
+	}
+	$user_id = $sessionInfo["user_id"];
+	$mobile = $sessionInfo["mobile"]; 
+
+	if($params["mime"] == "text/plain"){
+		$mime = "text";
+	    if(!isset($_POST["text"])){
+	    	$logger->error("text is null.");
+	        ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER,1);
+	    }
+	    $textContent = trim($_POST["text"]);
+        $msgObj = array(
+	        "id" => $params["id"],
+	        "type" => "MMS",
+	        "mime" => $params["mime"],
+	  		"srcm" => $mobile,
+	        "src" => $user_id,
+	        "text" => rawurlencode($textContent), //rawurlencode()将字符串编码成 URL 专用格式。
+	        "time" => time());
+        
+	    $logger->info("MMS-TYPE:TEXT,MMS-LENGTH:" . strlen(trim($_POST["text"])) . ",MMS-SENDER:" . $mobile . ",MMS-CONTENT:" . rawurlencode($_POST["text"]) . ",MMS-ID:" . $params["id"]);
+	}else{
+	    $params2 = Filter::paramCheckAndRetRes($_POST, array(  //paramCheckAndRetRes()是校验参数的作用
+	        "filename",
+	        "id",
+	        "size"
+	    ));
+    	if(!$params2){
+    		$logger->error(sprintf("file mms params error. params=%s",v($_POST)));
+    		ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER,1);
+    	}
+    	// strpos() 函数查找字符串在另一字符串中第一次出现的位置。返回值:返回字符串在另一字符串中第一次出现的位置，如果没有找到字符串则返回 FALSE。
+	    if(strpos($params["mime"],"video") !== false || strpos($params["mime"],"audio") !== false ){
+    	    if(!isset($_POST["duration"]) || trim($_POST["duration"]) == ""){
+    	    	$logger->error(sprintf("file mms duration error."));
+    	        ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER,1);
+    	    }
+    	     $params2["duration"] = $_POST["duration"];
+	    }
+	    if(strpos($params["mime"],"audio") !== false){
+	    	$mime = "audio";
+	    }elseif(strpos($params["mime"],"video") !== false){
+	    	$mime = "video";
+	    }elseif(strpos($params["mime"],"image") !== false){
+	    	$mime = "image";	
+	    }else{
+	    	$mime = "file";
+	    }
+	    //处理文件上传
+	    if(!isset($_FILES['file']) || !isset($_FILES['file']['error']) || $_FILES['file']['error'] != 0){
+	    	$logger->error(sprintf("no file params error."));
+	        ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER,1);
+	    }
+	    if($_FILES['file']['size'] != $params2["size"]){//用接收到的数据大小跟客户端声明的大小做比较，看文件是否传输过程中被损坏
+			$logger->error(sprintf("file size is not equal to size param! file size:".$_FILES['file']['size']." size param:".$params2["size"]));
+			ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER,1); 
+		} 
+		
+		$max_file_size = $config->getConfig("max_file_size");   //获取允许上传的最大限制大小 
+		if($_FILES['file']['size'] > $max_file_size){
+			$logger->error(sprintf("Mms file size exceeds the limit.max_file_size:".$max_file_size));
+			ErrCode::echoErr(ErrCode::API_ERR_FILE_TOO_LARGE,1); 
+		}
+		/*****************************得到上传文件的信息********************************************/
+		$fileTempName = $_FILES['file']['tmp_name'];//得到临时文件
+		$mmsFileManager = new MMS_FileManager();
+		//uploadFile(上传的临时文件, 发送的消息id,array_merge($params,$params2))，第三个参数是一个组合成的数组
+		$saveFileResult = $mmsFileManager->uploadFile($fileTempName, $params2["id"],array_merge($params,$params2));//返回值是false或者true
+		if(!$saveFileResult){
+			$logger->error(sprintf("file mms save error."));
+			ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+		}
+		$fileNameEncode = rawurlencode($params2["filename"]);
+                      
+		//发送消息通知 
+		$msgObj = array("id" => $params["id"],
+						"type" => "MMS",
+                        "mime" => $params["mime"],
+                        "srcm" => $mobile,
+                        "src" => $user_id,
+                        "filename" => $fileNameEncode,
+                        "size" => $params2["size"],
+                        "duration" => isset($_POST["duration"])?$_POST["duration"]:0,
+                        "time" => time()); 
+                        
+		$mmsType = explode("/", $params["mime"]);
+		$mmsType = strtoupper($mmsType[1]);   //strtoupper()把所有字符转换为大写：          
+		$logger->info("MMS-TYPE:$mmsType,MMS-SIZE:" . $_FILES['file']['size'] . ",MMS-SENDER:" . $mobile . ",MMS-ID:" . $params["id"]);
+	}
+	$notifyMember = str_replace($user_id,"",str_replace($user_id.",", "", $params["uid"]));   //过滤发送者自己
+	//给接收者发送notify
+    $accepters = $databaseManager->getUserInfoByUid($notifyMember);
+    $databaseManager->destoryConn();  //unlink Master DB  
+    if(!$accepters){
+        $logger->error(sprintf("accepter not exists ,uid %s",$notifyMember));
+        ErrCode::echoErr(ErrCode::API_ERR_MESSAGE_SEND_ERROR,1);
+    }
+    $mecManager = new MecManager($user_id,$msgObj,$accepters);
+    $mecManager->sendMessage(); 
+	ErrCode::echoOk("OK",1);
+?>

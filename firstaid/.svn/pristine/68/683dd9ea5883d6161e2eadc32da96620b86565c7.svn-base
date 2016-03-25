@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>公益活动记录</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/public_list.css" />
+		
+	</head>
+	<style>
+		.mui-content{
+			width: 96%;
+		}
+		.wrap{
+			padding:3px 0 10px 0;
+			width:100%;
+		}
+		.agency{
+			margin-top:5%;
+		}
+		.loading{
+			position:absolute;
+			top: 50%;
+			background-size:40px 40px;
+			width: 40px;
+			height:40px;
+			margin-top:-20px;
+			margin-left:-20px;
+			left:50%;
+			z-index: 999;
+			background-image: url('images/loading.gif');
+			display: none;
+			
+		}
+	</style>
+	
+	<body>
+		<div class="mui-content">
+			<div class="wrap">
+					<div class="agency">
+						<img class="img1" src="images/agency2.png" />
+						<div class="line"></div>
+						<div class="con">
+							<p class="title">保护野生动物活动</p>
+							<p class="intro">陕西省西安市丰庆公园</p>
+							<p class="time"><span class="icon"></span>2015.11.02</p>
+						</div>
+					</div>
+			</div>
+		</div>
+				
+		<div class="loading"></div>
+		
+		<script type="text/javascript" src="../common/js/zepto.min.js"></script>
+		<script type="text/javascript">
+			var ss='<?php echo $_GET['ss'];?>'
+				console.log(ss);
+			$.ajax({
+				type:"POST",
+				url:"../../1.0/get_public_welfare_activity_list.php",
+				data:{ss:ss},
+				dataType:"json",
+				beforeSend:function(){
+					$('.loading').show();
+				},
+				success:function(data){
+					$(".loading").hide();
+					console.log(data);
+				},
+				
+			});
+		
+		
+		</script>
+	</body>
+
+</html>

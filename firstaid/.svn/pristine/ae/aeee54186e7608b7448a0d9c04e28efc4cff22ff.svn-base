@@ -1,0 +1,57 @@
+.mui-content{
+	width:3.04rem;
+	margin:0 auto;
+}
+.mui-content .grxx{
+	width:100%;
+	margin-top:15px;
+}
+.mui-content .grxx img{
+	width:0.6rem;
+	float: left;
+	display: block;
+	border-radius: 5px;
+}
+.mui-content .grxx .text{
+	width:2.44rem;
+	padding-left:0.22rem;
+	float:left;
+}
+.grxx .text .name{
+	font-size:15px;
+	line-height:0.15rem;
+	color:#333333;
+	height:0.46rem;
+}
+.grxx .text .secline{
+	font-size:14px;
+	color:#666666;
+	line-height:0.14rem;
+}
+.grxx .text .secline span{
+	font-size:14px;
+	color:#666666;
+	margin-right:10px;
+}
+.mui-content .more{
+	width:100%;
+	margin-top:8px;
+}
+.mui-content .more p{
+	font-size:14px;
+	color:#666666;
+}
+.more .p1{
+	width:0.7rem;
+	float: left;
+}
+.more .p2{
+	width:2.34rem;
+	float:left;
+}
+.mui-content  .address{
+	margin-top:10px;
+}
+.mui-content  .p3{
+	margin-top:8px;
+}

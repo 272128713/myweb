@@ -1,0 +1,84 @@
+
+<?php
+/**
+* 分类列表
+*/ 
+	
+	include(dirname(__FILE__) . "/../../1.0/common/inc.php");
+	$logger = Logger::getLogger(basename(__FILE__));
+	$databaseManager = new DatabaseManager();
+	$db = $databaseManager->getConn();
+	session_start();
+	//数据库链接失败
+	if(!$db){
+		echo "<div style='margin:1em 0 0 2em'>Server Error</div>";
+		echo "<div style='margin:1em 0 0 2em'>服务器开小差~！跳转中。。。</div>";
+		?>
+			<script>
+			setTimeout("goBack()",2000);
+			function goBack(){
+				history.go(-1);
+			}
+			</script>
+			<?php
+		die();
+	}
+	
+	if($_GET["gid"]){
+		$gid = $_GET["gid"];
+	}else{
+		echo "<div style='margin:1em 0 0 2em'>Server Error</div>";
+		echo "<div style='margin:1em 0 0 2em'>服务器开小差~！跳转中。。。</div>";
+		?>
+			<script>
+			setTimeout("goBack()",2000);
+			function goBack(){
+				history.go(-1);
+			}
+			</script>
+			<?php
+		die();
+	}
+	if($_GET["ss"]){
+		$_SESSION['ss']=$_GET["ss"];
+		$sessionArr = $databaseManager->checkSession($_SESSION['ss']);
+		$_SESSION['uid']=$sessionArr['user_id'];
+		
+	}else{
+		
+	}
+	
+	//商品信息
+	$sql_goods = "select info.id,info.goods_name,info.goods_price,info.goods_summary,info.goods_sell_nums,info.goods_content,img.img_url
+				from first_aid_goods_info as info
+				left join first_aid_goods_img_info as img 
+				on info.id = img.goods_id
+				where info.id = '$gid'
+				and (img.type = 0 or img.type = 2 or img.type = 1)
+	";
+	$result = $db->getRow($sql_goods);
+	if($result){
+		$goods=$result;
+	}else{
+		
+		echo "<div style='margin:1em 0 0 2em'>Server Error</div>";
+		echo "<div style='margin:1em 0 0 2em'>服务器开小差~！跳转中。。。</div>";
+		?>
+			<script>
+			setTimeout("goBack()",2000);
+			function goBack(){
+				history.go(-1);
+			}
+			</script>
+			<?php
+		die();
+	}
+?>	
+	
+	
+	
+	
+	
+	
+	
+	

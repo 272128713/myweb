@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>发布记录</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/pubrecord.css" />
+	</head>
+	
+	<body>
+		<div class="content">
+			<div class="pro_list">
+				<div class="pic">
+					<img src="images/p1.png">
+				</div>
+				<div class="proinfo">
+					<p class="pro_name">第三届“千里返乡 让爱回家”</p>
+					<p class="time">
+						<img src="images/clock.png" />2016.01.01-2016.12.31
+					</p>
+				</div>
+				<div class="clear"></div>
+				<div class="bott">
+					<p class="left">
+						<img src="images/home.png">化雪
+					</p>
+					<p class="right">活动审核中</p>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="pro_list">
+				<div class="pic">
+					<img src="images/p2.png">
+				</div>
+				<div class="proinfo">
+					<p class="pro_name">第三届“千里返乡 让爱回家”</p>
+					<p class="time">
+						<img src="images/clock.png" />2016.01.01-2016.12.31
+					</p>
+				</div>
+				<div class="clear"></div>
+				<div class="bott">
+					<p class="left">
+						<img src="images/home.png">化雪
+					</p>
+					<p class="right">活动审核中</p>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="pro_list">
+				<div class="pic">
+					<img src="images/p3.png">
+				</div>
+				<div class="proinfo">
+					<p class="pro_name">第三届“千里返乡 让爱回家”</p>
+					<p class="time">
+						<img src="images/clock.png" />2016.01.01-2016.12.31
+					</p>
+				</div>
+				<div class="clear"></div>
+				<div class="bott">
+					<p class="left">
+						<img src="images/home.png">化雪
+					</p>
+					<p class="right">活动未批准</p>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="pro_list">
+				<div class="pic">
+					<img src="images/p4.png">
+				</div>
+				<div class="proinfo">
+					<p class="pro_name">第三届“千里返乡 让爱回家”</p>
+					<p class="time">
+						<img src="images/clock.png" />2016.01.01-2016.12.31
+					</p>
+				</div>
+				<div class="clear"></div>
+				<div class="bott">
+					<p class="left">
+						<img src="images/home.png">化雪
+					</p>
+					<p class="right">活动已批准上线</p>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript">
+		    //浏览器适配 兼容所有浏览器 rem单位专用 设置html root 字号
+		    (function (doc, win) {
+		        var docEl = doc.documentElement,
+		            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		            recalc = function () {
+		                var clientWidth = docEl.clientWidth;
+		                if (!clientWidth) return;
+		                docEl.style.fontSize = 100 * (clientWidth / 320) + 'px';
+		            };
+		        if (!doc.addEventListener) return;
+		        win.addEventListener(resizeEvt, recalc, false);
+		        doc.addEventListener('DOMContentLoaded', recalc, false);
+		    })(document, window);
+		    
+		</script>
+		<script>
+			$('.pro_list').click(function(){
+				window.location.href="result.html";
+    		});
+		</script>
+	</body>
+	
+
+</html>

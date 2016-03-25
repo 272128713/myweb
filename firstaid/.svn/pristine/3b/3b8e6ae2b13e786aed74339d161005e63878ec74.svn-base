@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>急救装备列表</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/emergency_equipment.css" />
+		
+	</head>
+	
+	<body>
+		<div class="st-container" id="st-container">
+			<div class="st-menu st-effect-1" id="menu-1">
+				<div class="bg"></div>
+					<p>
+						<a href=""><img src="images/xb.png" />交通意外</a>
+					</p>
+					<p>
+						<a href=""><img src="images/xb.png" />家庭处理</a>
+					</p>
+			</div>
+			<div class="st-pusher">
+				<div class="st-content">
+					<div class="header">
+						<div class="header_con">
+							<div class="sort" id="st-trigger-effects" data-effect="st-effect-1">
+								<span class="icon"></span>
+								<span class="wenzi">分类</span>
+							</div>
+							<input type="text" name="search" placeholder="检索">
+							<div class="clearfix"></div>
+						</div>
+					</div>
+					<div class="pro_list">
+						<div class="list-item">
+							<img src="images/b2-1.png">
+							<p class="pro_name">毒液真空吸取器</p>
+						</div>
+						<div class="list-item">
+							<img src="images/b2-1.png">
+							<p class="pro_name">毒液真空吸取器</p>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/classie.js"></script>
+		<script src="js/sidebarEffects.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			$(function(){
+					var sort_width = $('.sort').width();
+					$('.sort .icon').css('margin-left',(sort_width - 15)/2);
+			});
+			
+		</script>
+	</body>
+</html>

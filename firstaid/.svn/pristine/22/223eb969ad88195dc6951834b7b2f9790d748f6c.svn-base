@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>急救装备详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/equipment_detail_list.css" />
+		<?php ?>
+	</head>
+	
+	<body>
+		<div class="container">
+			<div class="total">共计2套应急预案配备</div>
+			<div class="eq_list">
+				<div class="title">野外逃生应急预案A-12321</div>
+				<div class="box_cc">
+					<div class="ccimg"><img src="images/b2-1.png"/></div>
+					<div class="box_right">
+						<div class="right_title">	
+							<span class="span1">￥86.00</span><span class="span2">适用1~3人</span>
+						</div>
+						<div class="p1">此产品针对各意外情况突发处理各意外情况突发处理各意外情况突发处理各意外情况突发处理各意外情况突发处理</div>
+						<div class="p2">了解详情</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<div class="eq_list">
+				<div class="title">野外逃生应急预案A-12321</div>
+				<div class="box_cc">
+					<div class="ccimg"><img src="images/b2-1.png"/></div>
+					<div class="box_right">
+						<div class="right_title">	
+							<span class="span1">￥86.00</span><span class="span2">适用1~3人</span>
+						</div>
+						<div class="p1">此产品针对各意外情况突发处理各意外情况突发处理各意外情况突发处理各意外情况突发处理各意外情况突发处理</div>
+						<div class="p2">了解详情</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

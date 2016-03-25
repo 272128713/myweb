@@ -1,0 +1,102 @@
+<?php
+/*
+ * 空中急救模块API
+ * 1.3.6. set_org_apply.php (提交志愿者注册申请表)
+ */
+include(dirname(__FILE__) . "/common/inc.php");
+$config = new Config();
+$logger = Logger::getLogger(basename(__FILE__));
+$params = array(array("ss",true),array("org_id",true),array("name",true),array("sex",true),array("birthday",true),array("nation",true),array("address",true),array("phone",true),array("email",true),array("education",true),array("speciality",true),array("company",true),array("undergo",true));
+
+//print_r($_POST);
+$params = Filter::paramCheckAndRetRes($_POST, $params);
+if(!$params){
+	$logger->error(sprintf("params error. params is %s",v($_POST)));
+	ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER,1);
+}
+
+//获取参数
+$ss = $params['ss'];
+$name = $params['org_id'];
+$logo_url = $params['name'];
+$juridical_person = $params['sex'];
+$build_time = $params['birthday'];
+$features = $params['nation'];
+$summary = $params['address'];
+$address = $params['phone'];
+$phone = $params['email'];
+$official_site = $params['education'];
+$official_site = $params['speciality'];
+$official_site = $params['company'];
+$official_site = $params['undergo'];
+
+
+$databaseManager = new DatabaseManager();
+$dbMaster = $databaseManager->getConn(); //连接sky_first_aid
+
+
+
+//数据库链接失败
+
+if(!$dbMaster){
+	$logger->error(sprintf("Database sky_first_aid connect fail."));
+	ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+}
+//验证session{}
+$sessionArr = $databaseManager->checkSession($ss);
+
+if(!$sessionArr){
+	$logger->error(sprintf(" Session fail."));
+	ErrCode::echoErr(ErrCode::API_ERR_INVALID_SESSION,1);
+
+}
+
+$userId = (int)$sessionArr['user_id'];
+
+//数据逻辑
+$sql = "insert into sky_organization_user_join_apply (org_id, name, sex, birthday, nation, address, phone, email, education, speciality, company, undergo, apply_time, user_id) VALUES ('$org_id', '$name', '$sex', '$birthday', '$nation', '$address', '$phone', '$email', '$education', '$speciality', '$company', '$undergo', NOW(), '$userId')";
+//echo $sql;
+
+$logger->error(v($sql));
+$result = $dbMaster->execute($sql);
+if(!$result){
+    $logger->error(sprintf(" insert fail."));
+    ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+
+}
+
+ErrCode::echoJson('1','success',array());
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

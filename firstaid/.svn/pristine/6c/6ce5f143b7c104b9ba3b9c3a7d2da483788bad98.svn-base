@@ -1,0 +1,15 @@
+<?php
+/*
+ * 1.2.23. get_user_apply_auth_info.php(获取用户申请资质状态)
+ */
+function getUserApplyAuthInfo($userID){
+	$obj = new DatabaseManager();
+	$db = $obj->getConn();
+	$sql="select  state  from   sky_user_data_master.user_apply_for_aptitude_info where user_id='$userID'";
+	return $db->getOne($sql);
+   
+
+
+}
+
+?>

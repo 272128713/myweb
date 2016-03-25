@@ -1,0 +1,95 @@
+<?php
+/*
+ * 1.2.23. get_user_apply_auth_info.php(获取用户申请资质状态)
+ */
+
+include(dirname(__FILE__) . "/common/inc.php");
+$post=$_POST;
+$db= new DatabaseManager();
+$db->getConn();
+$config=new Config();
+$sso_url=$config->getConfig("sso_url");
+//检查session 
+$session=$post['ss'];
+$sessionInfo = $db->checkSession($session);
+if(!$sessionInfo){
+	ErrCode::echoErr(ErrCode::API_ERR_INVALID_SESSION,1);
+}else{
+	$post['user_id']=$sessionInfo['user_id'];
+	$post['mobile']=$sessionInfo['mobile'];
+	//echo  $post['user_id'];die();
+     echo $db->posters_ex($sso_url, 'get_user_apply_auth_info.php', $post);
+}
+
+// header("content-type:text/html; charset=utf-8");
+// include(dirname(__FILE__) . "/common/inc.php");
+// include(dirname(__FILE__) . "/service/get_user_apply_auth_info.php");
+// $logger = Logger::getLogger(basename(__FILE__));
+// //参数校验
+// $params = array(array("ss", true),array("flag", false));
+// $params = Filter::paramCheckAndRetRes($_POST, $params);
+// if (!$params) {
+// 	$logger->error(sprintf("params is err. params is %s", v($_POST)));
+// 	ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER,1);
+// }
+// //获取参数
+// $session = $params["ss"];    //用户sesssion
+// $flag= is_null($params['flag']) ?  0 : $params['flag'];
+
+// switch($flag){  //0 医生 1 健康代表 2志愿者    0100000000 医生0010000000 健康代表0001000000 志愿者
+	
+// 	case 0 :   
+// 		    $flag = '0100000000';
+// 		     break;
+// 	case 1:
+// 		  	$flag = '0010000000';
+// 		  	break;
+// 	case 2 :   
+// 		    $flag = '0001000000';
+// 		    break;
+	
+// }
+// $databaseManager = new DatabaseManager();
+// $database = $databaseManager->getConn();
+// //数据库链接失败
+// if (!$database) {
+// 	$logger->error("database connect error.");
+// 	ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+// }
+// //session校验
+// $sessionInfo = $databaseManager->checkSession($session);
+// if ($sessionInfo) {
+// 	$userID = $sessionInfo['user_id'];
+// } else {
+// 	$databaseManager->destoryConn();
+// 	$logger->error(sprintf("Session check is fail. Error session is [%s]", $session));
+// 	Errcode::echoErr(ErrCode::API_ERR_INVALID_SESSION,1);
+// }
+
+
+// //实现业务逻辑区域
+// //获取申请状态
+// $result1 = getUserApplyAuthInfo($userID,$flag);
+// //获取权限id
+// $privilege_id = getPrivilege($userID);
+// $privilege_id=substr($privilege_id,1,1);
+// $databaseManager->destoryConn();
+// if ($result1 == '0' || $result1 =='1'  || $result1 == '2'  || $privilege_id=="1") {
+// 	if($privilege_id=="1"){
+// 		$result['state']=1;
+// 	}
+// 	$result['state']=$result1;
+	
+// 	 //执行更新个人权限
+// 	if($result['state']=="1"){
+		
+		
+// 		$update = updatePrivilege($userID);
+// 	}
+// 	ErrCode::echoOkArr("1","操作成功",$result);
+// }else{
+// 	$result['state']="1111";
+// 	ErrCode::echoOkArr("1","操作成功",$result);
+// }
+
+?>

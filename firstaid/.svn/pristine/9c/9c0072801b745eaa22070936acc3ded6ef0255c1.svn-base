@@ -1,0 +1,8 @@
+<?php
+
+	error_reporting(0);
+	$ss=$_REQUEST['ss'];
+    $uid=$_REQUEST['uid'];
+    echo $ss;
+    echo $uid;
+?>

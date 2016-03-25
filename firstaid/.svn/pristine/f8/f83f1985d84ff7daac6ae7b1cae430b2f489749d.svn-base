@@ -1,0 +1,188 @@
+<?php
+/**
+* 错误代码定义
+*/ 
+class ErrCode{	
+
+	const SYSTEM_ERR                      = "9998";   //系统错误 
+	const API_ERR_MISSED_PARAMATER        = "9999";   //参数错误 
+	const API_ERR_USERNAME_FORMAT		  = "1001";   //用户名格式不对
+	const API_ERR_USERNAME_EXIST		  = "1002";   //用户名已经存在
+	const API_ERR_NEED_PINCODE            = "1003";   //该账号需要picode验证 
+	const API_ERR_REG_MANY_TIMES          = "1004";   //注册次数太多
+	const API_ERR_SEND_SMS_FAIL	          = "1005";   //发送短信失败
+	const API_ERR_ROLE       			  = "1006";   //用户角色不对
+	const API_ERR_REG_PINCODE_ERROR	      = "1007";   //pincode错误
+	const API_ERR_REG_PINCODE_TIMEOUT     = "1008";   //pincode过期 
+	const API_ERR_PINCODE_TRY_EXCEED      = "1009";   //pincode尝试超限
+	const API_ERR_ACCOUNT_OR_PASSWD       = "1010";	  //用户名或密码错误
+	const API_ERR_INVALID_SESSION         = "1011";   //无效的session
+	const API_ERR_NO_UPDATE               = "1012";   //没有发现更新
+	const API_ERR_PHONE_FORMAT		      = "1013";   //手机格式不对
+	const API_ERR_PHONE_NO_EXSIT		  = "1014";   //手机号码不存在
+	const API_ERR_FORGET_MANY_TIMES       = "1016";   //忘记密码操作次数超限
+	const API_ERR_EMAIL_FORMAT		      = "1017";   //email格式不对
+	const API_ERR_EMAIL_NO_EXSIT		  = "1018";   //email不存在
+	const API_ERR_NOT_PRIVILEGE	          = "1019";   //没有访问个人健康资料权限
+	const API_ERR_GENPINCODE_TOO_QUICK	  = "1020";	  //生成注册码太快
+	const API_ERR_ALREADY_EXIST_PW		  =	"1021";   //已经存在支付密码
+	const API_ERR_PAY_ACCOUNT_OR_PASSWD   = "1022";	  //用户名或支付密码错误
+	const API_ERR_PAY_PASSWORD_MISSING    = "1023";	  //缺少支付密码
+	const API_ERR_VERSSION                = "1024";	  //个人信息版本号一致
+	
+	const FILE_DOWN_ERR					  = "1025";   //图片下载失败
+	const FILE_SEND_ERR					  = "1026";   //图片上传失败
+	const API_ERR_CONTACT_FORMAT		  = "1027";   //通讯录格式不对
+	const API_ERR_CONTACT_UPLOAD		  = "1028";   //通讯录上传失败
+	const API_ERR_ADD_FRIEND_AUTH		  = "1031";   //该用户需要认证
+	const API_ERR_FRIEND_NOT_EXISTS		  = "1032";   //添加好友的uid不存在
+	const API_ERR_WAIT_CHECK		      = "1033";   //等待验证状态
+	const API_ERR_ADD_FRIEND_GROUP	      = "1034";   //添加分组错误
+		
+	const API_ERR_FILE_TOO_LARGE          = "2001";     //文件大小超过限制
+	const API_ERR_MESSAGE_SEND_ERROR	  = "2002";		//消息发送失败	
+	const API_ERR_MESSAGE_GET_ERROR	      = "2003";		//获取消息失败
+	const API_ERR_MESSAGE_ACK_ERROR       = "2004";     //ack响应失败
+	const API_ERR_ACK_HAVE_MESSAGE        = "2005";     //ack响应队列中还有消息，需要用户再取一次
+	const API_ERR_MMS_FILE_NO_EXSIT       = "2006";		//文件不存在
+	const API_ERR_AMS_SAVE_ERROR          = "2007";     //AMS存储失败
+	const API_ERR_AMS_NUMS_FULL	          = "2008";     //咨询次数已满
+	
+	const API_ERR_NO_ALERT_LINKMAN        = "4401";     //失联人未设置
+	const API_ERR_LINKMAN				  = "4402";     //失联人包含自己
+	const API_ERR_LINKMAN_FORMAT		  = "4403";     //失联人格式错误
+	const API_ERR_LINKMAN_LAWLESS		  = "4404";     //失联人非法无效
+	const API_ERR_LINKMAN_EXISTS		  = "4405";		//该用户已存在主动监护人
+	const API_ERR_LINKMAN_IS_REQUEST		="4406";		//已经发送过主动监护请求
+	const API_ERR_LINKMAN_IS_LINK		="4407";		//已经是该用户的监护人
+	const API_ERR_NO_PEOPLE	              = "4444";		//无人接受求救信息
+	const API_ERR_DUPLICATE_ENTRY         = "1101";   //重复的地址簿条目
+	const API_NOT_SUFFICIENT_FUNDS        = "1102";   //余额不足
+	const API_NOT_SUFFICIENT_K            = "1302";   //k币不足
+	const API_ERR_HAVE_NOT_ROLE           = "1103";	  //还未选择角色	
+
+	const API_ERR_SERVICE_CANT_CANALE     = "1104";	  //服务不能退订
+	const API_ERR_SERVICE_HAVING_CANALE   = "1105";	  //退订处理中
+	const API_ERR_SERVICE_HAD_CANALE      = "1106";	  //已完成退订
+	
+
+	const API_ERR_EG_ORDER_NO			  = "7008";		//订单不存在
+	
+	private static  $hashmap=array("9998"=>"系统错误","9999"=>"参数错误 ","1001"=>"用户名格式不对","1002"=>"用户名已经存在,请直接登录","1003"=>"该账号需要picode验证 ","1004"=>"注册次数太多"
+			,"1005"=>"发送短信失败","1006"=>"用户角色不对","1007"=>"pincode错误","1008"=>"pincode过期 ","1009"=>"pincode尝试超限","1010"=>"用户名或密码错误",
+			"1011"=>"无效的session","1012"=>"没有发现更新","1013"=>"手机格式不对","1014"=>"手机号码不存在","1016"=>"忘记密码操作次数超限","1017"=>"email格式不对",
+			"1018"=>"email不存在","1019"=>"没有访问个人健康资料权限","1020"=>"生成注册码太快","1023"=>"缺少支付密码","1024"=>"","1025"=>"图片下载失败","1026"=>"图片上传失败","1027"=>"通讯录格式不对",
+			"1028"=>"通讯录上传失败","1031"=>"该用户需要认证","1032"=>"添加好友的uid不存在","1033"=>"等待验证状态","1034"=>"添加分组错误","2001"=>"文件大小超过限制",
+			"2002"=>"消息发送失败","2003"=>"获取消息失败","2004"=>"ack响应失败","2005"=>"ack响应队列中还有消息，需要用户再取一次","2006"=>"文件不存在",
+			"2007"=>"AMS存储失败","2008"=>"咨询次数已满","3001"=>"超过最大群用户上限","3002"=>"超过最大群个数限制","3003"=>"创建群失败","3004"=>"群号码不存在",
+			"3005"=>"加入群失败","3006"=>"非群用户，不允许查询","3007"=>"不允许执行离开操作","4001"=>"获得圈子内容失败","4002"=>"获得圈子评论失败",
+			"4003"=>"获取医粉圈医生基本信息失败","4004"=>"获取医信用户的基本信息失败","4005"=>"获取好友基本信息","4006"=>"获取好友个人信息失败","4404"=>"失联人非法或无效","4406"=>"已经发送过主动监护请求","4407"=>"已是该目标监护人",
+			"5009"=>"执业地点已经存在","5010"=>"执业地点被使用","5011"=>"时间段已经被约定","5012"=>"服务不存在","5013"=>"key值非法","5014"=>"服务被锁定",
+			"5015"=>"时间段未被预约","5020"=>"业务评价已存在","5030"=>"数据库插入失败","5031"=>"数据库更新失败","5032"=>"会话已关闭","5040"=>"验证码错误","5041"=>"预约信息非法",
+			"5500"=>"私人医生服务参数错误","5501"=>"私人医生服务不存在或下架","5502"=>"私人服务已满","6000"=>"用户角色错误","4444"=>"无人接受求救信息","1021"=>"已经存在支付密码","1022"=>"用户名或支付密码错误","1101"=>"重复的地址薄条目",
+			"1102"=>"余额不足","1302"=>"k币不足","1103"=>"还未选择角色","1104"=>"服务不能退订","1105"=>"退订处理中","1106"=>"已完成退订","7000"=>"专家组重名","7001"=>"普通用户不能使用专家组管理功能","7002"=>"专家组成员少于3人，暂不能开启","7003"=>"有未完结服务",
+			"7004"=>"没有权限 操作者不是服务创建人","7005"=>"分配金额错误","7006"=>"已经是该专家组成员","7007"=>"专家组未启用","7008"=>"订单不存在","7009"=>"用户没有健康宝分配失败","7010"=>"未认证医生无权使用","7011"=>"该医生已经有健康代表","7012"=>"不是该专家组成员",
+			"7013"=>"群主未开启服务设置功能","7014"=>"k币抵用个数超过限制","7015"=>"医生职称级别不合格","7016"=>"医生还未确认","7017"=>"订单已被拒绝","7018"=>"订单已被接受","7019"=>"订单已经确认过了","7020"=>"服务已关闭","7021"=>"服务已删除","4405"=>"该用户已存在主动监护人");
+	public static function getJson($errCode){
+		$ret['code']=$errCode;
+		$ret['msg']=self::$hashmap[$errCode];
+		return  json_encode($ret);
+	}
+	
+	public static function echoJson($code,$msg="",$result=""){
+		$retarr=array();
+		$retarr['code']=$code;
+		$retarr['msg']=$msg;
+		$retarr['result']=$result;
+		echo  json_encode($retarr)."\n";
+		exit;
+	}
+	/*
+	 * $type 1为json格式
+	 */
+	public static function echoErr($errCode,$type=0){
+		if ($type==1){ 
+			echo ErrCode::getJson($errCode) . "\n";
+		}else{
+			echo "oper_result=" . $errCode . "\n";
+		}
+		exit;
+	}
+	/*
+	 * $type 1为json格式
+	*/
+	public static function echoOk($result,$type=0){
+
+		if ($type==1){
+			echo ErrCode::echoJson("1","请求成功");
+		}else{
+			echo "oper_result=0";
+		}
+		
+		exit;
+	}
+	
+	
+	
+    public static function echoOkArr__($result,$resultArr){
+        echo "oper_result=0\n";
+//        echo "oper_descr=" . $result . "\n";
+        if(gettype($resultArr) == "array"){
+            foreach($resultArr as $key=>$value){
+                echo "$key=" . $value . "\n";
+            }
+        } else {
+            echo $resultArr;
+        }
+		exit;
+	} 
+	
+ public static function echoOkArr($code,$msg="",$result=""){
+		$retarr=array();
+		$retarr['code']=$code;
+		$retarr['msg']=$msg;
+		if($result!=''){
+			$retarr['result']=$result;
+		}
+		echo  json_encode($retarr)."\n";
+		exit;
+		
+		
+		//ErrCode::echoJson(1,'执行成功',$return);
+		
+		
+	} 
+	
+	
+	
+	
+/* 	
+	public static function echoOkArr($result,$resultArr){
+		//echo "oper_result=0\n";
+		//        echo "oper_descr=" . $result . "\n";
+		if(gettype($resultArr) == "array"){
+			
+			ErrCode::echoJson("ok","请求成功");
+			 foreach($resultArr as $key=>$value){
+				echo "$key=" . $value . "\n";
+			} 
+			} else {
+				echo $resultArr;
+	}
+	exit;
+	}  */
+	
+    public static function echoErrArr($errCode,$resultArr){
+		echo "oper_result=" . $errCode . "\n";
+//		echo "oper_descr=OPER_ERR\n";
+		if(gettype($resultArr) == "array"){
+            foreach($resultArr as $key=>$value){
+                echo "$key=" . $value . "\n";
+            }
+        } else {
+            echo $resultArr;
+        }
+		exit;
+	}
+}
+?>

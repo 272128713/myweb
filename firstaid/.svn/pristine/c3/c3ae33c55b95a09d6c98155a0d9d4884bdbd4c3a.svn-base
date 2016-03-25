@@ -1,0 +1,109 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: mandrills
+ * Date: 15-10-21
+ * Time: 下午5:25
+ */
+
+include_once dirname(__FILE__) . "/common/inc.php";
+include_once dirname(__FILE__) . "/common/database/DatabaseManager.php";
+include_once dirname(__FILE__) . "/common/TcpConnection.php";
+include_once dirname(__FILE__) . "/common/RKMongo.php";
+include_once dirname(__FILE__) . "/service/repos_update_rescue_state.php";
+
+
+$config = new Config();
+$databaseManager = new DatabaseManager();
+$rkMongo = new RKMongo();
+$rkMongo->connect();
+
+//数据库链接
+if (!$db = $databaseManager->getConn()) {
+    logger()->error(sprintf("Database connect fail."));
+    ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+}
+if(!$rkMongo->connect()){
+    logger()->error("mongoDB connect error.");
+    ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+
+}
+//获取参数
+$params = array(array("ss",true),array("rsid",true),array('content',true));
+
+$params = Filter::paramCheckAndRetRes($_POST, $params);
+
+//var_dump($params);exit;
+if(!$params){
+    logger()->error(sprintf("params error. params is %s",v($_POST)));
+    ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER,1);
+}
+
+$session = trim($params["ss"]);
+$rsid = trim($params['rsid']);
+$appendContent = removeEmoji(strip_tags(trim($params["content"])));
+
+
+//session处理
+$sessionArr = $databaseManager->checkSession($session);
+
+//echo 'SessionArr返回值为:'.$sessionArr;
+
+if(!$sessionArr){
+    $databaseManager->destoryConn();
+    logger()->error(sprintf("Session check is fail. Error session is [%s]",$session));
+    Errcode::echoErr(ErrCode::API_ERR_INVALID_SESSION,1);
+}
+$userId = (int)$sessionArr['user_id'];
+
+
+if(!checkUserHasRescueId($userId,$rsid)){
+    ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER,1);
+}
+
+$newContent = $appendContent ? getContentById($rsid)."\r\n".$appendContent : getContentById($rsid);
+
+
+if(strlen($newContent) > 1000){
+    ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+}
+
+
+if(!appendContentForRescue($rsid,$newContent)){
+    ErrCode::echoJson('1','failed',array());
+}
+
+ErrCode::echoJson('1','success',array());
+
+//函数部分
+function logger()
+{
+    return Logger::getLogger(basename(__FILE__));
+}
+
+function removeEmoji($text) {
+
+    $clean_text = "";
+
+    // Match Emoticons
+    $regexEmoticons = '/[\x{1F600}-\x{1F64F}]/u';
+    $clean_text = preg_replace($regexEmoticons, '', $text);
+
+    // Match Miscellaneous Symbols and Pictographs
+    $regexSymbols = '/[\x{1F300}-\x{1F5FF}]/u';
+    $clean_text = preg_replace($regexSymbols, '', $clean_text);
+
+    // Match Transport And Map Symbols
+    $regexTransport = '/[\x{1F680}-\x{1F6FF}]/u';
+    $clean_text = preg_replace($regexTransport, '', $clean_text);
+
+    // Match Miscellaneous Symbols
+    $regexMisc = '/[\x{2600}-\x{26FF}]/u';
+    $clean_text = preg_replace($regexMisc, '', $clean_text);
+
+    // Match Dingbats
+    $regexDingbats = '/[\x{2700}-\x{27BF}]/u';
+    $clean_text = preg_replace($regexDingbats, '', $clean_text);
+
+    return $clean_text;
+}

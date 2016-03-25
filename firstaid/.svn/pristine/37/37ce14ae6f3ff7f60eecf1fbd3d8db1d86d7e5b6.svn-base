@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>立即拥有</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/shoppingcart.css" />
+		<?php include 'emergency_server_order.php';		$num= 1?>
+	</head>
+	<body>
+    	<div class="container">
+	       <div class="shopping">
+	       		<div class="commodity">
+	       			<img class="pull-left" src="<?php echo $ord['img_url']?>">
+	       			<div class="pull-left right">
+	       				<p class="name"><?php echo $ord['goods_name']?></p>
+	       				<p class="price">￥<?php echo sprintf("%.2f",$ord['goods_price'])?>元</p>
+	       			</div>
+	       			<div class="clearfix"></div>
+	       		</div>
+	       		<div class="count_sum">
+	       			<p class="guige">数量规格</p>
+	       			<div class="num">
+		       				<div class="text">数量：</div>
+		       				<div class="btn">
+		       					<span class="span1">-</span>
+		       					<span class="span2"><?php echo $num;?></span>
+		       					<span class="span3">+</span>
+		       				</div>
+		       				<div class="jine">
+	       						小计：<span><?php echo $num*$ord['goods_price']?>元</span>
+	       					</div>
+	       					<div class="clearfix"></div>
+	       			</div>
+	       			<div class="receive">
+	       				<p class="guige">填写收货信息</p>
+	       				<form class="mui-input-group">
+							<div class="mui-input-row">
+								<label>收货人姓名</label>
+								<input type="text" placeholder="收货人姓名">
+							</div>
+							<div class="mui-input-row">
+								<label>手机号码</label>
+								<input type="text" class="mui-input-clear" placeholder="填写您的手机号">
+							</div>
+							<div class="mui-input-row">
+								<label>所在地区</label>
+								<input type="text" class="mui-input-speech mui-input-clear" placeholder="填写您的收货地区">
+							</div>
+							<div class="mui-input-row">
+								<label>详细地址</label>
+								<input type="text" class="mui-input-speech mui-input-clear" placeholder="填写您的收货地址">
+							</div>
+						</form>
+	       			</div>
+	       		</div>
+	       </div>
+	       <div class="conf">立即支付</div>
+    	</div>
+    	<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+    	<script type="text/javascript" src="../common/js/layer/layer.js"></script>
+    	<script type="text/javascript">
+    		var num = <?php echo $num?>;
+			$('.btn .span2').html(num);
+			$('.btn .span3').on('click',function(){
+					$('.btn .span2').html(++num);
+
+					$('.jine span').html(num*<?php echo $ord['goods_price']?>+"元");
+				});
+			$('.btn .span1').on('click',function(){
+				if(num<=1){
+						layer.tips("不能少于1件",'.span2');
+					}else{
+						$('.btn .span2').html(--num);
+						$('.jine span').html(num*<?php echo $ord['goods_price']?>+"元");
+					}
+			});
+    	</script>
+	</body>
+</html>

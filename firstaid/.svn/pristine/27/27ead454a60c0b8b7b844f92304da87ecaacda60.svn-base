@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>立即拥有</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/shoppingcart.css" />
+	</head>
+	<body>
+    	<div class="container">
+	       <div class="shopping">
+	       		<div class="commodity">
+	       			<img class="pull-left" src="images/sort1.png">
+	       			<div class="pull-left right">
+	       				<p class="name">野外逃生应急预案A-12801</p>
+	       				<p class="price">￥508.00元</p>
+	       			</div>
+	       			<div class="clearfix"></div>
+	       		</div>
+	       		<div class="count_sum">
+	       			<p class="guige">数量规格</p>
+	       			<div class="num">
+		       				<div class="text">数量：</div>
+		       				<div class="btn">
+		       					<span class="span1">-</span>
+		       					<span class="span2">1</span>
+		       					<span class="span3">+</span>
+		       				</div>
+		       				<div class="jine">
+	       						小计：<span>508.00元</span>
+	       					</div>
+	       					<div class="clearfix"></div>
+	       			</div>
+	       			<div class="receive">
+	       				<p class="guige">填写收货信息</p>
+	       				<form class="mui-input-group">
+							<div class="mui-input-row">
+								<label>收货人姓名</label>
+								<input type="text" placeholder="秦志龙">
+							</div>
+							<div class="mui-input-row">
+								<label>手机号码</label>
+								<input type="text" class="mui-input-clear" placeholder="13000000000">
+							</div>
+							<div class="mui-input-row">
+								<label>所在地区</label>
+								<input type="text" class="mui-input-speech mui-input-clear" placeholder="陕西省西安市雁塔区">
+							</div>
+							<div class="mui-input-row">
+								<label>详细地址</label>
+								<input type="text" class="mui-input-speech mui-input-clear" placeholder="友谊西路78号西工大附小院内">
+							</div>
+						</form>
+	       			</div>
+	       		</div>
+	       </div>
+	       <div class="conf">立即支付</div>
+    	</div>
+	</body>
+</html>

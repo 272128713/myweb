@@ -1,0 +1,12 @@
+<?php
+include 'common.php';
+$totalnum = 0;
+    $post = array(
+        'ss'=>$_POST['ss'],
+        'auth'=>'0001000000',
+    );
+
+$code=httpRequest($URLHOST.'/firstaid/1.0/user_auth_apply.php',$post,'post');
+echo $code;
+
+

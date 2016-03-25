@@ -1,0 +1,83 @@
+html,body{
+	font-family: "微软雅黑";
+}
+.list-container{
+	width: 100%;
+	background: #fff;
+	border-top:5px solid #ededed;
+	padding-left: 2.5%;
+	padding-right: 2.5%;
+}
+.list-container .list{
+	padding-top: 20px;
+	padding-bottom:15px;
+}
+.list-container .list .list-left{
+	width:30%;
+	float:left;
+}
+.list-left img{
+	width:100%;
+}
+.list-container .list .list-right{
+	width:70%;
+	padding-left: 4%;
+	float:left;
+}
+.clearfix{
+	clear: both;
+}
+.list-right .pro_name{
+	color:#303030;
+	font-size:13px;
+}
+.list-right .pro_price{
+	color:#303030;
+	font-size:12px;
+}
+.list .list-right .order_operate{
+	width:100%;
+	height: 33px;
+	margin-top:20px;
+}
+.order_operate .button{
+	font-size: 13px;
+	width:35%;
+	height:33px;
+	line-height:33px;
+	text-align: center;
+	float:right;
+}
+.order_operate .wuliu{
+	width:60%;
+	float:left;
+	margin-right:5%;
+}
+.order_operate .wuliu p{
+	color:#858585;
+	font-size: 12px;
+	line-height:12px;
+	margin-bottom: 0px;
+}
+.order_operate .wuliu .danhao{
+	margin-bottom:9px;
+}
+.order_operate .pay{
+	color:#fff;
+	background:#dd403b;
+}
+.order_info{
+	width:100%;
+	margin-top:15px;
+	border-top:1px solid #c6c6c6;
+}
+.order_info p{
+	font-size: 12px;
+	margin-top:10px;
+}
+.order_info .order_number{
+	float:left;
+}
+.order_info .order_je{
+	float:right;
+}

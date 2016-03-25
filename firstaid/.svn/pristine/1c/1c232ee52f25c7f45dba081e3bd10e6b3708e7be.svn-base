@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>公益活动记录</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/public_list.css" />
+		
+	</head>
+	<style>
+		.mui-content{
+			width: 96%;
+		}
+		.wrap{
+			padding:3px 0 10px 0;
+			width:100%;
+		}
+		.agency{
+			margin-top:5%;
+		}
+		.agency img{}
+		.loading{
+			position:absolute;
+			top: 50%;
+			background-size:40px 40px;
+			width: 40px;
+			height:40px;
+			margin-top:-20px;
+			margin-left:-20px;
+			left:50%;
+			z-index: 999;
+			background-image: url('images/loading.gif');
+			display: none;
+			
+		}
+	</style>
+	
+	<body>
+		<div class="mui-content">
+			<div class="wrap">
+			</div>
+		</div>
+				
+		<div class="loading"></div>
+		
+		<script type="text/javascript" src="../common/js/zepto.min.js"></script>
+		<script type="text/javascript">
+			$imgWidth = $('.agency img').width();
+			alert($imgWidth);
+			$(".agency img").height($imgWidth);
+			var ss='<?php echo $_GET['ss'];?>';
+			var html="";
+			$.ajax({
+				type:"POST",
+				url:"../../1.0/get_public_welfare_activity_list.php",
+				data:{ss:ss},
+				dataType:"json",
+				beforeSend:function(){
+					$('.loading').show();
+				},
+				success:function(data){
+					$(".loading").hide();
+					if(data.code==1){
+						res = data.result;
+						length = res.length;
+						
+						for(i=0;i<length;i++){
+							address=res[i].address;
+							if(address==""){
+								address="暂无";
+							}else{
+								address=address;
+							}
+								html += "<div class='agency'><img class='img1' src='"+res[i].img_url+"' /><div class='line'></div><div class='con'><p class='title'>"+res[i].title+"</p><p class='intro'>"+address+"</p><p class='time'><span class='icon'></span>"+res[i].start_time+"</p></div></div>";
+							
+						}
+						
+						$('.wrap').html(html);
+						
+						
+					}else{
+						$('.loading').hide();
+					}
+				},
+				
+			});
+		
+		
+		</script>
+	</body>
+
+</html>

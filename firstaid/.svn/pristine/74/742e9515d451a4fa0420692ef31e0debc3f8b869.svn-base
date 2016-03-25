@@ -1,0 +1,71 @@
+
+<?php
+/**
+* 设置订单地址
+*/ 
+	
+	include(dirname(__FILE__) . "/../../1.0/common/inc.php");
+	$logger = Logger::getLogger(basename(__FILE__));
+	$databaseManager = new DatabaseManager();
+	$db = $databaseManager->getConn();
+	//数据库链接失败
+	if(!$db){
+		echo "<div style='margin:1em 0 0 2em'>Server Error</div>";
+		echo "<div style='margin:1em 0 0 2em'>服务器开小差~！跳转中。。。</div>";
+		?>
+			<script>
+			setTimeout("goBack()",2000);
+			function goBack(){
+				history.go(-1);
+			}
+			</script>
+			<?php
+		die();
+	}
+	$result=array();
+	if($_POST){
+		$result = $_POST;
+		$uid=trim($result['user_id']);
+		$area_code=trim($result['area_code']);
+		$address=trim($result['address']);
+		$receive_name=trim($result['receive_name']);
+		$receive_phone=trim($result['receive_phone']);
+	//收货地址
+		$sql="select id from user_receive_address_info where user_id = ".$uid;
+		$rs_id = $db->getOne($sql);
+		if($rs_id){
+			$sql = "update user_receive_address_info 
+			set area_code = '$area_code',address='$address',createDate=now(),receive_name='$receive_name',receive_phone='$receive_phone'
+			where id = '$rs_id'
+			";
+			$rsup=$db->execute($sql);
+		}else{
+			$sql = "insert into user_receive_address_info 
+			(user_id,area_code,address,createDate,receive_name,receive_phone)
+			 values
+			 ('$uid','$area_code','$address',now(),'$receive_name','$receive_phone')";
+			$rsin = $db->execute($sql);
+			if($rsin){
+				$sql = "select id from user_receive_address_info where user_id = ".$uid;
+				$rs_id = $db->getOne($sql);
+			}else{
+				echo $sql;
+			}
+		}
+		echo $rs_id;
+	}else{
+		die();
+	}
+	
+	
+	
+
+?>	
+	
+	
+	
+	
+	
+	
+	
+	

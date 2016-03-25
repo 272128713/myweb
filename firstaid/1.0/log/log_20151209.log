@@ -1,0 +1,4 @@
+2015-12-09 11:36:18,769 [ERROR] (get_public_welfare_activity_list.php:15) -- params is err. params is array (
+  'ss' => '',
+) 
+2015-12-09 13:18:47,941 [ERROR] (get_public_welfare_activity_list.php:39) -- Session check is fail. Error session is [v2QaGM5tBqCx50tRfQQsmqbo7ZNQKUKl] 

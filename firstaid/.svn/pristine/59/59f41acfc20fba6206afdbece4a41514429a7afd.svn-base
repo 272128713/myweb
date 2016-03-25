@@ -1,0 +1,608 @@
+<?php
+include (dirname ( __FILE__ ) . "/DataBase_Mysql.php");
+include (dirname ( __FILE__ ) . "/../MemcacheManager.php");
+class DatabaseManager {
+	private $conn;
+	private $logger;
+	private $sso;
+	public function __construct() {
+		$this->logger = Logger::getLogger ( basename ( __FILE__ ) );
+	}
+	
+	// 取得主业务数据库配置信息
+	private function getMasterDbConfig() {
+		$config = new Config ();
+		$databaseConfigArr = array (
+				"connmethod" => "",
+				"driver" => "mysql",
+				"host" => $config->getConfig ( "MASTER_HOST" ),
+				"username" => $config->getConfig ( "MASTER_USER" ),
+				"password" => $config->getConfig ( "MASTER_PASS" ),
+				"dbname" => $config->getConfig ( "MASTER_NAME" ),
+				"dbcharacter" => $config->getConfig ( "MASTER_CHARSET" ) 
+		);
+		return $databaseConfigArr;
+	}
+	// 取得SSO数据库配置信息
+	private function getSsoDbConfig() {
+		$config = new Config ();
+		$databaseConfigArr = array (
+				"connmethod" => "",
+				"driver" => "mysql",
+				"host" => $config->getConfig ( "SSO_HOST" ),
+				"username" => $config->getConfig ( "SSO_USER" ),
+				"password" => $config->getConfig ( "SSO_PASS" ),
+				"dbname" => $config->getConfig ( "SSO_NAME" ),
+				"dbcharacter" => $config->getConfig ( "SSO_CHARSET" )
+		);
+		return $databaseConfigArr;
+	}
+	
+	// 返回数据库链接
+	public function getConn() {
+		$database = new DataBase_Mysql ();
+		$isConnected = $database->connect ( $this->getMasterDbConfig () );
+		if ($isConnected) {
+			$this->conn = $database;
+			return $this->conn;
+		} else {
+			return null;
+		}
+	}
+	public function getSsoConn() {
+		$database = new DataBase_Mysql ();
+		$isConnected = $database->connect ( $this->getSsoDbConfig () );
+		if ($isConnected) {
+			$this->sso = $database;
+			return $this->sso;
+		} else {
+			return null;
+		}
+	}
+	public function destoryConn() {
+		$this->conn->disConnect ();
+	}
+	public function destorySsoConn() {
+		$this->sso->disConnect ();
+	}
+
+
+
+/*********************************xupan************************************************************/
+	/**
+	 * 远程调用接口
+	 *
+	 * @param number $link
+	 *        	角色分类1 MEC 2 HttpAPI 3 LPS 4 News api 5 fileserver
+	 * @param string $controller
+	 *        	接收操作的控制器名
+	 * @param string $method
+	 *        	接收操作的方法名
+	 * @param array $param
+	 *        	需要提交的参数
+	 * @return array
+	 */
+	public function posters($login,$param) {
+		
+	
+		$url = '127.0.0.1/sky_master/1.0/' . $login . '.php';
+	
+		$ch = curl_init ();
+		curl_setopt ( $ch, CURLOPT_URL, $url );
+		curl_setopt ( $ch, CURLOPT_POST, 1 );
+		curl_setopt ( $ch, CURLOPT_POSTFIELDS, $param );
+		curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
+		$server_output = curl_exec ( $ch );//接收服务器端返回的数据
+		curl_close ( $ch );
+		$resp=json_decode($server_output,true);
+		$this->logger->info ( "poster's param is: url: " . $url . "post data is" . var_export ( $param, true ) . " return is" . var_export ( $server_output, true ) );
+		return $resp;
+	}
+	public function posters_ex($url,$filename,$param) {
+
+
+		$url = $url . "/". $filename ;
+		
+		$ch = curl_init ();
+		// curl_setopt($ch, CURLOPT_URL,$url.'?XDEBUG_SESSION_START=ECLIPSE_DBGP');
+		curl_setopt ( $ch, CURLOPT_URL, $url );
+		curl_setopt ( $ch, CURLOPT_POST, 1 );
+		// curl_setopt($ch, CURLOPT_COOKIE, 'XDEBUG_SESSION=1');
+		curl_setopt ( $ch, CURLOPT_POSTFIELDS, $param );
+		curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
+		$server_output = curl_exec ( $ch ); //接收服务器端返回的数据
+		//$resp=json_decode($server_output,true);
+		$this->logger->info ( "poster's param is: url: " . $url . "post data is" . var_export ( $param, true ) . " return is" . var_export ( $server_output, true ) );
+		return $server_output; 
+		
+	}
+	
+	/**
+	 * 远程调用接口有图片
+	 * @param $link   提交地址
+	 * @param array $param 需要提交的参数
+	 * @return array
+	 */
+	function posters_img($url,$filename,$param){
+		
+		$url = $url . "/". $filename ;
+		$ch = curl_init();  // 初始化一个 cURL 对象
+		curl_setopt($ch,CURLOPT_URL,$url);  // 设置你需要抓取的URL
+		curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);  //设置cURL 参数，要求结果保存到字符串中还是输出到屏幕上。
+		curl_setopt($ch,CURLOPT_POST,true);
+		curl_setopt($ch,CURLOPT_POSTFIELDS,$param);
+		$result = curl_exec($ch); // 运行cURL，请求网页
+		curl_close($ch); // 关闭URL请求
+		return $result;
+		//return json_decode($result,true);;
+	}
+	
+	//添加权限控制信息
+	public  function addPrivilegeList($user_id){
+		
+		$sql="select * from user_privilege_list where user_id='$user_id'";
+		$res=$this->conn->getAll($sql);
+		if(!$res){
+			$sql2="insert into user_privilege_list(user_id) values('$user_id')";
+			return $this->conn->execute($sql2);
+		}
+		
+	}
+	
+	//检查用户登陆的用户名和密码是否正确
+	public function userLogin($username,$pwd){
+		//echo $username;die();  18391429660
+		$sql="select * from user_base_info where mobile='$username'";
+		$pwd_d=$this->conn->getRow($sql);
+       // var_dump($pwd_d);die();
+		if(md5($pwd)==$pwd_d['password']){
+			return $pwd_d;
+		}else{
+			return 0;
+		}
+		
+		
+	}
+	
+	/**
+	 * 生成SESSION,如果有，则返回已经存在的
+	 */
+	public function createSession($user_id) {
+		$this->clearSession ( $user_id ); // 清除cache里面的旧的session
+		/*
+		 * $sessionSql = "select session from user_session_info where user_id='$user_id'"; $session = $this->conn->getOne($sessionSql); if(!$session){
+		*/
+		$session = getRandomID ( 32 );
+		// }
+		//print_r($session);die();
+		return $session;
+	}
+	
+	/**
+	 * 根据user_id清除cache里面的session
+	 */
+	function clearSession($user_id) {
+		$session = $this->conn->getOne ( "select session from user_session_info where user_id='$user_id'" );
+		$config = new Config ();
+		$server = $config->getLocalConfig ( "sessionmemcacheserver" );
+		$serverRow = explode ( ":", $server );
+		$mem = new MemcacheManager ( $serverRow [0], $serverRow [1] );
+		$mem = $mem->getMemcache ();
+		if ($mem) {
+			if ($session != "") {
+				$memResult = $mem->delete ( $session );
+				if (! $memResult) {
+					$this->logger->error ( "delete fail. clear session from memcached fail. session is [$session]" );
+				}
+			}
+			$mem->close ();
+		} else {
+			//echo 111;die();
+			//$this->$logger->error ( "memcached connect fail. clear session from memcached fail. session is [$session]" );
+		}
+	}
+	
+	/**
+	 * 校验session合法性并返回相应结果集
+	 */
+	public function checkSession($session) {
+		// 首先从cache取，若cache不存在则从DB中获取并存入到cache
+		$config = new Config ();
+		$server = $config->getLocalConfig ( "sessionmemcacheserver" );
+		$serverRow = explode ( ":", $server );
+		$mem = new MemcacheManager ( $serverRow [0], $serverRow [1] );
+		$mem = $mem->getMemcache ();
+		$memResult = 0;
+		if (! $mem) {
+			$this->logger->error ( sprintf ( "Filter connect fail. server info: %s:%s", $serverRow [0], $serverRow [1] ) );
+			$memResult = - 1;
+		} else {
+			$mem_res = $mem->get ( $session );
+			if ($mem_res != "") {
+				$mem->close ();
+				return $mem_res;
+			}
+		}
+		$crc_session = abs ( crc32 ( $session ) );
+		$sql = "SELECT a.user_id,a.client_type,a.mid,a.push_service_type,a.session,a.mec_ip,a.mec_port,a.lps_ip,a.lps_port,b.mobile,b.user_name as rn
+		FROM sky_first_aid.user_session_info as a, sky_user_data_master.user_base_info as b where a.user_id=b.user_id  and a.session='$session'";
+		
+		$rel = $this->conn->getRow ( $sql );
+		if ($rel) {
+			$uid = $rel["user_id"];
+			$ip = $_SERVER["REMOTE_ADDR"];
+			$url = $_SERVER['PHP_SELF'];
+			$api = substr( $url , strrpos($url , '/')+1 );
+			$sql = "insert into statistics(uid,ip,api,createDate) values('$uid','$ip','$api',now())";
+			$this->conn->execute($sql);
+			return $rel;
+		} else {
+			$uid = "9999";
+			$ip = $_SERVER["REMOTE_ADDR"];
+			$url = $_SERVER['PHP_SELF'];
+			$api = substr( $url , strrpos($url , '/')+1 );
+			$sql = "insert into statistics(uid,ip,api,createDate) values('$uid','$ip','$api',now())";
+			$this->conn->execute($sql);
+			return false;
+		}
+		
+	}
+
+	
+	/**
+	 *
+	 * 更新SESSION信息
+	 *
+	 * @param Array $sessionArr
+	 */
+	public function addSession($sessionArr, $user_id) {
+		
+		$sql="select * from user_session_info where user_id = '$user_id'";
+		$res=$this->conn->getAll($sql);
+		
+		//print_r($res) ;die();
+		
+		if($res){
+			 
+			$this->conn->startTrans ();
+			$crc_session = abs ( crc32 ( $sessionArr ["session"] ) );
+			$updateSession = "update user_session_info set client_type = '" . $sessionArr ["client_type"] . "',
+    												session = '" . $sessionArr ["session"] . "',
+    												mid = '" . $sessionArr ["mid"] . "',
+    												push_service_type = '" . $sessionArr ["push_service_type"] . "',
+    												mec_ip = '" . $sessionArr ["mec_ip"] . "',
+    												mec_port = '" . $sessionArr ["mec_port"] . "',
+    												lps_ip = '" . $sessionArr ["lps_ip"] . "',
+    												lps_port = '" . $sessionArr ["lps_port"] . "',
+			    												last_get_session_date = NOW(),
+			    												session_hash = $crc_session where user_id = '$user_id'";
+		
+			$this->conn->execute ( $updateSession );
+			if ($this->conn->hasFailedTrans ()) {
+				$this->conn->completeTrans ( false );
+				return false;
+			} else {
+		
+				$this->conn->completeTrans ( true );
+				return true;
+			}
+			
+			
+		}else{
+			
+		 	
+			$this->conn->startTrans ();
+			$crc_session = abs ( crc32 ( $sessionArr ["session"] ) );
+			 $client_type=$sessionArr["client_type"];
+			 $session=$sessionArr["session"];
+			 $mid=$sessionArr ["mid"];
+			 $push_service_type=$sessionArr ["push_service_type"];
+			 $mec_ip=$sessionArr["mec_ip"];
+			 $mec_port=$sessionArr["mec_port"];
+			 $lps_ip=$sessionArr ["lps_ip"];
+			 $lps_port=$sessionArr["lps_port"];
+			$updateSession = "insert into user_session_info(user_id,client_type,session,mid,push_service_type,mec_ip,mec_port,lps_ip,lps_port,last_get_session_date,session_hash) 
+			values('$user_id','$client_type','$session','$mid','$push_service_type','$mec_ip','$mec_port','$lps_ip','$lps_port',NOW(),$crc_session)";
+	
+			$this->conn->execute ( $updateSession );
+			if ($this->conn->hasFailedTrans ()) {
+				$this->conn->completeTrans ( false );
+				return false;
+			} else {
+				$this->conn->completeTrans ( true );
+				return true;
+			} 
+				
+			
+		}
+		
+		
+		
+		
+	}
+	
+	/**
+	 * 给用户分配服务器并返回
+	 */
+	public function dispatchServerAndGetInfo($user_id) {
+		// 目前只是lps服务器需要动态分配，其他暂时不用，但算法可以随时改变
+		$getMecSql = "select local_ip,local_port from dim_server_config where category = 1 and is_enable = 1"; // 获取MEC地址
+		$mecArr = $this->conn->getRow ( $getMecSql );
+		//var_dump($this->conn);die();
+		if ($mecArr) {
+			$mec_ip = $mecArr ['local_ip'];
+			$mec_port = $mecArr ['local_port'];
+		} else
+			return false;
+	
+		$getLpsApiSql = "select ip,port from dim_server_config where category = 2 and is_enable = 1 and  (max_loading - curr_loading) > 0  ORDER BY max_loading - curr_loading desc"; // 获取lps地址
+		$lpsArr = $this->conn->getRow ( $getLpsApiSql );
+		if ($lpsArr) {
+			$lps_ip = $lpsArr ['ip'];
+			$lps_port = $lpsArr ['port'];
+		} else
+			return false;
+	
+		$getHttpApiSql = "select ip,port from dim_server_config where category = 3 and is_enable = 1"; // 获取http api地址
+		$httpApiArr = $this->conn->getRow ( $getHttpApiSql );
+		if ($httpApiArr) {
+			$api_ip = $httpApiArr ['ip'];
+			$api_port = $httpApiArr ['port'];
+		} else
+			return false;
+	
+		$getNewsApiSql = "select ip,port from dim_server_config where category = 4 and is_enable = 1"; // 获取new api地址
+		$newApiArr = $this->conn->getRow ( $getNewsApiSql );
+		if ($newApiArr) {
+			$news_ip = $newApiArr ['ip'];
+			$news_port = $newApiArr ['port'];
+		} else
+			return false;
+	
+		$getFileApiSql = "select ip,port from dim_server_config where category = 5 and is_enable = 1"; // 获取file server地址
+		$fileApiArr = $this->conn->getRow ( $getFileApiSql );
+		if ($fileApiArr) {
+			$file_ip = $fileApiArr ['ip'];
+			$file_port = $fileApiArr ['port'];
+		} else
+			return false;
+		$serverArr = array (
+				"mec_ip" => $mec_ip,
+				"mec_port" => $mec_port,
+				"lps_ip" => $lps_ip,
+				"lps_port" => $lps_port,
+				"api_ip" => $api_ip,
+				"api_port" => $api_port,
+				"news_ip" => $news_ip,
+				"news_port" => $news_port,
+				"file_ip" => $file_ip,
+				"file_port" => $file_port
+		);
+		return $serverArr;
+	}
+	
+	/**
+	 * 获取信息版本
+	 */
+	public function getInfoVersion($user_id) {
+		//sky_user_data_master.user_version_info 数据库的名字sky_user_data_master和表的名字user_version_info连接
+		$querySql = "select user_id,image_ver,base_ver from sky_user_data_master.user_version_info where user_id = '$user_id'";
+		return $this->conn->getRow ( $querySql );
+
+	}
+	
+	//获取用户的一些信息
+	public function getUserBase($user_id){
+		
+		
+		$sql="select user_id,mobile,user_name,privilege_id from  sky_user_data_master.user_base_info  where user_id='$user_id'";
+		return $this->conn->getRow ( $sql );
+		
+
+		
+	}
+	
+	/**
+	 * 获取用户旧的头像信息
+	 */
+	public function GetAvatarImgUrl($user_id) {
+		$GetImgUrlSql = "select source_image_url,thumbnail_image_url from user_version_info where user_id=$user_id";
+		$ImgUrls = $this->conn->getRow ( $GetImgUrlSql );
+		if ($ImgUrls == "")
+			return false;
+		return $ImgUrls;
+	}
+	/*
+	 *根据UserID确定存储分区值
+	*/
+	private function dbHash($userID) {
+		return ( int ) substr ( $userID, - 2 );
+	}
+	/**
+	 *
+	 * 添加通讯录联系人
+	 *
+	 * @param Object $contactList
+	 * @param String $mobile
+	 */
+	public function addContact($userID, $contactList) {
+		$this->contactConn->startTrans ();
+		// 为了减轻数据库服务器压力,对联系人进行分批次上传,每次100个
+		$this->insertContact ( $userID, $contactList );
+		if ($this->contactConn->hasFailedTrans ()) {
+			$this->contactConn->completeTrans ( false );
+			$this->contactConn->disConnect ();
+			$this->logger->error ( sprintf ( "addContact error.error sql=%s", v ( $this->contactConn->getErrSql () ) ) );
+			return false;
+		} else {
+			$this->contactConn->completeTrans ( true );
+			// $this->contactConn->disConnect();
+			return true;
+		}
+	}
+	
+	/*
+	 * 分批上传联系人操作
+	*/
+	private function insertContact($userID, $contacts) {
+		$number_insertParams = "";
+		$number_counter = 0;
+		$emails_insertParams = "";
+		foreach ( $contacts as $number ) {
+			$number_insertParams .= "(" . $userID . "," . $this->dbHash ( $userID ) . ",'" . $number . "'),";
+			$number_counter ++;
+			if ($number_counter == 100) {
+				$number_insertParams = substr ( $number_insertParams, 0, strlen ( $number_insertParams ) - 1 );
+				$insertSql = "replace into mobile_contact(user_id,hash_mod,contact_number) values" . $number_insertParams;
+				// print_r("1.".$insertSql."<br>");
+				$this->contactConn->execute ( $insertSql );
+				$number_counter = 0;
+				$number_insertParams = "";
+			}
+		}
+		if ($number_counter > 0) {
+			$number_insertParams = substr ( $number_insertParams, 0, strlen ( $number_insertParams ) - 1 );
+			$insertSql = "replace into mobile_contact(user_id,hash_mod,contact_number) values" . $number_insertParams;
+			// print_r("2.".$insertSql."<br>");
+			$this->contactConn->execute ( $insertSql );
+		}
+	}
+	
+	/**
+	 * 删除指定通讯录联系人
+	 */
+	public function delContact($userID, $contactList) {
+		$this->contactConn->startTrans ();
+		// 为了减轻数据库服务器压力,对联系人进行分批次上传,每次100个
+		$this->deleteContact ( $userID, $contactList );
+		if ($this->contactConn->hasFailedTrans ()) {
+			$this->contactConn->completeTrans ( false );
+			$this->contactConn->disConnect ();
+			$this->logger->error ( sprintf ( "delContact error.error sql=%s", v ( $this->contactConn->getErrSql () ) ) );
+			return false;
+		} else {
+			$this->contactConn->completeTrans ( true );
+			// $this->contactConn->disConnect();
+			return true;
+		}
+	}
+	
+	/*
+	 * 分批删除联系人操作
+	*/
+	private function deleteContact($userID, $contacts) {
+		$number_insertParams = "";
+		$number_counter = 0;
+		$emails_insertParams = "";
+		foreach ( $contacts as $number ) {
+			$number_insertParams .= "'" . $number . "',";
+			$number_counter ++;
+			if ($number_counter == 100) {
+				$number_insertParams = substr ( $number_insertParams, 0, strlen ( $number_insertParams ) - 1 );
+				$insertSql = "delete from mobile_contact where hash_mod=" . $this->dbHash ( $userID ) . " and user_id=" . $userID . " and contact_number in (" . $number_insertParams . ")";
+				// print_r("1.".$insertSql."<br>");
+				$this->contactConn->execute ( $insertSql );
+				$number_counter = 0;
+				$number_insertParams = "";
+			}
+		}
+		if ($number_counter > 0) {
+			$number_insertParams = substr ( $number_insertParams, 0, strlen ( $number_insertParams ) - 1 );
+			$insertSql = "delete from mobile_contact where hash_mod=" . $this->dbHash ( $userID ) . " and user_id=" . $userID . " and contact_number in (" . $number_insertParams . ")";
+			$this->contactConn->execute ( $insertSql );
+		}
+	}
+	
+	/*
+	 * 根据UID返回用户对应的相关信息
+	*/
+	public function getUserInfoByUid($uidlist) {
+		$condition = " a.user_id in (" . $uidlist . ")";
+		$sql = "SELECT a.user_id,a.client_type,a.mid,a.push_service_type,a.mec_ip,a.mec_port,a.lps_ip,a.lps_port,b.mobile FROM sky_first_aid.user_session_info as a, sky_user_data_master.user_base_info as b where a.user_id=b.user_id and $condition";
+		return $this->conn->getAll ( $sql );
+	}
+	
+	/*
+	 * 更新获取消息的时间
+	*/
+	public function updateLastGetDate($user_id) {
+		$time = time (); // date("Y-m-d H:i:s");
+		$updateSql = "update user_session_info set last_get_msg_date='$time' where user_id='$user_id'";
+		$this->conn->execute ( $updateSql );
+	}
+	
+	// 地理位置信息匹配，获取好友个人姓名
+	public function getNotFriendNameList($friendList) {
+		$sql = "SELECT a.user_id uid,a.user_type_extend as ute,mobile,user_name rn,a.authentication auth,b.base_ver piv,b.image_ver pav,a.recollection_id rc,a.hospital hp
+		FROM user_base_info a,user_version_info b WHERE a.user_id=b.user_id AND a.user_id  IN ($friendList) AND a.user_type_id>0";
+		// echo $sql;
+		$result = $this->conn->getAll ( $sql );
+		return $result;
+	}
+	
+	/*
+	 * 建立联系人数据库连接
+	*/
+	public function getContactConn() {
+		$database = new DataBase_Mysql ();
+		$isConnected = $database->connect ( $this->getContactDBConfig () );
+		if ($isConnected) {
+			$this->contactConn = $database;
+			return $this->contactConn;
+		} else {
+			return null;
+		}
+	}
+	
+	
+	public function getContactDBConfig() {
+		$config = new Config ();
+		$databaseConfigArr = array (
+				"connmethod" => "",
+				"driver" => "mysql",
+				"host" => $config->getConfig ( "CONTACT_HOST" ),
+				"username" => $config->getConfig ( "CONTACT_USER" ),
+				"password" => $config->getConfig ( "CONTACT_PASS" ),
+				"dbname" => $config->getConfig ( "CONTACT_NAME" ),
+				"dbcharacter" => $config->getConfig ( "CONTACT_CHARSET" )
+		);
+		return $databaseConfigArr;
+	}
+	
+	
+	public function destoryContactConn() {
+		$this->contactConn->disConnect ();
+	}
+	
+	
+	public function delAllContact($userID) {
+		$this->contactConn->startTrans ();
+		$delSql = "delete from mobile_contact where user_id=$userID";
+		$this->contactConn->execute ( $delSql );
+		if ($this->contactConn->hasFailedTrans ()) {
+			$this->contactConn->completeTrans ( false );
+			$this->contactConn->disConnect ();
+			$this->logger->error ( sprintf ( "delAllContact error.error sql=%s", v ( $this->contactConn->getErrSql () ) ) );
+			return false;
+		} else {
+			$this->contactConn->completeTrans ( true );
+			return true;
+		}
+	}
+	
+	//查询
+	public function checkUserSosmState($userId) {
+		$sql = "SELECT sos_msg sosm FROM user_base_info WHERE user_id = $userId AND user_type_id>0";
+		$ret = $this->conn->getRow ( $sql );
+		if ($ret ['sosm'] == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	
+	
+	
+}
+?>

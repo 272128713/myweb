@@ -1,0 +1,52 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: mandrills
+ * Date: 15-10-27
+ * Time: 下午4:46
+ */
+
+function confirmAddFriend($userID, $friendID,$userType=1,$friendType=1) {
+
+    $userAuth = getAuthFlagById($userID);
+    $friendAuth = getAuthFlagById($friendID);
+    $querySql = <<<T_ECHO
+INSERT INTO sky_first_aid.user_friend_list(user_id,friend_id,friend_type_id,auth_flag,add_date)
+VALUES($userID,$friendID,$friendType,$friendAuth,NOW()),
+($friendID,$userID,$userType,$userAuth,NOW()) ON DUPLICATE KEY UPDATE add_date=NOW()
+T_ECHO;
+echo $querySql;
+    try {
+        $dbObj = new DatabaseManager();
+        $db = $dbObj->getConn();
+        return  $db->execute($querySql);
+
+    } catch (ErrorException $e) {
+
+        ErrCode::echoJson($e->getCode(),$e->getMessage());
+    }
+
+}
+
+
+function getAuthFlagById($uid)
+{
+    $sql = <<<T_ECHO
+SELECT friend_flag auth_flag FROM sky_first_aid.user_privilege_list
+WHERE user_id = {$uid};
+T_ECHO;
+    try {
+        $dbObj = new DatabaseManager();
+        $db = $dbObj->getConn();
+        $db->getRow($sql);
+        if(!$res = $db->getRow($sql)){
+            ErrCode::echoJson(1,'Users ID do not exist');
+        }
+        return $res['auth_flag'] ? 0 :1 ;
+
+    } catch (ErrorException $e) {
+        ErrCode::echoJson($e->getCode(),$e->getMessage());
+    }
+
+
+}

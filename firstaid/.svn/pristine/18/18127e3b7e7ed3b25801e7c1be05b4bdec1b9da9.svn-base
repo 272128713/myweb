@@ -1,0 +1,38 @@
+
+<?php
+/**
+* 活动列表、分类处理
+*/ 
+	include(dirname(__FILE__) . "/../../1.0/common/inc.php");
+	include(dirname(__FILE__) . "/../../1.0/common/TcpConnection2.php");
+	$logger = Logger::getLogger(basename(__FILE__));
+	$databaseManager = new DatabaseManager();
+	$db = $databaseManager->getConn();
+	//数据库链接失败
+	if(!$db){
+		echo "<div style='margin:1em 0 0 2em'>Server Error</div>";
+		echo "<div style='margin:1em 0 0 2em'>服务器开小差~！跳转中。。。</div>";
+		?>
+			<script>
+			setTimeout("goBack()",2000);
+			function goBack(){
+				history.go(-1);
+			}
+			</script>
+			<?php
+		die();
+	}
+	
+	$sql_classify = "select describes from first_aid_goods_classify_info ";
+	$result = $db->getCol($sql_classify);
+	$class = $result;
+	
+?>	
+	
+	
+	
+	
+	
+	
+	
+	

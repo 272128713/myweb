@@ -1,0 +1,25 @@
+2015-11-30 15:27:44,664 [INFO] (eg_union_tn_query.php:64) -- request isarray (
+  'order_sn' => '1152462466',
+  'order_amount' => '685',
+  'orderDescription' => 'Oberbrunner Skyway',
+)response is'201511301458220061552' 
+2015-11-30 16:04:10,162 [INFO] (eg_union_tn_query.php:64) -- request isarray (
+  'order_sn' => '1152462466',
+  'order_amount' => '685',
+  'orderDescription' => 'Oberbrunner Skyway',
+)response isarray (
+) 
+2015-11-30 16:04:32,326 [INFO] (eg_union_tn_query.php:64) -- request isarray (
+  'order_sn' => '1152462466',
+  'order_amount' => '685',
+  'orderDescription' => 'Oberbrunner Skyway',
+)response is'201511301458220061552' 
+2015-11-30 16:06:02,003 [ERROR] (Tools.php:463) --  [8] Undefined index: cc  _File: E:\myweb\firstaid\1.0\eg_alipay_sign.php  line: 25  
+2015-11-30 16:06:02,040 [INFO] (eg_alipay_sign.php:45) -- 收到的内容1192762766 
+2015-11-30 16:06:02,050 [ERROR] (Tools.php:463) --  [8] Undefined index: price  _File: E:\myweb\firstaid\1.0\eg_alipay_sign.php  line: 64  
+2015-11-30 16:07:36,386 [ERROR] (Tools.php:463) --  [8] Undefined index: cc  _File: E:\myweb\firstaid\1.0\eg_alipay_sign.php  line: 25  
+2015-11-30 16:51:15,782 [INFO] (eg_union_tn_query.php:64) -- request isarray (
+  'order_sn' => '1112694655',
+  'order_amount' => '936',
+  'orderDescription' => 'Abbie Expressway',
+)response is'201511301651020098662' 

@@ -1,0 +1,210 @@
+
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>急救行动</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/emergency_action.css" />
+		<script src="../common/js/modernizr.custom.js"></script>
+		<script src="../common/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+
+<?php
+/**
+* 处理消息的取得流程
+*/ 
+	include("emergency_server.php");
+?>		
+	</head>
+	
+	<body>
+		<div class="st-container" id="st-container">
+			<!--分类列表-->
+			<div class="st-menu st-effect-1" id="menu-1">
+				<div class="bg"></div>
+					<?php
+						foreach($class as $key=>$cls){
+					?>
+					<p>
+						<a href="sort_list.php?classid=<?php echo $cls['id']; ?>"><img src="images/xb.png" /><?php echo $cls["describes"]; ?></a>
+					</p>
+					<?php
+						}
+					?>
+			</div>
+			<div class="st-pusher">
+				<div class="st-content">
+					<div class="header">
+						<div class="header_con">
+							<div class="sort" id="st-trigger-effects" data-effect="st-effect-1" >
+								<span class="icon"></span>
+								<span class="wenzi">分类</span>
+							</div>
+							<input type="text" name="search" placeholder="应急预案">
+							<div class="order">
+								<span class="icon icon2"></span>
+								<span class="wenzi">订单</span>
+							</div>
+					
+						</div>
+					</div>
+					<!--轮播图-->
+					<div id="slider" class="mui-slider">
+						<div class="mui-slider-group mui-slider-loop">
+							<div class="mui-slider-item mui-slider-item-duplicate">
+								<a href="emergency_detail.php?gid=<?php echo $img_url[0]['goods_id']; ?>"><img src="<?php echo $img_url[0]["img_url"]; ?>"></a>
+							</div>
+							<?php foreach($img_url as $k=>$img_v){ ?>
+							<div class="mui-slider-item">
+								<a href="emergency_detail.php?gid=<?php echo $img_v['goods_id']; ?>"><img src="<?php echo $img_v["img_url"]; ?>"></a>
+							</div>
+							<?php }?>
+							<div class="mui-slider-item mui-slider-item-duplicate">
+								<a href="emergency_detail.php?gid=<?php echo $img_url[0]['goods_id']; ?>"><img src="<?php echo $img_url[0]["img_url"]; ?>"></a>
+							</div>
+						</div>
+						<div class="mui-slider-indicator">
+							<div class="mui-indicator mui-active"></div>
+							<?php for($i=0;$i<$img_url_length-1;$i++){ ?>
+							<div class="mui-indicator"></div>
+							<?php }?>	
+						</div>
+					</div>
+					<!--交通意外循环分类-->
+					<?php
+						foreach($class as $key=>$cls){
+						$showid = "show".$cls["id"];
+					?>
+					<div class="sort_show">
+						<div class="sort_title" cid="<?php echo $cls["id"]; ?>">
+							<span class="sort_icon"></span>
+							<span class="name"><?php echo $cls["describes"];?></span>
+							<span class="arrowright"><span>
+						</div>
+						<div class="sort_bao" id="<?php echo $showid?>">
+							<div class="sLeft">
+								<img src="">
+								<span class="heading"></span>
+							</div>
+							<div class="sRight">
+								<div class="top">
+									<div class="left">
+										<img class="img1" src="">
+									</div>
+									<div class="right">
+										<p class="bname"></p>
+										<p class="intro"></p>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+								<div class="bottom">
+									<div class="left">
+										<img class="img1" src="">
+									</div>
+									<div class="right">
+										<p class="bname"></p>
+										<p class="intro"></p>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+					<div class="border"></div>
+					
+					<script  type="text/javascript"  charset="utf-8">
+						cid = <?php echo $cls["id"]; ?>;
+						$.post("emergency_class_view.php",{id:cid},function(data){
+							//商品1
+							$('#<?php echo $showid?> .sLeft').on('click',function(){
+									window.location.href="emergency_detail.php?gid="+data[0].id;
+								});//跳转
+							$('#<?php echo $showid?> .sLeft img').attr("src",data[0].img_url);
+							$('#<?php echo $showid?> .sLeft .heading').html(data[0].goods_name);
+							//商品2
+							$('#<?php echo $showid?> .sRight .top').on('click',function(){
+									window.location.href="emergency_detail.php?gid="+data[1].id;
+								});//跳转
+							$('#<?php echo $showid?> .sRight .top .left img').attr("src",data[1].img_url);
+							$('#<?php echo $showid?> .sRight .top .right .bname').html(data[1].goods_name);
+							$('#<?php echo $showid?> .sRight .top .right .intro').html(data[1].goods_summary);
+							//商品3
+							$('#<?php echo $showid?> .sRight .bottom ').on('click',function(){
+									window.location.href="emergency_detail.php?gid="+data[2].id;
+								});//跳转
+							$('#<?php echo $showid?> .sRight .bottom .left img').attr("src",data[2].img_url);
+							$('#<?php echo $showid?> .sRight .bottom .right .bname').html(data[2].goods_name);
+							$('#<?php echo $showid?> .sRight .bottom .right .intro').html(data[2].goods_summary);
+							setWidth();	
+							},"json");
+						
+						$('.sort_title').on("click",function(){
+								var classid = $(this).attr("cid");
+								window.location.href="sort_list.php?classid="+classid;
+							});
+					</script>
+					<?php
+						}
+					?>
+					<!--猜您喜欢-->
+					<div class="guess">
+						<p class="p1">猜您喜欢</p>
+						<div class="relation">
+							<div class="product">
+								<img src="<?php echo $gus[0]['img_url'];?>">
+								<p class="mingc"><?php echo $gus[0]['goods_name'];?></p>
+								<p class="jies"><?php echo $gus[0]['goods_summary'];?></p>
+							</div>
+							<div class="product product2">
+								<img src="<?php echo $gus[1]['img_url'];?>">
+								<p class="mingc"><?php echo $gus[1]['goods_name'];?></p>
+								<p class="jies"><?php echo $gus[1]['goods_summary'];?></p>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<script src="../common/js/mui.min.js"></script>
+		<script src="../common/js/classie.js"></script>
+		<script src="../common/js/sidebarEffects.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			var slider = mui("#slider");
+						slider.slider({
+							interval: 3000
+					});
+			setWidth();		
+			function setWidth(){
+					var sort_width = $('.sort').width();
+					var sRight_height = $('.sRight').height();
+					
+					var sRight_left_width = $('.sRight .top .left').width();
+					var sLeft_height = $('.sLeft').height(sRight_height);
+					
+					var sRight_img_height = $('.sRight img').height();
+					var sRight_img_width = $('.sRight img').width();
+					
+					var get_menu = $('.menu-wrap');
+
+					$('.sRight img').css('left',(sRight_left_width - sRight_img_width)/2);
+					//$('.sLeft img').css('top',(sLeft_height - sLeft_img_height )/2 + 'px');
+					$('.sort .icon').css('margin-left',(sort_width - 15)/2);
+					$('.order .icon2').css('margin-left',(sort_width - 15)/2);
+					
+					var get_slider_width = $('.mui-slider .mui-slider-group .mui-slider-item img').width();
+					$('.mui-slider .mui-slider-group .mui-slider-item img').height(get_slider_width*0.53);
+					
+			}
+		</script>
+	</body>
+</html>

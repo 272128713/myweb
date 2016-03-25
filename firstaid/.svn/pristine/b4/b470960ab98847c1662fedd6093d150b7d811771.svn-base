@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>机构详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/orgDetail2.css" />
+        <?php include "php/org_detail.php";?>
+	</head>
+	
+	<body>
+		<div class="container">
+			<div class="banner">
+				<img src="images/orglogo.png">
+			</div>
+			<div class="baseinfo">
+				<div class="mui-content">
+					<p class="title"><span></span>基本信息</p>
+					<div class="row row1">
+						<div class="heading">机构名称</div>
+						<div class="heading detail"><?php echo $detail->name;?></div>
+			            <div class="clear"></div>
+					</div>
+					<div class="row">
+						<div class="heading">成立时间</div>
+						<div class="heading detail"><?php echo date("Y年m月d日",strtotime($detail->build_time));?></div>
+			            <div class="clear"></div>
+					</div>
+					<div class="row">
+						<div class="heading">机构性质</div>
+						<div class="heading detail"><?php echo $detail->features;?></div>
+			            <div class="clear"></div>
+					</div>
+					<div class="row">
+						<div class="heading">机构法人</div>
+						<div class="heading detail"><?php echo $detail->juridical_person ;?></div>
+			            <div class="clear"></div>
+					</div>
+				</div>
+			</div>
+			<div class="baseinfo">
+				<div class="mui-content">
+					<p class="title"><span></span>协会介绍</p>
+					<p class="content">为提高各类自然灾害，各种突发事件的处理能力，降低国家和人民生命财产损失，对灾前、灾中、灾后的紧急救援救助，进一步动员社会团体、部队、企事业单位、社会各界爱心人士和广大人民群众的力量，积极爱心奉献，投入防灾、减灾、救灾的行列，与灾区人民群众同甘苦，共命运，一道渡过难关。北京市紧急救援基金会基于这种背景下，在北京市各级党政机关和主管部门的大力支持帮助下，作为我国唯一专业性基金会，在北京应运而生。她的诞生依据中华人民共和国《公益事业捐赠法》，《突发事件应对法》，
+						国务院颁布的《自然灾害救助条例》，以及公（私）募基金会管理《条例》、《办法》等机关法律规定，立足北京，面向全社会，开展全面救援救助公益募捐工作。<p>
+				</div>
+			</div>
+			<div class="baseinfo baseinfo3">
+				<div class="mui-content">
+					<p class="title"><span></span>联系方式</p>
+					<div class="row row1">
+						<div class="heading">负责人</div>
+						<div class="heading detail"><?php echo $detail->uname ;?></div>
+			            <div class="clear"></div>
+					</div>
+					<div class="row">
+						<div class="heading">联系电话</div>
+						<div class="heading detail"><?php echo $detail->phone ;?></div>
+			            <div class="clear"></div>
+					</div>
+					<div class="row">
+						<div class="heading address">通讯地址</div>
+						<div class="heading detail detail3"><?php echo $detail->address ;?></div>
+			            <div class="clear"></div>
+					</div>
+					<div class="row">
+						<div class="heading">官方网站</div>
+						<div class="heading detail"><?php echo $detail->official_site ;?></div>
+			            <div class="clear"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bottom">
+			<div class="btn btn1">管理志愿者</div>
+			<div class="btn btn2">发布公益活动</div>
+			<div class="btn btn3">发布记录</div>
+		</div>
+		<script src="js/jquery.min.js"></script>
+		<script>
+			$('.btn1').click(function(){
+				window.location.href="volunteer.html";
+    		});
+    		$('.btn2').click(function(){
+				window.location.href="publish.html";
+    		});
+    		$('.btn3').click(function(){
+				window.location.href="pubrecord.html";
+    		});
+		</script>
+		 
+
+	</body>
+
+</html>

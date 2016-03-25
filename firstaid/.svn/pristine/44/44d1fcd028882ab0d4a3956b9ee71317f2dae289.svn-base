@@ -1,0 +1,87 @@
+<?php
+include dirname(dirname(__DIR__)).'/common/php/lnk.php';
+if(isset($_GET['ss'])){
+    $post = array();
+    $usrinfo = array();
+    $usrbase = array();
+    $post['ss']=$_GET['ss'];
+}else{
+    die();
+}
+    $code=httpRequest($URLHOST.'/firstaid/1.0/get_personal_info.php',$post,'post');
+    $arr = json_decode($code);
+    $code = $arr->code;
+
+
+	if($code==1){
+    //请求成功
+        $result = $arr->result;
+        $usrbase = array(
+            'sex'=>$result->sex,
+            'blood'=>$result->blood,
+            'birth_d'=>$result->birthday,
+            'birth_p'=>$result->birth_place,
+            'live_p'=>$result->live_place,
+            'live_pinfo'=>$result->live_placeinfo,
+        );
+        $usrinfo = array(
+            'sex'=>$result->sex,
+            'blood'=>$result->blood,
+            'birth_d'=>$result->birthday,
+            'birth_p'=>$result->birth_place,
+            'live_p'=>$result->live_place,
+            'live_pinfo'=>$result->live_placeinfo,
+        );
+        //查血型
+        $sql = "select name from dim_blood_code WHERE blood_id = ".$usrinfo['blood'];
+        $resultblood = $db251->query($sql)->fetch();
+        $usrinfo['blood'] = $resultblood['name'];
+
+        //查性别
+        $sql = "select name from dim_sex_code WHERE sex_id = ".$usrinfo['sex'];
+        $resultsex = $db251->query($sql)->fetch();
+        $usrinfo['sex'] = $resultsex['name'];
+
+        //查出生地
+        if($usrinfo['birth_p']){
+            $sql = getPlacename($usrinfo['birth_p']);
+            $resultbp = $db251->query($sql)->fetch();
+            if ($resultbp['province'] == "香港" || $resultbp['province'] == "澳门"|| $resultbp['province'] == "台湾省") {
+                $usrinfo['birth_p'] = $resultbp['province'];
+            }elseif($resultbp['city']=="市辖区"||$resultbp['city']=="县"||$resultbp['city']=="市"){
+                $usrinfo['birth_p'] = $resultbp['province'].'-'.$resultbp['AREA'];
+            }else{
+                $usrinfo['birth_p'] = $resultbp['province'].'-'.$resultbp['city'].'-'.$resultbp['AREA'];
+            }
+        }
+
+        //查居住地
+
+        if($usrinfo['live_p']) {
+            $sql = getPlacename($usrinfo['live_p']);
+            $resultbp = $db251->query($sql)->fetch();
+            if ($resultbp['province'] == "香港" || $resultbp['province'] == "澳门"|| $resultbp['province'] == "台湾省") {
+                $usrinfo['live_p'] = $resultbp['province'];
+            } elseif ($resultbp['city'] == "市辖区" || $resultbp['city'] == "县" || $resultbp['city'] == "市") {
+                $usrinfo['live_p'] = $resultbp['province'] . '-' . $resultbp['AREA'];
+            } else {
+                $usrinfo['live_p'] = $resultbp['province'] . '-' . $resultbp['city'] . '-' . $resultbp['AREA'];
+            }
+        }
+
+    }else{
+        echo $arr->msg;
+        die();
+    }
+
+
+function getPlacename($val){
+
+    $sql ="select pr.province,ci.city,ar.AREA
+              from hat_area AS ar
+              LEFT JOIN hat_city AS ci ON ar.father = ci.cityID
+              LEFT JOIN hat_province AS pr ON ci.father = pr.provinceID
+              WHERE ar.areaID = '$val'";
+    return $sql;
+}
+

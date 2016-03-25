@@ -1,0 +1,103 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: mandrills
+ * Date: 15-10-26
+ * Time: 下午4:44
+ */
+
+include_once dirname(__FILE__) . "/common/inc.php";
+include_once dirname(__FILE__) . "/common/database/DatabaseManager.php";
+include_once dirname(__FILE__) . "/common/RKMongo.php";
+include_once dirname(__FILE__) . "/common/MecManager.php";
+include_once dirname(__FILE__) . "/service/repos_del_friend.php";
+
+$config = new Config();
+$databaseManager = new DatabaseManager();
+$rkMongo = new RKMongo();
+$rkMongo->connect();
+
+//数据库链接
+if (!$db = $databaseManager->getConn()) {
+    logger()->error(sprintf("Database connect fail."));
+    ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+}
+if(!$rkMongo->connect()){
+    logger()->error("mongoDB connect error.");
+    ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+
+}
+
+//获取参数
+$params = array(array("ss",true),array("uid",true));
+
+$params = Filter::paramCheckAndRetRes($_POST, $params);
+
+if(!$params){
+    logger()->error(sprintf("params error. params is %s",v($_POST)));
+    ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER,1);
+}
+
+//session处理
+$sessionArr = $databaseManager->checkSession(trim($params["ss"]));
+
+//var_dump($sessionArr);
+
+if(!$sessionArr){
+    $databaseManager->destoryConn();
+    logger()->error(sprintf("Session check is fail. Error session is [%s]",trim($params["ss"])));
+    Errcode::echoErr(ErrCode::API_ERR_INVALID_SESSION,1);
+}
+//获取登录者的用户ID
+$userId = $sessionArr['user_id'];
+
+//flag = 1  删除黑名单列表
+//flag = 0  删除好友列表
+
+if(isset($params['flag']) && 1== $params['flag']){
+    $result = delBlackList($userId,trim($params['uid']));
+    if(!$result){
+        ErrCode::echoJson('0', '黑名单列表删除失败。');
+    }
+
+    ErrCode::echoJson('1', '黑名单列表删除成功。');
+
+}
+
+
+$result = delFriendList($userId,trim($params['uid']));
+
+
+if(!$result){
+    ErrCode::echoJson('0','好友列表删除失败。');
+}
+//发送系统通知给对方
+$acc = $databaseManager->getUserInfoByUid(trim($params['uid']));
+
+if(!$acc){
+    ErrCode::echoJson('0','发送消息时获取用户信息失败。');
+}
+
+$mecManager = new MecManager($userId,
+    array(
+        "type" => "DLF",
+        "src" => $userId,
+        "srcm" => trim($sessionArr['mobile']),
+        "time" => time()
+    ), $acc);
+
+if (!$mecManager->sendMessage()) {
+
+    ErrCode::echoJson('0', '消息推送失败。');
+
+}
+
+ErrCode::echoJson('1', '消息推送成功。');
+
+
+
+
+function logger()
+{
+    return Logger::getLogger(basename(__FILE__));
+}

@@ -1,0 +1,106 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: "微软雅黑";
+}
+div,img{
+	display:block;
+}
+.container{
+	width: 100%;
+}
+.container .banner-top{
+	width: 100%;
+	position: relative;
+	text-align: center;
+	z-index: -1;
+}
+.container .banner-top img{
+	width: 100%;
+}
+.container .banner-top .circle{
+	width:5%;
+	position: absolute;
+	bottom: 0px;
+	z-index: 1;
+}
+.container .plans{
+	width: 100%;
+	margin: 0 auto;
+	padding-top:30px;
+	padding-bottom:30px;
+	position:relative;
+}
+.plans .line{
+	width:1px;
+	height: 430px;
+	background: #f1b3b1;
+	position:absolute;
+	top:0px;
+	z-index: -1;
+}
+.plans .row{
+	width:100%;
+	height:106px;
+}
+.plans .row .left,.plans .row .right{
+	width:41%;
+	float:left;
+	position:relative;
+}
+.plans .row .middle{
+	width:18%;
+	float: left;
+}
+.plans .row .left{
+	padding-right:8%;
+	text-align: right;
+}
+.row p{
+	margin-bottom:5px;
+}
+.row .tit{
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 14px;
+	color: #dd403b;	
+}
+.row .tit2{
+	font-size: 7px;
+	line-height: 7px;
+	color: #dd403b;
+	margin-bottom:7px;
+}
+.row .tit3{
+	font-size: 11px;
+	line-height: 11px;
+	color: #516275;
+}
+.row .tit4{
+	font-size: 18px;
+	line-height: 18px;
+	color: #dd403b;
+}
+.plans .row .middle img{
+	width:100%;
+	position:relative;
+	display:block;
+}
+.plans .row .right{
+	padding-left: 8%;
+	text-align:left;
+}
+.row .big{
+	font-size:60px;
+	line-height:60px;
+	color:#d9d9d9;
+	margin-top:26px;
+}
+.clearfix{
+	clear:both;
+}
+.row .more{
+	color:#516275;
+}

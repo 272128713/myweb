@@ -1,0 +1,89 @@
+
+<?php
+/**
+* 应急预案，急救包
+*/ 
+	
+	include(dirname(__FILE__) . "/../../1.0/common/inc.php");
+	$logger = Logger::getLogger(basename(__FILE__));
+	$databaseManager = new DatabaseManager();
+	$db = $databaseManager->getConn();
+	session_start();
+	//数据库链接失败
+	if(!$db){
+		echo "<div style='margin:1em 0 0 2em'>Server Error</div>";
+		?>
+			<?php
+		die();
+	}
+	
+	
+	if($_GET["ss"]){
+		$_SESSION['ss']=$_GET["ss"];
+		$sessionArr = $databaseManager->checkSession($_SESSION['ss']);
+		$_SESSION['uid']=$sessionArr['user_id'];
+		if(!$sessionArr){
+			$logger->error(sprintf(" Session fail."));
+			ErrCode::echoErr(ErrCode::API_ERR_INVALID_SESSION,1);
+		
+		}
+	}else{
+		
+	}
+	echo $_SESSION['ss'];
+	//分类列表
+	$sql_classify = "select id,describes from first_aid_goods_classify_info ";
+	$result = $db->getAll($sql_classify);
+	$class = $result;
+	
+	
+	//首页banner广告位商品
+  	$sql_banner = "select la.goods_id 
+			from first_aid_goods_layout_info as la
+			left join first_aid_goods_info as info
+			on info.id = la.goods_id
+			left join first_aid_goods_img_info as img
+			on info.id = img.goods_id
+			where la.layout_info =1 and info.state=1 and img.type=1";
+	$result = $db->getCol($sql_banner);
+	$banner_id = $result;
+	foreach($banner_id as $k=>$banner_v){
+		$sql_banner_url = "select goods_id,img_url from first_aid_goods_img_info where goods_id = '$banner_v'";
+		$result = $db->getRow($sql_banner_url);
+
+		$img_url[$k] = $result;
+		
+	}
+	$img_url_length = count($img_url);
+
+	//猜你喜欢
+	$sql_gus = "select la.goods_id from first_aid_goods_layout_info as la
+			left join first_aid_goods_info as info
+			on info.id = la.goods_id
+			where la.layout_info =2
+			and info.state=1
+			 order by la.id desc limit 0,2";
+	$result = $db->getCol($sql_gus);
+	$gus_id = $result;
+	
+	foreach($gus_id as $k=>$gus_v){
+		$sql_gus_url = "select info.id,info.goods_name,info.goods_summary,img.img_url 
+						from first_aid_goods_img_info as img
+						left join first_aid_goods_info as info 
+						on info.id = img.goods_id
+						where img.goods_id = '$gus_v' and img.type = 2";
+		
+		$result = $db->getRow($sql_gus_url);
+
+		$gus[$k] = $result;
+	
+	}
+?>	
+	
+	
+	
+	
+	
+	
+	
+	

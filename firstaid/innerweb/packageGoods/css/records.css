@@ -1,0 +1,39 @@
+.recordlist{
+	width:100%;
+	position: relative;
+}
+ul li{
+	padding-left:2.5%;
+	padding-right:2.5%;
+	padding-top:10px;
+	padding-bottom: 10px;
+	border-top:1px solid #ededed;
+	border-bottom:1px solid #ededed;
+	margin-top:5px;
+}
+ul li .center{
+	width:100%;
+	font-size:14px;
+	line-height: 14px;
+	position: relative;
+}
+ul li .second{
+	margin-top: 10px;
+}
+ul li .center .time,ul li .center .rmb{
+	position: absolute;
+	top:0;
+	right:0;
+}
+ul li .center .time{
+	font-size:12px;
+} 
+.who{
+	color:#222222;
+}
+.who span{
+	color:#dd403b;
+	font-size:15px;
+	margin-left:3px;
+	margin-right:3px;
+}

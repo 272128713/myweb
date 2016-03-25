@@ -1,0 +1,110 @@
+.container{
+	width: 100%;
+}
+.container .banner{
+	width:100%;
+	position: relative;
+	background-position: center;
+    background-size: cover;
+}
+.container .banner .text{
+	padding-top:50px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+.text .p1{
+	font-size:30px;
+	color:#fff;
+	margin-bottom: 25px;
+}
+.text .p2{
+	font-size:12px;
+	color:#fff;
+}
+.container .banner img{
+	width:100%;
+	display: block;
+}
+#item1mobile .top{
+	padding-top:25px;
+	padding-bottom: 23px;
+	border-bottom: 5px solid #ededed;
+	position: relative;
+}
+#item1mobile .top img{
+	width:17px;
+	height:10px;
+	position: absolute;
+	top:-9px;
+	left:14%;
+}
+#item1mobile .top p{
+	width:69%;
+	font-size: 12px;
+	color:#333;
+	margin:0 auto;
+}
+#item1mobile .top p span{
+	color:#dd403b;
+}
+#item1mobile .top .btn{
+	width:42%;
+	font-size:14px;
+	color:#fff;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+	background:#dd403b;
+	border-radius: 5px;
+	margin:0 auto;
+	margin-top:20px
+}
+#item1mobile ul{
+	width:95%;
+	margin:0 auto;
+}
+#item1mobile ul li{
+	padding-top:10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #c8c8c8;
+}
+#item1mobile ul li .tx{
+	width:10%;
+	float:left;
+} 
+#item1mobile ul li .info{
+	width:90%;
+	float:left;
+	padding-left:3%;
+}
+#item1mobile ul li .info .left{
+	float:left;
+}
+#item1mobile ul li .info .left .name{
+	font-size:13px;
+	color:#323232;
+}
+#item1mobile ul li .info .tz{
+	font-size:12px;
+	color:#666;
+}
+.time{
+	text-align: right;
+}
+#item1mobile ul li .info .right{
+	float:right;
+}
+#item1mobile ul li .info .right .zan{
+	color:#505050;
+	font-size: 12px;
+}
+#item1mobile ul li .info .right span{
+	font-size: 12px;
+	color:#dd403b;
+}
+#item3mobile p{
+	padding-top:25px;
+	text-align:center;
+	font-size: 12px;
+	color:#333;
+}

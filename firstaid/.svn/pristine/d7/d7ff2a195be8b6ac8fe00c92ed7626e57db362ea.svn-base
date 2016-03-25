@@ -1,0 +1,17 @@
+<?php
+/*
+ * 获取公益活动列表
+ */
+function getPublicWelfareActivityList($userID){
+	$obj = new DatabaseManager();
+	$db = $obj->getConn();
+	$sql="select id,title,img_url,start_time,address from sys_public_welfare_info";
+	return  $db->getAll($sql);
+	
+	
+	
+}
+
+
+
+?>

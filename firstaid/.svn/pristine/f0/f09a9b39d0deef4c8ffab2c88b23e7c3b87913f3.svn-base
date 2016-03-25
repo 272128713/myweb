@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>稻草垛</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/mui.min.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css" />
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <?php include "php/get_receive.php";?>
+</head>
+<body>
+<div class="headtitle">
+    <div class="mui-content">
+        <div class="number">当前稻草垛里收到7个稻草包</div>
+        <div class="jilu">【我的赠送记录】</div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="strawlist">
+    <div class="mui-content">
+        <div class="title">
+            <div class="name"><span>徐航</span>送来的稻草包</div>
+            <div class="time">2016.12.15 15:30</div>
+            <div class="clear"></div>
+        </div>
+        <div class="scroll">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="pull-left">
+                            <img src="images/p1.png">
+                        </div>
+                        <div class="pull-left">
+                            <img src="images/p4.png">
+                        </div>
+                        <div class="pull-left">
+                            <img src="images/p5.png">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="pull-left">
+                            <img src="images/p1.png">
+                        </div>
+                        <div class="pull-left">
+                            <img src="images/p4.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="p1">共有3件商品<span>价值：￥85.00元</span></p>
+        <div class="button">
+            <div class="btn btn1">转送稻友</div>
+            <div class="btn btn2">确认收货</div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<div class="strawlist">
+    <div class="mui-content">
+        <div class="title">
+            <div class="name"><span>化雪</span>送来的稻草包</div>
+            <div class="time">2016.12.15 15:30</div>
+            <div class="clear"></div>
+        </div>
+        <div class="scroll">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="pull-left">
+                            <img src="images/p6.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="p1">共有1件商品<span>价值：￥85.00元</span></p>
+        <div class="button">
+            <div class="btn btn1">转送稻友</div>
+            <div class="btn btn2">确认收货</div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<div class="strawlist">
+    <div class="mui-content">
+        <div class="title">
+            <div class="name"><span>徐航</span>送来的稻草包</div>
+            <div class="time">2016.12.15 15:30</div>
+            <div class="clear"></div>
+        </div>
+        <div class="scroll">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="pull-left">
+                            <img src="images/p3.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="p1">共有1件商品<span>价值：￥85.00元</span></p>
+        <div class="sure">
+            <img src="images/xing.png">已确定收货
+        </div>
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script type="text/javascript">
+    //图片滚动初始化
+    var mySwiper = new Swiper('.swiper-container',{
+        autoplay: 0,
+        loop : false,
+    });
+
+    $('.btn1').click(function(){
+        window.location.href="transfer.html";
+    });
+    $('.btn2').click(function(){
+        window.location.href="confirmReceipt.html";
+    });
+    $('.jilu').click(function(){
+        window.location.href="records.html";
+    });
+</script>
+</body>
+</html>

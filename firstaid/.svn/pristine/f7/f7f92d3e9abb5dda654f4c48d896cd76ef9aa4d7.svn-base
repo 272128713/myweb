@@ -1,0 +1,141 @@
+<?php
+/**
+* 医信登陆流程
+*/ 
+ 	include(dirname(__FILE__) . "/common/inc.php");
+	include(dirname(__FILE__) . "/common/TcpConnection.php");
+	$logger = Logger::getLogger(basename(__FILE__));
+	$params = array(array("un",true),array("pw",true),array("pushsvc",true),array("ct",true),array("mid",false));
+	$params = Filter::paramCheckAndRetRes($_POST, $params);    
+	if(!$params){
+		$logger->error(sprintf("params error. params is %s",v($_POST)));
+		ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER,1);
+	}
+
+	$username = $params["un"];
+	$pwd = $params["pw"];
+	$push_service = $params["pushsvc"];
+	$mid = $params["mid"];
+	$client_type = $params["ct"];
+	$num_exp = "/^1[034578][0-9]{9}$/"; 
+	if(!preg_match($num_exp, $username)){   //判断用户名是否为手机号码
+		$logger->error(sprintf("the username format is error.username is %s",$username));
+		ErrCode::echoErr(ErrCode::API_ERR_USERNAME_FORMAT,1);
+	}
+	$databaseManager = new DatabaseManager();
+	$database = $databaseManager->getConn();
+	//数据库链接失败
+	if(!$database){
+	
+		$logger->error(sprintf("Database connect fail."));
+		ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+	}
+	$config=new Config();
+	$sso_url=$config->getConfig("sso_url");
+	$post['un']=$username;
+	$post['pw']=$pwd;
+	
+	$users = $databaseManager->posters_ex($sso_url,'login.php',$post);  //把数据发送到主服务器进行数据验证
+	$user=json_decode($users,true);
+	if((int)$user['code'] != 1){
+		echo  $users;
+		exit();
+		
+	}else if((int)$user['code'] == 1){
+		
+
+		if(!$user['result']['user_id']){
+			$logger->error(sprintf("username or password is error. username is %s",$username));
+			ErrCode::echoErr(ErrCode::API_ERR_ACCOUNT_OR_PASSWD,1);
+		
+		}else{
+			$user_id = $user['result']['user_id'];  //获取到用户的id
+			if($client_type == 1)  //如果客户端类型为1，则代表是android用户，则mid为user_id
+				$mid = $user_id;
+			else
+				$mid = $params["mid"];
+			$session = $databaseManager->createSession($user_id);   //创建session
+			//获取分配服务器信息
+			$serverInfo = $databaseManager->dispatchServerAndGetInfo($user_id);
+			if(!$serverInfo){
+					
+				$logger->error(sprintf("get server info is fail. username is %s",$username));
+				ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+			}
+			//更新session相关信息
+			$sessionArr = array("client_type" =>$client_type,
+					"session" =>$session,
+					"mid" =>$mid,
+					"push_service_type" =>$push_service,
+					"mec_ip" =>$serverInfo['mec_ip'],
+					"mec_port" =>$serverInfo['mec_port'],
+					"lps_ip" =>$serverInfo['lps_ip'],
+					"lps_port" =>$serverInfo['lps_port']
+			);
+			//检查session表里面是否已经有了对应的mid，主要是为了解决苹果多账号登录同一设备导致的bug
+			if ($client_type==2){  //add  2014 09 18   by song
+				//add in temp_tokens
+				// $addtoken = $databaseManager->addTempTokens($mid);
+				$sql_redcheck="select user_id from user_session_info where mid='$mid'";
+				$checkResult=$database->getOne($sql_redcheck);
+				if (!is_null($sql_redcheck) && $checkResult!=$user_id){//不为空同时不等于当前用户id说明该设备已经有一个账号登录，需要清空消息队列和重置旧账号的mid信息
+					//重置旧账号的mid信息
+					$logger->info("检测到iphone设备登录多次账号，清空上一个账号的消息列表");
+					$resetSql="update user_session_info set mid='0000' where mid='$mid'";
+					$resRet=$database->execute($resetSql);
+					if (!$resRet)
+						$logger->error(sprintf("old iphone token clear faild. mid is %s",$mid));
+					//清空消息队列
+					$tcpConnection = new TcpConnection($serverInfo['mec_ip'],$serverInfo['mec_port']);
+					if(!$tcpConnection->isConnected()){
+						$logger->error(sprintf("Connect to MEC server fail.mec ip=%s,port=%s",$mec_ip,$mec_port));
+						ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+					}
+					//ACK MY_MID SERIAL
+					$inf_value=0x7fffffff;
+					$message = "ACK " . $mid . " " . $inf_value . "\n";
+					$result = $tcpConnection->tcpSend($message);
+					if(!$result){
+						$logger->error(sprintf("Send message to MEC fail.message=%s",$message));
+					}
+				}
+			}
+			//更新session信息，如果存在就更新，如果不存在就插入session信息
+			$addSession = $databaseManager->addSession($sessionArr,$user_id);
+			$logger->info(sprintf("user session is %s,user_id is %s",$session,$user_id));
+			if(!$addSession){
+				$logger->error(sprintf("addSession is fail. username is %s",$username));
+				ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+			}
+			//获取个人版本号
+			$verInfo = $databaseManager->getInfoVersion($user_id);
+			if(!$verInfo){  //获取个人信息版本失败，不返回错误。
+				$logger->error(sprintf("get info version is fail. username is %s",$username));
+			}
+			$userBase = $databaseManager->getUserBase($user_id);
+		}
+		$echo_arr = array(
+				"uid"=>$user_id,         		 					//用户uid
+				"ss"=>$session,                                     //用户session
+				"username"=>$userBase['user_name'],                 //用户真实名字
+				"mobile"=>$userBase['mobile'],                      //用户手机号码
+				"privilege_id"=>$userBase['privilege_id'],           //用于确定权限的
+				"push_service_type"=>$push_service, 				//服务器支持的push类型
+				"piv"=>$verInfo["base_ver"],						//个人信息版本号
+				"pav"=>$verInfo["image_ver"],						//头像版本号
+				"lps_server"=>$serverInfo['lps_ip'],    			//长链接服务器地址
+				"lps_server_port"=>$serverInfo['lps_port'],    	 	//长链接服务器端口
+				"fristaid_api_server"=>$serverInfo['api_ip'],    	 	//医信API服务器地址
+				"fristaid_api_server_port"=>$serverInfo['api_port'], 	//长链接服务器端口
+				"fristaid_news_server"=>$serverInfo['news_ip'],		//news服务器地址
+				"fristaid_news_server_port"=>$serverInfo['news_port'], //news服务器端口
+				"file_server"=>$serverInfo['file_ip'],				//头像上传/下载服务器的地址
+				"file_server_port"=>$serverInfo['file_port']);		//文件服务器http下载的端口号
+		ErrCode::echoOkArr("1",'执行成功',$echo_arr);
+		
+	}else{
+		ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+	}
+	
+				
+?>

@@ -1,0 +1,137 @@
+<?php 
+	session_start();
+	error_reporting(0);
+	if($_GET['ss']){
+	$_SESSION['sos_ss'] = $_GET['ss'];
+}
+?>
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>公益活动记录</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/public_list.css" />
+		
+	</head>
+	<style>
+		.mui-content{
+			width: 100%;
+			padding:0 0 0 1%;
+		}
+		.wrap{
+			padding:3px 0 10px 0;
+			width:100%;
+		}
+		.agency{
+			margin-top:1%;
+		}
+		.agency img{}
+		.loading{
+			position:absolute;
+			top: 50%;
+			background-size:40px 40px;
+			width: 40px;
+			height:40px;
+			margin-top:-20px;
+			margin-left:-20px;
+			left:50%;
+			z-index: 999;
+			background-image: url('images/loading.gif');
+			display: none;
+			
+		}
+		.wrap .agency:active{
+			background:#ddd;
+		}
+	</style>
+	
+	<body>
+		<div class="mui-content">
+			<div class="wrap">
+			</div>
+		</div>
+				
+		<div class="loading"></div>
+		
+		<script type="text/javascript" src="../common/js/jquery.js"></script>
+		<script type="text/javascript" src="../common/js/common.js"></script>
+		<script type="text/javascript" src="../common/js/layer/layer.js"></script>
+		<script type="text/javascript">
+			ss='<?php echo $_SESSION['sos_ss'];?>';
+			var html="";
+			$.ajax({
+				type:"POST",
+				url:"../../1.0/get_public_welfare_activity_list.php",
+				data:{ss:ss},
+				dataType:"json",
+				beforeSend:function(){
+					$('.loading').show();
+				},
+				success:function(data){
+					$(".loading").hide();
+					if(data.code==1){
+						res = data.result;
+						length = res.length;
+						
+						for(i=0;i<length;i++){
+							address=res[i].address;
+							stime = res[i].start_time;
+							stime = transtime(stime);
+							etime = res[i].end_time;
+							etime = transtime(etime);
+							url="";
+							url=res[i].url;
+							if(address==""){
+								address="暂无";
+							}else{
+								address=address;
+							}
+								html += "<div class='agency' url='"+url+"' aid='"+res[i].id+"'><img class='img1' src='"+res[i].img_url+"' /><div class='line'></div><div class='con'><p class='title'>"+res[i].title+"</p><p class='intro'>"+address+"</p><p class='time'><span class='icon'></span>"+stime+" - "+etime+"</p></div></div>";
+
+								
+						}
+						
+						$('.wrap').html(html);
+						
+						var imgWidth = $('.img1').width();
+						$(".agency img").height(imgWidth);
+						
+
+						$('.wrap .agency').on('click',function(){
+							$(this).css('background','#efefef');
+							url = $(this).attr('url');
+							aid = $(this).attr('aid');
+							toUrl(aid,url);
+						});
+					}else{
+						$('.loading').hide();
+					}
+				},
+				
+			});
+		//点击变色
+			function toUrl(aid,url){
+				if(!url){
+					layer.msg("下期活动敬请期待！");
+				}else{
+				window.location.href=url+"?id="+aid;
+				}
+			}
+		
+			//时间转化成时间戳
+			function transtime(time){
+				var aa =transdate(time);
+				var time=new Date(parseInt(aa) * 1000).format('yyyy.MM.dd');
+				return time;
+			}
+		</script>
+	</body>
+
+</html>

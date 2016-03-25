@@ -1,0 +1,20 @@
+<?php
+/*
+ * 获取公益活动详情
+*/
+function joinPublicWelfareActivity($userID,$activity_id){
+	$obj = new DatabaseManager();
+	$db = $obj->getConn();
+	$sql="insert into sys_public_welfare_people_info(welfare_id,user_id,createDate) values('$activity_id','$userID',now())";
+	$res = $db->execute($sql);
+    if($res){
+    	
+    	return true;
+    }else{
+    	return false;
+    }
+
+
+}
+
+?>

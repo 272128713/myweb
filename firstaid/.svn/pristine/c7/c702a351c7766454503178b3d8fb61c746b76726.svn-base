@@ -1,0 +1,129 @@
+<?php
+
+include_once dirname(__FILE__) . "/common/inc.php";
+include_once dirname(__FILE__) . "/common/database/DatabaseManager.php";
+include_once dirname(__FILE__) . "/common/TcpConnection.php";
+include_once dirname(__FILE__) . "/common/RKMongo.php";
+//include_once dirname(__FILE__) . "/service/repos_get_rescue_scene_info_by_rsid.php";
+
+$config = new Config();
+$databaseManager = new DatabaseManager();
+$rkMongo = new RKMongo();
+$rkMongo->connect();
+
+//数据库链接
+if (!$db = $databaseManager->getConn()) {
+    logger()->error(sprintf("Database connect fail."));
+    ErrCode::echoErr(ErrCode::SYSTEM_ERR, 1);
+}
+if (!$rkMongo->connect()) {
+    logger()->error("mongoDB connect error.");
+    ErrCode::echoErr(ErrCode::SYSTEM_ERR, 1);
+
+}
+//获取参数
+$params = array(array("ss", true));
+
+$params = Filter::paramCheckAndRetRes($_POST, $params);
+
+//var_dump($params);exit;
+if (!$params) {
+    logger()->error(sprintf("params error. params is %s", v($_POST)));
+    ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER, 1);
+}
+
+$session = trim($params["ss"]);
+//session处理
+$sessionArr = $databaseManager->checkSession($session);
+
+//echo 'SessionArr返回值为:'.$sessionArr;
+
+if (!$sessionArr) {
+    $databaseManager->destoryConn();
+    logger()->error(sprintf("Session check is fail. Error session is [%s]", $session));
+    Errcode::echoErr(ErrCode::API_ERR_INVALID_SESSION, 1);
+}
+
+$chatList = getChatList();
+
+if($chatList){
+    foreach($chatList as $index => $chat){
+        $chatList[$index]['level'] = getLevelByNum($chat['nums']);
+    }
+}
+
+ErrCode::echoJson('1','success',$chatList);
+
+//函数部分
+function logger()
+{
+    return Logger::getLogger(basename(__FILE__));
+}
+
+
+function getLevelByNum($num)
+{
+
+    $chatName = ['稻草童子', '稻草才子', '稻草天子', '稻草圣人', '稻草仙君', '稻草天尊'];
+
+    if ($num > 150) {
+        return '稻草天尊';
+    } elseif ($num > 100) {
+        return '稻草仙君';
+    } elseif ($num > 50) {
+        return '稻草圣人';
+    } elseif ($num > 20) {
+        return '稻草天子';
+    } elseif ($num > 5) {
+        return '稻草才子';
+    } else {
+        return '稻草童子';
+    }
+
+}
+
+function getChatList()
+{
+$sql = <<<T_ECHO
+SELECT * FROM (
+	SELECT
+		base.user_id uid,base.user_name name, base.mobile,
+		ver.base_ver piv,ver.image_ver pav,base.privilege_id
+	FROM
+		sky_user_data_master.user_base_info AS base
+	LEFT JOIN
+		sky_user_data_master.user_version_info AS ver
+	ON
+		base.user_id = ver.user_id) AS a
+LEFT JOIN
+(
+	SELECT
+		user_id uid,COUNT(user_id) nums
+	FROM
+		user_friend_list
+	GROUP BY
+		user_id  ) AS b
+
+ON
+	a.uid = b.uid
+ORDER BY
+	b.nums DESC
+T_ECHO;
+
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+
+    try {
+
+        return $db->getAll($sql);
+
+    } catch (ErrorException $e) {
+        echo json_encode(array(
+            'code' => $e->getCode(),
+            'msg' => $e->getMessage(),
+            'result' =>array()
+        ));
+    }
+
+
+}

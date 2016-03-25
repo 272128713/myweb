@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>申请成为志愿者</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	<link rel="stylesheet" type="text/css" href="css/app.css" />
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	<link rel="stylesheet" type="text/css" href="css/volApplication.css" />
+	<?php include "php/getVltstate.php";?>
+    <?php include "php/getUserbasic.php";?>
+	<style type="text/css">
+		.layui-layer{
+			border-radius:5px;
+		}
+	</style>
+	
+</head>
+<body>
+	<div class="container">
+		<div class="row" id="sex">
+			<div class="heading">性别</div>
+			<div class="heading detail" id="sexVal" vl="<?php echo $usrbase['sex'];?>"><?php echo $usrinfo['sex'];?></div>
+			<span class="span1"></span>
+		</div>
+		<div class="row" id="blood">
+			<div class="heading">血型</div>
+			<div class="heading detail" id="bloodVal" vl="<?php echo $usrbase['blood'];?>"><?php echo $usrinfo['blood'];?>型</div>
+			<span class="span2"></span>
+		</div>
+		<div class="row" id="birth_d">
+			<div class="heading">出生日期</div>
+			<div class="heading detail" id="birth_dVal" vl="<?php echo $usrbase['birth_d'];?>"><?php echo $usrinfo['birth_d'];?></div>
+			<span></span>
+		</div>
+		<div class="row" id="birth_p">
+			<div class="heading">出生地</div>
+			<div class="heading detail" id="birth_pVal" vl="<?php echo $usrbase['birth_p'];?>"><?php echo $usrinfo['birth_p'];?></div>
+			<span></span>
+		</div>
+		<div class="row" id="live_p">
+			<div class="heading">现居地</div>
+			<div class="heading detail" id="live_pVal" vl="<?php echo $usrbase['live_p'];?>"><?php echo $usrinfo['live_p'];?></div>
+			<span></span>
+		</div>
+		<div class="row" id="live_pinfo">
+			<div class="heading">具体地址</div>
+
+			<input class="heading detail" vl="<?php echo $usrbase['live_pinfo'];?>" type="text" id="live_pinfoVal" value="<?php echo $usrinfo['live_pinfo'];?>">
+
+		</div>
+        <?php if($apply==1){
+
+            echo "<div style='color:#dd403b;text-align: center;font-size: 14px;margin-top: 87px;'>恭喜您，已成为急救志愿者</div>";
+
+
+        }elseif($apply==0){
+
+            echo "<div class='submit'>申请志愿者</div>";
+
+
+
+        }?>
+
+
+
+		<div class="hidden" id="hid-gender">
+			<div class="sex" vl="1">男</div>
+			<div class="sex famale" vl="2">女</div>
+		</div>
+		<div class="hidden" id="hid-blood">
+			<div class="sex" vl="1">A型</div>
+			<div class="sex" vl="2">B型</div>
+			<div class="sex" vl="3">AB型</div>
+			<div class="sex famale" vl="4">O型</div>
+		</div>
+	</div>
+	<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+    <?php if($apply==0){?>
+
+			$(function(){
+
+                $("#sex").click(function(){
+                layer_gender();
+                });
+                $("#blood").click(function(){
+                layer_bloodtype();
+                });
+
+                $('#hid-gender .sex').click(function(){
+                sexVal = $(this).attr("vl");
+                sexHtml = $(this).html();
+                layer.closeAll();
+                $('#sexVal').html(sexHtml);
+                $('#sexVal').attr('vl',sexVal);
+                });
+
+                $('#hid-blood .sex').click(function(){
+                    bloodVal = $(this).attr("vl");
+                    bloodHtml = $(this).html();
+                    layer.closeAll();
+                    $('#bloodVal').html(bloodHtml);
+                    $('#bloodVal').attr('vl',bloodVal);
+                });
+
+
+
+                function layer_gender(){
+                layer.open({
+                    type: 1,
+                    title:false,
+                    closeBtn: false,
+                    shadeClose:true,
+                    area:'80%',
+                    content: $('#hid-gender')
+                });
+                }
+                function layer_bloodtype(){
+                layer.open({
+                    type: 1,
+                    title:false,
+                    closeBtn: false,
+                    shadeClose:true,
+                    area:'80%',
+                    content: $('#hid-blood')
+                });
+                }
+			});
+        <?php }elseif($apply==1){?>
+
+	    <?php }?>
+    </script>
+</body>
+</html>

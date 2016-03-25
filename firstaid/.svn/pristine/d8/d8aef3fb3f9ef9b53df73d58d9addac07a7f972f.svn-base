@@ -1,0 +1,40 @@
+<?php
+include 'common.php';
+$totalnum = 0;
+$post = array();
+if(isset($_GET['ss'])){
+    $post = array(
+        'ss'=>$_GET['ss'],
+        'flag'=>'2',
+    );
+
+}else{
+    die();
+}
+$code=httpRequest($URLHOST.'/firstaid/1.0/get_user_apply_auth_info.php',$post,'post');
+$arr = json_decode($code);
+
+    $code = $arr->code;
+
+	if($code==1){
+    //请求成功
+        $state = $arr->result->state;
+        if($state=='1111'){
+            //未提交申请
+            $apply = '0';
+
+        }elseif($state=='0'){
+            //待审核
+        }elseif($state=='1'){
+            //已通过（直接通过）
+            $apply = '1';
+
+        }elseif($state=='2'){
+            //拒绝
+        }
+    }else{
+        echo $arr->msg;
+        die();
+    }
+
+

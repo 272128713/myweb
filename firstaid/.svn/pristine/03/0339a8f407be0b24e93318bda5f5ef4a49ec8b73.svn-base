@@ -1,0 +1,110 @@
+.mui-content{
+	padding-bottom: 100px;
+    font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    width: 3.05rem;
+}
+.mui-content .title{
+	font-size:14px;
+	border-bottom:1px solid #ccc;
+	padding-top:10px;
+	padding-bottom: 8px;
+}
+.title p{
+
+    width: 70%;
+    float: left;
+}
+.title .redbox{
+    float: right;
+    padding: 0 1rem 0 1rem;
+    line-height: 41px;
+    background: #dd403b;
+    color:#fff;
+    border-radius: 4px;
+}
+.mui-content .pro_list{
+	width:100%;
+	padding-top:12px;
+	padding-bottom:10px;
+	position: relative;
+}
+.mui-content .pro_list .pic{
+	width:0.9rem;
+	float:left;
+	border:1px solid #ddd;
+    border-radius: 2px;
+}
+.mui-content .pro_list .proinfo{
+	width:2.1rem;
+    padding-left: 0.1rem;
+	float:left;
+	position: relative;
+}
+.mui-content .pro_list .pic img{
+	width:100%;
+	display: block;
+}
+.proinfo .pro_name{
+	font-size:15px;
+	line-height:0.15rem;
+	color:#333333;
+}
+.proinfo .pro_detail{
+	font-size:12px;
+    line-height: 20px;
+	color:#666666;
+    height: 0.42rem;
+	margin-top:0.06rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.proinfo .price{
+	font-size:14px;
+	line-height:0.14rem;
+	color:#dd403b;
+	margin-top:0.13rem;
+}
+.mui-content .pro_list .proinfo span{
+	width:30px;
+	height:30px;
+	position:absolute;
+	right: 0;
+	bottom:-2px;
+	background-image:url(../images/xuan.png);
+	background-size:18px 18px;
+	background-position:center bottom;
+    background-repeat: no-repeat;
+}
+.choosen{
+	width:100%;
+	padding-top:15px;
+	padding-bottom:15px;
+	padding-left:2.5%;
+	padding-right:2.5%;
+	position:fixed;
+	bottom:0;
+	border-top:1px solid #ccc;
+	background:#f8f8f8;
+}
+.choosen p{
+	font-size:14px;
+    /*临时*/   line-height: 28px;
+
+}
+.choosen .jine{
+	color:#dd403b;
+}
+.choosen .button{
+	width:26%;
+	padding-top:10px;
+	padding-bottom:10px;
+	background:#dd403b;
+	text-align: center;
+	color:#fff;
+	border-radius: 5px;
+	position:absolute;
+	right:2.5%;
+    /*临时默认15px*/ top:9px;
+}

@@ -1,0 +1,43 @@
+.container{
+	width:100%;
+	position: relative;
+}
+.altogether{
+	width:100%;
+	height:39px;
+	line-height: 39px;
+	color:#dd403b;
+	font-size: 14px;
+	text-align: center;
+	border-bottom: 1px solid #c8c8c8;
+}
+.border{
+	width:100%;
+	height: 5px;
+	background: #ededed;
+}
+.area-list{
+	width: 100%;
+}
+.area-list .place{
+	width:100%;
+	height:44px;
+	border-bottom:1px solid #cdcdcd;
+	line-height:44px;
+}
+.area-list .place .center{
+	font-size:14px;
+	color:#2d2d2d;
+	position:relative;
+} 
+.area-list .place .center img{
+	height:11px;
+	position:relative;
+	margin-right:10px;
+}
+.area-list .place .center span{
+	font-size:12px;
+	color:#a5a5a5;
+	position: absolute;
+	right:0;
+}

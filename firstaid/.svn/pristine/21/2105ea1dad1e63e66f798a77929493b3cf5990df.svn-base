@@ -1,0 +1,30 @@
+<?php
+
+	error_reporting(0);
+	$ss=$_REQUEST['ss'];
+    $uid=$_REQUEST['uid'];
+//    echo $ss;
+//    echo $uid;
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>赠送记录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="./css/mui.min.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css" />
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/package.css" />
+</head>
+
+<body>
+<div class="mui-content">
+    <div style="text-align:center;color:#dd403b;font-size: 14px;margin-top: 50px">暂无赠送记录！</div>
+</div>
+</body>
+
+</html>

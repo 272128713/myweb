@@ -1,0 +1,193 @@
+<?php
+/*
+ * 空中急救注册流程
+ * 1.2.10. get_personal_info.php（获取个人信息）
+ */
+include(dirname(__FILE__) . "/common/inc.php");
+$config = new Config();
+$logger = Logger::getLogger(basename(__FILE__));
+$databaseManager = new DatabaseManager();
+
+
+//数据库链接
+
+if (!$dbMaster = $databaseManager->getConn()) {
+	logger()->error(sprintf("Database connect fail."));
+	ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+}
+
+if (!$dbSso = $databaseManager->getSsoConn()) {
+	logger()->error(sprintf("Database connect fail."));
+	ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+}
+$params = array(array("ss",true),array("piv",false),array("uid",false));
+
+//print_r($_POST);
+$params = Filter::paramCheckAndRetRes($_POST, $params);
+if(!$params){
+	$logger->error(sprintf("params error. params is %s",v($_POST)));
+	ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER,1);
+}
+
+//获取参数
+$ss = trim($params["ss"]);     //session
+if(isset($params["piv"])){
+	$piv = trim($params["piv"]);   //个人信息版本号（非必填）
+}
+
+//验证session{}
+ $sessionArr = $databaseManager->checkSession($ss);
+
+if(!$sessionArr){
+	$logger->error(sprintf(" Session fail."));  
+	ErrCode::echoErr(ErrCode::API_ERR_INVALID_SESSION,1);
+	
+}
+
+$userId = (int)$sessionArr['user_id'];
+
+if($params["uid"]){
+	$uid = trim($params["uid"]);
+}else{
+	$uid = $userId;
+}
+
+//查角色
+
+$sql_get_role = "select privilege_id from user_base_info where user_id = '$uid'";
+$select_role = $dbSso ->getOne($sql_get_role);
+// var_dump($get_role);
+$get_role_u = substr($select_role, 0, 1);
+$get_role_d = substr($select_role, 1, 1);
+$get_role_k = substr($select_role, 2, 1);
+
+if($get_role_d==1){
+	$get_role = 1;
+}
+
+if($get_role_k==1){
+
+	$get_role = 2;
+}
+
+
+if(isset($params["piv"])&&$piv!=""){
+
+	//版本号
+	$get_vs = "select base_ver from user_version_info where user_id= '$userId'";
+	$vs = $dbSso->getOne($get_vs);
+	//var_dump($dbSso);
+	if($piv==$vs){
+		$logger->error(sprintf(" Vession fail."));  
+		ErrCode::echoErr(ErrCode::API_ERR_VERSSION,1);
+		}
+}
+
+
+$sql_return = "select a.user_id,a.mobile,a.user_name,a.privilege_id,b.sex_id,a.email,b.birthday,b.birth_place,b.blood_id,b.lifeclock,b.live_province_id,b.live_place,c.image_ver as pav  
+ 		from user_base_info as a 
+ 		LEFT JOIN sky_user_extend_info as b on a.user_id = b.user_id
+ 		LEFT JOIN user_version_info as c on a.user_id=c.user_id
+ 		 where a.user_id = '$uid' ";
+// var_dump($sql_return);
+$result = $dbSso->getRow($sql_return);
+$birthday =  $result["birthday"]; //2015-11-10 00:00:0
+if($birthday=="0000-00-00 00:00:00"){
+    $birthday = "1970-01-01 00:00:00";
+}
+$birthday = date("Y-m-d",strtotime("$birthday"));
+if($result["birth_place"]=="0"){
+	$result["birth_place"]="";
+}
+if($result["live_province_id"]=="0"){
+	$result["live_province_id"]="";
+}
+if($result["blood_id"]=="0"){
+	$result["blood_id"]="";
+}
+//echo  $result["birthday"];die();
+$result_arr = array(
+		'uid' => $result["user_id"],				//uid
+		'mobile' => $result["mobile"],			//mobile
+		'name' => $result["user_name"],			//用户名
+		'sex' => $result["sex_id"],				//性别
+		'email' => $result["email"],				//email
+		'privilege_id' => $result["privilege_id"],	//权限
+		'birthday' => $birthday,				//出生日期
+		'birth_place' => $result["birth_place"],			//出生地
+		'live_place' => $result["live_province_id"],	//居住地省份（区id）id
+		'live_placeinfo' => $result["live_place"],				//居住地
+		'pav'=>(string)$result["pav"],
+		'blood' => $result["blood_id"],
+		'clock' => (string)$result["lifeclock"]
+);
+$result_arr["hospital"] = "";		//所属医院
+$result_arr["recollection"] = "";	//科室ID
+$result_arr["skyname"] = "";			//空中医院名称
+$result_arr["duty"] = "";			//职务ID
+$result_arr["auth"] = "";		//认证
+$result_arr["skill"] = "";			//擅长
+$result_arr["honour"] = "";			//荣耀
+$result_arr["summary"] = "";			//简介
+$result_arr["docvurl"] = "";		//医生视频
+//获取医生数据
+// if($get_role==1){
+	$sql_get_doc = "select hospital,recollection_id,sky_name,duty_id,authentication,honour,summary,doc_video_url,skills from sky_doctor_info where user_id = '$uid'";
+	$result = $dbSso->getRow($sql_get_doc);
+	if($result){ 
+		$result_arr["hospital"] = $result["hospital"];		//所属医院
+		$result_arr["recollection"] = (string)$result["recollection_id"];	//科室ID
+		$result_arr["skyname"] = $result["sky_name"];			//空中医院名称
+		$result_arr["duty"] = (string)$result["duty_id"];			//职务ID
+		$result_arr["auth"] = (string)$result["authentication"];		//认证
+		$result_arr["skill"] = $result["skills"];			//擅长
+		$result_arr["honour"] = $result["honour"];			//荣耀
+		$result_arr["summary"] = $result["summary"];			//简介
+		$result_arr["docvurl"] = $result["doc_video_url"];		//医生视频
+	}
+// }
+
+// //获取健康代表数据
+// if($get_role==2){
+	
+// }
+// var_dump($result_arr);
+// die();
+
+	$dbMaster->disConnect();
+	$dbSso->disConnect();
+// 	$logger->info(v($dbSso->getLog()));
+	ErrCode::echoOkArr(1,"执行成功",$result_arr);
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

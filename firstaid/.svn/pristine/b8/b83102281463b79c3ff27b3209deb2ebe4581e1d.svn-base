@@ -1,0 +1,123 @@
+<?php
+
+	error_reporting(0);
+	$ss=$_REQUEST['ss'];
+    $uid=$_REQUEST['uid'];
+//    echo $ss;
+//    echo $uid;
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>稻草包</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="./css/mui.min.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css" />
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/package.css" />
+</head>
+
+<body>
+<div class="mui-content">
+    <div class="title">
+        <p>给你的稻友赠送一份安全关怀!<br />以便不时之需使用：</p>
+        <a class="redbox" href="packageList.php">赠送记录</a>
+        <div class="clear"></div>
+    </div>
+    <div class="pro_list">
+        <div class="pic">
+            <img src="images/p1.png">
+        </div>
+        <div class="proinfo">
+            <p class="pro_name">CPR人工呼吸面罩</p>
+            <p class="pro_detail">人工呼吸的最好工具，防止交叉感染。</p>
+            <p class="price">￥25.00</p>
+            <span></span>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="pro_list">
+        <div class="pic">
+            <img src="images/p2.png">
+        </div>
+        <div class="proinfo">
+            <p class="pro_name">急救反光背心</p>
+            <p class="pro_detail">紧急情况下更好的起到警示作用，保护穿戴者的安全。</p>
+            <p class="price">￥8.50</p>
+            <span></span>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="pro_list">
+        <div class="pic">
+            <img src="images/p3.png">
+        </div>
+        <div class="proinfo">
+            <p class="pro_name">急救毯</p>
+            <p class="pro_detail">金银双面，户外野营可防潮，披在身上能保温。</p>
+            <p class="price">￥10.50</p>
+            <span></span>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="pro_list">
+        <div class="pic">
+            <img src="images/p4.png">
+        </div>
+        <div class="proinfo">
+            <p class="pro_name">车用急救包</p>
+            <p class="pro_detail">专业急救品牌车载，防水加大红色等多种款式。</p>
+            <p class="price">￥45.00</p>
+            <span></span>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="pro_list">
+        <div class="pic">
+            <img src="images/p5.png">
+        </div>
+        <div class="proinfo">
+            <p class="pro_name">家用急救包</p>
+            <p class="pro_detail">专业急救品牌车载，防水加大红色等多种款式。</p>
+            <p class="price">￥78.00</p>
+            <span></span>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="choosen">
+    <p id="count">已选0件</p>
+    <p>&nbsp;</p>
+    <!--p class="jine">共计￥30.00</p-->
+    <div class="button">确定</div>
+</div>
+<script src="js/jquery.js"></script>
+<script>
+    i = 0;
+    $('.pro_list').click(function(){
+        sl = $(this).attr("sl");
+        if(sl != 1){
+            css = $(this).children('.proinfo').children('span');
+            css.css("background-image","url('./images/xuan1.png')");
+            $(this).attr("sl","1");
+            i ++;
+            $('#count').html("已选"+i+"件");
+        }else if(sl==1){
+            css = $(this).children('.proinfo').children('span');
+
+            css.css("background-image","url('./images/xuan.png')");
+            $(this).attr("sl","0");
+            i--;
+            $('#count').html("已选"+i+"件");
+        }
+    });
+
+
+</script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>转送稻友</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+	    <link rel="stylesheet" href="css/mui.min.css">
+	    <link rel="stylesheet" type="text/css" href="css/app.css" />
+	    <link rel="stylesheet" type="text/css" href="css/common.css" />
+	    <link rel="stylesheet" type="text/css" href="css/transfer.css" />
+	</head>
+	<body>
+		<div class="mui-content">
+			<p class="title">请选择要转送的稻友</p>
+			<ul>
+				<li>
+					<div class="name">安全海</div>
+					<span></span>
+				</li>
+				<li>
+					<div class="name">安德森</div>
+					<span></span>
+				</li>
+				<li>
+					<div class="name">白凯南</div>
+					<span></span>
+				</li>
+				<li>
+					<div class="name">安全海</div>
+					<span></span>
+				</li>
+				<li>
+					<div class="name">安德森</div>
+					<span></span>
+				</li>
+				<li>
+					<div class="name">白凯南</div>
+					<span></span>
+				</li>
+			</ul>
+			<div class="button">确定转送</div>
+		</div>
+		<script src="js/jquery.min.js"></script>
+		<script>
+		    $('li').click(function(){
+		        sl = $(this).attr("sl");
+		        if(sl != 1){
+		            css = $(this).children('span');
+		            css.css("background-image","url('./images/xuan1.png')");
+		            $(this).attr("sl","1");
+		        }else if(sl==1){
+		            css = $(this).children('span');
+		            css.css("background-image","url('./images/xuan.png')");
+		            $(this).attr("sl","0");
+		        }
+		    });
+		    $('.button').click(function(){
+				window.location.href="index.html";
+    		});
+		
+		</script>
+
+	</body>
+</html>

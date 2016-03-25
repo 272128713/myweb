@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>急救装备</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/emergency_equipment.css" />
+		<?php include 'emergency_server_eq.php';
+		?>
+	</head>
+	
+	<body>
+		<div class="st-container" id="st-container">
+			<div class="st-menu " id="menu-1">
+				<div class="bg"></div><?php
+						foreach($class as $key=>$cls){
+					?>
+					<p>
+						<a href="emergency_equipment.php?cid=<?php echo $cls["id"]?>"
+						<?php if($cls['id']==$cid){
+							echo "style='color:#ff0000'>";
+							echo "<img src='images/xb1.png' />";
+						}else{?>
+						><img src="images/xb.png" /><?php } echo $cls["describes"]; ?></a>
+					</p>
+					<?php
+						}
+					?>
+			</div>
+			<div class="bg-shadow"></div>
+			<div class="st-pusher">
+				<div class="st-content">
+					<div class="header">
+						<div class="header_con">
+							<div class="sort" id="st-trigger-effects" data-effect="st-effect-1">
+								<span class="icon"></span>
+								<span class="wenzi">分类</span>
+							</div>
+							<input type="text" name="search" placeholder=""
+							<?php if($con){
+								echo "value='$con'";
+							}?>
+							>
+							<div class="em-search" style="">搜</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+					<div class="pro_list">
+						<?php if($eq){?>
+						<?php foreach ($eq as $k=>$eqv){?>
+						<div class="list-item" gid="<?php echo $eqv["id"]?>">
+							<img src="<?php echo $eqv['img_url']?>">
+							<p class="pro_name"><?php echo $eqv['goods_name']?></p>
+						</div>
+						<?php }
+							}else{
+								echo "<div style='line-height:1.5em;font-size:14px;margin-top: 10px;margin-left: 9px;'>无相关产品<br />This is no introduction.</div>";
+							}?>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../common/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../common/js/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+			$(function(){
+					var sort_width = $('.sort').width();
+					$('.sort .icon').css('margin-left',(sort_width - 15)/2);
+			});
+			$(".list-item").on("click",function(){
+				var gid = $(this).attr("gid");
+				window.location.href="equipment_detail.php?gid="+gid;
+				});
+
+			$('input').focus(function(){
+					$('.em-search').show();
+				});
+			$('.em-search').on('click',function(){
+				var sh = $(this).prev('input').val();
+				if(!sh){
+					layer.msg("请输入产品名称");
+					}else{
+						window.location.href="emergency_equipment.php?con="+sh;
+					}
+			});
+
+			$('.sort').on('click',function(){
+						$('.st-menu').show();
+						$('.bg-shadow').show();
+					
+				});
+			$('.bg-shadow').on('click',function(){
+						$('.st-menu').hide();
+						$('.bg-shadow').hide();
+				});
+			console.log('<?php echo $_SESSION['ss'];?>');
+		</script>
+	</body>
+</html>

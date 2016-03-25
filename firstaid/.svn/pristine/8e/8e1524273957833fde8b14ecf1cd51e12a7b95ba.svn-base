@@ -1,0 +1,106 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: mandrills
+ * Date: 16-1-19
+ * Time: 上午11:22
+ */
+
+include_once dirname(__FILE__) . "/common/inc.php";
+include_once dirname(__FILE__) . "/common/database/DatabaseManager.php";
+include_once dirname(__FILE__) . "/common/MecManager.php";
+
+//获取参数
+$params = array(array("ss",true),array("rsid",true),array("content",true),array("comment_id",false));
+$params = Filter::paramCheckAndRetRes($_POST, $params);
+
+if(!$params){
+    logger()->error(sprintf("params error. params is %s",v($_POST)));
+    ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER,1);
+}
+
+$config = new Config();
+$databaseManager = new DatabaseManager();
+
+//数据库链接
+if (!$db = $databaseManager->getConn()) {
+    logger()->error(sprintf("Database connect fail."));
+    ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+}
+
+//session处理
+$sessionArr = $databaseManager->checkSession(trim($params["ss"]));
+
+//判断rsid是否存在
+if(!is_exist_rescue($params['rsid'])){
+
+    ErrCode::echoJson("0","救援现场不存在。");
+
+}
+if(isset($params['comment_id']) && !empty($params['comment_id'])){
+    if(!is_exist_rescue_comment($params['comment_id'])){
+
+        ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER,1);
+
+    }
+}
+
+$parent_id = isset($params['comment_id']) ? $params['comment_id'] : 0;
+
+$res = add_rescue_comment(trim($params['rsid']),trim($params['content']),$sessionArr['user_id'],$parent_id);
+
+if(!$res){
+    ErrCode::echoJson("0","救援现场评论创建失败。");
+}
+ErrCode::echoJson("1","救援现场评论创建成功。");
+
+
+
+function logger()
+{
+    return Logger::getLogger(basename(__FILE__));
+}
+
+function is_exist_rescue($rid)
+{
+    $sql = <<<T_ECHO
+SELECT * FROM rescue_scene_info WHERE id = $rid;
+T_ECHO;
+
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+
+    return $db->getCol($sql) ? true : false;
+
+}
+
+function is_exist_rescue_comment($cid)
+{
+    $sql = <<<T_ECHO
+SELECT * FROM rescue_scene_comment_info WHERE id = $cid;
+T_ECHO;
+
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+
+    return $db->getCol($sql) ? true : false;
+
+}
+
+function add_rescue_comment($rsid,$content,$uid,$pid)
+{
+
+    $sql = <<<T_ECHO
+INSERT INTO
+    rescue_scene_comment_info(rs_id,comment,createDate,user_id,high_rs_id)
+VALUES
+    ($rsid,"$content",NOW(),$uid,$pid);
+T_ECHO;
+
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+
+    return $db->execute($sql);
+
+
+}

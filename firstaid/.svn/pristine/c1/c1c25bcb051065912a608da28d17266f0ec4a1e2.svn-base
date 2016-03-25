@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>我的订单</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<style type="text/css">
+			body,html,div,p,h4{
+				margin:0;
+				padding:0;
+			}
+			h4{
+				line-height:2em;
+				text-align:center;
+				color:#333;
+				margin-top:10px;
+			}
+			p{
+				line-height:2em;
+				font-size:13px;
+			}
+		
+		</style>
+	</head>
+	<body>
+	
+	<h4>服务合同书</h4>
+	<p>甲方（客户方）：</p>
+	<p>乙方（服务方）：</p>
+	<p style="margin-top:5px;">甲乙双方本着相互信任，真诚合作的原则，经双方友好协商，就乙方为甲方提供特定服务达成一致意见，特签订本合同</p>
+	
+	
+	
+	
+	</body>

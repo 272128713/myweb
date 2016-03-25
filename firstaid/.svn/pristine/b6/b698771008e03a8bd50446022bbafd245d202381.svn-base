@@ -1,0 +1,117 @@
+.headtitle{
+	width: 100%;
+	border-bottom: 5px solid #ededed;
+	position: relative;
+}
+.headtitle .mui-content{
+	height:55px;
+	line-height: 55px;
+	font-size: 14px;
+	position: relative;
+}
+.headtitle .mui-content .tit{
+	float:left;
+}
+.headtitle .mui-content .area{
+	float:right;
+	position:relative;
+}
+/*.mui-content .area .text{
+	color:#fff;
+	width:75px;
+	height:25px;
+	background:#dd403b;
+	margin-top:15px;
+	line-height:25px;
+	text-align:center;
+	float:left;
+}
+.mui-content .area .sanjiao {
+	margin-top:15.5px;
+    width: 0;
+    height: 0;
+    border-top: 12.5px solid transparent;
+    border-left: 11px solid #dd403b;
+    border-bottom: 12.5px solid transparent;
+	float:right;
+}*/
+.headtitle .mui-content .area .sanjiao {
+	height:25px;
+	position:absolute;
+	top:15px;
+	right:0;
+	z-index:1;
+}
+.headtitle .mui-content .area .text{
+	color:#fff;
+	width:56px;
+	position:absolute;
+	right:19px;
+	top:0;
+	z-index:2;
+}
+.org{
+	width: 100%;
+	border-bottom: 5px solid #ededed;
+	position: relative;
+}
+.org:last-child{
+	border-bottom: 0;
+}
+.org .mui-content{
+	padding-top:10px;
+	padding-bottom:14px;
+}
+.org .mui-content .logo{
+	width:8%;
+	float:left;
+}
+.org .mui-content .orgintro{
+	width:87%;
+	float:left;
+	padding-left:4.5%;
+}
+.org .mui-content .orgintro .name{
+	font-size:15px;
+	line-height:15px;
+	color:#333333;
+	margin-top:8px;
+}
+.org .mui-content .orgintro .start{
+	font-size:12px;
+	line-height:12px;
+	color:#666666;
+	margin-top:15px;
+}
+.org .mui-content .orgintro .nature{
+	font-size:12px;
+	line-height:12px;
+	color:#666666;
+	margin-top:9.5px;
+	margin-bottom:15px;
+}
+.org .mui-content .line{
+	width:100%;
+	height:1px;
+	background:#cccccc;
+}
+.org .mui-content .count{
+	width:100%;
+	padding-left:12.5%;
+	padding-top: 14px;
+}
+.org .mui-content .count p{
+	font-size: 12px;
+	color:#333333;
+}
+.org .mui-content .count .renshu{
+	float:left;
+}
+.org .mui-content .count .huodong{
+	float:right;
+}
+.org .mui-content .count img{
+	height:12px;
+	top:1px;
+	position:relative;
+}

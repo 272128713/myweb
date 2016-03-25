@@ -1,0 +1,147 @@
+<?php
+
+include_once dirname(__FILE__) . "/common/inc.php";
+include_once dirname(__FILE__) . "/common/database/DatabaseManager.php";
+include_once dirname(__FILE__) . "/common/TcpConnection.php";
+
+//获取参数
+$params = array(array("ss", true));
+
+$params = Filter::paramCheckAndRetRes($_POST, $params);
+
+
+
+if (!$params) {
+    logger()->error(sprintf("params error. params is %s", v($_POST)));
+    ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER, 1);
+}
+
+$config = new Config();
+$databaseManager = new DatabaseManager();
+
+//数据库链接
+if (!$db = $databaseManager->getConn()) {
+    logger()->error(sprintf("Database connect fail."));
+    ErrCode::echoErr(ErrCode::SYSTEM_ERR, 1);
+}
+
+$session = trim($params["ss"]);
+//session处理
+$sessionArr = $databaseManager->checkSession($session);
+
+//logger()->info(printf("this session is %s",$session));
+
+//var_dump($params);exit;
+
+if (!$sessionArr) {
+    $databaseManager->destoryConn();
+    logger()->error(sprintf("Session check is fail. Error session is [%s]", $session));
+    Errcode::echoErr(ErrCode::API_ERR_INVALID_SESSION, 1);
+}
+
+$uid = $sessionArr['user_id'];
+
+$chat = getChatById($uid);
+
+if ($chat) {
+    $chatData = getLevelNameByNum($chat['nums']);
+    $chat['level'] = $chatData['levelName'];
+    $chat['nextLevelNeed'] = $chatData['nextLevelNeed'];
+}else{
+    $chat['nums'] = 0;
+    $chat['level'] = '稻草童子';
+    $chat['nextLevelNeed'] = 5;
+}
+
+ErrCode::echoJson('1', 'success', $chat);
+
+//函数部分
+function logger()
+{
+    return Logger::getLogger(basename(__FILE__));
+}
+
+
+function getLevelNameByNum($num)
+{
+
+//    $levelList = array(
+//        '0' => '稻草童子',
+//        '5' => '稻草才子',
+//        '20' => '稻草天子',
+//        '50' => '稻草圣人',
+//        '100' => '稻草仙君',
+//        '150' => '稻草天尊'
+//    );
+    $levelList = array(
+        '0' => '稻草童子',
+        '1' => '稻草才子',
+        '3' => '稻草天子',
+        '5' => '稻草圣人',
+        '7' => '稻草仙君',
+        '9' => '稻草天尊'
+    );
+
+    $levelArr = array_keys($levelList);
+
+    foreach ($levelArr as  $index => $level) {
+        if($level > $num){
+            $currentLevel = $levelArr[$index-1];
+            return array(
+                'levelName' => $levelList[$currentLevel],
+                'nextLevelNeed' => $level- $num
+            );
+        }
+    }
+
+}
+
+function getChatById($uid)
+{
+    $sql = <<<T_ECHO
+SELECT nums FROM (
+	SELECT
+		base.user_id uid,base.user_name name, base.mobile,
+		ver.base_ver piv,ver.image_ver pav,base.privilege_id
+	FROM
+		sky_user_data_master.user_base_info AS base
+	JOIN
+		sky_user_data_master.user_version_info AS ver
+	ON
+		base.user_id = ver.user_id) AS a
+JOIN
+(
+	SELECT
+		user_id uid,COUNT(user_id) nums
+	FROM
+		user_friend_list
+	WHERE
+	    user_id = $uid
+	GROUP BY
+		user_id
+
+
+) AS b
+
+ON
+	a.uid = b.uid
+
+T_ECHO;
+
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+
+    try {
+
+        return $db->getRow($sql);
+
+    } catch (ErrorException $e) {
+        echo json_encode(array(
+            'code' => $e->getCode(),
+            'msg' => $e->getMessage(),
+            'result' => array()
+        ));
+    }
+
+
+}

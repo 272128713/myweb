@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>急救行动</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/emergency_action.css" />
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+					var sort_width = $('.sort').width();
+					var sRight_height = $('.sRight').height();
+					
+					//var sRight_top_height = $('.sRight .top').height();
+					var sRight_left_width = $('.sRight .top .left').width();
+					var sLeft_height = $('.sLeft').height(sRight_height);
+					
+					//var sLeft_img_height = $('.sLeft img').height();
+					//alert(sLeft_img_height);
+					
+					var sRight_img_height = $('.sRight img').height();
+					var sRight_img_width = $('.sRight img').width();
+					$('.sRight img').css('left',(sRight_left_width - sRight_img_width)/2);
+					//$('.sLeft img').css('top',(sLeft_height - sLeft_img_height )/2 + 'px');
+					$('.sort .icon').css('margin-left',(sort_width - 15)/2);
+					$('.order .icon2').css('margin-left',(sort_width - 15)/2);
+					
+					var get_slider_width = $('.mui-slider .mui-slider-group .mui-slider-item img').width();
+					$('.mui-slider .mui-slider-group .mui-slider-item img').height(get_slider_width*0.53);
+			});
+		</script>
+	</head>
+	
+	<body>
+		<div class="container">
+			<div class="header">
+				<div class="header_con">
+					<div class="sort">
+						<span class="icon"></span>
+						<span class="wenzi">分类</span>
+					</div>
+					<!--div class="search">
+						<span class="sousuo"></span-->
+						<input type="text" name="search" placeholder="应急预案">
+					<!--/div-->
+					<div class="order">
+						<span class="icon icon2"></span>
+						<span class="wenzi">订单</span>
+					</div>
+			
+				</div>
+			</div>
+			<!--轮播图-->
+			<div id="slider" class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#"><img src="images/picture2.png"></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img src="images/picture2.png"></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img src="images/picture2.png"></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img src="images/picture2.png"></a>
+					</div>
+					<div class="mui-slider-item">
+						<a href="#"><img src="images/picture2.png"></a>
+					</div>
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#"><img src="images/picture2.png"></a>
+					</div>
+				</div>
+				<div class="mui-slider-indicator">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+			</div>
+			<!--交通意外-->
+			<div class="sort_show">
+				<div class="sort_title">
+					<span class="sort_icon"></span>
+					<span class="name">交通意外</span>
+					<span class="arrowright"><span>
+				</div>
+				<div class="sort_bao">
+					<div class="sLeft">
+						<img src="images/b1.png">
+						<span class="heading">随车工具医疗组合包</span>
+					</div>
+					<div class="sRight">
+						<div class="top">
+							<div class="left">
+								<img class="img1" src="images/b2-1.png">
+							</div>
+							<div class="right">
+								<p class="bname">工具医疗包</p>
+								<p class="intro">为长途驾行设计，医疗用品配置满足清创为长途驾行设计，医疗用品配置满足清创</p>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="bottom">
+							<div class="left">
+								<img class="img1" src="images/b2-1.png">
+							</div>
+							<div class="right">
+								<p class="bname">工具医疗包</p>
+								<p class="intro">为长途驾行设计，医疗用品配置满足清创为长途驾行设计，医疗用品配置满足清创</p>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			<div class="border"></div>
+			<!--家庭护理-->
+			<div class="sort_show">
+				<div class="sort_title">
+					<span class="sort_icon2"></span>
+					<span class="name">家庭护理</span>
+					<span class="arrowright"><span>
+				</div>
+				<div class="sort_bao">
+					<div class="sLeft">
+						<img src="images/b1.png">
+						<span class="heading">随车工具医疗组合包</span>
+					</div>
+					<div class="sRight">
+						<div class="top">
+							<div class="left">
+								<img class="img1" src="images/b2-1.png">
+							</div>
+							<div class="right">
+								<p class="bname">工具医疗包</p>
+								<p class="intro">为长途驾行设计，医疗用品配置满足清创为长途驾行设计，医疗用品配置满足清创</p>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+						<div class="bottom">
+							<div class="left">
+								<img class="img1" src="images/b2-1.png">
+							</div>
+							<div class="right">
+								<p class="bname">工具医疗包</p>
+								<p class="intro">为长途驾行设计，医疗用品配置满足清创为长途驾行设计，医疗用品配置满足清创</p>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			<div class="border"></div>
+			<!--猜您喜欢-->
+			<div class="guess">
+				<p class="p1">猜您喜欢</p>
+				<div class="relation">
+					<div class="product">
+						<img src="images/pro1.png">
+						<p class="mingc">创伤急救包JG-005A</p>
+						<p class="jies">从产品针对各种意从产品针对各种意</p>
+					</div>
+					<div class="product product2">
+						<img src="images/pro1.png">
+						<p class="mingc">创伤急救包JG-005A</p>
+						<p class="jies">从产品针对各种意</p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+
+		<script src="../common/js/mui.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			var slider = mui("#slider");
+					slider.slider({
+						interval: 3000
+				});
+		</script>
+	</body>
+</html>

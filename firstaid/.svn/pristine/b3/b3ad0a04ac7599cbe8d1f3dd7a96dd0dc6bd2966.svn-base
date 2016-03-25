@@ -1,0 +1,118 @@
+<?php
+/*
+ * 空中急救注册流程
+ * 1.3.7. set_rescue_card.php（设置急救卡信息）
+ */
+include(dirname(__FILE__) . "/common/inc.php");
+$config = new Config();
+$logger = Logger::getLogger(basename(__FILE__));
+$databaseManager = new DatabaseManager();
+
+
+//数据库链接
+
+if (!$dbMaster = $databaseManager->getConn()) {
+	logger()->error(sprintf("Database connect fail."));
+	ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+}
+
+$params = array(array("ss",true),array("height",true),array("weight",true),array("blood",true),array("surgery",true),array("allergic_drug",true),array("chronic_disease",true));
+
+//print_r($_POST);
+$params = Filter::paramCheckAndRetRes($_POST, $params);
+if(!$params){
+	$logger->error(sprintf("params error. params is %s",v($_POST)));
+	ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER,1);
+}
+
+//获取参数
+$ss = trim($params["ss"]);     //session
+$height = trim($params["height"]);     //身高
+$weight = trim($params["weight"]);     //体重
+$blood = trim($params["blood"]);     //血型
+$surgery = trim($params["surgery"]);     //手术
+$allergic_drug = trim($params["allergic_drug"]);     //过敏药物
+$chronic_disease = trim($params["chronic_disease"]);     //慢性病
+
+
+//验证session{}
+ $sessionArr = $databaseManager->checkSession($ss);
+
+if(!$sessionArr){
+	$logger->error(sprintf(" Session fail."));  
+	ErrCode::echoErr(ErrCode::API_ERR_INVALID_SESSION,1);
+	
+}
+//ID
+$userId = (int)$sessionArr['user_id'];
+
+//数据交互
+$sql_select = "select user_id from user_rescue_card_info where user_id = '$userId'";
+$result = $dbMaster->getOne($sql_select);
+if($result){
+	$sql_update = "update user_rescue_card_info set 
+					height = '$height',
+					weight = '$weight',
+					blood = '$blood',
+					surgery = '$surgery',
+					allergic_drug = '$allergic_drug',
+					chronic_disease = '$chronic_disease'
+					where user_id = '$userId'
+			";
+	$result = $dbMaster->execute($sql_update);
+	if(!$result){
+		$logger->error(sprintf("set failed"));
+		ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+		
+	}
+	
+}else{
+
+$sql_set = "insert into user_rescue_card_info 
+		(user_id,height,weight,blood,surgery,area,allergic_drug,chronic_disease)
+		values
+		('$userId','$height','$weight','$blood','$surgery','','$allergic_drug','$chronic_disease')";
+echo $sql_set;
+$set_ok = $dbMaster->execute($sql_set);
+if(!$set_ok){
+	$logger->error(sprintf("set failed"));
+	ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+}
+}
+	//关闭数据库连接
+	$dbMaster->disConnect($dbMaster);
+// 	$logger->info(v($dbSso->getLog()));
+	ErrCode::echoOk("ok",1);
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

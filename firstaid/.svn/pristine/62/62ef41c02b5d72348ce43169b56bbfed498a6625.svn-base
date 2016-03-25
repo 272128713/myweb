@@ -1,0 +1,44 @@
+.title{
+	font-size: 14px;
+	line-height: 14px;
+	margin-top:30px;
+	margin-bottom:5px;
+}
+ul li{
+	padding-top:20px;
+	padding-bottom:20px;
+	border-bottom:1px solid #ededed;
+	position:relative;
+}
+ul li span{
+	width:30px;
+	height:30px;
+	position:absolute;
+	right: 0;
+	bottom:21px;
+	background-image:url(../images/xuan.png);
+	background-size:18px 18px;
+	background-position:center bottom;
+    background-repeat: no-repeat;
+}
+ul li img{
+	float:right;
+	width:18px;
+	top:2px;
+	position:relative;
+}
+.name{
+	font-size: 14px;
+}
+.button{
+	width:48%;
+	padding-top:10px;
+	padding-bottom:10px;
+	text-align: center;
+	margin:0 auto;
+	background:#dd403b;
+	border-radius:5px;
+	color:#fff;
+	margin-top:30px;
+	font-size:15px;
+}

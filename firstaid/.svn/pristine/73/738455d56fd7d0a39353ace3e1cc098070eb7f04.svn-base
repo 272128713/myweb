@@ -1,0 +1,40 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: mandrills
+ * Date: 15-10-28
+ * Time: 上午9:47
+ */
+
+/**
+ * @param $userID
+ * @param $friendList
+ * @return bool
+ */
+function delFriendList($userID, $friendList) {
+    $dbObj = new DatabaseManager();
+    $db = $dbObj->getConn();
+    $leftSql = <<<T_ECHO
+    DELETE FROM user_friend_list
+        WHERE user_id=$userID AND friend_id IN ($friendList)
+T_ECHO;
+    $rightSql =<<<T_ECHO
+    DELETE FROM user_friend_list
+        WHERE user_id in ($friendList) AND friend_id=$userID
+T_ECHO;
+    try {
+        $db->startTrans ();
+        $db->execute($leftSql);
+        $db->execute($rightSql);
+        if($db->hasFailedTrans()){
+            $db->completeTrans(false);
+            return false;
+        }
+        $db->completeTrans(true);
+        return true;
+
+    } catch (ErrorException $e) {
+        ErrCode::echoJson($e->getCode(),$e->getMessage());
+    }
+
+}

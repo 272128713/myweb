@@ -1,0 +1,24 @@
+<?php
+session_start();
+error_reporting(0);
+include dirname(dirname(__DIR__)).'/common/php/common.php';
+include dirname(dirname(__DIR__)).'/common/php/config.php';
+
+$_POST['org_id']=$_GET['oid'];
+$_POST['ss']=$_SESSION['ss'];
+$result=httpRequest($URLHOST.'/firstaid/1.0/get_org_userjoin_apply.php',$_POST,'post');
+
+$result = json_decode($result);
+if($result->code==1){
+    if($result->result){
+        $result=$result->result;
+    }else{
+        $result=(object)array();
+    }
+
+}
+//elseif($result->code==2){
+//    ?>
+<!--    <script> window.location.replace("orgDetail.php?oid=--><?php //echo $_GET['oid'];?>//&im=0");</script>
+//    <?php
+//}?>

@@ -1,0 +1,57 @@
+<?php
+/**
+ * Func: 1.4.13 被监护人发送警报推送
+ * User: 王秀泽
+ * Date: 2015/11/3
+ * Time: 14:20
+ * Last:
+ */
+include_once dirname(__FILE__) . "/common/inc.php";
+include_once dirname(__FILE__) . "/common/database/DatabaseManager.php";
+include_once dirname(__FILE__) . "/service/user_damoclean_serv.php";
+include_once(dirname(__FILE__) . "/common/MecManager.php");
+
+$logger = Logger::getLogger(basename(__FILE__));
+
+#region 获取参数
+$params = array(array("ss", true),array("flag",false));
+$params = Filter::paramCheckAndRetRes($_POST, $params);
+
+if (!$params) {
+    $logger->error(sprintf("params error. params is %s", v($_POST)));
+    ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER, 1);
+}
+
+$session = trim($params["ss"]);
+$flag = trim($params["flag"]);
+
+#endregion
+
+#region 获取数据库连接
+$config = new Config();
+$databaseManager = new DatabaseManager();
+
+if (!$db = $databaseManager->getConn()) {
+    $logger->error(sprintf("Database connect fail."));
+    ErrCode::echoErr(ErrCode::SYSTEM_ERR, 1);
+}
+
+#endregion
+
+#region 检查Session合法性
+$sessionArr = $databaseManager->checkSession($session);
+
+if (!$sessionArr || !$sessionArr['user_id']) {
+    $databaseManager->destoryConn();
+    $logger->error(sprintf("Session check is fail. Error session is [%s]", $session));
+    Errcode::echoErr(ErrCode::API_ERR_INVALID_SESSION, 1);
+}
+#endregion
+
+$uid = (int)$sessionArr['user_id'];
+
+#region 发送消息推送
+
+//sendWarnInfo($uid,$flag);
+
+#endregion

@@ -1,0 +1,228 @@
+<?php
+/*
+ * 空中急救模块API
+ * 1.3.3. answer_user_question.php (回复用户问题)
+ */
+include(dirname(__FILE__) . "/common/inc.php");
+include(dirname(__FILE__) . "/common/MMSFileManager.php");
+$config = new Config();
+$logger = Logger::getLogger(basename(__FILE__));
+$params = array(array("ss",true),array("upid",true),array("content",false),array("file",false));
+
+//print_r($_POST);
+$params = Filter::paramCheckAndRetRes($_POST, $params);
+if(!$params){
+	$logger->error(sprintf("params error. params is %s",v($_POST)));
+	ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER,1);
+}
+
+//获取参数
+$ss = $params["ss"];     //session
+$uqid = $params["upid"];	//问题ID
+if(isset($params["content"])){
+	$content = $params["content"];	//回复内容
+}else{
+	$content = "";
+}
+
+$databaseManager = new DatabaseManager();
+$dbMaster = $databaseManager->getConn(); //连接sky_first_aid
+
+
+
+//数据库链接失败
+
+if(!$dbMaster){
+	$logger->error(sprintf("Database sky_first_aid connect fail."));
+	ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+}
+
+
+
+//验证session{}
+ $sessionArr = $databaseManager->checkSession($ss);
+// var_dump($sessionArr);
+if(!$sessionArr){
+	$logger->error(sprintf(" Session fail."));  
+	ErrCode::echoErr(ErrCode::API_ERR_INVALID_SESSION,1);
+	
+}
+$userId = (int)$sessionArr['user_id'];
+$mobile = $sessionArr['mobile'];
+//id查角色
+
+if(!$dbSso = $databaseManager->getSsoConn() ){
+	$logger->error(sprintf("Database sky_user_data_master connect fail."));
+	ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+}
+
+$sql_get_role = "select privilege_id from user_base_info where user_id = '$userId'";
+$get_role = $dbSso ->getOne($sql_get_role);
+$dbSso->disConnect();
+// var_dump($get_role);
+$get_role_doctor = substr($get_role, 1, 1);
+
+
+if($get_role_doctor!=1){
+	$logger->error(sprintf("user role fail."));
+	ErrCode::echoErr(ErrCode::API_ERR_ROLE,1);
+}
+
+	
+	
+	
+	
+	//上传音频
+	
+
+	$file_params = array();//(audiofilename,)
+	$file_params['user_id'] = $sessionArr["user_id"];
+	$file_params['mime'] = 'audio';
+	$type = 0;
+	if(isset($_FILES['file'])){
+		if(isset($_FILES['file']['error'])){
+			if($_FILES['file']['error'] == 0){
+				$fileName = $_FILES['file']['name'];//取得上传文件
+				$fileTempName = $_FILES['file']['tmp_name'];//得到临时文件
+				$filepath['src_file'] = $fileTempName;
+				$fileSize = $_FILES['file']['size'];//已上传文件的大小，单位为字节
+				
+				
+				$fileManager = new MMSFileManager();
+				$retaudio = $fileManager->uploadFileByFastDFS($filepath, $fileName);
+				
+		// 		array(2) { [0]=> string(52) "/group1/M00/00/04/wKgUDVY5r5KAOFYNAAHBWRACAGg7004851" [2]=> string(4) "muwu" }
+				if(!$retaudio){
+					$logger->error(sprintf("传输失败"));
+					ErrCode::echoErr(ErrCode::FILE_SEND_ERR,1);
+				}
+				$type = 2;
+			}
+		}
+	}
+	
+	
+	
+	//回复用户问题
+
+	$sql_doc="select id from doctor_answer_info where doctor_id = '$userId' and question_id ='$uqid'";
+	$result_doc = $dbMaster->getOne($sql_doc);
+	
+	$sql_list = "insert into doctor_answer_info
+	(question_id, doctor_id, content, createDate, isAccept, type)
+	VALUES
+	('$uqid', '$userId', '$content', now(), '0', '$type')
+	";
+	
+	$result = $dbMaster->execute($sql_list);
+	$sql_select = "select id from doctor_answer_info where doctor_id = '$userId' and id = last_insert_id()";
+	$result_id = $dbMaster->getOne($sql_select);
+	if($result){
+// 		var_dump($result_doc);
+		if(!$result_doc){
+			//医生回复更新回复数
+			$sql_solve = "update user_question_info set isSolve = isSolve+1 where id = '$uqid'";
+			$dbMaster->execute($sql_solve);
+		}
+		//医生回复更新回复时间
+		$sql_update_time = "update user_question_info set answer_time = NOW(), isRead = 0 where id = '$uqid'";
+// 		echo $sql_update_time;
+		$dbMaster->execute($sql_update_time);
+		
+		
+		
+		
+		$sql = "select user_id from user_question_info where id = '$uqid'";
+		
+		$senduid = $dbMaster-> getOne($sql);
+		
+		//回复后给用户发送发推送
+		
+		
+		
+	}else {
+		$logger->error(sprintf("question solve+1 fail."));
+		ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+	
+	}
+	//关闭数据库，输出数据
+	$dbMaster->disConnect();	
+	
+	
+	if($type==2){
+				//上传成功，在写imgage to DB
+				$databaseManager = new DatabaseManager();
+				$db = $databaseManager->getConn();
+				
+				//image 原图，缩略图 信息写入DB
+				
+					$source_image_url =$retaudio [0];
+					$group = explode('/', $source_image_url);
+		// 			$thumbnail_image_url = $retaudio[1];
+					$image_id= $retaudio[2];
+		// 			$image_id_thumb = $image_id.'-thumb';
+				
+					$AddSql = "insert into doctor_answer_info_files (daid,filetype,fileid,createDate)values('$result_id','audio','$image_id',now())";
+					$Addquestionfile = $db->execute($AddSql);
+						
+					$AdddfsSql = "insert into dfs_id_mapping (dfsid,`group`,fileid,sendtime)values('$source_image_url','$group[1]','$image_id',now())";
+					$Adddfs = $db->execute($AdddfsSql);
+					
+				$db->disConnect();
+			
+	}
+	
+		
+	send_smsDdm($userId,$mobile,$uqid,$senduid);	
+
+	
+	ErrCode::echoOk ( "OK", 1 );
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//发送消息
+	function send_smsDdm($user_id,$mobile,$uqid,$senduid){
+	
+		$logger = Logger::getLogger ( basename ( __FILE__ ) );
+		$databaseManager = new DatabaseManager ();
+		$database = $databaseManager->getConn ();
+		
+		//生成一个全局唯一的标识
+		$uuid = uniqid();
+		$msgObj = array (
+				"type" => "DDM",
+				"src" => $user_id,	//发送者ID
+				"srcm" => $mobile,	//发送者手机号
+				"qid" => $uqid, // 问题ID
+				"time" => time (), // 时间
+				"uuid"=>$uuid,
+				"ft" => 1
+		);
+	
+// 		var_dump($senduid);
+		$notifyMember = $senduid;
+		// 给接收者发送notify
+		$accepters = $databaseManager->getUserInfoByUid ( $notifyMember );
+		$databaseManager->destoryConn (); // unlink Master DB
+		if (! $accepters) {
+			$logger->error ( sprintf ( "accepter not exists ,uid %s", $notifyMember ) );
+			ErrCode::echoErr ( ErrCode::API_ERR_MESSAGE_SEND_ERROR, 1 );
+		}
+		// 实现发送消息
+// 		var_dump($msgObj);
+		$mecManagerSos = new MecManager ( $user_id, $msgObj, $accepters );
+		$mecManagerSos->sendMessage ();
+	
+		
+		
+	
+	}
+?>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>应急预案详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/emergency_detail.css" />
+	</head>
+	
+	<body>
+		<div class="container">
+			<img class="tupian" src="images/box.png">
+			<div class="emergency_detail">
+				<div class="item_t">
+					<p class="name">车载家用便携救生医疗药包车载家用便携救生医疗药包车载家用便携救生医疗药包车载家用便携救生医疗药包车载家用便携救生医疗药包</p>
+					<p class="intro">此产品由急救用品和实用工具组合而成，能够满足灾害发生后被困人员的积极自救和配合外部救援等需求。</p>
+					<p class="time">
+						<span class="price">￥86.00/年</span>
+						<span class="gongyi">其中￥8.60将捐给公益事业
+							<span class="arrowright"></span>
+						</span>
+					</p>
+					<div class="number">
+						<div class="sale">
+							<img src="images/man.png">
+							已销售12.87万
+						</div>
+						<div class="goodcom">
+							<img src="images/zan.png">
+							获得好评12.35万
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+			<!-- div class="user_opinion">
+				<div class="usercom">
+					<p class="tit">用户评价（123456）</p>
+					<img src="images/photo.png">
+					<div class="comment">
+						<p class="user_name">赵晓丽</p>
+						<p class="com_text">评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容评价内容</p>
+						<p class="date">2015-10-29</p>
+					</div>
+					<div class="clearfix"></div>
+					<div class="all">查看全部评价</div>
+				</div>
+			</div-->
+			<div class="plan_detail">
+				<span class="yuan"></span>预案详情
+			</div>
+			<img class="big" src="images/big1.png">
+			<img class="big" src="images/big2.png">
+			<img class="big" src="images/big3.png">
+			<img class="big" src="images/big4.png">
+			<img class="big" src="images/big5.png">
+			<div class="fixed">
+				<div class="fl">
+					<span class="kefu"></span>客服
+				</div>
+				<div class="fl">
+					<span class="dianpu"></span>店铺
+				</div>
+				<div class="fl">
+					<span class="shoucang"></span>收藏
+				</div>
+				<div class="fr fr1">加入购物车</div>
+				<div class="fr fr2">立即拥有</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</body>
+</html>

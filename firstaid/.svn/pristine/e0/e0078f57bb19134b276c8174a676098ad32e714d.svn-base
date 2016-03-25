@@ -1,0 +1,72 @@
+
+<?php
+/**
+* 应急预案，急救包
+*/ 
+	
+	include(dirname(__FILE__) . "/../../1.0/common/inc.php");
+	$logger = Logger::getLogger(basename(__FILE__));
+	$databaseManager = new DatabaseManager();
+	$db = $databaseManager->getConn();
+	//数据库链接失败
+	if(!$db){
+		echo "<div style='margin:1em 0 0 2em'>Server Error</div>";
+		echo "<div style='margin:1em 0 0 2em'>服务器开小差~！跳转中。。。</div>";
+		?>
+			<script>
+			setTimeout("goBack()",2000);
+			function goBack(){
+				history.go(-1);
+			}
+			</script>
+			<?php
+		die();
+	}
+	
+	
+	
+	//分类列表
+	$sql_classify = "select id,describes from first_aid_goods_classify_info ";
+	$result = $db->getAll($sql_classify);
+	$class = $result;
+	
+	
+	//首页banner广告位商品
+  	$sql_banner = "select goods_id from first_aid_goods_layout_info where layout_info =1 ";
+	$result = $db->getCol($sql_banner);
+	$banner_id = $result;
+	foreach($banner_id as $k=>$banner_v){
+		$sql_banner_url = "select goods_id,img_url from first_aid_goods_img_info where goods_id = '$banner_v' and type = 1";
+		$result = $db->getRow($sql_banner_url);
+
+		$img_url[$k] = $result;
+		
+	}
+	$img_url_length = count($img_url);
+
+	//猜你喜欢
+	$sql_gus = "select goods_id from first_aid_goods_layout_info where layout_info =2 order by id desc limit 0,2";
+	$result = $db->getCol($sql_gus);
+	$gus_id = $result;
+	
+	foreach($gus_id as $k=>$gus_v){
+		$sql_gus_url = "select info.id,info.goods_name,info.goods_summary,img.img_url 
+						from first_aid_goods_img_info as img
+						left join first_aid_goods_info as info 
+						on info.id = img.goods_id
+						where img.goods_id = '$gus_v' and img.type = 2";
+		
+		$result = $db->getRow($sql_gus_url);
+
+		$gus[$k] = $result;
+	
+	}
+?>	
+	
+	
+	
+	
+	
+	
+	
+	

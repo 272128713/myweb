@@ -1,0 +1,15 @@
+<?php
+/*
+ * 获取公益活动详情
+*/
+function getPublicWelfareActivityInfo($activity_id){
+	$obj = new DatabaseManager();
+	$db = $obj->getConn();
+	$sql="select * from sys_public_welfare_info where id='$activity_id'";
+	return  $db->getRow($sql);
+
+
+
+}
+
+?>

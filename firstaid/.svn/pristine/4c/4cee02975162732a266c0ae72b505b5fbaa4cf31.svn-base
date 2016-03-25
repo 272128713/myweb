@@ -1,0 +1,17 @@
+
+<?php
+include dirname(dirname(__DIR__)).'/common/php/common.php';
+error_reporting(0);
+session_start();
+
+
+$_POST['ss']=$_SESSION['ss'];
+$_POST['org_id']=$_GET['oid'];
+$result=httpRequest($URLHOST.'/firstaid/1.0/get_org_userlist.php',$_POST,'post');
+
+$result = json_decode($result);
+//var_dump($result);
+if($result->code == 1){
+    $result = $result->result;
+    var_dump($result);
+}

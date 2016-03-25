@@ -1,0 +1,99 @@
+2015-11-25 14:27:26,606 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 266  
+2015-11-25 14:27:26,611 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 267  
+2015-11-25 14:27:26,617 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 266  
+2015-11-25 14:27:26,621 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 267  
+2015-11-25 14:27:26,627 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 266  
+2015-11-25 14:27:26,630 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 267  
+2015-11-25 14:27:26,637 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 266  
+2015-11-25 14:27:26,641 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 267  
+2015-11-25 14:27:26,666 [ERROR] (Tools.php:463) --  [8] Undefined offset: 1  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_action.php  line: 167  
+2015-11-25 14:27:26,670 [ERROR] (Tools.php:463) --  [8] Undefined offset: 1  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_action.php  line: 168  
+2015-11-25 14:27:26,674 [ERROR] (Tools.php:463) --  [8] Undefined offset: 1  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_action.php  line: 169  
+2015-11-25 14:28:04,994 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 266  
+2015-11-25 14:28:04,1000 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 267  
+2015-11-25 14:28:05,004 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 266  
+2015-11-25 14:28:05,009 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 267  
+2015-11-25 14:28:05,015 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 266  
+2015-11-25 14:28:05,019 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 267  
+2015-11-25 14:28:05,025 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 266  
+2015-11-25 14:28:05,029 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 267  
+2015-11-25 14:28:43,457 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 266  
+2015-11-25 14:28:43,461 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 267  
+2015-11-25 14:28:43,466 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 266  
+2015-11-25 14:28:43,470 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 267  
+2015-11-25 14:28:43,475 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 266  
+2015-11-25 14:28:43,479 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 267  
+2015-11-25 14:28:43,484 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 266  
+2015-11-25 14:28:43,488 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 267  
+2015-11-25 14:36:59,048 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 61  
+2015-11-25 14:38:08,954 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 62  
+2015-11-25 14:39:22,584 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 62  
+2015-11-25 14:39:36,416 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 62  
+2015-11-25 14:39:49,876 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 62  
+2015-11-25 14:40:05,757 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 62  
+2015-11-25 14:40:29,588 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 14:40:42,328 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 14:41:27,409 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 14:41:47,496 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 14:44:03,083 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 14:44:35,845 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 14:53:32,264 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 14:53:46,907 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 14:54:24,118 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 14:57:53,054 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:00:43,688 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:01:11,258 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:01:37,898 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:01:52,880 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:04:18,083 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:04:58,999 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:05:26,791 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:06:17,382 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:07:08,413 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:08:28,050 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:08:37,302 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:09:06,423 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:10:02,614 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:10:08,082 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:10:42,759 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:10:59,396 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:11:43,639 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:11:59,124 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:12:54,166 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:13:01,529 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:13:39,131 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:14:41,505 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:14:55,373 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:15:33,195 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:15:36,184 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:15:40,720 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:16:30,233 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:21:42,974 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:22:40,843 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:23:00,477 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:23:09,693 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:46:11,663 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:51:42,723 [ERROR] (Tools.php:463) --  [8] Undefined index: gid  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_goodsview.php  line: 26  
+2015-11-25 15:52:08,320 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:52:32,537 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:52:35,643 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 15:54:03,713 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 16:07:59,560 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 17:08:13,335 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 17:08:42,231 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 17:08:56,592 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 17:08:57,166 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 17:08:57,382 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 17:08:57,550 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 17:08:59,304 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 17:08:59,923 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 17:09:00,155 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 17:09:00,295 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 17:09:00,500 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 17:09:08,716 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 17:09:09,320 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 17:09:09,547 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 17:09:09,894 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 17:09:33,915 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 17:09:37,439 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-11-25 17:10:29,631 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  

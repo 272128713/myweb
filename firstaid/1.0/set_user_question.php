@@ -1,0 +1,234 @@
+<?php
+/*
+ * 空中急救模块API
+ * 1.3.5. set_user_question.php (设置用户提问)
+ */
+include(dirname(__FILE__) . "/common/inc.php");
+include(dirname(__FILE__) . "/common/MMSFileManager.php");
+include(dirname(__FILE__) . "/common/MecManager.php");
+$config = new Config();
+$logger = Logger::getLogger(basename(__FILE__));
+$params = array(array("ss",true),array("question_id",true),array("answer_id",true),array("flag",true),array("content",false),array("file",false));
+
+//print_r($_POST);
+$params = Filter::paramCheckAndRetRes($_POST, $params);
+if(!$params){
+	$logger->error(sprintf("params error. params is %s",v($_POST)));
+	ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER,1);
+}
+
+//获取参数
+$ss = $params["ss"];     //session
+$question_id = $params["question_id"];	//问题ID
+$answer_id = $params["answer_id"];	//回复ID
+$flag = $params["flag"];
+if(isset($params["content"])){
+	$content = $params["content"];
+}else {
+	$content = '';
+}
+
+
+$databaseManager = new DatabaseManager();
+$dbMaster = $databaseManager->getConn(); //连接sky_first_aid
+
+
+
+//数据库链接失败
+
+if(!$dbMaster){
+	$logger->error(sprintf("Database sky_first_aid connect fail."));
+	ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+}
+//验证session{}
+$sessionArr = $databaseManager->checkSession($ss);
+
+if(!$sessionArr){
+	$logger->error(sprintf(" Session fail."));
+	ErrCode::echoErr(ErrCode::API_ERR_INVALID_SESSION,1);
+
+}
+
+$userId = (int)$sessionArr['user_id'];
+$mobile = $sessionArr['mobile'];
+
+
+//取追问的最新回复ID
+$sql = "select doctor_id from doctor_answer_info WHERE id = '$answer_id' AND question_id = '$question_id'";
+$result_doc = $dbMaster->getOne($sql);
+
+$sql = "select max(id) from doctor_answer_info WHERE doctor_id = '$result_doc' AND question_id = '$question_id' ";
+$result_doc_aid = $dbMaster->getOne($sql);
+
+$answer_id = $result_doc_aid;
+
+//返回值sql
+if($flag == 0){
+	$sql_acc = "update doctor_answer_info set isAccept=1 where id = '$answer_id'";
+	$result_acc = $dbMaster->execute($sql_acc);
+	$sql_sol = "update user_question_info set isEnd=1 where id = '$question_id'";
+	$result_sol = $dbMaster->execute($sql_sol);
+	if(!$result_acc){
+		$logger->error(sprintf(" accept fail."));
+		ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+	}
+	if(!$result_sol){
+		$logger->error(sprintf(" solve fail."));
+		ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+	}
+}elseif($flag==1){
+	
+		$type=0;
+		//上传文件
+		if(isset($_FILES['file'])){
+			
+	        if(isset($_FILES['file']['error'])){
+	            if($_FILES['file']['error'] == 0){
+	            	/*****************************得到上传文件的信?********************************************/
+	            	$fileName = $_FILES['file']['name'];//取得上传文件
+	            	$fileTempName = $_FILES['file']['tmp_name'];//得到临时文件
+					$filepath['src_file'] = $fileTempName;
+	            	$fileSize = $_FILES['file']['size'];//已上传文件的大小，单位为字节
+	            	
+	            	
+	            	$fileManager = new MMSFileManager();
+	            	$retaudio = $fileManager->uploadFileByFastDFS($filepath, $fileName);
+	            	
+	            	// 		array(2) { [0]=> string(52) "/group1/M00/00/04/wKgUDVY5r5KAOFYNAAHBWRACAGg7004851" [2]=> string(4) "muwu" }
+	            	if(!$retaudio){
+	            		$logger->error(sprintf("传输失败"));
+	            		ErrCode::echoErr(ErrCode::FILE_SEND_ERR,1);
+	            	}
+	            	$type = 2;
+	            	
+	            	
+	            }
+	        }
+		}
+		
+		//上传ok，插入数据
+		$sql_toanswer="insert into user_question_for_answer_info (answer_id,user_id,content,createDate,type,isRead) values ('$answer_id','$userId','$content',now(),'$type',0)";
+		$result_toanswer=$dbMaster->execute($sql_toanswer);
+		if(!$result_toanswer){
+			$logger->error(sprintf("toanswer fail."));
+			ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+		}
+		
+		
+		
+		
+		//获取插入数据id
+		$sql_qa="select id from user_question_for_answer_info where id = last_insert_id() and user_id = '$userId'";
+		$result_qaid = $dbMaster->getOne($sql_qa);
+		
+		
+		
+		
+		//通过追问Id，插入追问音频
+		if($type==2){
+			//上传成功，在写imgage to DB
+		
+			//image 原图，缩略图 信息写入DB
+		
+			$source_image_url =$retaudio [0];
+			$group = explode('/', $source_image_url);
+			// 			$thumbnail_image_url = $retaudio[1];
+			$image_id= $retaudio[2];
+			// 			$image_id_thumb = $image_id.'-thumb';
+		
+			$AddSql = "insert into user_question_for_answer_info_files (uqaid,filetype,fileid,createDate)values('$result_qaid','audio','$image_id',now())";
+			$Addquestionfile = $dbMaster->execute($AddSql);
+		
+			$AdddfsSql = "insert into dfs_id_mapping (dfsid,`group`,fileid,sendtime)values('$source_image_url','$group[1]','$image_id',now())";
+			$Adddfs = $dbMaster->execute($AdddfsSql);
+				
+			$dbMaster->disConnect();
+				
+		}
+		//追问后给回复者推送
+		$sql="select doctor_id from doctor_answer_info where id = '$answer_id'";
+		$senduid = $dbMaster->getOne($sql);
+		if(!$senduid){
+			$logger->error ( sprintf ( "accepter not exists ,uid %s", $notifyMember ) );
+		}
+		send_smsDdm($userId, $mobile, $question_id, $senduid);
+		
+		
+	
+}
+
+ErrCode::echoOk("ok",1);
+
+
+
+
+//发送消息
+function send_smsDdm($user_id,$mobile,$uqid,$senduid){
+
+	$logger = Logger::getLogger ( basename ( __FILE__ ) );
+	$databaseManager = new DatabaseManager ();
+	$database = $databaseManager->getConn ();
+
+	//生成一个全局唯一的标识
+	$uuid = uniqid();
+	$msgObj = array (
+			"type" => "DDM",
+			"src" => $user_id,	//发送者ID
+			"srcm" => $mobile,	//发送者手机号
+			"qid" => $uqid, // 问题ID
+			"time" => time (), // 时间
+			"uuid"=>$uuid,
+			"ft" => 2
+	);
+
+	$notifyMember = $senduid;
+	// 给接收者发送notify
+	$accepters = $databaseManager->getUserInfoByUid ( $notifyMember );
+// 	var_dump($notifyMember);
+// 	var_dump($accepters);
+	$databaseManager->destoryConn (); // unlink Master DB
+	if (! $accepters) {
+		$logger->error ( sprintf ( "accepter not exists ,uid %s", $notifyMember ) );
+		//ErrCode::echoErr ( ErrCode::API_ERR_MESSAGE_SEND_ERROR, 1 );
+		
+	}else{
+	// 实现发送消息
+		$mecManagerSos = new MecManager ( $user_id, $msgObj, $accepters );
+		$mecManagerSos->sendMessage ();
+		ErrCode::echoOk ( "OK", 1 );
+	}
+
+}
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

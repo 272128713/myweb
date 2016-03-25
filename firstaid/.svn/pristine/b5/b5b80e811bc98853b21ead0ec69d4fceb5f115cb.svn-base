@@ -1,0 +1,309 @@
+<?php 
+	session_start();
+	error_reporting(0);
+	$ss=$_SESSION['sos_ss'];
+	$id=$_GET['id'];
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>公益活动</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" href="css/swiper.min.css">
+		<link rel="stylesheet" type="text/css" href="css/public_index.css" />
+		<style>
+			.mui-content{
+				width: 96%;
+			}
+			.wrap{
+				padding:3px 0 10px 0;
+				width:100%;
+			}
+			.agency{
+				margin-top:5%;
+			}
+			.agency img{}
+			.loading{
+				position:absolute;
+				top: 50%;
+				background-size:40px 40px;
+				width: 40px;
+				height:40px;
+				margin-top:-20px;
+				margin-left:-20px;
+				left:50%;
+				z-index: 999;
+				background-image: url('images/loading.gif');
+				display: none;
+				
+			}
+			.layui-layer-btn .layui-layer-btn0 {
+			    border-color: #dd403b;
+			    background-color: #dd403b;
+			}
+			.layui-layer-btn a{
+				height:30px;
+				width: 94%;
+				text-align: center;
+				}
+			.text{
+				background: #fce9c9;
+				text-align:left;
+				width:100%;
+				padding:10px 8% 30px 15%;
+				font-size:13px;
+			}
+			.scroll .triangle{
+				border-top: 10px solid #fce9c9;
+			}
+			.text .title{
+				color:#454545;
+			}
+			.text p{
+				color:#454545;
+			}
+			.text span{
+				color:#454545;
+				font-size:13px;
+			}
+			.text .tl{
+				color:#dd403b;
+				float:left;
+				width:72px;
+				font-weight:700;
+			}
+			.text .tr{
+				color:#454545;
+				float:left;
+				width:69%;
+				
+			}
+			.vol,.num{
+				color:#454545;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="top-bg">
+				<div class="back"><img src="images/zm.png"></div>
+				<div class="text">
+					
+				</div>
+			</div>
+			<!--底部滚动-->
+			<div class="scroll">
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						
+					</div>
+				</div>
+				<div class="triangle"></div>
+			</div>
+			
+			<div class="button">
+				<div class="btn">
+					<div class="btn1" onclick="window.location.href='public_list.php'">历届活动</div>
+				</div>
+				<div class="btn">
+					<div class="btn2" id="joinActive">参加活动</div>
+				</div>
+			</div>
+		</div>
+		<div class="loading"></div>
+		<script src="../common/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../common/js/touch.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../common/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../common/js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../common/js/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		
+		
+		
+			
+		ss='<?php echo $ss;?>';
+		aid='<?php echo $id;?>';
+		html="";
+		$.ajax({
+			type:"POST",
+			url:"../../1.0/get_public_welfare_activity_info.php",
+			data:{ss:ss,activity_id:aid},
+			dataType:"json",
+			beforeSend:function(){
+				$('.loading').show();
+			},
+			success:function(data){
+				console.log(data);
+				rs=data.result;
+				Joined = rs.joined;
+				console.log("Joined：");
+				console.log(Joined);
+				$('.loading').hide();
+				//html+="<p style='color:#dd403b;font-size:13px;'>活动时间:<span>"+transtime2(rs.start_time)+" - "+transtime2(rs.end_time)+"</span></p><p style='color:#dd403b;font-size:13px;margin-top:20px;'>发放对象:<span>西安市出租车司机，年龄在20-55岁之间</span></p><p style='color:#dd403b;font-size:13px;margin-top:20px;'>申领条件:<span>"+rs.content+"</span></p><p class='zhiyuan' style='text-align:center;color:#fff;display:none'><span class='vol'>志愿者</span><span class='num'>"+rs.now_people+"/"+rs.people_num+"</span></p>";
+				html+="<div class='tl'>活动时间:</div><div class='tr'>"+transtime2(rs.start_time)+" - "+transtime2(rs.end_time)+"</div><div class='clear'></div>";
+				html+="<div class='tl'>招募对象:</div><div class='tr'>医学专业类学生<br />医院的医护人员<br />热爱公益的社会人士</div><div class='clear'></div>";
+				html+="<div class='tl'>报名条件:</div><div class='tr'>年龄在18—65 周岁，身体健康</div><div class='clear'></div>";
+				html+="<div class='tl' style='position: relative;left: -13px;'>急救险保障:</div><div class='tr'>"+rs.content+"</div><div class='clear'></div>";
+				$('.top-bg .text').html(html);
+				if(Joined==1){
+					$('#joinActive').html("已参加");
+				}
+			},
+			error:function(data){
+				$('.loading').hide();
+				console.log("er"+data);
+			}
+			
+		});
+		imgHtml="";
+		$.ajax({
+			type:"POST",
+			url:"../../1.0/get_public_welfare_activity_people.php",
+			data:{ss:ss,activity_id:aid},
+			dataType:"json",
+			beforeSend:function(){
+				$('.loading').show();
+			},
+			success:function(data){
+				
+				
+				$('.loading').hide();
+				rs=data.result;
+				rslength = rs.length;
+				for(i=0;i*5<rslength;i++){
+					imgHtml+="<div class='swiper-slide'>";
+					y = (rslength-i*5)/5;
+					if(y>1){
+						
+						b = 5;
+					}else{
+						b = (rslength-i*5)%5;
+						
+					}
+					for(j=0;j<b;j++){
+						key = 5*i+j;
+						ctime = rs[key].createDate;
+						imgUrl = rs[key].url;
+//                        if(imgUrl!=""){
+//							imgUrl = URL+imgUrl.substr(7);
+//						}else{
+                        imgUrl = "../common/img/default.jpg";
+//						}
+						ctime = transtime(ctime);
+						imgHtml+="<div class='pull-left'><p class='time'>"+ctime+"</p><img class='timeline' src='images/timeline1.png'><div class='ph_nike'><img src='"+imgUrl+"'><p>"+rs[key].name+"</p></div></div>";
+					}
+					imgHtml+="</div>";
+					
+				}
+				
+				
+								
+				$('.swiper-wrapper').html(imgHtml);
+				var ww = $(window).width();
+				$('.triangle').css('left',(ww - 10)/2);
+			
+			
+			
+				//图片滚动初始化
+					var mySwiper = new Swiper('.swiper-container',{
+				    	loop: true,
+						autoplay: 0,
+						loop : false,
+				  	});
+			},
+			error:function(data){
+				$('.loading').hide();
+				console.log("er"+data);
+			}
+			
+		});
+		click=0;
+		$('#joinActive').on('touchend',function(){
+			if(click==0){
+				joinActive();
+			}else if(click==1){
+				layer.msg("您已经参与过了");
+			}
+		});
+		//时间转化成时间戳
+		function transtime(time){
+			var aa =transdate(time);
+			var time=new Date(parseInt(aa) * 1000).format('MM.dd');
+			return time;
+		}
+		function joinActive(){
+			
+			$.ajax({
+				type:'POST',
+				url:"../../1.0/join_public_welfare_activity.php",
+				data:{ss:ss,activity_id:aid},
+				dataType:'json',
+				beforeSend:function(){
+					$('.loading').show();
+				},
+				success:function(data){
+					$('.loading').hide();
+					if(data.code==1){
+						$('#joinActive').html("已参与");
+						click=1;
+						layer.msg("报名成功！");
+						location.reload();
+					}else if(data.code==5000){
+						var index = layer.alert("您还不是志愿者，请申请志愿者",{icon: 5,title:false,closeBtn:false},function(){ goToA();layer.close(index); });
+					}else if(data.code==5001){
+						layer.msg(data.msg);
+					}else if(data.code==5002){
+						layer.msg(data.msg);
+					}else if(data.code==5003){
+						layer.msg(data.msg);
+					}else{
+						layer.msg("请稍后重新提交");
+					}
+				},
+				error:function(data){
+					$('.loading').hide();
+					console.log(data);
+					
+				}
+			});
+		}
+		function goToA(){
+//			 if(navigator.userAgent.match('iPhone')){
+//				 goToAddauth();
+//             }
+//             if(navigator.userAgent.match('Android')){
+//            	 Android.goToAddauth();
+//             }
+//
+            window.location.href="../volunteer/vltform.php?ss="+'<?php echo $ss;?>';
+			
+		}
+		//时间转化成时间戳
+		function transtime2(time){
+			var aa =transdate(time);
+			var time=new Date(parseInt(aa) * 1000).format('yyyy.MM.dd');
+			return time;
+		}
+		</script>
+		<style>
+<!--
+
+			.layui-layer-btn .layui-layer-btn0 {
+			    border-color: #dd403b;
+			    background-color: #dd403b;
+			}
+			.layui-layer-btn a{
+				height:30px;
+				width: 94%;
+				text-align: center;
+				}
+-->
+</style>
+	</body>
+</html>

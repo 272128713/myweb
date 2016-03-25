@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>我的订单</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/tab.css">
+		<link rel="stylesheet" href="css/pending_payment.css">
+		<?php include 'emergency_server_orderlist.php';?>
+	</head>
+
+	<body>
+		<nav class="mui-bar mui-bar-tab">
+			<a id="defaultTab" class="mui-tab-item mui-active" href="#pending_payment">
+				<span class="mui-tab-label">待付款</span>
+			</a>
+			<a class="mui-tab-item" href="#pending_receiving">
+				<span class="mui-tab-label">待收货</span>
+			</a>
+			<a class="mui-tab-item" href="#already_receipt">
+				<span class="mui-tab-label">已收货</span>
+			</a>
+		</nav>
+		<!--第一个子页面开始(待收货)-->
+		<div id="pending_payment" class="mui-control-content mui-active">
+		<div class="list-container">
+			<?php foreach ($result_wait as $k=>$wait){?>
+			<div class="list">
+				<div class="list-left">
+					<img class="picture" src="<?php echo $wait['img_url']?>">
+				</div>
+				<div class="list-right">
+					<p class="pro_name"><?php echo $wait['goods_name']?></p>
+					<p class="pro_price">￥<?php echo sprintf("%.2f",$wait['goods_price'])?>元 X <?php echo $wait["numbers"]?></p>
+					<div class="order_operate">
+						<div class="button pay" onclick="confirmOrder('<?php echo $wait['order_nums']?>','<?php echo $wait['goods_name']?>','<?php echo $wait['img_url']?>','<?php echo $wait['goods_price']?>','<?php echo $wait["numbers"]?>','<?php echo $wait['price']?>')">立即付款</div>
+						<div class="button cancel" onclick="cancelOrder('<?php echo $wait['order_nums']?>')">取消订单</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<div class="order_info">
+					<p class="order_number">订单号：<?php echo $wait['order_nums']?></p>
+					<p class="order_je">订单金额：<?php echo sprintf("%.2f",$wait['price'])?></p>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			<?php }?>
+		</div>
+		</div>
+		<!--第一个子页面结束-->
+		<!--第二个子页面开始-->
+		<div id="pending_receiving" class="mui-control-content">
+			<div class="list-container">
+			<?php foreach ($result_pay_wait as $k=>$paywait){?>
+				<div class="list">
+					<div class="list-left">
+						<img class="picture" src="<?php echo $paywait['img_url']?>">
+					</div>
+					<div class="list-right">
+						<p class="pro_name"><?php echo $paywait['goods_name']?></p>
+						<p class="pro_price">￥<?php echo sprintf("%.2f",$paywait['goods_price'])?>元 X <?php echo $paywait["numbers"]?></p>
+						<div class="order_operate order_operate2">
+							<div class="button pay" onclick="finishOrder('<?php echo $paywait['order_nums']?>')">确认收货</div>
+							<div class="wuliu">
+								<p class="danhao">物流单号</p>
+								<p><?php if($paywait['logistics_code']){
+									echo $paywait['logistics_code'];
+								}else{
+									echo "暂未发货";
+								}?></p>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+					<div class="order_info">
+					<p class="order_number">订单号：<?php echo $paywait['order_nums']?></p>
+					<p class="order_je">订单金额：<?php echo sprintf("%.2f",$paywait['price'])?></p>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			<?php }?>
+			</div>
+		</div>
+		<!--第二个子页面结束-->
+		<!--第三个子页面开始-->
+		<div id="already_receipt" class="mui-control-content">
+		<div class="list-container">
+		<?php foreach ($result_getorder as $k=>$getorder){?>
+			<div class="list">
+				<div class="list-left">
+					<img class="picture" src="<?php echo $getorder['img_url']?>">
+				</div>
+				<div class="list-right">
+					<p class="pro_name"><?php echo $getorder['goods_name']?></p>
+					<p class="pro_price">￥<?php echo sprintf("%.2f",$getorder['goods_price'])?>元 X <?php echo $getorder["numbers"]?></p>
+					<div class="order_operate order_operate3" style="color:#dd403b">
+						已于确认收货
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<div class="order_info">
+					<p class="order_number">订单号：<?php echo $getorder['order_nums']?></p>
+					<p class="order_je">订单金额：<?php echo sprintf("%.2f",$getorder['price'])?></p>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		<?php }?>
+		</div>
+		</div>
+		<!--第三个子页面结束-->
+		<script src="../common/js/mui.min.js"></script>
+		<script src="../common/js/jquery.js"></script>
+		<script src="../common/js/layer/layer.js"></script>
+		<script type="text/javascript">
+			//取消订单
+			function cancelOrder(odnum){
+				$.post(
+						"emergency_server_cancelorder.php",
+						{odnum:odnum},
+						function(od){
+							if(od.code==1){
+									layer.msg("取消成功",{time:500},
+										function(){
+											window.location.reload();
+
+										}
+
+											);
+									
+								}
+							
+							},
+							'json'
+						);
+
+				}
+			//确认订单
+			function confirmOrder(odnum,gname,gurl,gprice,gnum,gtprice){
+					goToA(odnum,gname,gurl,gprice,gnum,gtprice);
+	
+
+				}
+
+			function goToA(odnum,gname,gurl,gprice,gnum,gtprice){
+				 var pay = {
+						 	ss:"<?php echo $_SESSION['ss']?>",
+						 	sn:odnum,
+						 	goods_name:gname,
+							goods_url:gurl,
+						 	goods_price:gprice,
+						 	goods_num:gnum,
+						 	total_price:gtprice
+						 }
+				 pay = JSON.stringify(pay);
+					console.log(pay);
+				 if(navigator.userAgent.match('iPhone')){
+					 goToPay(pay);
+	             }
+	             if(navigator.userAgent.match('Android')){
+	            	 Android.goToPay(pay);
+	             }
+
+				}
+
+
+		//确认成功
+			function finishOrder(odnum){
+				$.post(
+						"emergency_server_finishorder.php",
+						{odnum:odnum},
+						function(od){
+							if(od.code==1){
+									layer.msg("确认成功",{time:500},
+										function(){
+											window.location.reload();
+
+										}
+
+											);
+									
+								}
+							
+							},
+							'json'
+						);
+
+				}
+				
+		</script>
+	</body>
+</html>

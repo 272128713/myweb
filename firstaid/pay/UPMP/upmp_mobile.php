@@ -1,0 +1,162 @@
+<?php
+header ( 'Content-type:text/html;charset=utf-8' );
+
+//require_once("lib/log.class.php");
+require_once("lib/upmp_service.php");
+
+function base_url() {
+	/* 协议 */
+	$protocol = (isset($_SERVER['HTTPS']) && (strtolower($_SERVER['HTTPS']) != 'off')) ? 'https://' : 'http://';
+	/* 域名或IP地址 */
+	if (isset($_SERVER['HTTP_X_FORWARDED_HOST']))
+	{
+		$host = $_SERVER['HTTP_X_FORWARDED_HOST'];
+	}
+	elseif (isset($_SERVER['HTTP_HOST']))
+	{
+		$host = $_SERVER['HTTP_HOST'];
+	}
+	else
+	{
+		/* 端口 */
+		if (isset($_SERVER['SERVER_PORT']))
+		{
+			$port = ':' . $_SERVER['SERVER_PORT'];
+
+			if ((':80' == $port && 'http://' == $protocol) || (':443' == $port && 'https://' == $protocol))
+			{
+				$port = '';
+			}
+		}
+		else
+		{
+			$port = '';
+		}
+
+		if (isset($_SERVER['SERVER_NAME']))
+		{
+			$host = $_SERVER['SERVER_NAME'] . $port;
+		}
+		elseif (isset($_SERVER['SERVER_ADDR']))
+		{
+			$host = $_SERVER['SERVER_ADDR'] . $port;
+		}
+	}
+	//请求的脚本在 yixin/1.0 目录下，这个函数的目的是为了获取  yixin/pay/的url路径
+	return $protocol . $host . dirname(dirname(PHP_SELF));
+}
+/**
+ * 类
+ */
+class UPMP_MOBILE
+{
+    
+    /**
+     * 生成支付代码
+     * @param   array   $order  订单信息
+     * @param   array   $payment    支付对象  0为充值健康宝 1为预订K服务
+     */
+    function get_code($order, $payment=0)
+    {    	
+		/**
+		 * 消费交易-后台
+		 */
+		switch ($payment) {
+			case 0:
+				$scriptName="recharge.php";
+			break;
+			case 1:
+				$scriptName="book_k.php";
+			break;
+			case 2:
+				$scriptName="eg_union_notify.php";
+			break;		
+			case 3:
+				$scriptName="first_aid_note.php";
+			break;		
+		}
+		$orderNumber  = $order['order_sn'] ;
+		$amount = $order['order_amount'];       	
+		$base_url= base_url() ;
+
+		//需要填入的部分
+		$req['version']     		= upmp_config::$version; // 版本号
+		$req['charset']     		= upmp_config::$charset; // 字符编码
+		$req['transType']   		= "01"; // 交易类型
+		$req['merId']       		= upmp_config::$mer_id; // 商户代码
+		$req['backEndUrl']      	= $base_url."/pay/UPMP/".$scriptName; // 通知URL
+		//$req['frontEndUrl']     	= $base_url."/pay/wap_callback.php?code=upmp"; // 前台通知URL(可选)
+		$req['orderDescription']	= isset($order['orderDescription'])?$order['orderDescription']:$orderNumber;// 订单描述(可选)
+		$req['orderTime']   		= date("YmdHis"); // 交易开始日期时间yyyyMMddHHmmss
+		//$req['orderTimeout']   		= ""; // 订单超时时间yyyyMMddHHmmss(可选)
+		$req['orderNumber'] 		= $orderNumber; //订单号(商户根据自己需要生成订单号)
+		$req['orderAmount'] 		= $amount*100; // 订单金额
+		$req['orderCurrency'] 		= "156"; // 交易币种(可选)
+		$req['reqReserved'] 		= "透传信息"; // 请求方保留域(可选，用于透传商户信息)
+
+		// 保留域填充方法
+		$merReserved['test']   		= "test";
+		$req['merReserved']   		= UpmpService::buildReserved($merReserved); // 商户保留域(可选)
+
+		$resp = array ();		
+		$validResp = UpmpService::trade($req, $resp);		
+
+
+		// 商户的业务逻辑
+		if ($validResp)
+		{	
+			$url = $base_url."/pay/UPMP/".$scriptName;
+			$aa =file_put_contents('/tmp/ff.txt', v($resp));
+			$upop_tn = $resp['tn'];
+			
+			return $upop_tn;
+		}
+		else 
+		{
+			// 服务器应答签名验证失败
+			//print_r($resp);			
+			return array();	
+		}						
+    }
+
+    /**
+     * 生成支付代码
+     * @param   array   $order  订单信息
+     * @param   array   $payment    支付方式信息
+     */
+    function query($order, $payment, $order_time)
+    {   
+    	$orderNumber  = $order['order_sn'] ;
+
+    	//需要填入的部分
+		$req['version']     	= upmp_config::$version; // 版本号
+		$req['charset']     	= upmp_config::$charset; // 字符编码
+		$req['transType']   	= "01"; // 交易类型
+		$req['merId']       	= upmp_config::$mer_id; // 商户代码
+		$req['orderTime']   	= $order_time; // 交易开始日期时间yyyyMMddHHmmss或yyyyMMdd
+		$req['orderNumber'] 	= $orderNumber; // 订单号
+
+		// 保留域填充方法
+		$merReserved['test']   	= "test";
+		$req['merReserved']   	= UpmpService::buildReserved($merReserved); // 商户保留域(可选)
+
+		$resp = array ();
+		$validResp = UpmpService::query($req, $resp);
+
+		// 商户的业务逻辑
+		if ($validResp)
+		{
+			// 服务器应答签名验证成功
+			return $resp;
+		}
+		else 
+		{
+			// 服务器应答签名验证失败
+			return $resp;
+		}
+    }
+
+
+
+}
+?>

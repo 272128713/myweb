@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>管理志愿者</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/volunteer.css" />
+        <?php include "php/org_userlist.php";?>
+		<style>
+			.mui-segmented-control .mui-control-item {
+			color: #333;
+			border-left:0;
+			line-height:15px;
+			padding-bottom:14px;
+			}
+			.mui-segmented-control {
+				font-size: 15px;
+				width: 100%;
+				border: 0;
+				border-radius: 0;
+			}
+			.mui-segmented-control .mui-control-item.mui-active {
+				color: #333;
+				background-color: #fff;
+				border-bottom:2.5px solid #dd403b;
+			}
+			.layui-layer-page .layui-layer-content{
+				border-radius:10px;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div class="container">
+			<div class="tab">
+				<div id="segmentedControl" class="mui-segmented-control">
+					<a class="mui-control-item mui-active" href="#item1">在册志愿者</a>
+					<a class="mui-control-item" href="#item2">正在申请中</a>
+				</div>
+			</div>
+			<div>
+				<div id="item1" class="mui-control-content mui-active" style="border-top: 5px solid #ededed;">
+					<ul id="zaice">
+                        <?php foreach($result[0] as $k=>$v){ ?>
+						<li class="volist">
+							<img src="../common/img/default.jpg" onclick="window.location.href='volunteerinfo.php?ujid=<?php echo $v->id;?>'">
+							<div class="name" onclick="window.location.href='volunteerinfo.php?ujid=<?php echo $v->id;?>'"><?php echo $v->name;?></div>
+							<div class="delete" onclick="layer.confirm('确定删除吗？',function(){ flag(3,<?php echo $v->id;?>);layer.closeAll();})">删除</div>
+							<div class="clear"></div>
+						</li>
+                        <?php }?>
+					</ul>
+				</div>
+				<div id="item2" class="mui-control-content">
+					<ul>
+                        <?php foreach($result[1] as $k=>$v){?>
+				        <li class="applylist">
+							<img src="../common/img/default.jpg" style="float:left;">
+							<div style="height: 0.4rem;float: left">
+                                <div class="name" style="height: 0.2rem;line-height: 0.2rem"><?php echo $v->name;?></div>
+                                <div class="time" style="height: 0.2rem;line-height: 0.2rem;margin-left: 0.1rem"><?php echo date("Y.m.d",strtotime($v->apply_time));?></div>
+                                <div class="clear"></div>
+                            </div>
+							<div class="agree" style="background: #888888;" onclick="layer.confirm('确定拒绝吗？',function(){ flag(2,<?php echo $v->id;?>);layer.closeAll();})">拒绝</div>
+                            <div class="agree" onclick="flag(1,<?php echo $v->id;?>)">同意</div>
+							<div class="clear"></div>
+				        </li>
+
+                        <?php }?>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/layer/layer.js"></script>
+		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+
+
+
+//		    	function layer_delete(id){
+//
+//					layer.open({
+//					    type: 1,
+//					    title:false,
+//					    closeBtn: false,
+//					    shadeClose:true,
+//					    area:'80%',
+//					    content: $('#hid-delete')
+//					});
+//				}
+				$('.no').click(function(){
+		       		layer.closeAll();
+		    	});
+
+            function flag(type,id){
+                org_id = <?php echo $_GET['oid'];?>;
+//                console.log("type:"+type+"id:"+id+"org_id:"+org_id);
+                data = {'flag':type,'id':id,'org_id':org_id};
+                $.post('php/org_userstate_set.php',data,function(data){
+                    if(data.code==1){
+                        location.reload();
+                    }else{
+                        layer.msg("系统错误");
+                    }
+                },'json');
+            }
+
+			
+		</script>
+        <script type="text/javascript">
+            //浏览器适配 兼容所有浏览器 rem单位专用 设置html root 字号
+            (function (doc, win) {
+                var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 320) + 'px';
+                    };
+                if (!doc.addEventListener) return;
+                win.addEventListener(resizeEvt, recalc, false);
+                doc.addEventListener('DOMContentLoaded', recalc, false);
+            })(document, window);
+        </script>
+        <style>
+            .layui-layer-btn .layui-layer-btn0{
+                border-color: #dd403b;
+                background-color: #dd403b;
+            }
+        </style>
+	</body>
+
+</html>

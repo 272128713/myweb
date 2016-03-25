@@ -1,0 +1,6 @@
+2015-11-27 17:09:39,951 [ERROR] (Tools.php:463) --  [2] Missing argument 1 for DataBase_Mysql::getRow(), called in E:\myweb\firstaid\1.0\eg_union_tn_query.php on line 51 and defined  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 254  
+2015-11-27 17:09:40,044 [ERROR] (Tools.php:463) --  [8] Undefined variable: sql  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 258  
+2015-11-27 17:09:40,053 [ERROR] (Tools.php:463) --  [8] Undefined variable: sql  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 264  
+2015-11-27 17:09:40,061 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 266  
+2015-11-27 17:09:40,066 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 267  
+2015-11-27 17:09:40,071 [INFO] (eg_union_tn_query.php:53) -- 支付订单不存在 

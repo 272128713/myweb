@@ -1,0 +1,65 @@
+.container{
+	width:100%;
+	position: relative;
+}
+.container .row{
+	width:96%;
+	height: 44px;
+	line-height: 44px;
+	margin:0 auto;
+	position:relative;
+	border-bottom: 1px solid #cdcdcd;
+}
+.container .row .heading{
+	width: 24%;
+	float:left;
+	font-size: 14px;
+	color:#323232;
+}
+.container .row .detail{
+	width: 70%;
+	float:left;
+}
+.container .row span{
+	width:30px;
+	height:42px;
+	position:absolute;
+	right: 0;
+	top:0;
+	background:url(../images/rightArrrow.png) no-repeat;
+	background-size:8px 15px;
+	background-position:center center;
+}
+input{
+	padding-top:14px;
+	padding-bottom:14px;
+	font-size: 14px;
+	line-height:14px;
+	color:#323232;
+	border:0;
+    outline: none;
+    -webkit-tap-highlight-color:rgba(255,0,0,0);
+}
+.hidden{
+	width: 100%;
+	padding: 0;
+	background: #fff;
+	display: none;
+	border-radius:5px;
+    color:#333;
+}
+.hidden .sex{
+	height:35px;
+	line-height:35px;
+	text-align: center;
+	border-bottom:1px solid #eee;
+}
+.hidden .sex:active{
+    background: #eee;
+}
+.hidden .famale{
+	border-bottom:none;
+}
+.submit{
+    background:#dd403b;color:#fff;width:75%;text-align: center;font-size: 14px;margin: 0px auto;margin-top:87px;border-radius: 4px;line-height: 40px;height: 40px;
+}

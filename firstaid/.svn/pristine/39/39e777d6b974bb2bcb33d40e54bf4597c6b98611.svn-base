@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>急救装备详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/equipment_detail.css" />
+	
+	</head>
+	
+	<body>
+		<div class="container">
+			<div class="pro_img">
+				<img src="images/eqd1.png">
+				<img src="images/eqd2.png">
+			</div>
+			<div class="fixed">
+				野外逃生应急预案A-12801配备
+				<div class="can">去看看</div>
+			</div>
+		</div>
+	</body>
+</html>

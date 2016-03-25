@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>志愿者</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/volunteerinfo.css" />
+        <?php include "php/org_userdetail.php";?>
+	</head>
+	<body>
+		<div class="mui-content">
+			<div class="grxx">
+				<img src="../common/img/default.jpg" />
+				<div class="text">
+					<p class="name"><?php echo $result->name;?></p>
+					<p class="secline"><?php echo $sexVal['$result->sex']; ?><span><?php echo date('Y',time())-date('Y',strtotime($result->birthday)); ?>岁</span><?php echo $result->nation; ?></p>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="more address">
+				<p class="p1">家庭住址：</p>
+				<p class="p2"><?php echo $result->address;?></p>
+				<div class="clear"></div>
+			</div>
+			<div class="more">
+				<p class="p1">联系电话：</p>
+				<p class="p2"><?php echo $result->phone;?></p>
+				<div class="clear"></div>
+			</div>
+			<div class="more">
+				<p class="p1">联系邮箱：</p>
+				<p class="p2"><?php echo $result->email;?></p>
+				<div class="clear"></div>
+			</div>
+			<div class="more">
+				<p class="p1">教育程度：</p>
+				<p class="p2"><?php echo $eduVal[$result->education];?></p>
+				<div class="clear"></div>
+			</div>
+			<p class="p3">专业特长：</p>
+			<p class="p3"><?php echo $result->speciality;?></p>
+			<p class="p3">学校/单位：<?php echo $result->company;?></p>
+			<p class="p3">志愿经历：</p>
+			<p class="p3"><?php echo $result->undergo;?></p>
+		</div>
+		<script type="text/javascript">
+		    //浏览器适配 兼容所有浏览器 rem单位专用 设置html root 字号
+		    (function (doc, win) {
+		        var docEl = doc.documentElement,
+		            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		            recalc = function () {
+		                var clientWidth = docEl.clientWidth;
+		                if (!clientWidth) return;
+		                docEl.style.fontSize = 100 * (clientWidth / 320) + 'px';
+		            };
+		        if (!doc.addEventListener) return;
+		        win.addEventListener(resizeEvt, recalc, false);
+		        doc.addEventListener('DOMContentLoaded', recalc, false);
+		    })(document, window);
+		</script>
+	</body>
+</html>

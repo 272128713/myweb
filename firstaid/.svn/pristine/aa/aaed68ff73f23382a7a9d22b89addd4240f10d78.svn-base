@@ -1,0 +1,258 @@
+<?php session_start();?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>机构申请</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/orgDetail.css" />
+		<link href="css/mobiscroll.custom-2.5.0.min.css" rel="stylesheet" type="text/css" />
+
+        <!--link href="css/mobiscroll.custom-2.5.0.min.css" rel="stylesheet" type="text/css" /-->
+<!--        <link rel="stylesheet" type="text/css" href="css/date/normalize3.0.2.min.css"/>-->
+        <link rel="stylesheet" type="text/css" href="css/date/mobiscroll.css" />
+        <link rel="stylesheet" type="text/css" href="css/date/mobiscroll_date.css" />
+	</head>
+	
+	<body>
+		<div class="baseinfo" >
+            <div class="container">
+
+                <div class="row" id="live_pinfo">
+                    <div class="heading">机构名称</div>
+
+                    <input style="margin: 0;padding: 0;border:0;line-height: 43px;" class="heading1 detail" type="text"  id="name" value="" maxlength="10" placeholder="请填写注册登记的名称">
+
+                    <div class="clear"></div>
+                </div>
+                <div class="row" id="live_pinfo">
+                    <div class="heading" style="width: 100%">机构logo</div>
+                    <div id="uploadbox" style="height: 131px;background-image:url('images/upload.png');background-size:contain;background-position:center center;background-repeat:no-repeat;position: relative;margin: 10px 15px 15px;border: 1px solid #fff;border-radius: 3px;transition: all 0.3s;-webkit-transition: all 0.3s;overflow: hidden;margin-bottom: 22px;">
+                        <input id="filetest" type="file" accept="image/*" id="logo_url" style="width: 100%;height: 85%;opacity: 0;position: absolute;left: 0px;top: 0px;z-index: 4;"/>
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+                <div class="row" id="live_pinfo">
+                    <div class="heading">机构法人</div>
+
+                    <input class="heading1 detail" style="margin: 0;padding: 0;border:0;line-height: 43px;" type="text"  id="juridical_person" value="" maxlength="10" placeholder="请填写注册登记的法人姓名">
+
+                    <div class="clear"></div>
+                </div>
+                <div class="row" id="birth_d">
+                    <div class="heading">成立时间</div>
+                    <input class="heading1 detail" id="build_time" style="margin: 0;padding: 0;border:0;line-height: 43px;"  style="margin: 0;padding: 0;border:0;line-height: 44px;" readonly="readonly"  name="date" value="" placeholder="申请成立或正式成立时间"/>
+                    <span></span>
+                    <div class="clear"></div>
+                </div>
+                <div class="row" id="live_pinfo">
+                    <div class="heading">机构分类</div>
+
+                    <input class="heading1 detail" type="text" style="margin: 0;padding: 0;border:0;line-height: 43px;"  id="features" value="" maxlength="20" placeholder="基金会、社会团体、民办非企业单位">
+
+                    <div class="clear"></div>
+                </div>
+                <div class="row" id="live_pinfo" style="border: 0">
+                    <div class="heading">机构介绍</div>
+
+                    <textarea class="heading1" type="text"   id="summary" value="" style="font-size: 14px" maxlength="300" placeholder="请填写包含机构未来发展方向和要帮扶的重点人群的相关简介，不超过300字"></textarea>
+
+                    <div class="clear"></div>
+                </div>
+                <div class="row" id="live_pinfo">
+                    <div class="heading">联系电话</div>
+
+                    <input class="heading1 detail" type="text" style="margin: 0;padding: 0;border:0;line-height: 43px;"  id="phone" value="" maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"/>
+
+                    <div class="clear"></div>
+                </div>
+                <div class="row" id="live_pinfo">
+                    <div class="heading">通讯地址</div>
+
+                    <input class="heading1 detail" style="margin: 0;padding: 0;border:0;line-height: 43px;" type="text"  id="address" value="" maxlength="25">
+
+                    <div class="clear"></div>
+                </div>
+                <div class="row" id="live_pinfo">
+                    <div class="heading">官方网站</div>
+
+                    <input class="heading1 detail" type="text" style="margin: 0;padding: 0;border:0;line-height: 43px;"  id="official_site" value="" maxlength="50">
+
+                    <div class="clear"></div>
+                </div>
+                <div class="ps">点击“立即申请”即表示同意与空中急救达成申请意向，并保证接受相关部门的规章规定</div>
+                <div class="submit" id="submit">立即申请</div>
+
+
+            </div>
+		</div>
+		
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+<!--		<script src="js/jquery.mobile-1.3.0.min.js"></script>-->
+<!--    	<script src="js/mobiscroll.js" type="text/javascript"></script>-->
+        <script src="js/date/mobiscroll_date.js" charset="gb2312"></script>
+        <script src="js/date/mobiscroll.js"></script>
+        <script src="js/lib/exif.js" type="text/javascript"></script>
+        <script src="js/lib/mobileFix.mini.js" type="text/javascript"></script>
+        <script src="js/lrz.js" type="text/javascript"></script>
+    	<script type="text/javascript">
+            imgUrl = "";
+            $('#submit').click(function(){
+                var logo_url = imgUrl;
+                var name = $('#name').val();
+                var juridical_person = $('#juridical_person').val();
+                var build_time = $('#build_time').val();
+                var features = $('#features').val();
+                var summary = $('#summary').val();
+                var phone = $('#phone').val();
+                var address = $('#address').val();
+                var official_site = $('#official_site').val();
+
+                checkTel = testTel(phone);
+                if(logo_url==""||name==""||juridical_person==""||build_time==""||features==""||summary==""||phone==""||address==""||official_site==""){
+                    layer.msg("请填写完整");
+                }else if(!checkTel){
+                    layer.msg("请填写正确的手机号");
+                }else{
+//                console.log(logo_url+name+juridical_person+build_time+features+summary+phone+address+official_site);
+                    $.post(
+                        "php/org_apply.php",
+                        {
+                            'ss':"<?php echo $_SESSION['ss'];?>",
+                            'logo_url':logo_url,
+                            'name':name,
+                            'juridical_person':juridical_person,
+                            'build_time':build_time,
+                            'features':features,
+                            'summary':summary,
+                            'phone':phone,
+                            'address':address,
+                            'official_site':official_site
+                        },
+                        function(data){
+                            console.log(data);
+                            if(data.code==1){
+                                layer.msg("提交成功",{time:1000,icon:1},function(){
+                                    window.location.href="cooperation.php";
+                                });
+                            }else{
+                                layer.msg(data.msg);
+                            }
+                    },'json');
+                }
+
+            });
+            //校验手机号
+            function testTel(val){
+
+                var reg = /^1[034578][0-9]{9}$/;
+
+                if(!reg.test(val)){
+//                    index= layer.tips("请填写正确手机号","#tel",{tips:[2,'#4dbbaa']});
+                    return false;
+                }else{
+                    return true;
+                }
+
+            }
+//    		$(function(){
+//                $('.ui-page-active').removeAttr("tabindex");
+//                var opt = {
+//                    preset: 'date', //日期
+//                    theme: 'sense-ui', //皮肤样式
+//                    display: 'modal', //显示方式
+//                    mode: 'scroller', //日期选择模式
+//                    dateFormat: 'yy-mm-dd', // 日期格式
+//                    setText: '确定', //确认按钮名称
+//                    cancelText: '取消',//取消按钮名籍我
+//                    dateOrder: 'yymmdd', //面板中日期排列格式
+//                    dayText: '日', monthText: '月', yearText: '年', //面板中年月日文字
+//                    endYear:<?php //echo date('Y',time());?>// //结束年份
+//                };
+//                $("#build_time").mobiscroll(opt).date(opt);
+//            });
+
+
+            $(function () {
+                var currYear = (new Date()).getFullYear();
+                var opt={};
+                opt.date = {preset : 'date'};
+                opt.datetime = {preset : 'datetime'};
+                opt.time = {preset : 'time'};
+                opt.default = {
+                    theme: 'android-ics light', //皮肤样式
+                    display: 'modal', //显示方式
+                    mode: 'scroller', //日期选择模式
+                    dateFormat: 'yyyy-mm-dd',
+                    lang: 'zh',
+                    showNow: true,
+                    nowText: "今天",
+                    startYear: currYear - 50, //开始年份
+                    endYear: currYear + 10 //结束年份
+                };
+
+                $("#build_time").mobiscroll($.extend(opt['date'], opt['default']));
+
+            });
+
+
+
+
+                //压缩图片2
+                        $('#filetest').change(function() {
+                            layer.load(2, {time: 7*1000});
+                            lrz(this.files[0], {width: 400}, function (result) {
+                                // 你需要的数据都在这里，可以以字符串的形式传送base64给服务端转存为图片。
+                                console.log(result);
+                                 submitData={
+                                    base64_string:result.base64
+                                };
+
+                                //提交
+                                $.ajax({
+                                    type: "POST",
+                                    url: "upload.php",
+                                    data: submitData,
+                                    dataType: 'json',
+                                    success: function(data){
+                                        console.log(data);
+                                        if(data.code==1){
+                                            layer.closeAll();
+                                            imgUrl='http://'+data.data;
+                                            $("#uploadbox").css({
+                                                "background-image":"url('http://"+data.data+"')",
+                                                "background-size":"contain"
+                                            });
+                                        }else{
+                                            alert(data.msg);
+                                        }
+                                    }
+
+
+                                });
+                            });
+                        });
+
+
+
+
+
+    	</script>
+        <style>
+
+            .layui-layer{
+                left:0;
+            }
+            .ui-loader{
+                display: none;
+            }
+        </style>
+	</body>
+
+</html>

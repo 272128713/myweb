@@ -1,0 +1,285 @@
+<?php
+/*
+ * 空中急救模块API
+ * 1.3.4. get_user_question_info.php (获取问题详情及回复列表)
+ */
+include(dirname(__FILE__) . "/common/inc.php");
+$config = new Config();
+$logger = Logger::getLogger(basename(__FILE__));
+$params = array(array("ss",true),array("uqid",true),array("page",false));
+
+//print_r($_POST);
+$params = Filter::paramCheckAndRetRes($_POST, $params);
+if(!$params){
+	$logger->error(sprintf("params error. params is %s",v($_POST)));
+	ErrCode::echoErr(ErrCode::API_ERR_MISSED_PARAMATER,1);
+}
+
+//获取参数
+$ss = $params["ss"];     //session
+$uqid = $params["uqid"];	//问题ID
+if(!isset($params["page"])||$params["page"]==""){
+	$page = 1;
+}else{
+	$page = $params["page"];
+}
+
+$databaseManager = new DatabaseManager();
+$dbMaster = $databaseManager->getConn(); //连接sky_first_aid
+
+//数据库链接失败
+
+if(!$dbMaster){
+	$logger->error(sprintf("Database sky_first_aid connect fail."));
+	ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+}
+
+if(!$dbSso = $databaseManager->getSsoConn()){
+	$logger->error(sprintf("Database sky_first_aid connect fail."));
+	ErrCode::echoErr(ErrCode::SYSTEM_ERR,1);
+}
+
+//验证session{}
+$sessionArr = $databaseManager->checkSession($ss);
+
+if(!$sessionArr){
+	$logger->error(sprintf(" Session fail."));
+	ErrCode::echoErr(ErrCode::API_ERR_INVALID_SESSION,1);
+
+}
+$sql = "select user_id from user_question_info where id = '$uqid'";
+$userId = $dbMaster->getOne($sql);
+// $username = $sessionArr['rn'];
+$sql = "select user_name from user_base_info where user_id = '$userId'";
+$username = $dbSso->getOne($sql);
+$sql_img_version = "select image_ver from user_version_info where user_id = '$userId'";
+$imgVersion = $dbSso->getOne($sql_img_version);	//获取用户头像信息版本号
+$dbSso->disConnect();//关闭dbSso
+//获取用户提问sql
+
+
+$sql_list = "SELECT a.id,a.user_id,a.content,a.createDate,COUNT(b.id) as count,a.isEnd
+FROM user_question_info as a
+LEFT JOIN doctor_answer_info as b on  b.question_id = a.id
+WHERE user_id = '$userId'
+and 
+a.id = '$uqid'
+";
+$result = $dbMaster->getRow($sql_list);
+// var_dump($result);
+$result_arr = array();
+$filearr = array();
+
+	$imgsign = 0;
+	$audiosign = 0;
+	$vid = $result['id'];
+	$sql_file = "select fileid,filetype,createDate from user_question_info_files where uqid = '$vid'";
+	$filearr = $dbMaster->getAll($sql_file);
+	$imgarr = array();
+	$audioarr = array();
+	$i=0;
+	foreach ($filearr as $kf=>$vf){
+		if($vf["filetype"] == 'image'){
+			//输出img id type数组
+			$imgsign = 1;
+			$imgarr[$kf]['fileid']=$vf['fileid'];
+		}elseif($vf["filetype"] == 'audio'){
+			$audiosign = 1;
+			$audioarr[$i]['fileid']=$vf['fileid'];
+			$i++;
+		}
+	}
+	if($result['content']==""&&$audiosign==1){
+		$result['content']="该用户发来一段语音咨询";
+	}
+
+
+
+
+$result_arr = array(
+		"uid" => $result['user_id'],
+		"username" => $username,
+		"imgversion" => $imgVersion,
+		"question" => $result["content"],
+		"createDate" => $result['createDate'],
+		"nums" => $result['count'],
+		"question_state" => $result["isEnd"],
+		"imgarr" => $imgarr,
+		"audioarr" => $audioarr,
+		"imgsign" => $imgsign,
+		"audiosign" => $audiosign
+);
+
+/*
+$sql_list = "SELECT M.*,forans.id as fid,forans.content as fcc,forans.createDate as fdate,forans.type as ftype
+			FROM doctor_answer_info M
+			left JOIN
+			(select min(createDate) as mintime,id ,doctor_id as did from doctor_answer_info GROUP BY doctor_id)  as foo
+			ON M.doctor_id=foo.did
+			LEFT JOIN user_question_for_answer_info as forans
+			ON forans.answer_id = M.id
+			WHERE question_id = '$uqid'
+			ORDER BY mintime,doctor_id
+			 ";
+$result = $dbMaster->getAll($sql_list);
+
+
+// answer_id:答复ID
+// answer_doc_id:回复医生ID
+// answer_doctor:回复医生姓名
+// answer_content:回复内容
+// answer_time:回复时间
+// answer_state:回复状态，是否被采纳
+
+foreach ($result as $k=>$v){
+	$vid = $v['id'];		//回答ID
+	$fvid = $v['fid'];		//追问ID
+	$answer_file = array();
+	$qanswer_file = array();
+	if($v['type']==2){
+		$sql_f = "select * from doctor_answer_info_files where daid = '$vid'";
+		$result_f = $dbMaster->getRow($sql_f);
+		$answer_file['fileid']=$result_f['fileid'];
+		$answer_file['filetype']=$result_f['filetype'];
+	}
+	if($v['ftype']==2){
+		$fsql_f = "select * from user_question_for_answer_info_files where uqaid = '$fvid'";
+		$result_fq = $dbMaster->getRow($fsql_f);
+		$qanswer_file['fileid']=$result_fq['fileid'];
+		$qanswer_file['filetype']=$result_fq['filetype'];
+		
+	}
+	
+	$result_arr["list"][$k]=array(
+		"answer_id" => $v['id'],				//回答ID
+		"answer_doc_id" => $v['doctor_id'],		
+		"answer_content" => $v['content'],
+		"answer_time" => $v['createDate'],
+		"answer_state" => $v['isAccept'],
+		"answer_file" => $answer_file,
+
+		"qanswer_id" => $v['fid'], 				//追问ID
+		"answer_fcc" => $v['fcc'],
+		"answer_fdate" => $v['fdate'],
+		"qanswer_file" => $qanswer_file
+		
+	);
+}
+*/
+//根据问题取医生
+$sql = "select doctor_id from doctor_answer_info where question_id = '$uqid' GROUP BY doctor_id ORDER BY  SUM(isAccept) DESC,createDate	DESC";
+
+$result = $dbMaster -> getCol($sql);
+//医生ID取回复
+foreach ($result as $k=>$v){
+	$sql = "select m.id as id,m.doctor_id,m.content,m.createDate,m.isAccept,m.type,n.fileid,v.image_ver,d.recollection_id,d.duty_id,u.user_name
+			from doctor_answer_info as m
+			LEFT JOIN
+			doctor_answer_info_files as n
+			ON
+			m.id = n.daid
+			LEFT JOIN 
+			sky_user_data_master.user_version_info as v
+			ON
+			m.doctor_id = v.user_id
+			LEFT JOIN
+			sky_user_data_master.sky_doctor_info as d
+			ON
+			m.doctor_id = d.user_id
+			LEFT JOIN
+			sky_user_data_master.user_base_info as u
+			ON
+			m.doctor_id = u.user_id
+			where question_id='$uqid' and doctor_id='$v' 
+			order by m.createDate 
+	";
+	
+	$result_ans = $dbMaster ->getAll($sql);
+		//具体回复
+		foreach ($result_ans as $ka=>$va){
+			
+			
+			//具体回复
+			$result_arr["list"][$k][]=array(
+					"status" => '0',
+					"answer_id" => $va['id'],
+					"answer_doc_id" => $va['doctor_id'],
+					"answer_content" => $va['content'],
+					"answer_time" => $va['createDate'],
+					"answer_state" => $va['isAccept'],
+					"answer_type" => $va['type'],
+					"answer_file" => $va['fileid'],
+					"uname" => $va['user_name'],
+					"pav" => $va['image_ver'],
+					"rec" => $va['recollection_id'],
+					"duty" => $va['duty_id']
+			);
+			
+			//取追问
+			$sql="SELECT m.id,m.answer_id,m.content,m.createDate,m.type,n.fileid from user_question_for_answer_info as m
+					left join 
+					user_question_for_answer_info_files as n
+					on  
+					m.id=n.uqaid
+					where m.answer_id = ".$va['id']."
+					ORDER BY
+					m.createDate 
+					ASC		 		
+							";
+			$result_qa = $dbMaster->getAll($sql);
+			
+			//具体追问
+			foreach ($result_qa as $kqa => $vqa){
+				//具体回复
+				$result_arr["list"][$k][]=array(
+					"status" => '1',
+					"qanswer_id" => $vqa['id'], 				//追问ID
+					"answer_id" => $vqa['answer_id'], 				//回复ID
+					"answer_content" => $vqa['content'],
+					"answer_time" => $vqa['createDate'],
+					"answer_type" => $vqa['type'],
+					"answer_file"=> $vqa['fileid']
+					
+				);
+					
+			}
+		}
+}
+
+ ErrCode::echoOkArr(1,'ok',$result_arr);
+// 	//关闭数据库，输出数据
+// 	$dbMaster->disConnect();
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

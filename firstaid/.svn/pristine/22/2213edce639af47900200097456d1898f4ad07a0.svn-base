@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>活动详情</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" href="css/swiper.min.css">
+		<link rel="stylesheet" type="text/css" href="css/activity_detail.css" />
+        <?php include "php/active_detail.php";?>
+	</head>
+	<body>
+		<div class="container">
+			<div class="top-bg">
+				<div class="back"><img src="<?php echo $result->img_url;?>"></div>
+				<div class="text">
+					<p class="title"><?php echo $result->name;?></p>
+					<p>活动时间：<?php echo date("Y.m.d",strtotime($result->activity_time_begin)).'->'.date("Y.m.d",strtotime($result->activity_time_finish));?></p>
+					<p>活动内容：</p>
+					<p><?php echo $result->content?></p>
+
+					<p>参与人数：<?php echo $result->people_nums;?>人</p>
+					<p>发起机构：<?php echo $result->orgname;?></p>
+					<p>联系方式：<?php echo $result->phone;?></p>
+				</div>
+			</div>
+			<div class="border"></div>
+			<!--底部滚动-->
+			<div class="scroll">
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+                        <?php for($i=0;$i<$count;$i=$i+5){?>
+                            <div class="swiper-slide">
+                                <div class="line"></div>
+                                <?php for($j=0;$j<5;$j++){
+                                    $n = $i+$j;
+                                    if($n>=$count){
+
+                                    }else{
+                                    ?>
+                                    <div class="pull-left">
+                                        <p class="time"><?php echo date('m.d',strtotime($pl[$n]->join_time));?></p>
+                                        <div class="ph_nike">
+                                            <img src="../common/img/default.jpg">
+                                        </div>
+                                        <div style="font-size: 14px;color:#666"><?php echo $pl[$n]->name;?></div>
+                                    </div>
+                                <?php }}?>
+                            </div>
+                        <?php }?>
+					</div>
+				</div>
+			</div>
+			<div class="button" id="submit">参加活动</div>
+		</div>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="js/layer/layer.js"></script>
+		<script src="js/swiper.min.js"></script>
+		<script type="text/javascript">
+		//图片滚动初始化
+			var mySwiper = new Swiper('.swiper-container',{
+		    	loop: true,
+				autoplay: 0,
+				loop : false,
+		  	});
+            $('#submit').click(function(){
+                $.post("php/active_join.php",{'aid':<?php echo $_GET['aid'];?>},function(data){
+
+                    if(data.code==1){
+                        layer.msg("参加成功！",{time:1000},function(){window.location.reload()});
+                    }
+                    if(data.code==2){
+                        layer.msg("不能参加自己的活动！");
+                    }
+                    if(data.code==3){
+                        layer.msg("对不起,您不是志愿者！",{time:1000},function(){
+                            window.location.href="../cooperation/volregister.php?oid=<?php echo $result->org_id;?>";
+                        });
+                    }
+                    if(data.code==4){
+                        layer.msg("参加人数已满！");
+                    }
+                    if(data.code==5){
+                        layer.msg("活动已过期！");
+                    }
+                    if(data.code==6){
+                        layer.msg("已参与该活动！");
+                    }
+                },'json');
+
+
+
+            });
+		</script>
+	</body>
+</html>
+

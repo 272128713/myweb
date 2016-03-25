@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>赠送记录</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+	    <link rel="stylesheet" href="css/mui.min.css">
+	    <link rel="stylesheet" type="text/css" href="css/app.css" />
+	    <link rel="stylesheet" type="text/css" href="css/common.css" />
+	    <link rel="stylesheet" type="text/css" href="css/records.css" />
+	</head>
+	<body>
+		<ul class="recordlist">
+			<li>
+				<div class="center">
+					<p class="who">赠送<span>徐航</span>一份稻草包</p>
+					<p class="time">2016-12-15 15:30</p>
+				</div>
+				<div class="center second">
+					<p>共有2件商品</p>
+					<p class="rmb">价值：￥85.00元</p>
+				</div>
+			</li>
+			<li>
+				<div class="center">
+					<p class="who">赠送<span>化雪</span>一份稻草包</p>
+					<p class="time">2016-12-15 15:30</p>
+				</div>
+				<div class="center second">
+					<p>共有1件商品</p>
+					<p class="rmb">价值：￥15.00元</p>
+				</div>
+			</li>
+		</ul>
+	</body>
+</html>

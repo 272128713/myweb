@@ -1,0 +1,72 @@
+.content{
+	padding-bottom: 100px;
+    width: 3.2rem;
+}
+.content .pro_list{
+	width:100%;
+	padding-top:12px;
+	padding-left: 0.1rem;
+	padding-right: 0.1rem;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	margin-bottom:8px;
+	position: relative;
+}
+.content .pro_list:first-child{
+	margin-top:8px ;
+}
+.content .pro_list .pic{
+	width:1.0rem;
+	float:left;
+	border:1px solid #ccc;
+}
+.content .pro_list .proinfo{
+	width:2.0rem;
+	padding-left: 0.2rem;
+	padding-right: 0.05rem;
+	float:left;
+	position: relative;
+}
+.content .pro_list .pic img{
+	width:100%;
+	display: block;
+}
+.proinfo .pro_name{
+	font-size:14px;
+	line-height: 23px;
+	height: 0.88rem;
+	color:#333333;
+	display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.proinfo .time{
+	font-size:12px;
+	line-height: 0.12rem;
+	color:#666666;
+}
+.proinfo .time img{
+	width:12px;
+	top:2px;
+	margin-right:5px;
+	position: relative;
+}
+.content .pro_list .bott{
+	padding-top:9px;
+	padding-bottom:9px;
+	border-top:1px solid #ccc;
+	margin-top:10px;
+}
+.content .pro_list .bott .left{
+	float:left;
+}
+.content .pro_list .bott .left img{
+	width:16px;
+	position: relative;
+	top:3px;
+	margin-right:3px;
+}
+.content .pro_list .bott .right{
+	float:right;
+}

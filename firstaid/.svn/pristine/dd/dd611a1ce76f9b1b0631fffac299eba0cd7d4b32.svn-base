@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>立即拥有</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/shoppingcart.css" />
+		
+		<!-- 引入area -->
+		
+		<link rel="stylesheet" type="text/css" href="areajscss/mobile-select-area.css">
+		<script type="text/javascript" src="areajscss/zepto.min.js"></script>
+		<script type="text/javascript" src="areajscss/dialog.js"></script>
+		<script type="text/javascript" src="areajscss/mobile-select-area.js"></script>		
+		
+		<!-- end -->
+		
+		
+		
+		
+		<?php include 'emergency_server_order.php';		$num= 1?>
+	</head>
+	<body>
+    	<div class="container">
+	       <div class="shopping">
+	       		<div class="commodity">
+	       			<img class="pull-left" src="<?php echo $ord['img_url']?>">
+	       			<div class="pull-left right">
+	       				<p class="name"><?php echo $ord['goods_name']?></p>
+	       				<p class="price">￥<?php echo sprintf("%.2f",$ord['goods_price'])?>元</p>
+	       			</div>
+	       			<div class="clearfix"></div>
+	       		</div>
+	       		<div class="count_sum">
+	       			<p class="guige">数量规格</p>
+	       			<div class="num">
+		       				<div class="text">数量：</div>
+		       				<div class="btn">
+		       					<span class="span1">-</span>
+		       					<span class="span2" id="goods_num">1</span>
+		       					<span class="span3">+</span>
+		       				</div>
+		       				<div class="jine">
+	       						小计：<span id="total_price"><?php echo sprintf("%.2f",$ord['goods_price']);?></span><span>元</span>
+	       					</div>
+	       					<div class="clearfix"></div>
+	       			</div>
+	       			<div class="receive">
+	       				<p class="guige">填写收货信息</p>
+	       				<form class="mui-input-group">
+							<div class="mui-input-row">
+								<label>收货人姓名</label>
+								<input type="text" id="uname" maxlength="10" placeholder="收货人姓名" value="<?php echo $address['receive_name']; ?>">
+							</div>
+							<div class="mui-input-row">
+								<label>手机号码</label>
+								<input type="text" id="phone" class="mui-input-clear" placeholder="填写您的手机号" value="<?php echo $address['receive_phone']; ?>">
+							</div>
+							<div class="mui-input-row">
+								<label>所在地区</label>
+								<input type="text" id="txt_area" class="tarea" value="<?php echo $address['area_code']?>" data-value="0,0,0" class="mui-input-speech mui-input-clear" placeholder="选择您的收货地区" >
+							
+								<input type="hidden" id="hd_area" value="0,0,0"/>
+							</div>
+							<div class="mui-input-row">
+								<label>详细地址</label>
+								<input type="text" id="address" maxlength="20" class="mui-input-speech mui-input-clear" placeholder="填写您的收货地址" value="<?php echo $address['address']; ?>">
+							</div>
+						</form>
+	       			</div>
+	       		</div>
+	       </div>
+	       <div class="conf">立即支付</div>
+    	</div>
+    	<script type="text/javascript" src="../common/js/jquery.min.js"></script>
+    	<script type="text/javascript" src="../common/js/layer/layer.js"></script>
+    	<script type="text/javascript">
+    		var num = <?php echo $num?>;
+			$('.btn .span2').html(num);
+			$('.btn .span3').on('click',function(){
+					$('.btn #goods_num').html(++num);
+
+					a = num*<?php echo round($ord['goods_price'],2);?>;
+					$('.jine #total_price').html(a.toFixed(2));
+				});
+			$('.btn .span1').on('click',function(){
+				if(num<=1){
+						layer.tips("不能少于1件",'.span2');
+					}else{
+						$('.btn #goods_num').html(--num);
+						a = num*<?php echo round($ord['goods_price'],2);?>;
+						$('.jine #total_price').html(a.toFixed(2));
+					}
+			});
+			$('.conf').on('click',function(){
+					var goods_num = $('#goods_num').html();
+					var total_price = $('#total_price').html();
+					var tarea = $('.tarea').val();
+					var address = $('#address').val();
+					var uname = $('#uname').val();
+					var phone = $('#phone').val(); 
+					var reg = /^0?1[3|4|5|7|8][0-9]\d{8}$/;
+					if((tarea=="")||(address=="")||(uname=="")||(phone=="")){
+						layer.msg("请填写完整收货信息");
+						}else if(!reg.test(phone)){
+								layer.tips("手机号码有误","#phone");
+							}else{
+								$.post(
+										"emergency_server_setuaddress_info.php",
+										{user_id:<?php echo $_SESSION['uid']?>,area_code:tarea,address:address,receive_name:uname,receive_phone:phone},
+										function(data){
+											set_id = data;
+											console.log("id"+set_id);
+											//设置订单
+												$.post(
+													"emergency_server_setorder.php",
+													{goods_id:'<?php echo $ord['id']?>',goods_name:'<?php echo $ord['goods_name']?>',price:total_price,numbers:goods_num,send_address_id:set_id},
+													function(data){
+															console.log(data);
+															if(data.code==1){
+																	goToA(data.result,goods_num,total_price);
+																}else if(data.code==-1){
+																	layer.msg("商品购买失败，请稍后购买");
+																}else if(data.code==0){
+																	layer.msg("对不起，销售火爆，暂时无货");
+																	}	
+														},'json'
+														);
+			
+											
+											}
+										);
+						}
+				});
+			function goToA(rs,goods_num,total_price){
+				 var pay = {
+						 	ss:"<?php echo $_SESSION['ss']?>",
+						 	sn:rs,
+						 	goods_name:'<?php echo $ord['goods_name']?>',
+							goods_url:'<?php echo $ord['img_url']?>',
+						 	goods_price:'<?php echo $ord['goods_price']?>',
+						 	goods_num:goods_num,
+						 	total_price:total_price
+						 	
+						 }
+				 pay = JSON.stringify(pay);
+					console.log(pay);
+				 if(navigator.userAgent.match('iPhone')){
+					 goToPay(pay);
+	             }
+	             if(navigator.userAgent.match('Android')){
+	            	 Android.goToPay(pay);
+	             }
+
+				}
+		</script>
+		
+		
+		
+		
+		
+		<!-- 引入area -->
+		<script>
+		var selectArea = new MobileSelectArea();
+		selectArea.init({trigger:'#txt_area',value:$('#hd_area').val(),data:'data.json',eventName:'tap'});
+		
+		var json =[{
+			"id": "2",
+			"name": "\u5317\u4eac\u5e02",
+			"child": [{
+				"id": "2288",
+				"name": "\u4e1c\u57ce\u533a"
+			}, {
+				"id": "2301",
+				"name": "\u5927\u5174\u533a"
+			}, {
+				"id": "2300",
+				"name": "\u660c\u5e73\u533a"
+			}]
+		}];
+
+
+// 		var resizefocus = 0;
+// 		var resizeblur = 0;
+// 		$('#uname').focus(function(){
+// // 			$(window).resize(function(){
+// // 					resizefocus = 1;
+// // 				});
+// // 			if(resizefocus==1){
+// 					$('.container').css('margin-bottom','1000px');
+// 					$('body').scrollTop(1000);
+// // 				}
+// 			});
+// 		$('#uname').blur(function(){
+// // 			$(window).resize(function(){
+// // 				resizeblur = 1;
+// // 			});
+// // 			if(resizeblur==1){
+// 				$('.container').css('margin-bottom','0px');
+// 				$('body').scrollTop(0);
+// // 			}
+// 			});
+		</script>
+		<!-- end -->
+		
+		
+		
+	</body>
+</html>

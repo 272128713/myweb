@@ -1,0 +1,40 @@
+<?php
+
+require_once "bootstrap/helper.php";
+use AppBundle\Repositories\FriendLists as Friends;
+use AppBundle\Repositories\BlockLists as Blocks;
+use AppBundle\Model\UserBase;
+$uid = 12;
+
+$friends = new Friends;
+$blocks = new Blocks;
+//$userCenter = new UserCenter($friends,$blocks);
+//
+
+
+//$base = UserBase::with(array('session' => function ($query){
+//    $query->where('session','=','PtVAq3NEeB2wydvA0Yif1MGkeS4Rer9p');
+//},'version'))->get()->toArray();
+//dd($base);
+//$friends->getAllBaseInfo(123);
+
+class UserCenter
+{
+    private $friends;
+    private $blocks;
+
+    public function __construct(Friends $friends,Blocks $blocks)
+    {
+        $this->friends = $friends;
+        $this->blocks = $blocks;
+    }
+
+    public function getAllFriends($uid)
+    {
+        return $this->friends->getAllBaseInfo($uid);
+    }
+
+}
+
+$userCenter = new UserCenter($friends,$blocks);
+dd($userCenter->getAllFriends(12));

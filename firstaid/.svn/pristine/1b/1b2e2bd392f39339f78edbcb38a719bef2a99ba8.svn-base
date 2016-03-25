@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;">
+	<style type="text/css">
+		body{
+			text-align:left;
+			line-height:2em;
+		}
+
+		h2{
+			text-align:center;
+		}
+		h4{
+			color:#FB7905;
+		}
+		img{
+			width:100%;
+		}
+		p{
+			text-indent:2em;
+		}
+	</style>
+	<title>车祸意外逃生</title>
+</head>
+<body>
+	<h2>车祸意外逃生</h2>
+	<h4>【救命知识1】汽车落水：从窗口或车门逃生</h4>
+	<img src="img/21.jpg" />
+	<p>汽车落水，通常仍有一至两分钟在水面上，如车头负载引擎，便会先由车头开始下沉。事主在此情况下，最重要是保持冷静，评估形势，然后用适当方法逃生。</p>
+	
+
+	<h4>【救命知识2】水位高于车窗时，慢慢降低车窗，在水流进车身期间逃出</h4>
+	<img src="img/22.jpg" />
+	<p>如电动车窗无法降下，需用工具或高跟鞋打破车窗。如车旁玻璃无法打破，尝试利用天窗或前后挡风玻璃窗离开。如无法从车窗逃生，尝试慢慢将车门打开。</p>
+
+	<h4>【救命知识3】当汽车被冲入河中，汽车通常会在水面漂浮一至两分钟</h4>
+	<img src="img/23.jpg" />
+	<p>首先保持镇定，用几秒时间冷静下来，评估形势后，决定用何种方法逃生。解开安全带，如无法解开，找尖物割开，快速离开汽车。 翻车：首先要关引擎，防止汽油爆炸。
+	</p>
+
+	<h4>【救命知识4】车祸被困：侧面车窗玻璃最容易敲碎</h4>
+	<img src="img/24.jpg" />
+	<p>当被困在车内，生命受到威胁时，在等待救援人员救助的时间里，如果能够利用地形和身边的物品，采取积极有效的自救措施，就可以化“被动”为“主动”，赢得更多的“生机”。
+	</p>
+</body>
+</html>

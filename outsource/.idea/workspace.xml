@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" readonly="true" id="b7255618-3550-4f5c-a57b-2c0877802fe3" name="默认的" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apiTest/apiConfig.ini" afterPath="$PROJECT_DIR$/apiTest/apiConfig.ini" />
+    </list>
+    <ignored path="outsource.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="outsource" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="apiConfig.ini" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apiTest/apiConfig.ini">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="457" max-vertical-offset="1380">
+              <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AgencyController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Application/Controller/AgencyController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="20560">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1447316605840" expanded="true" signature="675:760" placeholder="select count..mall_shop..." />
+                <marker date="1447316605840" expanded="true" signature="826:895" placeholder="select membe..mall_msg..." />
+                <marker date="1447316605840" expanded="true" signature="1068:1169" placeholder="select count..mall_member..." />
+                <marker date="1447316605840" expanded="true" signature="1596:1676" placeholder="select count..mall_member..." />
+                <marker date="1447316605840" expanded="true" signature="3905:4060" placeholder="insert into ..." />
+                <marker date="1447316605840" expanded="true" signature="5911:6118" placeholder="select id, m..mall_apply_money..." />
+                <marker date="1447316605840" expanded="true" signature="7424:7629" placeholder="select shop_..mall_shop..." />
+                <marker date="1447316605840" expanded="true" signature="8531:8583" placeholder="select membe..mall_shop_view..." />
+                <marker date="1447316605840" expanded="true" signature="8742:9305" placeholder="select a.mem..mall_member..." />
+                <marker date="1447316605840" expanded="true" signature="9170:9219" placeholder="select membe..mall_member..." />
+                <marker date="1447316605840" expanded="true" signature="9372:9861" placeholder="select a.mem..mall_member..." />
+                <marker date="1447316605840" expanded="true" signature="9736:9785" placeholder="select membe..mall_member..." />
+                <marker date="1447316605840" expanded="true" signature="10579:10624" placeholder="update mall_..." />
+                <marker date="1447316605840" expanded="true" signature="10732:10786" placeholder="select count..where..." />
+                <marker date="1447316605840" expanded="true" signature="11591:11674" placeholder="select membe..mall_member..." />
+                <marker date="1447316605840" expanded="true" signature="11775:11836" placeholder="update mall_..." />
+                <marker date="1447316605840" expanded="true" signature="14146:14490" placeholder="select a.mem..mall_member..." />
+                <marker date="1447316605840" expanded="true" signature="14678:14989" placeholder="select a.mem..mall_member..." />
+                <marker date="1447316605840" expanded="true" signature="15953:16298" placeholder="select a.mem..mall_member..." />
+                <marker date="1447316605840" expanded="true" signature="16373:16579" placeholder="select a.mem..mall_member..." />
+                <marker date="1447316605840" expanded="true" signature="16647:16693" placeholder="select shop_..mall_shop..." />
+                <marker date="1447316605840" expanded="true" signature="16763:16859" placeholder="select count..mall_member..." />
+                <marker date="1447316605840" expanded="true" signature="16967:17050" placeholder="select count..mall_member..." />
+                <marker date="1447316605840" expanded="true" signature="18337:18613" placeholder="select a.mem..mall_member..." />
+                <marker date="1447316605840" expanded="true" signature="18680:18979" placeholder="select a.mem..mall_member..." />
+                <marker date="1447316605840" expanded="true" signature="19033:19142" placeholder="select shop_..mall_shop..." />
+                <marker date="1447316605840" expanded="true" signature="19088:19137" placeholder="select store..mall_member..." />
+                <marker date="1447316605840" expanded="true" signature="19249:19321" placeholder="select count..mall_member..." />
+                <marker date="1447316605840" expanded="true" signature="20685:20758" placeholder="select count..mall_member..." />
+                <marker date="1447316605840" expanded="true" signature="20952:21015" placeholder="update mall_..." />
+                <marker date="1447316605840" expanded="true" signature="21751:22367" placeholder="select a.sto..mall_member..." />
+                <marker date="1447316605840" expanded="true" signature="23319:23392" placeholder="select count..mall_member..." />
+                <marker date="1447316605840" expanded="true" signature="23678:23740" placeholder="select store..mall_member..." />
+                <marker date="1447316605840" expanded="true" signature="23888:23958" placeholder="update mall_..." />
+                <marker date="1447316605840" expanded="true" signature="24228:24298" placeholder="update mall_..." />
+                <marker date="1447316605840" expanded="true" signature="24557:24644" placeholder="update mall_..." />
+                <marker date="1447316605840" expanded="true" signature="24680:24735" placeholder="update mall_..." />
+                <marker date="1447316605840" expanded="true" signature="25678:25885" placeholder="select add_t..mall_order..." />
+                <marker date="1447316605840" expanded="true" signature="26780:26872" placeholder="select goods..mall_order_goods..." />
+                <marker date="1447316605840" expanded="true" signature="27183:27268" placeholder="select bl_id..mall_p_bundling_goods..." />
+                <marker date="1447316605840" expanded="true" signature="27337:27385" placeholder="select bl_na..mall_p_bundling..." />
+                <marker date="1447316605840" expanded="true" signature="28683:28755" placeholder="select membe..mall_member..." />
+                <marker date="1447316605840" expanded="true" signature="28777:29017" placeholder="select order..mall_order..." />
+                <marker date="1447316605840" expanded="true" signature="30029:30091" placeholder="select membe..mall_member..." />
+                <marker date="1447316605840" expanded="true" signature="30129:30221" placeholder="select goods..mall_order_goods..." />
+                <marker date="1447316605840" expanded="true" signature="30530:30615" placeholder="select bl_id..mall_p_bundling_goods..." />
+                <marker date="1447316605840" expanded="true" signature="30684:30732" placeholder="select bl_na..mall_p_bundling..." />
+                <marker date="1447316605840" expanded="true" signature="32207:32319" placeholder="update mall_..." />
+                <marker date="1447316605840" expanded="true" signature="33134:33401" placeholder="select a.id ..mall_msg..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/apiTest/apiConfig.ini" />
+      </list>
+    </option>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1066" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <OptionsSetting value="true" id="添加" />
+    <OptionsSetting value="true" id="移除" />
+    <OptionsSetting value="true" id="签出" />
+    <OptionsSetting value="true" id="更新" />
+    <OptionsSetting value="true" id="状态" />
+    <OptionsSetting value="true" id="编辑" />
+    <ConfirmationsSetting value="0" id="添加" />
+    <ConfirmationsSetting value="0" id="移除" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="outsource" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="outsource" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="outsource" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="outsource" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="outsource" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="outsource" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="outsource" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="outsource" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="outsource" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apiTest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="options.lastSelected" value="preferences.lookFeel" />
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth0" value="162" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth1" value="227" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth2" value="184" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth3" value="75" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth4" value="142" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder4" value="4" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatWidth5" value="1087" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_flatOrder5" value="5" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth0" value="144" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth1" value="209" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth2" value="166" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth3" value="144" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder3" value="3" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth4" value="145" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder4" value="4" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeWidth5" value="1069" />
+    <property name="FileHistory.org.jetbrains.idea.svn.history.SvnHistoryProvider_treeOrder5" value="5" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\myweb\outsource" />
+          <option name="myCopyRoot" value="E:\myweb\outsource" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\myweb\outsource" />
+          <option name="myCopyRoot" value="E:\myweb\outsource" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b7255618-3550-4f5c-a57b-2c0877802fe3" name="默认的" comment="" />
+      <created>1451012237030</created>
+      <option name="number" value="Default" />
+      <updated>1451012237030</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
+    <editor active="false" />
+    <layout>
+      <window_info id="更改" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914045" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914045" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="SVN Properties" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32914045" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="消息" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+    <option name="CHANGE_BROWSER_SETTINGS">
+      <map>
+        <entry key="svn">
+          <value>
+            <ChangeBrowserSettings>
+              <option name="DATE_BEFORE" />
+              <option name="DATE_AFTER" />
+            </ChangeBrowserSettings>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/apiTest/apiConfig.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apiTest/apiConfig.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="457" max-vertical-offset="1380">
+          <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Controller/AgencyController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="20560">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1447316605840" expanded="true" signature="675:760" placeholder="select count..mall_shop..." />
+            <marker date="1447316605840" expanded="true" signature="826:895" placeholder="select membe..mall_msg..." />
+            <marker date="1447316605840" expanded="true" signature="1068:1169" placeholder="select count..mall_member..." />
+            <marker date="1447316605840" expanded="true" signature="1596:1676" placeholder="select count..mall_member..." />
+            <marker date="1447316605840" expanded="true" signature="3905:4060" placeholder="insert into ..." />
+            <marker date="1447316605840" expanded="true" signature="5911:6118" placeholder="select id, m..mall_apply_money..." />
+            <marker date="1447316605840" expanded="true" signature="7424:7629" placeholder="select shop_..mall_shop..." />
+            <marker date="1447316605840" expanded="true" signature="8531:8583" placeholder="select membe..mall_shop_view..." />
+            <marker date="1447316605840" expanded="true" signature="8742:9305" placeholder="select a.mem..mall_member..." />
+            <marker date="1447316605840" expanded="true" signature="9170:9219" placeholder="select membe..mall_member..." />
+            <marker date="1447316605840" expanded="true" signature="9372:9861" placeholder="select a.mem..mall_member..." />
+            <marker date="1447316605840" expanded="true" signature="9736:9785" placeholder="select membe..mall_member..." />
+            <marker date="1447316605840" expanded="true" signature="10579:10624" placeholder="update mall_..." />
+            <marker date="1447316605840" expanded="true" signature="10732:10786" placeholder="select count..where..." />
+            <marker date="1447316605840" expanded="true" signature="11591:11674" placeholder="select membe..mall_member..." />
+            <marker date="1447316605840" expanded="true" signature="11775:11836" placeholder="update mall_..." />
+            <marker date="1447316605840" expanded="true" signature="14146:14490" placeholder="select a.mem..mall_member..." />
+            <marker date="1447316605840" expanded="true" signature="14678:14989" placeholder="select a.mem..mall_member..." />
+            <marker date="1447316605840" expanded="true" signature="15953:16298" placeholder="select a.mem..mall_member..." />
+            <marker date="1447316605840" expanded="true" signature="16373:16579" placeholder="select a.mem..mall_member..." />
+            <marker date="1447316605840" expanded="true" signature="16647:16693" placeholder="select shop_..mall_shop..." />
+            <marker date="1447316605840" expanded="true" signature="16763:16859" placeholder="select count..mall_member..." />
+            <marker date="1447316605840" expanded="true" signature="16967:17050" placeholder="select count..mall_member..." />
+            <marker date="1447316605840" expanded="true" signature="18337:18613" placeholder="select a.mem..mall_member..." />
+            <marker date="1447316605840" expanded="true" signature="18680:18979" placeholder="select a.mem..mall_member..." />
+            <marker date="1447316605840" expanded="true" signature="19033:19142" placeholder="select shop_..mall_shop..." />
+            <marker date="1447316605840" expanded="true" signature="19088:19137" placeholder="select store..mall_member..." />
+            <marker date="1447316605840" expanded="true" signature="19249:19321" placeholder="select count..mall_member..." />
+            <marker date="1447316605840" expanded="true" signature="20685:20758" placeholder="select count..mall_member..." />
+            <marker date="1447316605840" expanded="true" signature="20952:21015" placeholder="update mall_..." />
+            <marker date="1447316605840" expanded="true" signature="21751:22367" placeholder="select a.sto..mall_member..." />
+            <marker date="1447316605840" expanded="true" signature="23319:23392" placeholder="select count..mall_member..." />
+            <marker date="1447316605840" expanded="true" signature="23678:23740" placeholder="select store..mall_member..." />
+            <marker date="1447316605840" expanded="true" signature="23888:23958" placeholder="update mall_..." />
+            <marker date="1447316605840" expanded="true" signature="24228:24298" placeholder="update mall_..." />
+            <marker date="1447316605840" expanded="true" signature="24557:24644" placeholder="update mall_..." />
+            <marker date="1447316605840" expanded="true" signature="24680:24735" placeholder="update mall_..." />
+            <marker date="1447316605840" expanded="true" signature="25678:25885" placeholder="select add_t..mall_order..." />
+            <marker date="1447316605840" expanded="true" signature="26780:26872" placeholder="select goods..mall_order_goods..." />
+            <marker date="1447316605840" expanded="true" signature="27183:27268" placeholder="select bl_id..mall_p_bundling_goods..." />
+            <marker date="1447316605840" expanded="true" signature="27337:27385" placeholder="select bl_na..mall_p_bundling..." />
+            <marker date="1447316605840" expanded="true" signature="28683:28755" placeholder="select membe..mall_member..." />
+            <marker date="1447316605840" expanded="true" signature="28777:29017" placeholder="select order..mall_order..." />
+            <marker date="1447316605840" expanded="true" signature="30029:30091" placeholder="select membe..mall_member..." />
+            <marker date="1447316605840" expanded="true" signature="30129:30221" placeholder="select goods..mall_order_goods..." />
+            <marker date="1447316605840" expanded="true" signature="30530:30615" placeholder="select bl_id..mall_p_bundling_goods..." />
+            <marker date="1447316605840" expanded="true" signature="30684:30732" placeholder="select bl_na..mall_p_bundling..." />
+            <marker date="1447316605840" expanded="true" signature="32207:32319" placeholder="update mall_..." />
+            <marker date="1447316605840" expanded="true" signature="33134:33401" placeholder="select a.id ..mall_msg..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -1,0 +1,31 @@
+﻿[global]
+host=http://117.34.72.251/yixin/1.0/
+projectname=yixin Upload/Download File to Amazon S3 API TEST
+
+[add doctor auth,add_doctor_auth_info.php]
+ss=""
+type=""
+file=file
+[get doctor auth info,get_doctor_auth_info.php]
+ss=""
+type=""
+
+[update avatar,update_avatar.php]
+ss="text|87af4099e0362bafd2598c1e3bd6af48"
+file=file
+[add content,add_circle_content.php]
+ss="text|zDBElAzy8vj1JquDhjst6YlscNKvVYkQ"
+ct=""
+cc=""
+file=file
+
+[get avatar,get_avatar.php]
+ss="text|87af4099e0362bafd2598c1e3bd6af48"
+uid=''
+flag='1'
+[get pic,get_circle_picture.php]
+ss="text|87af4099e0362bafd2598c1e3bd6af48"
+ct=""
+flag='1'
+img_id=""
+title_id=""

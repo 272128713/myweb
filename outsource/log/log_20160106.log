@@ -1,0 +1,2 @@
+2016-01-06 17:33:26,134 [ERROR] (Tools.php:463) --  [2] include(E:\myweb\outsource/Application/Controller/IndexController.php): failed to open stream: No such file or directory  _File: E:\myweb\outsource\core\MALL.php  line: 24  
+2016-01-06 17:33:26,179 [ERROR] (Tools.php:463) --  [2] include(): Failed opening 'E:\myweb\outsource/Application/Controller/IndexController.php' for inclusion (include_path='.;C:\php\pear')  _File: E:\myweb\outsource\core\MALL.php  line: 24  

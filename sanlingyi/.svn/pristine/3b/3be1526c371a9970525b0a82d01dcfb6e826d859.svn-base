@@ -1,0 +1,67 @@
+
+/**
+ * 
+ */
+.mui-table-view-cell>a:not(.mui-btn){
+	white-space: normal;
+}
+
+
+.ra{
+	border-radius:10px;
+}
+
+
+
+.mui-segmented-control{
+	border: 1px solid #30C6DF;
+	background:#fff;
+}
+.mui-segmented-control .mui-control-item.mui-active{
+	background-color: #30c6df;
+}
+
+.mui-segmented-control .mui-control-item{
+	border-color: #30c6df;
+}
+.mui-segmented-control .mui-control-item{
+	color:#666666;
+}
+.cc{
+	width:100%;margin: 1em 0 0.8em 0;
+	
+}
+.search{
+	width:14%;
+	height: 2em;
+	background: #30C6DF;
+	padding: 0.2em 0.6em 0.2em 0.6em ;
+	margin-top: 1em;
+	border-radius: 0.2em;
+}
+
+/**
+ * 
+ */
+.wen{
+	float:left;
+	width:1em;
+	margin-top:0.2em;
+
+}
+.ti{
+	margin-left: 0.2em;
+	font-size: 14px;
+	float:left;
+	width:85%;
+	color:#000;
+}
+.tifoot{
+	margin-top:0.5em;
+	color:#666;
+	font-size:12px;
+}
+.tifoot span{
+	font-size:12px;
+	min-width: 2em;
+}

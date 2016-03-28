@@ -1,0 +1,162 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/windown.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/operateAjax.js"></script>
+
+<script type="text/javascript" src="__PUBLIC__/Home/js/jquery.uploadify.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/uploadify.css"></script> 
+<style type="text/css">
+
+.frmMain{
+	position:relative;
+	width:90%;
+	height:26px;	
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+	
+}
+.item{
+	float:left;
+	margin-left:10px;
+}
+</style>
+
+</head>
+<body bgcolor="#E9EEF5" style="height:560px;overflow:auto;">
+<script language="JavaScript">
+<!--
+$(function(){
+	$('#frmForm').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		// 可以在此添加其它判断
+	}
+    function complete(data){
+        if(data>0)
+        {
+        	if(data==1)
+        	{
+        		var info='错误：数据库异常！';
+        	}
+            alert(info);
+        }
+        else
+        {
+        	alert('修改成功');        
+        	window.top.mainFrame.optFrame.location.reload();
+        	window.parent.hiddenWindow()
+        }
+    }
+});
+//-->
+</script>
+<if condition="$data['id']">
+	<form name="frmForm" id="frmForm" method="post" action="__URL__/EnHospitalManageModify">
+<else/>	
+	<form name="frmForm" id="frmForm" method="post" action="__URL__/EnHospitalManageCreate">
+</if>
+<div class="frmMain">
+	<div class="item" style="color:red">{$data['tips']}	
+	</div>
+	<div class="item">搜索手机号： <input type="text" name="mobile" id="mobile" style='width:170px'value="{$data['mobile']}"  /><input type="button" onclick="search()" value="搜索"></div>	
+		<div style="clear:both"></div>
+	
+	</div>	
+	<input type="hidden" id="user_id">
+	<input type="hidden" id="hospital_id"  value="{$id}">
+	
+	<div id="search_user"></div>
+	<div id="type_div" style="display:none">
+		将此人分配为该诊所:
+		<select id="type" >
+			<option value="-1" >请选择</option>			
+			<option value="2" class="open is_doctor" >督脉正阳师</option>
+			<option value="3" class="open is_doctor" >健康代表</option>
+			<option value="1" class="open is_user">医生</option>			
+		</select>
+		<input type="button" onclick="setType()" value="分配">
+	</div>
+
+       
+        <div style="margin-left:450px;"><include file="Template/button"/></div>
+</div>
+
+</form>
+<script>
+//搜索手机号码
+	function search(){
+		var mobile=$('#mobile').val();
+		var url="{:U('EnHospitalManage/searchMobile')}";	
+		var str='';
+		$.ajax({
+			url: url,
+			type: 'POST',
+			data:{mobile:mobile},
+			dataType: 'JSON',
+			error: function () {  },
+			success: function(data){
+				str+='<table>';
+				str+='<tr><td>手机号</td><td>用户名</td><td>用户身份</td></tr>';
+				$.each(data,function(i,val){
+					// str+="<option value="+val.cityID+">"+val.city+"</option>";
+					//str+='<span>'+val.mobile+','+val.user_name+','+val.privilege_id+'</span><br/>';
+					
+					str+='<tr><td>'+val.mobile+'</td><td>'+val.user_name+'</td><td>'+val.privilege_id+'</td></tr>';
+				
+					//alert(data.length);
+					if(data.length==1){
+						$('#type_div').show();
+						$('#user_id').val(val.user_id);
+						
+						if(val.privilege_id == '医生'){
+							$('.open').removeAttr('disabled');
+							$('.is_doctor').attr('disabled','true');
+							
+						}else if(val.privilege_id == '用户'){
+							$('.open').removeAttr('disabled');
+							$('.is_user').attr('disabled','true');
+							
+						}
+					}
+				})
+				str+='</table>';
+					
+				$('#search_user').html(str);
+			}
+		});
+	}
+	function setType(){
+		var user_id=$('#user_id').val();
+		var hospital_id=$('#hospital_id').val();
+		var type=$('#type').val();
+		var url="{:U('EnHospitalManage/setType')}";	
+		var str='';
+		$.ajax({
+			url: url,
+			type: 'POST',
+			data:{user_id:user_id,hospital_id:hospital_id,type:type},
+			dataType: 'JSON',
+			error: function () {  },
+			success: function(data){
+					if(data==1){
+						alert('分配成功');
+					}else if(data==2){
+						alert('已经存在该诊所');
+					}else if(data==3){
+						alert('分配失败');
+					}
+			}
+		});
+	}	
+</script>
+</body>
+</html>

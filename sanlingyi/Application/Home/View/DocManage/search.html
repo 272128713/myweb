@@ -1,0 +1,50 @@
+
+<style>
+#tcal {
+	top: 450px !important; 
+	left: 550px !important; 
+	visibility: visible;
+}	
+</style>
+<div style="width:700px;float:left;">
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/dateSelect.js"></script> 
+<link rel="stylesheet" href="__PUBLIC__/Home/css/dateSelect.css" type="text/css" />
+
+<form  style="width:860px">
+	<span style="float:right;"><a href="{:U('DocManage/getExcel')}" >导出EXCEL表</a></span>
+	开始时间<input type="text" id="start" name="entry_date" class="tcal" readonly="readonly" style='width:60px' value="{$date['start']}" />
+	结束时间<input type="text" id="end" name="entry_date" class="tcal" readonly="readonly" style='width:60px' value="{$date['end']}" />
+	医生姓名<input type="text" name="name" id="name" style='width:60px'>
+	手机号码<input type="text" name="mobile" id="mobile" style='width:85px'>
+	推广人<input type="text" name="agent" id="agent" style='width:60px'>
+	认证状态 <select name="status" id="status">
+				<option value="-1">请选择</option>
+				<option value="1">完全认证</option>
+				<option value="0">未认证</option>
+				<option value="2">待认证</option>
+				<option value="3">未通过</option>
+				<option value="11">工牌认证</option>
+			</select>					
+	<div id="my_st" style="float:right;" class='PageIcon' onmouseover="this.style.cursor='pointer';this.style.backgroundImage='url(__PUBLIC__/Home/images/page/bg_button.gif)'" onmouseout="this.style.backgroundImage=''"><img class='PageSearch' src='__PUBLIC__/Home/images/page/search.gif' /></div>
+</form>
+</div>
+<script> 
+function changePage(p){
+	var url="{:U('Ajax/pageTo')}";
+	url=url.substring(0,url.indexOf('.html'));
+	$.ajax({
+		url: url+'/opt/'+p+'/rowNums/'+$('#rowNums').html(),
+		type: 'POST',
+		dataType: 'JSON',
+		error: function () { alert('错误：加载数据异常，请重试!'); },
+		success: function(){
+			window.optFrame.location.reload();
+		}
+	});
+}
+$('#my_st').click(function(){
+	var con='form,'+$('#start').val()+','+$('#end').val()+','+$('#name').val()+','+$('#mobile').val()+','+$('#agent').val()+','+$('#status').val();
+	changePage(con);
+});	
+</script>

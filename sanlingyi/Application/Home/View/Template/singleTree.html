@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<style type="text/css">
+#treeList{
+	width:100%;
+	border-bottom:1px solid #99bbe8;
+}
+#divBT{
+	float:right;
+	margin-top:6px;
+}
+</style>
+</head>
+<body>
+<div id="treeList"><include file="Template/tree" /></div>
+<div id="divBT"><include file="Template/button" /></div>
+<script language="JavaScript">
+var th = $(window).height()-46;
+$("#treeList").height(th);
+</script>
+</body>
+</html>

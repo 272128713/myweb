@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>投资健康</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="__CSS__/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="__CSS__/app.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/common.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/insurance.css" />
+
+	</head>
+
+	<body >
+	
+		  <php>
+            if(!isset($_GET['back'])){
+        </php>
+		<!-- header class="mui-bar mui-bar-nav" style="background:#23272a;position: fixed;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="history.go(-1)"></a>
+			<h1 class="mui-title" style="color:#fff" onclick="history.go(-1)">保险产品</h1>
+
+			<div class="right" style="width:44px;padding:11px 11px 0 11px;">
+				<img class="xiala" src="__IMG__/topmore.png"  />
+			</div>
+		</header>
+		 <php>
+                }else{
+            </php>
+
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="logoutConsultings()"></a>
+			<h1 class="mui-title" style="color:#fff" onclick="logoutConsultings()">保险产品</h1>
+
+			<div class="right" style="width:44px;padding:11px 11px 0 11px;">
+				<img class="xiala" src="__IMG__/topmore.png"  />
+			</div>
+		</header -->
+		<script>
+            /**
+             * 返回app
+             */
+            function logoutConsultings(){
+
+                if(navigator.userAgent.match('iPhone')){
+                    logoutConsulting();
+                }
+                if(navigator.userAgent.match('Android')){
+                    Android.logoutConsulting();
+                }
+            }
+        </script>
+         <php>
+         	}
+         </php>   
+		<!--
+        	时间：2015-06-29
+        	描述：主要内容
+        -->
+		<div class="navi" >
+			<div class="bg"></div>
+            <foreach name="com" item="vo">
+                <p>
+                    <a href="{:U('cate',array('cid'=>$_GET['cid'],'coid'=>$vo['id']))}">{$vo.name}</a>
+                </p>
+            </foreach>
+            <p>
+                <a href="{:U('cate',array('cid'=>$_GET['cid']))}">所有公司</a>
+            </p>
+		</div>
+
+		<div class="mui-content">
+			<div class="nav">
+				<ul>
+					<li  <?php if(!isset($_GET['cid'])){ echo  'class="active"'; }?> ><a href="{:U('cate',array('cid'=>$v['id'],'coid'=>$_GET['coid']))}">热销</a></li>
+                    <foreach name="cate" item="v">
+
+					    <li
+                        <php>
+                            if(isset($_GET['cid']) && $v['id']===$_GET['cid']){
+
+                        </php>
+                         <php>
+                             echo 'class="active"';
+                             }
+                         </php>
+                                ><a href="{:U('cate',array('cid'=>$v['id'],'coid'=>$_GET['coid']))}">{$v.class_name}</a></li>
+                    </foreach>
+					<li>
+						<a class="mui-icon mui-icon-arrowdown" style="line-height:35px;margin-top:-4px;position:relative;"></a>
+					</li>
+				</ul>
+			</div>
+			<div class="nav-hid" style="display: none">
+				<div class="rightnav" >
+                    <foreach name="cates" item="v">
+						<a href="{:U('cate',array('cid'=>$v['id'],'coid'=>$_GET['coid']))}">
+							【{$v.class_name}】<img src="__IMG__/iconfont-right.png" class="nav0"/>
+						</a>
+                    </foreach>
+						<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="conlist">
+                <foreach name="pt" item="p">
+
+                    <div class="list-left" url="{$p.buy_url}" style="
+    ">
+                        <div class="lishadow">
+                            <img src="{$p.pic}"  />
+                            <!-- div class="mask"></div>
+                            <p class="p2">{$p.title}</p -->
+                        </div >
+                        <!--  p class="p1">{$p.introduce}</p -->
+                        
+                        <p class="p1">{$p.title}
+                        <span style="float:right;padding-right:9px;color:#fff;font-size:13px;">保险期间：1年</span>
+                        </p>
+                    </div>
+
+
+
+                </foreach>
+                <php>
+                    if($nums>=C('PAGE_NUM')){
+
+                </php>
+                <div id="order_list" onclick="get_more()" style="text-align: center; float:left;  width:100%; line-height: 2em; margin:2em 0em 0 0; color: #333; font-size: 1em; background: #DDDDDD">
+                    点击加载更多
+                </div>
+                <php>
+                    }
+                </php>
+            </div>
+
+        </div>
+
+		<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				 var get_navi = $('.navi');
+				  var get_navhid = $('.nav-hid');
+				 //一级导航
+				 
+				  $(".xiala").click(function(){
+				  		get_navi.slideToggle(0);
+				  		$('.nav li:last-child a').removeClass().addClass('mui-icon mui-icon-arrowdown');
+				  		get_navhid.css('display','none');
+						$('.content-list').css('display','block');
+				  });
+				  $('.mui-content').click(function(){
+				  		if(get_navi.css('display')=="block"){
+				  		get_navi.slideUp('fast');
+				  		}
+				  });
+				  
+				  
+				  //二级导航
+				  $('.nav li:last-child a').click(function(){
+				  		if(get_navhid.css('display')=='none'){
+						$(this).removeClass('mui-icon-arrowdown').addClass('mui-icon-arrowup');
+						get_navhid.css('display','block');
+						//$('.conlist').css('display','none');
+						}else if(get_navhid.css('display')=='block'){
+						$(this).removeClass('mui-icon-arrowup').addClass('mui-icon-arrowdown');
+						get_navhid.css('display','none');	
+						//$('.conlist').css('display','block');
+						}
+				  });
+			});
+
+            $('.conlist .list-left').click(function(){
+                var url=$(this).attr('url');
+                window.location.href=url;
+
+            });
+
+			
+		</script>
+        <script>
+            //分页
+            sanlingyi_page=1;
+            function get_more(){
+                //加载文章、/cate/cid/4/coid/1
+                var article=$('#order_list');
+                var url="{:U('Index/cate',array('cid'=>$_GET['cid'],coid=>$_GET['coid']),'')}";
+                $.get(
+                        url,{"page":sanlingyi_page,"ajax":1},function(date){
+
+                            if(date!=0){
+                                sanlingyi_page+=1;
+                                article.before(date);
+
+                            }else{
+                                $('#order_list').html('暂无更多')
+                            }
+                        }
+                        ,'text' );
+
+
+            }
+        </script>
+	</body>
+
+</html>

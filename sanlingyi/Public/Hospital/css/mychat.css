@@ -1,0 +1,172 @@
+
+.title{
+	margin-top: 10px;
+}
+.headimg img{
+	width: 20%;
+	border-radius: 50px;
+	border: 5px solid #dcdcdc;
+	float: left;
+}
+.name{
+	float: left;
+	padding-left: 10px;
+}
+.name .p1{
+	margin-top: 0.8em;
+	font-size: 18px;
+	color: #000;
+}
+.name .p2{
+	margin-top: 5px;
+}
+.name .p2 img{
+	width: 18px;
+	position: relative;
+	top:3px;
+}
+.btn{
+	float: right;
+}
+.btnarea{
+	margin-top: 1.5em;
+	background: #e0e0e0;
+	color: #000;
+	border-radius: 5px;
+}
+.btn p{
+	float: left;
+	padding:0.4em 1em 0.4em 1em;
+}
+.btn p {
+	color: #555;
+	cursor: pointer;
+}
+.btn .active{
+	background: #30C6DF;
+	border-radius: 5px 0 0 5px;
+}
+.btn .active,.btn .active1 {
+	color: #fff;
+}
+.btn .active1{
+	background: #30C6DF;
+	border-radius:  0 5px 5px 0;
+}
+.chat-box{
+	display: none;
+	width: 90%;
+	margin-left: 10%;
+	border-left: 1px solid #dcdcdc;
+}
+.chat-list{
+	position: relative;
+}
+.chat-list .img-c{
+	position: absolute;
+	top:22px;
+	left: -7px;
+}
+.chat-list-li{
+	padding-top: 18px;
+	margin-left: 1em;
+	padding-bottom: 18px;
+	border-bottom: 1px solid #DCDCDC;
+}
+.chat-list-li .p1{
+	color: #000;
+}
+.chat-list-li .p2{
+	margin-top: 5px;
+}
+.chat-list-li .time{
+	margin-top: 10px;
+}
+.chat-list-li .time .p3{
+	float: left;
+	color: #777;
+}
+
+.chat-list-li .time .p4{
+	float: left;
+	color:red;
+}
+.chat-list-li .time .p4 img{
+	width:16px;
+	position: relative;
+	top:1px;
+	margin-right: 5px;
+}
+
+.chat-list-li .time .p5{
+	float: left;
+	position: relative;
+	top:-3px;
+	color: #777;
+	
+}
+.chat-list-li .time .p5 img{
+	width:18px;
+	position: relative;
+	top:4px;
+	margin-left: 10px;
+	margin-right: 3px;
+}
+.art-box-list{
+	padding-top: 18px;
+	padding-bottom: 18px;
+	border-bottom: 1px solid #DCDCDC;
+}
+.art-box-list .p1{
+	color: #000;
+}
+.art-box-list .p2{
+	margin-top: 10px;
+}
+.art-box-list .p3{
+	float: left;
+	color: #333;
+}
+.art-box-list .p4{
+	float: right;
+	color: #333;
+}
+
+.art-box-list .time{
+	margin-top: 10px;
+}
+.art-box-list .time .ptime{
+	float: left;
+}
+.art-box-list .time .jh{
+	float: right;
+	color: #666;
+	font-size: 14px;
+}
+.art-box-list .time .jh .bj{
+	float: left;
+	margin-right: 10px;
+}
+.art-box-list .time .jh .sh{
+	float: left;
+	margin-right: 10px;
+	color: red;
+}
+.art-box-list .time .jh .bj img{
+	width: 14px;
+	position: relative;
+	top:2px;
+	margin-right: 5px;
+}
+.art-box-list .time .jh .sc{
+	float: left;
+	position: relative;
+	top:-2px;
+	
+}
+.art-box-list .time .jh .sc img{
+	width: 18px;	
+	margin-right: 5px;
+	position: relative;
+	top:4px;
+}

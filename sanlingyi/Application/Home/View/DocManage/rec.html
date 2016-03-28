@@ -1,0 +1,72 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<style type="text/css">
+.frmMain{
+	position:relative;
+	width:90%;
+	height:26px;	
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+}
+.item{
+	float:left;
+	margin-left:10px;
+}
+</style>
+</head>
+<body bgcolor="#E9EEF5">
+<script language="JavaScript">
+<!--
+$(function(){
+	$('#frmForm').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		// 可以在此添加其它判断
+	}
+    function complete(data){
+        if(data>0)
+        {
+        	if(data==1)
+        	{
+        		var info='错误：数据库异常！';
+        	}
+            alert(info);
+        }
+        else
+        {
+        	alert('推荐成功');        
+        	window.top.mainFrame.optFrame.location.reload();
+        	window.parent.hiddenWindow()
+        }
+    }
+});
+//-->
+</script>
+
+
+<form name="frmForm" id="frmForm" method="post" action="__URL__/docManageRecModify">
+<div class="frmMain">
+	<div class="item">推荐为： 
+		<select name="rec_type">
+			<option value="0" <if condition="$data['rec_type'] eq 0">selected</if> >不推荐</option>			
+			<option value="1" <if condition="$data['had_star'] eq 1"> disabled="disable" </if>  <if condition="$data['rec_type'] eq 1">selected</if> >今日之星</option>			
+			<option value="5"  <if condition="$data['rec_type'] eq 5">selected</if> >明星医生</option>
+		</select>
+	</div>
+	<span style="color:red"></span>
+</div>
+	  
+	  <input type="hidden" name="doc_id" value="{$data['doc_id']}"><!--医生手机-->
+<div style="float:right;margin-right:36px;margin-top:10px"><include file="Template/button"/></div>
+</form>
+</body>
+</html>

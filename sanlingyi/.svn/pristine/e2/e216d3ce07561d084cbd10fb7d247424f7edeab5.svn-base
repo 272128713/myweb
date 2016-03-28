@@ -1,0 +1,90 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<style type="text/css">
+#frmMain{
+	position:relative;
+	margin-top:20px;
+	margin-left:20px;
+	width:100%;
+}
+.frmItem{
+	position:relative;
+	height:24px;
+	margin-top:10px;
+}
+</style>
+</head>
+<body bgcolor="#E9EEF5">
+<script language="JavaScript">
+<!--
+$(function(){
+	$('#frmAjax').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		if(''==$.trim($('#name').val()) || ''==$.trim($('#en').val()) || ''==$.trim($('#host').val()) || ''==$.trim($('#port').val()) || ''==$.trim($('#user').val()) || ''==$.trim($('#pswd').val()))
+		{
+			alert('错误：信息必须填写完整！');
+			return false;
+		}
+		// 可以在此添加其它判断
+	}
+    function complete(data){
+        if(data>0)
+        {
+        	if(data==1)
+        	{
+        		var info='错误：名称有重复！';
+        	}
+        	else
+        	{
+        		var info='错误：数据库异常！';	
+        	}
+            alert(info);
+        }
+        else
+        {
+        	alert('编辑成功');        
+        	window.top.mainFrame.optFrame.location.reload();
+        	window.parent.hiddenWindow()
+        }
+    }
+});
+
+//-->
+</script>
+<form name="frmAjax" id="frmAjax" method="post" action="__URL__/dbModify">
+<div id="frmMain">
+	<div class="frmItem">数据库名称： <input type="text" name="name" id="name"  style="width:150px;" value="{$data.name}" /></div>
+	<div class="frmItem">数据库英文名： <input type="text" name="en" id="en" style="width:138px;" value="{$data.en}" /></div>
+	<div class="frmItem">显示顺序： <select name="position" style="width:166px;">
+		<option value='0'>显示在第一位</option>
+		<volist name="poList" id="vo">
+			<option value="{$vo.position}" <lt name="i" value="$data.position">selected</lt>>在【{$vo.name}/{$vo.en}】之后</option>
+		</volist>
+	</select></div>
+	<div class="frmItem">数据库类型： <select name="type" style="width:154px;">
+		<volist name="type" id="vo">
+			<option value="{$vo.name}" <eq name='data.type' value="$vo.name">selected</eq>>{$vo.name}</option>
+		</volist>
+	</select></div>
+	<div class="frmItem">主机地址： <input type="text" name="host" id="host" style="width:162px;" value="{$data.host}" /></div>
+	<div class="frmItem">端口号： <input type="text" name="port" id="port" style="width:174px;" value="{$data.port}" /></div>
+	<div class="frmItem">访问账号： <input type="text" name="user" id="user" style="width:162px;" value="{$data.user}" /></div>
+	<div class="frmItem">访问密码： <input type="text" name="passwd" id="pswd" style="width:162px;" value="{$data.passwd}" /></div>
+	<div class="frmItem">接口地址： <input type="text" name="server" id="server" style="width:162px;" value="{$data.server}" /></div>
+</div>
+<div style="height:4px;"></div>
+<hr />
+<div class="frmMain" style="float:right;margin-right:8px;"><include file="Template/button" /></div>
+<input type="hidden" name="id" value="{$data.id}" />
+</form>
+</body>
+</html>

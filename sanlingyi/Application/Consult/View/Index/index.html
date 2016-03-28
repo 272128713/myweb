@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>用户查找结果</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="__CSS__/mui.min.css">
+        <link rel="stylesheet" type="text/css" href="__CSS__/common.css"/>
+		<link rel="stylesheet" type="text/css" href="__CSS__/app.css"/>
+		<link rel="stylesheet" type="text/css" href="__CSS__/searchresult.css"/>
+		<link rel="stylesheet" type="text/css" href="__CSS__/iconfont.css"/>
+        <script src="__PUBLIC__/Article/js/jquery-1.9.1.min.js"></script>
+        <script src="__JS__/app_com.js"></script>
+
+	</head>
+
+	<body>
+
+		<header class="mui-bar mui-bar-nav" style="position: fixed;">
+			<a class="mui-icon mui-icon-left-nav mui-pull-left" onclick="logoutConsultings()"></a>
+			<h1 class="mui-title" style="" onclick="logoutConsultings()">在线咨询</h1>
+            <div class="right">
+                <p style="float:left;color: #fff;display: block;height: 44px;width:3em;text-align:center;line-height:44px;font-size:16px;"  onclick="go_to_app_consult('')">咨询</p>
+                <a style="float:left;color: #fff;display: block;height: 44px;width:3em;text-align:center;line-height:44px;font-size:16px;" href="{:U('SelfConsult/index')}" >记录</a>
+
+
+
+            </div>
+		</header>
+
+		<!--
+        	时间：2015-06-29
+        	描述：主要内容
+        -->
+		<div class="mui-content">
+		<!--
+        	时间：2015-06-29
+        	描述：选项卡
+        -->
+	        <div class="mui-pull-left mui-segmented-control cc">
+				<a href="{:U('index',array('svalue'=>$search))}" class="mui-control-item <?php if(!isset($_GET['type'])) echo 'mui-active'; ?>">最新</a>
+				<a href="{:U('index',array('order'=>'answer_num','type'=>1,'svalue'=>$search))}" class="mui-control-item <?php if($_GET['type']==1) echo 'mui-active'; ?> ">最热</a>
+				<a href="{:U('index',array('type'=>2,'svalue'=>$search))}" class="mui-control-item <?php if($_GET['type']==2) echo 'mui-active'; ?> ">已解决</a>
+			    <?php $type=$_GET['type']; ?>
+            </div>
+				<a href="{:U('Search/index')}"><img class="mui-pull-right search" src="__IMG__/sousuo.png"/></a>
+            <php>
+                if($nums==0){
+                echo_empty();
+                }
+            </php>
+				<div class="clear ">
+                <php>
+                    if($nums>=C('PAGE_NUM')){
+
+                </php>
+                <style type="text/css" media="all">
+                    #wrapper {
+                        position:absolute; z-index:1;
+                        top:100px; bottom:0px; left:0;
+                        width: 98%;
+                        background:none;
+                        overflow:auto;
+                    }
+                </style>
+                <div id="wrapper">
+                    <div id="scroller">
+                        <div id="pullDown" style="text-align: center;padding: 10px 0; color:#555;">
+                            <span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新</span>
+                        </div>
+                <php>
+                    }
+                </php>
+				<ul class="mui-table-view" id="thelist">
+                    <foreach name="ask" item="v">
+				  <li class="mui-table-view-cell">
+				    <a href="{:U('Index/detail',array('aid'=>$v['question_id']))}" class="mui-navigate-right">
+				      <img src="__IMG__/wen.png" class="wen"/>
+				      <div class="ti">{$v.title}<span>（<?php echo get_sex($v['sex']); ?>， {$v.age}岁）</span>
+				            <php>
+                                if($v['is_see_doctor']==0){
+                            </php>
+                          <div class="clear tifoot">未就医
+                             <php>
+                                 }else{
+                             </php>
+				      		<div class="clear tifoot">{$v.recollection}、{$v.disease}
+                                <php>
+                                    }
+                            </php>
+				      		<div class="right"><?php echo substr($v['createDate'],0,10); ?>&nbsp;&nbsp;&nbsp;&nbsp;回复 <span class="red">{$v.answer_num}</span></div>
+				      	</div>
+				      </div>
+				    </a>
+				  </li>
+                     </foreach>
+
+				</ul>
+                        <php>
+                            if($nums>=C('PAGE_NUM')){
+
+                        </php>
+                        <div id="pullUp" style="text-align: center;padding: 10px 0; color:#555;">
+                            <span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载更多...</span>
+                        </div>
+                    </div>
+                </div>
+                        <php>
+                            }
+                        </php>
+
+
+		</div>
+        </div>
+
+        <php>
+            if($nums>=C('PAGE_NUM')){
+
+        </php>
+
+        <script src="__PUBLIC__/Article/js/iscroll.js"></script>
+        <script type="text/javascript">
+            var myScroll,
+                    pullDownEl, pullDownOffset,
+                    pullUpEl, pullUpOffset,
+                    generatedCount = 0;
+
+            /**
+             * 下拉刷新 （自定义实现此方法）
+             * myScroll.refresh();		// 数据加载完成后，调用界面更新方法
+             */
+            function pullDownAction () {
+                //查询更多
+               var article=$('#thelist');
+                var url="{:U('index','','')}";
+                var type="{$type}";
+                var search="<?php echo urldecode($search); ?>";
+               $.post(
+                        url,{"update":1,"type":type,"ajax":1,"svalue":search},function(date){
+                           article.html('');
+                           article.html(date);
+                           myScroll.refresh();
+                       }
+                        ,'text')
+                 myScroll.refresh();
+            }
+
+            /**
+             * 滚动翻页 （自定义实现此方法）
+             * myScroll.refresh();		// 数据加载完成后，调用界面更新方法
+             */
+            sanlingyi_page=1;
+            function pullUpAction () {
+                //查询更多
+                var article=$('#thelist');
+                var url="{:U('index','','')}";
+                var type="{$type}";
+                var search="<?php echo urldecode($search); ?>";
+                $.post(
+                        url,{"page":sanlingyi_page,"type":type,"ajax":1,"svalue":search},function(date){
+
+                            if(date!=0){
+                                sanlingyi_page+=1;
+                                article.append(date);
+                                myScroll.refresh();
+                            }else{
+                                myScroll.refresh();
+                            }
+                        }
+                        ,'text' );
+
+            }
+
+            /**
+             * 初始化iScroll控件
+             */
+            function loaded() {
+                pullDownEl = document.getElementById('pullDown');
+                pullDownOffset = pullDownEl.offsetHeight;
+                pullUpEl = document.getElementById('pullUp');
+                pullUpOffset = pullUpEl.offsetHeight;
+
+                myScroll = new iScroll('wrapper', {
+                    scrollbarClass: 'myScrollbar', /* 重要样式 */
+                    useTransition: false, /* 此属性不知用意，本人从true改为false */
+                    topOffset: pullDownOffset,
+                    onRefresh: function () {
+                        if (pullDownEl.className.match('loading')) {
+                            pullDownEl.className = '';
+                            pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
+                        } else if (pullUpEl.className.match('loading')) {
+                            pullUpEl.className = '';
+                            pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
+                        }
+                    },
+                    onScrollMove: function () {
+                        if (this.y > 5 && !pullDownEl.className.match('flip')) {
+                            pullDownEl.className = 'flip';
+                            pullDownEl.querySelector('.pullDownLabel').innerHTML = '松手开始更新...';
+                            this.minScrollY = 0;
+                        } else if (this.y < 5 && pullDownEl.className.match('flip')) {
+                            pullDownEl.className = '';
+                            pullDownEl.querySelector('.pullDownLabel').innerHTML = '下拉刷新...';
+                            this.minScrollY = -pullDownOffset;
+                        } else if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
+                            pullUpEl.className = 'flip';
+                            pullUpEl.querySelector('.pullUpLabel').innerHTML = '松手开始更新...';
+                            this.maxScrollY = this.maxScrollY;
+                        } else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
+                            pullUpEl.className = '';
+                            pullUpEl.querySelector('.pullUpLabel').innerHTML = '上拉加载更多...';
+                            this.maxScrollY = pullUpOffset;
+                        }
+                    },
+                    onScrollEnd: function () {
+                        if (pullDownEl.className.match('flip')) {
+                            pullDownEl.className = 'loading';
+                            pullDownEl.querySelector('.pullDownLabel').innerHTML = '加载中...';
+                            pullDownAction();	// Execute custom function (ajax call?)
+                        } else if (pullUpEl.className.match('flip')) {
+                            pullUpEl.className = 'loading';
+                            pullUpEl.querySelector('.pullUpLabel').innerHTML = '加载中...';
+                            pullUpAction();	// Execute custom function (ajax call?)
+                        }
+                    }
+                });
+
+                setTimeout(function () { document.getElementById('wrapper').style.left = '0'; }, 800);
+            }
+
+            //初始化绑定iScroll控件
+            document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+            document.addEventListener('DOMContentLoaded', loaded, false);
+
+
+
+        </script>
+        <php>}</php>
+
+	</body>
+
+</html>

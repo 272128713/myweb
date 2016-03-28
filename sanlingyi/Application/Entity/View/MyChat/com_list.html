@@ -1,0 +1,73 @@
+<div class="chat-box">
+    <foreach name="com" item="vo">
+
+
+        <div class="chat-list">
+            <img src="__IMG__/circle.png" class="img-c"/>
+            <div class="chat-list-li">
+                <p class="p1">{$vo.content}</p>
+                <p class="p2">{$vo.title}</p>
+                <div class="time">
+                    <p class="p3">{$vo.createDate}</p>
+                    <div class="right">
+                        <p class="p4"><img src="__IMG__/zan.png"/>{$vo.up_num}</p>
+                        <p class="p5 delete_evalu" eid="{$vo.id}" aid="{$vo.article_id}"><img src="__IMG__/iconfont-shanchu.png"/>删除</p>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </foreach>
+
+</div>
+<php>
+    if($nums>=C('PAGE_NUM') or $cnums>=C('PAGE_NUM')){
+</php>
+<div id="order_list" onclick="get_more()" style="text-align: center;line-height: 2em; color: #333; font-size: 1em; background: #DDDDDD">
+    点击加载更多
+</div>
+<php>
+    }
+</php>
+<script>
+    sanlingyi_page_a=1;
+    sanlingyi_page_c=1;
+    function get_more(){
+        if(sanlingyi_show_tab==0){
+            //加载文章
+            var article=$('.art-box');
+            var url="{:U('MyChat/updateArtAjax')}";
+            $.get(
+                    url,{"page":sanlingyi_page_a,"ajax":1},function(date){
+
+                        if(date!=0){
+                            sanlingyi_page_a+=1;
+                            article.append(date);
+                           // alert(date);
+
+                        }else{
+                            $('#order_list').html('暂无更多')
+                        }
+                    }
+                    ,'html' );
+
+        }else{
+        	  //加载评论
+            var article=$('.chat-box');
+            var url="{:U('MyChat/updateCom')}";
+            $.get(
+                    url,{"page":sanlingyi_page_c,"ajax":1},function(date){
+
+                        if(date!=0){
+                            sanlingyi_page_c+=1;
+                            article.append(date);
+                           // alert(date);
+
+                        }else{
+                            $('#order_list').html('暂无更多')
+                        }
+                    }
+                    ,'html' );
+        }
+    }
+</script>

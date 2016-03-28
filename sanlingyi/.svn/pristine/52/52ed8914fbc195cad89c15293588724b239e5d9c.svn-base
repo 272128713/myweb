@@ -1,0 +1,61 @@
+<script type="text/javascript">
+<!--
+var APP_PATH="__APP__";
+//-->
+</script>
+<style type="text/css">
+<!--
+#BarTitle{
+	width:260px;
+	height:26px;
+	line-height:26px;
+	border-bottom:1px solid #99bbe8;
+	background-color: #d5e1f2;
+	color:#15428b;
+}
+.BarTitleIcon{
+	float:left;
+	padding:6px;
+}
+#BarContent{
+	height:26px;
+	border-bottom:1px solid #99bbe8;
+	background-color: #d5e1f2;
+	color:#15428b;
+}
+.BarSplit{
+	float:right;
+	margin-top:6px;
+	margin-right:7px;
+}
+#BarButton{
+	float:right;
+	width:80px;
+	height:22px;
+	line-height:22px;
+	margin-right:6px;
+	margin-top:2px;
+	background-image:url(__PUBLIC__/Home/images/bg_button.gif);
+}
+.BarButtonIcon{
+	float:left;
+	padding:3px;
+	margin-left:2px;
+}
+-->
+</style>
+<script language="JavaScript" src="__PUBLIC__/Home/js/windown.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/operateAjax.js"></script>
+<table>
+  <tr>
+    <td id="BarTitle"><img class="BarTitleIcon" src="__PUBLIC__/Home/images/station.gif" />您的位置：{$barInfo}</td>
+	<td id="BarContent">
+		<volist name="barList" id="vo">
+			<div class='BarSplit'><img src="__PUBLIC__/Home/images/split.gif" /></div>
+			<div id="BarButton" onclick="javascript:operateAjax('{$vo.property}','{$objectID}','{$page}')" onmouseover="this.style.cursor='pointer';this.style.backgroundImage='url(__PUBLIC__/Home/images/bg_button_up.gif)'" onmouseout="this.style.backgroundImage='url(__PUBLIC__/Home/images/bg_button.gif)'">
+				<div class="BarButtonIcon"><img src="__PUBLIC__/Home/images/button/{$vo['en']}.gif" /></div>{$vo.name}
+			</div>			
+		</volist>
+	</td>
+  </tr>
+</table>

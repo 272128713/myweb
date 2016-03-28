@@ -1,0 +1,131 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/jquery.uploadify.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/uploadify.css"></script>
+ 
+
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Home/js/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Home/js/ueditor/ueditor.all.min.js"> </script>
+<!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+<!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Home/js/ueditor/lang/zh-cn/zh-cn.js"></script>
+    
+<style type="text/css">
+.frmMain{
+	position:relative;
+	width:800px;
+	height:26px;	
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+}
+.item{
+	float:left;
+	margin-left:10px;
+	margin-bottom:5px;
+}
+</style>
+</head>
+<body bgcolor="#E9EEF5">
+<script language="JavaScript">
+<!--
+$(function(){
+	$('#frmForm').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		// 可以在此添加其它判断
+	
+		if($('#title').val()==''){
+			alert('标题不能为空');
+			return false;
+		}
+		
+	}
+    function complete(data){
+        if(data>0)
+        {
+        	if(data==1)
+        	{
+        		var info='错误：数据库异常！';
+        	}
+            alert(info);
+        }
+        else
+        {
+        	alert('修改成功');        
+        	window.top.mainFrame.optFrame.location.reload();
+        	window.parent.hiddenWindow()
+        }
+    }
+});
+//-->
+</script>
+<if condition="$data['id']">
+	<form name="frmForm" id="frmForm" method="post" action="__URL__/MonthOrderModify">
+<else/>
+	<form name="frmForm" id="frmForm" method="post" action="__URL__/MonthOrderCreate">
+</if>
+
+<div class="frmMain">
+<div style="width:400px;float:left;margin-left:-60px;">
+	<div class="item" >订制包名： <input type="text" id="title" name="name" style='width:250px'value="{$data['name']}"  /></div>
+	<div style="clear:both"></div>
+	<div class="item">价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格： <input id="price" type="text"  name="price"  style='width:250px' style='width:170px' value="{$data['price']}"   /></div>
+	<div style="clear:both"></div>
+	各种服务数量<div style="clear:both"></div>
+	<volist name="service_list" id="val">
+		<div class="item">{$val['name']}： <input  type="text"  name="num[{$val['id']}]"  style='width:100px'  value="{$val['num']}"   /></div>
+		<div style="clear:both"></div>
+	 </volist>
+	分省价格<div style="clear:both"></div>
+	<volist name="region" id="val">
+		<div class="item">{$val['name']}： <input  type="text"  name="p[{$val['id']}]"  style='width:30px'  value="{$val['price']}"   /></div>
+		
+	 </volist>	 
+	 <div style="float:right;margin-left:100px;margin-bottom:10px"><include file="Template/button"/></div>
+	 </div>	 
+	 <div class="item" style="float:right;width:450px;">内容：	
+	 <script id="editor" type="text/plain" style="width:450px;height:250px;">{$data['content']}</script>	
+			<input type="hidden" name="content" id="content" value="">	 				
+	 </div>			
+	<input type="hidden" name="id" value="{$data['id']}">
+</div>
+
+<div style="clear:both"></div>
+<script type="text/javascript">
+
+    //实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    var ue = UE.getEditor('editor');
+    
+
+    
+    ue.addListener('blur',function(){        
+		var con=UE.getEditor('editor').getContent();
+		$('#content').val(con);        
+    });
+
+    function isFocus(e){
+        alert(UE.getEditor('editor').isFocus());
+        UE.dom.domUtils.preventDefault(e)
+    }
+    function setblur(e){
+        UE.getEditor('editor').blur();
+        UE.dom.domUtils.preventDefault(e)
+    }
+    function insertHtml() {
+        var value = prompt('插入html代码', '');
+        UE.getEditor('editor').execCommand('insertHtml', value)
+    }
+</script>
+</form>
+</body>
+</html>

@@ -1,0 +1,52 @@
+.container{
+	width:100%;
+	padding-top:44px;
+}
+head h1{
+}
+header img{
+	height: 44px;
+	cursor: pointer;
+}
+.newat{
+	height: 2em;
+	line-height: 2em;
+	padding-left: 2%;
+	background: #82dbeb;
+	color: #fff;
+	margin-top: 1em;
+}
+.new-list li{
+	padding-top: 1.5em;
+	padding-bottom: 1.5em;
+	padding-left:2.5%;
+	padding-right:2.5%;
+	border-bottom: 1px solid #dcdcdc;
+	cursor: pointer;
+}
+.new-list img {
+	float: left;
+	width: 17%;
+	border-radius:3px;
+}
+.list-box{
+	float: left;
+	width: 83%;
+	padding-left: 0.5em;
+}
+.list-box .p1{
+	font-family: "微软雅黑";
+	color:#000;
+	float: left;
+	font-size: 1.1em;
+}
+.list-box .p2{
+	position: absolute;
+	right: 3%;
+	color: #333;
+}
+.list-box .p3{
+	padding-top:0.5em;
+	color: #333;
+}
+

@@ -1,0 +1,69 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<style type="text/css">
+.frmMain{
+	position:relative;
+	margin-top:10px;
+	margin-left:30px;
+}
+.t,.s{
+	border: 1px solid #7C98BD;
+	height:20px;
+}
+</style>
+</head>
+<body bgcolor="#E9EEF5">
+<script language="JavaScript">
+<!--
+$(function(){
+	$('#frmForm').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		if(''==$.trim($('#name').val())){
+			alert("错误：信息必须填写完整！");
+			return false;
+		}
+		// 可以在此添加其它判断
+	}
+    function complete(data){
+        if(data>0){
+        	if(data==1){
+        		var info='错误：推广码重复！';
+        	}
+        	else{
+        		var info='错误：数据库异常！';	
+        	}
+            alert(info);
+        }
+        else{
+        	alert('编辑成功');        
+        	window.top.mainFrame.optFrame.location.reload();
+        	window.parent.hiddenWindow()
+        }
+    }
+});
+
+//-->
+</script>
+<form name="frmForm" id="frmForm" method="post" action="__URL__/agentModify">
+<div class="frmMain">代理名称： <input class="t" style="width:180px;" type="text" name="name" id="name" value="{$data.name}"/></div>
+<div class="frmMain">登录密码： <input class="t" style="width:180px;" type="text" name="password" id="password" value="{$data.password}"/></div>
+<div class="frmMain">&nbsp;&nbsp;联系人： <input class="t" style="width:180px;" type="text" name="contract" id="contract" value="{$data.contract}"/></div>
+<div class="frmMain">联系电话： <input class="t" style="width:180px;" type="text" name="tel" id="tel" value="{$data.tel}"/></div>
+<div class="frmMain">&nbsp;&nbsp;推广码： <input class="t" style="width:180px;" type="text" name="code" id="code" value="{$data.code}"/></div>
+<div class="frmMain">分账比率： <input class="t" style="width:180px;" type="text" name="rate" id="rate" value="{$data.rate}"/></div>
+<div class="frmMain">代理等级： 一级<input type="radio" name="level" value="1" <if condition="$data.level eq 1">checked</if>  > 二级<input type="radio" name="level" value="2" <if condition="$data.level eq 2">checked</if>></div>
+<div class="frmMain">&nbsp;&nbsp;&nbsp;&nbsp;备注： <textarea class="t" style="width:180px;height:90px;" name="resume" >{$data.resume}</textarea></div>
+<div class="frmMain" style="float:right;margin-right:30px;"><include file="Template/button" /></div>
+<input type="hidden" name="id" value="{$data.id}" />
+</form>
+</body>
+</html>

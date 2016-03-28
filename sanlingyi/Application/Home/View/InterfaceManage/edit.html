@@ -1,0 +1,77 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<style type="text/css">
+.frmMain{
+	position:relative;
+	margin-top:10px;
+	margin-left:30px;
+}
+.t,.s{
+	border: 1px solid #7C98BD;
+	height:20px;
+}
+</style>
+</head>
+<body bgcolor="#E9EEF5">
+<script language="JavaScript">
+<!--
+$(function(){
+	$('#frmForm').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		if(''==$.trim($('#resume').val()))
+		{
+			alert("错误：信息必须填写完整！");
+			return false;
+		}
+		// 可以在此添加其它判断
+	}
+    function complete(data){
+        if(data>0)
+        {
+        	if(data==1)
+        	{
+        		var info='错误：名称重复！';
+        	}
+        	else
+        	{
+        		var info='错误：数据库异常！';	
+        	}
+            alert(info);
+        }
+        else
+        {
+        	window.location.href=window.location.href;
+        	window.top.mainFrame.optFrame.location.href=window.top.mainFrame.optFrame.location.href;
+        }
+    }
+});
+
+//-->
+</script>
+<form name="frmForm" id="frmForm" method="post" action="__URL__/interfaceManageModify">
+<div class="frmMain"><span>&nbsp;API说明：</span> <textarea class="t" style="width:180px;height:90px;" name="resume" id="resume" >{$data.resume}</textarea></div>
+<div class="frmMain"><span><span>&nbsp;&nbsp;&nbsp;&nbsp;域名：</span> <input class="t" style="width:180px;" type="text" name="domain_name" value="{$data.domain_name}" /></div>
+<div class="frmMain"><span>&nbsp;&nbsp;外网IP：</span> <input class="t" style="width:180px;" type="text" name="ip" value="{$data.ip}" /></div>
+<div class="frmMain"><span>外网端口：</span> <input class="t" style="width:180px;" type="text" name="port" value="{$data.port}" /></div>
+<div class="frmMain"><span>&nbsp;&nbsp;内网IP：</span> <input class="t" style="width:180px;" type="text" name="lan_ip" value="{$data.lan_ip}" /></div>
+<div class="frmMain"><span>内网端口：</span> <input class="t" style="width:180px;" type="text" name="lan_port" value="{$data.lan_port}" /></div>
+<div class="frmMain">排列顺序： <select class="s" style="width:184px;height:24px" name="position" id="position" >
+	<option value='0'>显示在第一位</option>
+	<volist name="poList" id="vo">
+		<option value="{$vo.position}" <if condition="$data.position eq $vo.position">selected </if> >在【{$vo.resume}】之后</option>
+	</volist>
+</select></div>
+<input type="hidden" name="id" value="{$data.id}">
+<div class="frmMain" style="float:right;margin-right:30px;"><include file="Template/button" /></div>
+</form>
+</body>
+</html>

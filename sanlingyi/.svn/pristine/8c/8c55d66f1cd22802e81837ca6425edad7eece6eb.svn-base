@@ -1,0 +1,175 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/dateSelect.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/dateSelect.js"></script> 
+<style type="text/css">
+.frmMain{
+	position:relative;
+	width:90%;
+	height:26px;	
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+}
+.item{
+	float:left;
+	margin-left:10px;
+}
+.t{
+	height:20px;
+}
+.s{
+	height:23px;
+}
+</style>
+</head>
+<body bgcolor="#E9EEF5">
+<script language="JavaScript">
+<!--
+$(function(){
+	$('#frmForm').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		if(''==$.trim($('#name').val()) || ''==$.trim($('#IDcard').val()) || ''==$.trim($('#date').val()) || ''==$.trim($('#account').val()) || ''==$.trim($('#address').val()) || ''==$.trim($('#phone').val()))
+		{
+			alert("错误：信息必须填写完整！");
+			return false;
+		}
+		else{
+			if($('#RS').val()>0){
+				if($('#province').val()==0 || $('#city').val()==0 || $('#district').val()==0){
+					alert("错误：信息必须填写完整！");
+					return false;
+				}
+			}
+		}
+		
+		// 可以在此添加其它判断
+	}
+    function complete(data){
+        if(data>0)
+        {
+        	if(data==1)
+        	{
+        		var info='错误：名称重复！';
+        	}
+        	else
+        	{
+        		var info='错误：数据库异常！';	
+        	}
+            alert(info);
+        }
+        else
+        {
+        	alert('操作成功');        
+        	window.top.mainFrame.optFrame.location.reload();
+        	window.parent.hiddenWindow()
+        }
+    }
+        
+    $('#province').change(function(){
+    	var p=$('#province').val();
+    	$('#city option').remove();
+    	$("#city").append("<option value='0'>请选择城市</option>");
+       	$('#district option').remove();
+       	$("#district").append("<option value='0'>请选择地区</option>");
+       	if(p>0){
+       		loadData(p,'p');	
+       	}
+    });
+    
+    $('#city').change(function(){
+    	var c=$('#city').val();
+       	$('#district option').remove();
+       	$("#district").append("<option value='0'>请选择地区</option>");
+       	if(c>0){
+       		loadData(c,'c');	
+       	}
+    });
+    
+    function loadData(r,s){
+    	var url="{:U('ajax/getRegionOption')}";
+    	url=url.substring(0,url.indexOf('.html'));
+    	$.ajax({
+			url: url+'/id/'+r,
+            type: 'POST',
+            dataType: 'JSON',
+            error: function () { alert('错误：加载数据异常，请重试!'); },
+            success: function (data) {
+	            $.each(data, function(i,t){ 
+	            	if(t['id']>0)
+	            	{
+	            		var se='';
+	            		if(s=='p'){
+	            			if(t['id']=="{$data.city}"){
+	            				se='selected';
+	            			}
+	            			$("#city").append("<option value='"+t['id']+"' "+se+">"+t['name']+"</option>"); 
+	            		}
+	            		else if(s=='c'){
+	            			if(t['id']=="{$data.district}"){
+	            				se='selected';
+	            			}
+	            			$("#district").append("<option value='"+t['id']+"' "+se+">"+t['name']+"</option>");
+	            		}
+	            	}
+	           	});	            
+            }
+		});
+    }
+    
+    loadData('{$data.province}','p');
+    loadData('{$data.city}','c');
+});
+
+//-->
+</script>
+<form name="frmForm" id="frmForm" method="post" action="__URL__/employeeModify">
+<div class="frmMain">
+	<div class="item">姓名： <input class="t" type="text" name="name" id="name" style='width:100px' value="{$data.name}" /></div>
+	<div class="item">性别： <select class="s" name="sex" style="width:60px">
+		<option value="0" <if condition="$data.sex eq 0">selected</if>>女</option>
+		<option value="1" <if condition="$data.sex eq 1">selected</if>>男</option>
+	</select></div>
+	<div class="item">身份证： <input class="t" type="text" name="ID_card" id="IDcard" style="width:146px" value="{$data.ID_card}" /></div>
+</div>
+<div class="frmMain">
+	<div class="item">入职时间： <input type="text" id="date" name="entry_date" class="tcal" readonly="readonly" style='width:90px' value="{$data.entry_date}" /></div>
+	<div class="item">角色： <select class="s" name="role_id" id="roleID" style="width:110px">
+		<volist name="rList" id='vo'>
+			<option value="{$vo.role_id}" <eq name="data.role_id" value="$vo.role_id">selected</eq>>{$vo.role_name}</option>
+		</volist>
+	</select></div>
+	<div class="item">帐号： <input class="t" type="text" name="account" id="account" style="width:75px" value="{$data.account}" /></div>
+</div>
+<div class="frmMain" id="regionList">
+	<div class="item">现居住地：<select class="s" name="province" id="province" style="width:115px">
+		<option value="0">请选择省份</option>
+		<volist name="pList" id="vo">
+			<option value='{$vo.id}' <eq name='data.province' value='$vo.id'>selected</eq>>{$vo.name}</option>
+		</volist>
+	</select>
+	<select class="s" name="city" id="city" style="width:135px">
+		<option value="0">请选择城市</option>
+	</select>
+	<select class="s" name="district" id="district" style="width:150px">
+		<option value="0">请选择地区</option>
+	</select></div>
+</div>
+<div class="frmMain">
+	<div class="item">详细住址： <input class="t" type="text" name="address" id="address" style="width:232px" value="{$data.address}" /></div>
+	<div class="item">联系电话： <input class="t" type="text" name="phone" id="phone" style="width:90px" value="{$data.phone}" /></div>
+</div>
+<div style="float:right;margin-right:20px;margin-top:10px"><include file="Template/button" /></div>
+<input type="hidden" name="id" value='{$data.id}'>
+</form>
+</body>
+</html>

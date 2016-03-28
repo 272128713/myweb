@@ -1,0 +1,12 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<script language="JavaScript">
+<!--
+window.top.location="{:U('Login/loginOut',array('status'=>$status))}";
+//-->
+</script>
+</head>
+<body>
+</body>
+</html>

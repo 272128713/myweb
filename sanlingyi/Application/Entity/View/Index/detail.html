@@ -1,0 +1,530 @@
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>投资健康</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="__CSS__/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="__CSS__/app.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/common.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/detail.css" />
+
+	</head>
+
+	<body>
+        <php>
+            if(!isset($_GET['wxfx'])){
+        </php>
+		<header class="mui-bar mui-bar-nav" style="background:#23272a;position: fixed;">
+            <php>
+                if(!isset($_GET['type']) and !isset($_GET['show'])){
+
+            </php>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="history.go(-1)"></a>
+			<h1 class="mui-title" style="color:#fff" onclick="history.go(-1)">投资健康</h1>
+            <php>
+                }else{
+            </php>
+            <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="logoutConsultings()"></a>
+            <h1 class="mui-title" style="color:#fff" onclick="logoutConsultings()">投资健康</h1>
+            <php>
+                }
+            </php>
+            <div class="right">
+				<php>
+                    if(!isset($_GET['type']) and !isset($_GET['show'])){
+                </php>
+                <php>
+                    if($is_save){
+
+                </php>
+                     <a  class="a1" style="float:left;color: #EC971F;display: block;height: 44px;width:3em;text-align:center;line-height:44px;font-size:16px;" id="add_favorite">
+                     	
+                     	<img class="img2" src="__IMG__/shoucang2.png" />
+                     </a>
+                <php>
+                    }else{
+                </php>
+				<a  class="a1" style="float:left;color: #fff;display: block;height: 44px;width:3em;text-align:center;line-height:44px;font-size:16px;" id="add_favorite">
+					<img id="add_favorite" class="img3" src="__IMG__/shoucang.png"/>
+					
+				</a>
+				<php>
+                    }
+                </php>
+                <php>
+                    }
+                </php>
+                <php>
+                    if(!isset($_GET['type']) and !isset($_GET['show'])){
+                </php>
+                <a  class="a2" style="float:left;color: #fff;display: block;height: 44px;width:3em;text-align:center;line-height:44px;font-size:16px;" onclick="sh_evoke_shares()">
+                	<img class="img1" src="__IMG__/fenxiang.png"/>
+                	<img class="img2" src="__IMG__/fenxiang2.png"/ style="display:none;">
+                </a>
+                <php>
+                    }
+                </php>
+			</div>
+		</header>
+        <php>
+            }
+        </php>
+        <script>
+            /**
+             * 返回app
+             */
+            function logoutConsultings(){
+
+                if(navigator.userAgent.match('iPhone')){
+                    logoutConsulting();
+                }
+                if(navigator.userAgent.match('Android')){
+                    Android.logoutConsulting();
+                }
+            }
+        </script>
+		<!--
+        	时间：2015-06-29
+        	描述：主要内容
+        -->	
+        <div class="textarea"
+             <php>
+                 if(isset($_GET['wxfx'])){
+             </php>
+             style="margin-top: 0;"
+            <php>}</php>
+                >
+        		<div class="text">
+                    <p class="title1" hid="{$v.id}">{$v.clinic_name}</p>
+                    <p class="title2">诊所类别：{$v.type}
+                    	<span>2015-09-06&nbsp;&nbsp;成立</span>
+                    </p>
+                    <p class="title3">{$v.address}</p>
+				</div>
+			</div>
+			<!--
+            	作者：272128713@qq.com
+            	时间：2015-07-31
+            	描述：list
+            -->
+			<div class="content">
+                <php>
+                    $people=0;
+                    $bpeople=0;
+                    $dnmoney=0;
+                    $dtmoney=0;
+
+                </php>
+                <foreach name="v['doc']" item="vo">
+                    <php>
+                        $people+=$vo['sale_num'];
+                        $bpeople+=$vo['service_num'];
+                        $dnmoney+=$vo['dnmoney'];
+                        $dtmoney+=$vo['dtmoney'];
+
+                    </php>
+				<div class="content-list"  style="position:relative;
+				<php>
+						
+                    	if($_GET['uid']==$vo['doctor_id']){
+                    	
+                    	
+                </php>
+                     background:#f0f0f0;
+                    <php>}</php>
+				">
+				    <div style="position:absolute;z-index:1;width:100%">
+					    <php>
+					    	if($vo['authentication']==11){
+					    	
+					    </php>
+						<img src="__IMG__/icon_authdoctor_v2.png" style="width:8.5%;"/>
+						<php>
+							}else if($vo['authentication']==1){
+						</php>
+						<img src="__IMG__/icon_authdoctor_v1.png" style="width:8.5%;"/>
+						<php>}</php>
+						<img class="auth" src="__IMG__/icon_authdoctor.png" style="width:5.5%;position:absolute;left:11%"/>			
+					</div>
+					<img src="{$vo.img_url}" style="border-radius:3px;" />
+					<div class="doctor_info">
+						<p class="xingming" uid="{$vo.doctor_id}">{$vo.user_name}
+							<span class="orange">{$vo.k_name}</span>
+							<span class="red" style="margin-left:1em">{$vo.service_num}/{$vo.sale_num}</span>
+						</p>
+						<p class="keshi">{$vo.recollection_name}<span class="yishi">{$vo.duty_name}</span></p>
+						<p class="address">第一执业地点：{$vo.hospital} {$vo.h_area}</p>
+						<p class="jine">认筹金额：￥{$vo.money}</p>
+					</div>
+					<php>
+                    	if($_GET['uid']==$vo['doctor_id']){
+                    </php>
+					<img src="__IMG__/yixuan.png"  style="position:absolute;top:50%;right:5px;z-index:3;width:1em"/>
+					<php>
+					  }
+					</php>
+					<div class="clear"></div>
+				</div>
+                </foreach>
+			</div>
+			<!--
+            	作者：272128713@qq.com
+            	时间：2015-07-31
+            	描述：
+            -->
+            <!--div class="lan-line"></div-->
+            <!--
+            	作者：272128713@qq.com
+            	时间：2015-07-31
+            	描述：project
+            -->
+            <!--div class="project">
+            	<p class="p1">
+                    <php>
+                        $unix=strtotime($v['manage_time']);
+                        echo date('Y年m月d日',$unix);
+                    </php>
+                    发起项目</p>
+            	<p class="p2">
+            		<div class="p-left">
+            			<img src="__IMG__/p-person.png"/>名&nbsp;&nbsp;&nbsp;&nbsp;额：<span class="red"><php>echo $people;</php></span>
+            		</div>
+            		<div class="p-left">
+            			<img src="__IMG__/p-mask.png"/>预&nbsp;&nbsp;&nbsp;&nbsp;筹：<span class="red">￥<php>echo $dtmoney/10000;</php>万</span>
+            		</div>
+            	</p>
+            	<p class="p2">
+            		<div class="p-left">
+            			<img src="__IMG__/p-dui.png"/>已参与：<span class="red"><php>echo $bpeople;</php></span>
+            		</div>
+            		<div class="p-left">
+            			<img src="__IMG__/p-money.png"/>已筹得：<span class="red">￥<php>echo $dnmoney/10000;</php>万</span>
+            		</div>
+            	</p>
+            	<div class="clear"></div>
+            </div-->
+			<div class="img-hb">
+				<img src="__IMG__/huibao1.png" id="hb">
+			</div>
+			<div class="service">
+				<div class="serv">
+					<p class="sd">空中医院标准化的K服务</p>
+				<div class="know">
+					<a href="{:U('Index/k_xy')}">
+						<img src="__IMG__/icon.png"/>
+						<span>了解K服务</span>
+					</a>
+				</div>
+				<div class="clear"></div>
+				</div>
+			</div>
+			<div style="width:100%;height:10px;background:#e8e8e8"></div>
+			<div class="service-other">
+				<p class="serv">诊所提供的其他医疗服务</p>
+				<div class="arrow-down1">
+					<img src="__IMG__/arrow-down.png"  />
+				</div>
+				<div class="arrow-up1">
+					<img src="__IMG__/arrow-up.png"  />
+				</div>
+			</div>
+			<div class="jieshao hide1">
+				<p class="wenzi">
+				<php>
+					if($v['other_service_content']==""){
+						echo "暂无其他服务！";
+					}else{
+						echo $v['other_service_content'];
+					}
+				</php>	
+				
+				</p>
+			</div>
+			<div style="width:100%;height:10px;background:#e8e8e8"></div>
+			<div class="service-other">
+				<p class="serv">中国人寿女性关爱宝（至尊版1份）</p>
+				<div class="arrow-down2">
+					<img src="__IMG__/arrow-down.png"  />
+				</div>
+				<div class="arrow-up2">
+					<img src="__IMG__/arrow-up.png"  />
+				</div>
+			</div>
+			<div class="hide2">
+				<img src="__IMG__/logo.jpg" class="img1" />
+				<img src="__IMG__/post.jpg" class="img2"/>
+				<div class="baozhang">
+					<div class="icon">
+						<img src="__IMG__/arrow.png"/>
+					</div>
+					<div class="left">
+						<p>保障责任</p>
+					</div>
+					<div class="right">在本合同保险期间内，被保险人在本合同生效三十日后，初次发生并经专科医生明确诊断患一项或多项本合同所指的特定疾病的，本公司按保险单载明的保险金额给付保险金，本合同终止。</div>
+					<div class="clear"></div>
+				</div>
+				<div class="buchong">
+					<div class="icon1">
+						<img src="__IMG__/arrow.png"/>
+					</div>
+					<div class="left">
+						<p>补充说明</p>
+					</div>
+					<div class="right">本合同所指特定疾病，是指原发于女性特定部位的恶性肿瘤，特定部位包括：乳房、外阴、阴道、子宫颈、子宫体、输卵管和卵巢。
+特定部位的恶性肿瘤须经病理学检查结果明确诊断，且临床诊断属于世界卫生组织《疾病和有关健康问题的国际统计分类》（ICD-10）的恶性肿瘤C50-C57范畴。<br />
+<p style="color:#494949;margin-top:10px">以下疾病不在保障范围</p>
+1、原位癌<br />
+2、相当于Binet分期方案A期程度的慢性淋巴细胞白血病。<br />
+3、相当于Ann Arbor分期方案I期程度的何杰金氏病<br />
+4、皮肤癌（不包括恶性黑色素癌及已发生转移的皮肤癌）<br />
+5、TNM分期为T1N0M0期或更轻分期的前列腺癌<br />
+6、感染艾滋病病毒或患艾滋病期间所患恶性肿瘤
+</div>
+					<div class="clear"></div>
+				</div>
+				<div class="fanwei">
+					<p>投保范围</p>
+年满十八周岁以上至四十五周岁以下、身体健康的女性均可作为被保险人，被保险人须为投保人本人。<br />
+本简介仅供参考，具体内容以《国寿关爱女性特定疾病保险（A款）利益条款》及《中国人寿保险股份有限公司短期保险基本条款》规定为准
+
+				</div>
+				<div class="warn">
+					<p>被保险人执业告知</p>
+					如被保险人从事下列职业，请勿投保本产品！<br />
+海上渔业所有人员；森林防火员；砍伐业中的：伐木工人、运材车辆司机及押运人员、砍伐业起重机操作工人、装运工人；木材加工业中的木材搬运工人；采石、采矿作业人员；油矿、钻勘作业人员；坑道内作业所有人员；海上作业中所有作业人员；钻油井工人；石油、天然气开采人员；其他勘探及矿物
+开采人员；拖拉机、农用四轮车驾驶人员；机动三轮车驾驶员；军校学生（军事专业）及新兵。
+
+				</div>
+			</div>
+        <!--
+			<div class="service-other">
+				<div class="red-line"></div>
+				<p class="serv">评价内容</p>
+			</div>
+            <foreach name="evalute" item="va">
+                <div class="content-list-p">
+                <img src="{$va.img_url}" style="border-radius:100px;" />
+                <div class="doctor_info">
+                    <p class="xingming">{$va.user_name}
+                        <span style="margin-left:1em;float: right;">{$va.create_time}</span>
+                    </p>
+                    <p class="address">{$va.content}</p>
+                </div>
+
+            <div class="clear"></div>
+            </div>
+            </foreach>
+			<div class="more" onclick="location.href=''">
+				查看更多评价 >>
+			</div>
+			-->
+			<!--div class="service-other">
+				<div class="red-line"></div>
+				<p class="serv">诊所介绍</p>
+			</div-->
+			<div class="img-hb2">
+				<img src="__IMG__/clinicintro.png" id="hb">
+			</div>
+			<div class="detail-list">
+			
+				<php>
+					if($v['clinic_introduce']==""){
+						echo "<p style =' line-height:21px;font-size:14px;color:#333;'>暂无介绍</p>";
+					}else{
+						echo $v['clinic_introduce'];
+					}
+				</php>
+			</div>
+             <php>
+                 if(!isset($_GET['wxfx'])){
+              </php>
+			<div class="btn" style="z-index:3;">
+
+				<div class="btn1">
+
+					<!--<a class="canyu" href="{:U('order')}">购买健康险参与</a>-->
+					 <php>
+                    	if(!isset($_GET['show'])){
+                    </php>
+                    <a class="buy" href="{:U('part',array('id'=>$_GET['id']))}">我要投资</a>
+                    <php>
+                    	}else{
+                    </php>
+                                                您已申请该服务，请到诊所缴纳投资。
+                     <div class="btn2" onclick="delete_order()">取消投资</div>
+                    <php>                    		
+                    	}
+                    </php>
+					
+
+					
+				</div>
+				<div class="clear"></div>
+			</div>
+            <php>
+                }
+            </php>
+		<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		 <script>
+            /**
+             * 返回app
+             */
+            function logoutRefreshs(){
+
+                if(navigator.userAgent.match('iPhone')){
+                	logoutRefresh();
+                }
+                if(navigator.userAgent.match('Android')){
+                    Android.logoutRefresh();
+                }
+            }
+        </script>
+		<script type="text/javascript">
+			//var client_wi = document.body.clientWidth;
+			//var get_bz_ht=$('.baozhang .right').css('width');
+			//alert(get_bz_ht);
+			//var ht = $('.buchong .right').height();
+			//alert(ht);
+			$(function(){
+				  var get_navi = $('.navi');
+				  var get_left = $('.auth').css('left');
+				  var get_img1 = $('.img1');
+				  var get_img2 = $('.img2');
+				  var get_img3 = $('.img3');
+				  var get_img4 = $('.img4');
+					$('.auth').css('top',get_left);
+				  $(".xiala").click(function(){
+				  		get_navi.slideToggle('fast');
+				  });
+				  $('.mui-content').click(function(){
+				  		if(get_navi.css('display')=="block"){
+				  		get_navi.slideUp('fast');
+				  		}
+				  });
+				  $('.new-list li').hover(function(){
+				  	$(this).css('background','#EFEFEF');
+				  },function(){
+				  	$(this).css('background','#fff');
+				  });
+				  /*$(".a1").click(function(){
+				  		if(get_img1.css('display')=="block"){
+				  		get_img1.css('display','none');
+				  		get_img2.css('display','block');
+				  		}else{
+				  		get_img2.css('display','none');
+				  		get_img1.css('display','block');
+				  		}
+				  });
+				  $(".a2").click(function(){
+				  		if(get_img3.css('display')=="block"){
+				  		get_img3.css('display','none');
+				  		get_img4.css('display','block');
+				  		}else{
+				  		get_img4.css('display','none');
+				  		get_img3.css('display','block');
+				  		}
+				  });*/
+				 var get_arrowD1 = $('.arrow-down1');
+				 var get_arrowU1 = $('.arrow-up1');
+				 var get_hide1 = $('.hide1');
+				 
+				  $(".arrow-down1").click(function(){
+				 		$('.arrow-down1').css('display','none');
+						get_arrowU1.css('display','block');
+						get_hide1.css('display','block');
+				  });
+				  $(".arrow-up1").click(function(){
+				 		$('.arrow-up1').css('display','none');
+						get_arrowD1.css('display','block');
+						get_hide1.css('display','none');
+				  });
+				  
+				 var get_arrowD2 = $('.arrow-down2');
+				 var get_arrowU2 = $('.arrow-up2');
+				 var get_hide2 = $('.hide2');
+				 
+				  $(".arrow-down2").click(function(){
+				 		$('.arrow-down2').css('display','none');
+						get_arrowU2.css('display','block');
+						get_hide2.css('display','block');
+						var ht = $('.baozhang .right').height();
+						var img_c = $('.icon img').height();
+						$('.baozhang .left').height(ht+50);
+						$('.baozhang .icon').css('top',ht/2+25-img_c/2);
+						$('.baozhang .left p').css('top',ht/2+25-21);
+						
+						
+
+						var ht_bc = $('.buchong .right').height();
+						$('.buchong .left').height(ht_bc+30);
+						$('.buchong .icon1').css('top',ht_bc/2+15-img_c/2);
+						$('.buchong .left p').css('top',ht_bc/2+15-21);
+				  });
+				  $(".arrow-up2").click(function(){
+				 		$('.arrow-up2').css('display','none');
+						get_arrowD2.css('display','block');
+						get_hide2.css('display','none');
+				  });
+				  
+			});
+			
+			//删除
+			function delete_order(){
+				       var oid="{$Think.get.oid}"
+		               var save_url="{:U('MyChat/deleteOrder')}";
+				       $.post(save_url,{'oid':oid},function(data){
+	                        if(data==1){
+	                        	logoutRefreshs();
+	                        }
+	                    },'text');
+		              
+			}
+		</script>
+        <script>
+            //分享
+            function sh_evoke_shares(){
+
+                var url="<?php echo C('DOMAIN').U('Entity/Index/detail',array('id'=>$_GET['id'],'wxfx'=>1)) ?>";
+                var imgurl="<?php echo C('DOMAIN')?>"+"__IMG__/czfx.jpg";
+                var title="众筹建诊所免费得私人医生";
+                var content="空中医院大力推动私人医生服务，发起众筹助梦医生开设连锁诊所，即日起参与众筹，免费获得私人医生服务...";
+                if(navigator.userAgent.match('iPhone')){
+                    //alert(1);
+                    return sh_evoke_share(url,title,imgurl,content);
+                }
+                if(navigator.userAgent.match('Android')){
+                    return  Android.sh_evoke_share(url,title,imgurl,content);
+                }
+            }
+            //增加收藏
+            $('#add_favorite').click(function(){
+
+                var snaliyi_artid="{$Think.get.id}"
+                var save_url="{:U('MyChat/saveFavorite')}";
+                var is_save=$(this).attr("is_save");
+                var isLogin=1;
+                //var isLogin=1;
+                if(isLogin!=1){
+                    mui.alert('用户未登录', '消息', function() {
+
+                    });
+                }else{
+                	var imgUrl="__IMG__/shoucang2.png";
+                    $.post(save_url,{'id':snaliyi_artid,'is_save':is_save},function(data){
+                        if(data==1){
+                           $('#add_favorite img').attr('src',imgUrl);
+                        }
+                    },'text');
+                }
+            });
+        </script>
+	</body>
+
+</html>

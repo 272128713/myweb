@@ -1,0 +1,146 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+
+<script type="text/javascript" src="__PUBLIC__/Home/js/jquery.datetimepicker.js"></script> 
+<link rel="stylesheet" href="__PUBLIC__/Home/css/jquery.datetimepicker.css" type="text/css" />
+
+<script type="text/javascript" src="__PUBLIC__/Home/js/jquery.uploadify.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/uploadify.css"></script>  
+
+<style type="text/css">
+.frmMain{
+	position:relative;
+	margin-top:10px;
+	margin-left:30px;
+}
+.t,.s{
+	border: 1px solid #7C98BD;
+	height:20px;
+}
+</style>
+</head>
+<body bgcolor="#E9EEF5">
+<script language="JavaScript">
+<!--
+$(function(){
+	$('#frmForm').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		if(''==$.trim($('#status').val()))
+		{
+			//alert("错误：信息必须填写完整！");
+			//return false;
+		}
+		// 可以在此添加其它判断
+	}
+    function complete(data){
+        if(data>0)
+        {
+        	if(data==1)
+        	{
+        		var info='新增失败';
+        	}
+        	else
+        	{
+        		var info='错误：数据库异常！';	
+        	}
+            alert(info);
+        }
+        else
+        {
+        	alert('修改成功');        
+        	window.top.mainFrame.optFrame.location.reload();
+        	window.parent.hiddenWindow()
+        }
+    }
+});
+
+//-->
+</script>
+<if condition="$data['id']">
+	<form name="frmForm" id="frmForm" method="post" action="__URL__/ActivityManageModify">
+<else/>	
+	<form name="frmForm" id="frmForm" method="post" action="__URL__/ActivityManageCreate">
+</if>
+
+<div class="frmMain">活动标题： <input class="t" name="title" style="width:180px;" type="text" value="{$data['title']}"/></div>
+<div class="frmMain">活动内容： <textarea style="width:180px;height:60px;" name="content">{$data['content']}</textarea></div>
+<div class="frmMain">活动链接： <input class="t" name="web_url" style="width:180px;" type="text" value="{$data['web_url']}"/></div>
+<div class="frmMain">用户类型： 普通用户<input type="radio" name="user_type" value="1" <if condition="$data['user_type'] eq 1">checked</if>> 医生用户<input type="radio" name="user_type" value="2" <if condition="$data['user_type'] eq 2">checked</if>>全部用户<input type="radio" name="user_type" value="3" <if condition="$data['user_type'] eq 3">checked</if>></div>
+<div class="frmMain">人数限制： <input class="t" name="limit_num" style="width:180px;" type="text" value="{$data['limit_num']}"  /></div>
+<div class="frmMain">开始时间： <input id="start_time" class="t" name="start_time" style="width:180px;" type="text"  value="{$data['start_time']}"/></div>
+<div class="frmMain">结束时间： <input id="end_time" class="t" name="end_time" style="width:180px;" type="text"  value="{$data['end_time']}"/></div>
+<div class="frmMain">状态： 未开始<input type="radio" name="state" value="0" <if condition="$data['state'] eq 0">checked</if>> 正在进行<input type="radio" name="state" value="1" <if condition="$data['state'] eq 1">checked</if>>已停止<input type="radio" name="state" value="2" <if condition="$data['state'] eq 2">checked</if>></div>
+<div class="frmMain"><span style="float:left">活动图片：</span> 
+            <div style="width:80px;height:50px;float:left;margin-top:-8px;">
+				<input type="file" id="upload_picture_img">			
+				<input type="hidden" name="img" id="cover_id_img" value=""/>
+				<input type="hidden" name="pic_url" id="pic_url" value="" >			
+				<div class="upload-img-box">
+				<notempty name="data['img_url']">
+					<div class="upload-pre-item"><img width="220px;" height="140px;" src="{$data['img_url']}"/></div>
+				</notempty>
+				</div>
+			</div>
+      
+</div>
+
+
+
+<input type="hidden" name="id" value="{$data['id']}">
+<div class="frmMain" style="float:right;margin-right:30px;"><include file="Template/button" /></div>
+</form>
+<script>
+$('#start_time').datetimepicker();
+$('#end_time').datetimepicker();
+
+		//上传图片
+	    /* 初始化上传插件 */
+		$("#upload_picture_img").uploadify({
+	        "height"          : 30,
+	        "swf"             : "__PUBLIC__/Home/js/uploadify.swf",
+	        "fileObjName"     : "download",
+	        "buttonText"      : "上传图片",
+	        "uploader"        : "{:U('Common/uploadPicture',array('session_id'=>session_id()))}",
+	        "width"           : 120,
+	        'removeTimeout'	  : 1,
+	        'fileTypeExts'	  : '*.jpg; *.png; *.gif;',
+	        "onUploadSuccess" : uploadPictureimg,
+	        'onFallback' : function() {
+	            alert('未检测到兼容版本的Flash.');
+	        },
+            'formData'     : {
+                '<{:session_name()}>' : '<{:session_id()}>', //此处获取SESSIONID
+                'my_session' : '{$_SESSION["SESS_EmployeeInfo"]["id"]}',
+            }
+
+	    });
+		function uploadPictureimg(file, data){
+	    	var data = $.parseJSON(data);
+	    	var src = '';
+	        if(data.status){
+	        	$("#cover_id_img").val(data.id);
+	        	src = data.url || '__ROOT__' + data.path
+	        	$("#cover_id_img").parent().find('.upload-img-box').html(
+	        		'<div class="upload-pre-item"><img src="' + src + '"/></div>'
+	        	);
+	        	$("#pic_url").val(src);
+	        } else {
+	        	updateAlert(data.info);
+	        	setTimeout(function(){
+	                $('#top-alert').find('button').click();
+	                $(that).removeClass('disabled').prop('disabled',false);
+	            },1500);
+	        }
+	    }
+		</script> 
+</body>
+</html>

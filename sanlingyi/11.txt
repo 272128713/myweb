@@ -1,0 +1,327 @@
+array (
+  0 => 
+  stdClass::__set_state(array(
+     'id' => 102,
+     'name' => '空中诊所连锁西安大唐西市店',
+     'address' => '老机场路246号丰庆苑C座4单元202室',
+     'longitude' => '108.913045',
+     'latitude' => '34.255394',
+     'distance' => '',
+     'logo_url' => 'http://117.34.72.251:8081/Uploads/2016-03-10/56e11ee03d01d.jpg',
+     'area' => '610104',
+     'province' => '610000',
+     'city' => '610100',
+     'physicians' => 
+    array (
+      0 => 
+      stdClass::__set_state(array(
+         'employee_id' => 26001045,
+         'user_name' => '我们自己',
+         'thumbnail_image_url' => 'http://210.14.72.52/group1/M00/01/0F/dSJI-1bLu-aAMsDnAAAGUaQqkfc6236283',
+         'source_image_url' => 'http://210.14.72.52/group1/M00/01/0F/dSJI-1bLu-aAG2bLAAcedghGVdc3419963',
+      )),
+      1 => 
+      stdClass::__set_state(array(
+         'employee_id' => 25036072,
+         'user_name' => '胡墨托',
+         'thumbnail_image_url' => '',
+         'source_image_url' => '',
+      )),
+      2 => 
+      stdClass::__set_state(array(
+         'employee_id' => 25035848,
+         'user_name' => '内网医生',
+         'thumbnail_image_url' => 'http://210.14.72.52/group1/M00/00/A8/dSJI-1W66yyAYuq_AAANIDJ7lCU4847389',
+         'source_image_url' => 'http://210.14.72.52/group1/M00/00/A8/dSJI-1W66yyAaukDAAPqSlj9tkY8581744',
+         'recollection_id' => 20,
+         'duty_id' => 5,
+         'hospital' => '340000-340300-340311-标间渐渐',
+         'skills' => '刚刚给hhj来咯意味着我摸咯我摸着',
+      )),
+      3 => 
+      stdClass::__set_state(array(
+         'employee_id' => 25035889,
+         'user_name' => '我你',
+         'thumbnail_image_url' => '',
+         'source_image_url' => '',
+      )),
+    ),
+  )),
+  1 => 
+  stdClass::__set_state(array(
+     'id' => 103,
+     'name' => '空中诊所连锁西安枫林绿洲店',
+     'address' => '科技六路枫林绿洲F区1号楼2单元204室',
+     'longitude' => '108.90438',
+     'latitude' => '34.221155',
+     'distance' => '',
+     'logo_url' => 'http://117.34.72.251:8081/Uploads/2016-03-10/56e11f1aa09b7.jpg',
+     'area' => '610113',
+     'province' => '610000',
+     'city' => '610100',
+     'physicians' => 
+    array (
+      0 => 
+      stdClass::__set_state(array(
+         'employee_id' => 25036022,
+         'user_name' => '逆境',
+         'thumbnail_image_url' => '',
+         'source_image_url' => '',
+      )),
+      1 => 
+      stdClass::__set_state(array(
+         'employee_id' => 25035848,
+         'user_name' => '内网医生',
+         'thumbnail_image_url' => 'http://210.14.72.52/group1/M00/00/A8/dSJI-1W66yyAYuq_AAANIDJ7lCU4847389',
+         'source_image_url' => 'http://210.14.72.52/group1/M00/00/A8/dSJI-1W66yyAaukDAAPqSlj9tkY8581744',
+         'recollection_id' => 20,
+         'duty_id' => 5,
+         'hospital' => '340000-340300-340311-标间渐渐',
+         'skills' => '刚刚给hhj来咯意味着我摸咯我摸着',
+      )),
+      2 => 
+      stdClass::__set_state(array(
+         'employee_id' => 25035861,
+         'user_name' => 'Testue',
+         'thumbnail_image_url' => 'http://210.14.72.52/group1/M00/01/0F/dSJI-1bKr1CAbVRqAAAL4LzLrQE1314526',
+         'source_image_url' => 'http://210.14.72.52/group1/M00/01/0F/dSJI-1bKr1CAFr-jAA3PVA-ZlgY9309475',
+         'recollection_id' => 12,
+         'duty_id' => 6,
+         'hospital' => '310000-310100-310101-上海市红光医院',
+         'skills' => '糖尿病   甲状腺疾病  肾上腺    呼吸道感染  小儿科    肠胃科',
+      )),
+    ),
+  )),
+  2 => 
+  stdClass::__set_state(array(
+     'id' => 104,
+     'name' => '空中诊所连锁重庆春晖路店',
+     'address' => '西城大道666号锦愉社区卫生服务站',
+     'longitude' => '106.480209',
+     'latitude' => '29.486962',
+     'distance' => '',
+     'logo_url' => 'http://117.34.72.251:8081/Uploads/2016-03-10/56e11f7fc47ae.jpg',
+     'area' => '500104',
+     'province' => '500000',
+     'city' => '500100',
+     'physicians' => 
+    array (
+      0 => 
+      stdClass::__set_state(array(
+         'employee_id' => 25035856,
+         'user_name' => '庸医',
+         'thumbnail_image_url' => 'http://210.14.72.52/group1/M00/00/6D/dSJI-1U93HSAFdEtAAAJ_Vr2MEc7508690',
+         'source_image_url' => 'http://210.14.72.52/group1/M00/00/6D/dSJI-1U93HSAFSnsAAIpm2SOULU2296113',
+      )),
+    ),
+  )),
+  3 => 
+  stdClass::__set_state(array(
+     'id' => 105,
+     'name' => '空中诊所连锁西安i都会店',
+     'address' => '逸翠园2期i都会2A期商铺G2园3栋10104，10105二层',
+     'longitude' => '108.892894',
+     'latitude' => '34.191424',
+     'distance' => '',
+     'logo_url' => 'http://117.34.72.251:8081/Uploads/2016-03-10/56e120001e508.jpg',
+     'area' => '610113',
+     'province' => '610000',
+     'city' => '610100',
+     'physicians' => 
+    array (
+      0 => 
+      stdClass::__set_state(array(
+         'employee_id' => 25036296,
+         'user_name' => '王心',
+         'thumbnail_image_url' => 'http://210.14.72.52/group1/M00/01/17/dSJI-1byUnSAeqP0AAAKIlDgl940531236',
+         'source_image_url' => 'http://210.14.72.52/group1/M00/01/17/dSJI-1byUnSADa6rAACtqecCpnk3694208',
+         'recollection_id' => 1,
+         'duty_id' => 4,
+         'hospital' => '610000-610100-610104-西安市儿童医院',
+         'skills' => '',
+      )),
+      1 => 
+      stdClass::__set_state(array(
+         'employee_id' => 25035918,
+         'user_name' => '1',
+         'thumbnail_image_url' => '',
+         'source_image_url' => '',
+         'recollection_id' => -1,
+         'duty_id' => 0,
+         'hospital' => '',
+         'skills' => '',
+      )),
+    ),
+  )),
+  4 => 
+  stdClass::__set_state(array(
+     'id' => 106,
+     'name' => '空中诊所连锁总店',
+     'address' => '芒市阿露窝罗路37号',
+     'longitude' => '98.59004',
+     'latitude' => '24.444848',
+     'distance' => '',
+     'logo_url' => 'http://117.34.72.251:8081/Uploads/2016-03-14/56e630b68a829.jpg',
+     'area' => '533102',
+     'province' => '530000',
+     'city' => '533100',
+     'physicians' => 
+    array (
+      0 => 
+      stdClass::__set_state(array(
+         'employee_id' => 25035861,
+         'user_name' => 'Testue',
+         'thumbnail_image_url' => 'http://210.14.72.52/group1/M00/01/0F/dSJI-1bKr1CAbVRqAAAL4LzLrQE1314526',
+         'source_image_url' => 'http://210.14.72.52/group1/M00/01/0F/dSJI-1bKr1CAFr-jAA3PVA-ZlgY9309475',
+         'recollection_id' => 12,
+         'duty_id' => 6,
+         'hospital' => '310000-310100-310101-上海市红光医院',
+         'skills' => '糖尿病   甲状腺疾病  肾上腺    呼吸道感染  小儿科    肠胃科',
+      )),
+    ),
+  )),
+  5 => 
+  stdClass::__set_state(array(
+     'id' => 107,
+     'name' => '空中诊所连锁北京王府井店 ',
+     'address' => '雁翅镇',
+     'longitude' => '115.878058',
+     'latitude' => '40.054887',
+     'distance' => '',
+     'logo_url' => 'http://117.34.72.251:8081/Uploads/2016-03-14/56e630b68a829.jpg',
+     'area' => '110109',
+     'province' => '110000',
+     'city' => '110100',
+     'physicians' => 
+    array (
+      0 => 
+      stdClass::__set_state(array(
+         'employee_id' => 25035861,
+         'user_name' => 'Testue',
+         'thumbnail_image_url' => 'http://210.14.72.52/group1/M00/01/0F/dSJI-1bKr1CAbVRqAAAL4LzLrQE1314526',
+         'source_image_url' => 'http://210.14.72.52/group1/M00/01/0F/dSJI-1bKr1CAFr-jAA3PVA-ZlgY9309475',
+         'recollection_id' => 12,
+         'duty_id' => 6,
+         'hospital' => '310000-310100-310101-上海市红光医院',
+         'skills' => '糖尿病   甲状腺疾病  肾上腺    呼吸道感染  小儿科    肠胃科',
+      )),
+      1 => 
+      stdClass::__set_state(array(
+         'employee_id' => 25035888,
+         'user_name' => '李里面还有什么时候开始',
+         'thumbnail_image_url' => 'http://210.14.72.52/group1/M00/01/14/dSJI-1bnvT6AHWqKAAAO4xd613E5344223',
+         'source_image_url' => 'http://210.14.72.52/group1/M00/01/14/dSJI-1bnvT6AGz90AABksarn7OI8100051',
+         'recollection_id' => 37,
+         'duty_id' => 6,
+         'hospital' => '110000-110100-110101-刚好海刚发广告刚刚给发广告刚刚给',
+         'skills' => '',
+      )),
+    ),
+  )),
+  6 => 
+  stdClass::__set_state(array(
+     'id' => 108,
+     'name' => '空中诊所连锁澳门海湾村店',
+     'address' => '海湾村',
+     'longitude' => '113.558314',
+     'latitude' => '22.194433',
+     'distance' => '',
+     'logo_url' => 'http://117.34.72.251:8081/Uploads/2016-03-14/56e630b68a829.jpg',
+     'area' => '820000',
+     'province' => '820000',
+     'city' => '820000',
+     'physicians' => 
+    array (
+      0 => 
+      stdClass::__set_state(array(
+         'employee_id' => 25036119,
+         'user_name' => 'doc3629',
+         'thumbnail_image_url' => '',
+         'source_image_url' => '',
+      )),
+      1 => 
+      stdClass::__set_state(array(
+         'employee_id' => 25036121,
+         'user_name' => 'user3621',
+         'thumbnail_image_url' => '',
+         'source_image_url' => '',
+      )),
+    ),
+  )),
+  7 => 
+  stdClass::__set_state(array(
+     'id' => 109,
+     'name' => '空中诊所测试点',
+     'address' => '绿地蓝海',
+     'longitude' => '108.891058',
+     'latitude' => '34.203602',
+     'distance' => '',
+     'logo_url' => 'http://117.34.72.251:8081/Uploads/2016-03-21/56ef53c5e5fcb.jpg',
+     'area' => '610113',
+     'province' => '610000',
+     'city' => '610100',
+     'physicians' => 
+    array (
+      0 => 
+      stdClass::__set_state(array(
+         'employee_id' => 25036296,
+         'user_name' => '王心',
+         'thumbnail_image_url' => 'http://210.14.72.52/group1/M00/01/17/dSJI-1byUnSAeqP0AAAKIlDgl940531236',
+         'source_image_url' => 'http://210.14.72.52/group1/M00/01/17/dSJI-1byUnSADa6rAACtqecCpnk3694208',
+         'recollection_id' => 1,
+         'duty_id' => 4,
+         'hospital' => '610000-610100-610104-西安市儿童医院',
+         'skills' => '',
+      )),
+    ),
+  )),
+  8 => 
+  stdClass::__set_state(array(
+     'id' => 110,
+     'name' => '空中诊所连锁上海虹口西江湾路凯德龙之梦店',
+     'address' => '虹口区西江湾路388号凯德龙之梦广场（近虹口足球场）',
+     'longitude' => '121.485163',
+     'latitude' => '31.276781',
+     'distance' => '',
+     'logo_url' => '',
+     'area' => '310109',
+     'province' => '310000',
+     'city' => '310100',
+     'physicians' => 
+    array (
+      0 => 
+      stdClass::__set_state(array(
+         'employee_id' => 25035893,
+         'user_name' => '用户吃饭不',
+         'thumbnail_image_url' => 'http://210.14.72.52/group1/M00/00/E8/dSJI-1ZK7I2AcjzhAAAbSx-UcV44292221',
+         'source_image_url' => 'http://210.14.72.52/group1/M00/00/E8/dSJI-1ZK7I2AHaHMAAAmQyKlR908233204',
+         'recollection_id' => 2,
+         'duty_id' => 6,
+         'hospital' => '110000-110100-110105-突然失去其实实事求是还哈哈哈哈涂图图提供涂拖拉机她',
+         'skills' => '肿瘤科   眼科   焦虑症 甲状腺疾病 儿科 呼吸道感染科 内分泌科   各种皮肤病 抑郁病 精神病 精神分裂',
+      )),
+      1 => 
+      stdClass::__set_state(array(
+         'employee_id' => 25035988,
+         'user_name' => '九八零一',
+         'thumbnail_image_url' => 'http://210.14.72.52/group1/M00/00/BF/dSJI-1XcI26AHw--AAAK2KeitKE1199132',
+         'source_image_url' => 'http://210.14.72.52/group1/M00/00/BF/dSJI-1XcI26ANL7GAABH9kdWTtc9673476',
+         'recollection_id' => 46,
+         'duty_id' => 5,
+         'hospital' => '210000-210600-210603-丹东市第二轻工业局职工医院',
+         'skills' => '各种皮肤病    抑郁病   精神病   精神分裂   心里疾病 焦虑症   甲状腺疾病   儿科   呼吸道感染科   内分泌科   肿瘤科   狂躁症',
+      )),
+      2 => 
+      stdClass::__set_state(array(
+         'employee_id' => 25036292,
+         'user_name' => 'demos',
+         'thumbnail_image_url' => 'http://210.14.72.52/group1/M00/00/E9/dSJI-1ZPDoOAcAtsAABGZimyz1E9465064',
+         'source_image_url' => 'http://210.14.72.52/group1/M00/00/E9/dSJI-1ZPDoOAMai8AAB56A-lCS42488951',
+         'recollection_id' => 1,
+         'duty_id' => 6,
+         'hospital' => '140000-140100-140107-太原传染病医院山西省疾病预防控制中心',
+         'skills' => '甲状腺疾病 儿科  妇科    眼科   呼吸道感染科   肿瘤科   眼科   焦虑症 内分泌科   各种皮肤病 抑郁病 精神病 精神分裂',
+      )),
+    ),
+  )),
+)

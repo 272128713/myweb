@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<style type="text/css">
+.info{
+	text-align:center;
+	width:100%;
+	margin-top:4px;
+	height:22px;
+	line-height:22px;
+}
+.frmItem{
+	position:relative;
+	margin-top:20px;
+	margin-left:20px;
+	height:24px;
+	float:left;
+}
+.t,.s{
+	border: 1px solid #7C98BD;
+	height:20px;
+}
+.s{
+	height:24px;
+}
+</style>
+<script language="JavaScript">
+<!--
+$(function(){	
+	$('#frmForm').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		if(''==$.trim($('#itemName').val()))
+		{
+			alert("错误：信息必须填写完整！");
+			return false;
+		}
+		//if(''==$.trim($('#operate').val()) && $('#field').val()==0){
+		//	alert("错误：请填写对应的模块名称！");
+		//	return false;
+		//}
+		// 可以在此添加其它判断
+	}
+    function complete(data){
+        if(data>0)
+        {
+        	if(data==1)
+        	{
+        		var info='错误：名称重复！';
+        	}
+        	else
+        	{
+        		var info='错误：数据库异常，请稍候再试！';	
+        	}
+        	alert(info);
+        }
+        else
+        {
+        	window.location="__URL__/moduleList/id/{$data.buttonID}/data/{$data.moduleID}";
+        }
+    }
+});
+//-->
+</script>
+</head>
+<body bgcolor="#E9EEF5">
+<!-- 
+<div class="info">数据库：{$data.dbName} &nbsp;&nbsp; 数据表：{$data.tbName}</div>
+<hr />
+ -->
+<form name="frmForm" id="frmForm" method="post" action="__URL__/moduleListModify">
+<div style="margin-left:auto;margin-right:auto;width:80%">
+	<div class="frmItem">标题文字： <input class="t" type="text" name="item_name" id="itemName" value="{$data.item_name}" /></div>
+	<div class="frmItem">排列顺序：  <select class="s" name="position" style="width:132px">
+		<option value='0'>显示在第一位</option>
+	<volist name="poList" id="vo">
+		<option value="{$vo.position}" <lt name="vo.position" value="$data.position">selected</lt>>
+		在【{$vo.item_name}】之后
+		</option>
+	</volist>
+	</select></div>
+	<input type="hidden" name="fieldList" value="" />
+	<input type="hidden" name="operate" value="" />
+	<!-- 
+	<div class="frmItem">对应字段：  <select class="s" name="item_field" id="field" style="width:132px">
+		<option value='0'>不对应字段</option>
+		<notempty name="data.item_field"><option value="{$data.item_field}" selected>{$data.item_field}</option></notempty>
+		<volist name="fieldList" id="vo">
+			<option value="{$vo.name}">{$vo.name}</option>
+		</volist>
+	</select></div>
+	<div class="frmItem" id="controller">对应模块： <input class="t" type="text" name="operate" id="operate" value="{$data.operate}" /></div>
+	 -->
+	<div class="frmItem" style="clear:left">列表宽度：  <input class="t" type="text" name="item_width" value="{$data.item_width}" style="width:54px" /></div>
+	<div class="frmItem">是否居中：  <select class="s" name="isCenter" style="width:60px">
+		<option value='0' <if condition="$data.isCenter eq 0">selected</if>>否</option>
+		<option value='1' <if condition="$data.isCenter eq 1">selected</if>>是</option>
+	</select></div>
+	<div class="frmItem">是否排序：  <select class="s" name="isOrder" style="width:60px">
+		<option value='0' <if condition="$data.isOrder eq 0">selected</if>>否</option>
+		<option value='1' <if condition="$data.isOrder eq 1">selected</if>>是</option>
+	</select></div>
+	<div style="clear:left;margin-top:30px;float:right;margin-right:10px;"><include file="Template/button" /><input type="button" value="返回列表" onclick="javascript:history.go(-1);"></div>
+</div>
+<input type="hidden" name="itemID" value="{$data.itemID}" />
+<input type="hidden" name="moduleID" value="{$data.moduleID}" />
+</form>
+</body>
+</html>

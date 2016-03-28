@@ -1,0 +1,249 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.3"></script>
+<style type="text/css">
+.frmMain{
+	position:relative;
+	width:90%;
+	height:26px;	
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+}
+.item{
+	float:left;
+	margin-left:10px;
+}
+</style>
+</head>
+<body bgcolor="#E9EEF5">
+<script language="JavaScript">
+<!--
+$(function(){
+	$('#frmForm').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		// 可以在此添加其它判断
+	}
+    function complete(data){
+        if(data>0)
+        {
+        	if(data==1)
+        	{
+        		var info='错误：数据库异常！';
+        	}
+            alert(info);
+        }
+        else
+        {
+        	alert('修改成功');        
+        	window.top.mainFrame.optFrame.location.reload();
+        	window.parent.hiddenWindow()
+        }
+    }
+});
+//-->
+</script>
+<form name="frmForm" id="frmForm" method="post" action="__URL__/EntityHospitalApplyChangeModify">
+<div class="frmMain">
+	<div class="item" style="color:red">{$data['tips']}	
+	</div>
+	<div class="item">诊所类型：
+		<select name="type">
+			<option value="0"  <if condition="$data['type'] eq 0">selected</if> >请选择</option>
+			<option value="1"  <if condition="$data['type'] eq 1">selected</if> >全科诊所</option>
+			<option value="2"  <if condition="$data['type'] eq 2">selected</if> >中医诊所</option>
+			<option value="3"  <if condition="$data['type'] eq 3">selected</if> >专科诊所</option>
+			<option value="4" <if condition="$data['type'] eq 4">selected</if> >健康咨询中心</option>
+			<option value="5" <if condition="$data['type'] eq 5">selected</if> >督脉正阳保健中心</option>
+			<option value="6" <if condition="$data['type'] eq 6">selected</if> >现有诊所</option>
+			<option value="7" <if condition="$data['type'] eq 7">selected</if> >现有健康服务机构</option>
+		</select>		
+	</div>
+	<div class="item">目标人群：
+		<select name="targets">
+			<option value="0"  <if condition="$data['targets'] eq 0">selected</if> >请选择</option>
+			<option value="1"  <if condition="$data['targets'] eq 1">selected</if> >妇女</option>
+			<option value="2"  <if condition="$data['targets'] eq 2">selected</if> >离退老人</option>
+			<option value="3"  <if condition="$data['targets'] eq 3">selected</if> >白领与私营</option>
+			<option value="4" <if condition="$data['targets'] eq 4">selected</if> >社区居民</option>
+		</select>		
+	</div>
+	<div style="clear:both"></div>
+	<div class="item">&nbsp;&nbsp;&nbsp;所在省： 
+		<select name="province" id="province">
+			<option value="-1">所在省</option>
+			<volist name="provinces" id="pro">
+				<option value="{$pro['provinceID']}" <if condition="$pro['provinceID'] eq $data['province']"> selected </if> >{$pro['province']}</option>
+			</volist>
+		</select>
+	</div>
+	<div class="item">&nbsp;&nbsp;所在市：
+		<select name="city" id="city">
+			<if condition="$data['city']">
+				<volist name="citys" id="ci">
+					<option value="{$ci['cityID']}" <if condition="$ci['cityID'] eq $data['city']"> selected </if> >{$ci['city']}</option>
+				</volist>
+			<else/>
+				<option value="-1">所在市</option>
+			</if>	
+		</select>
+	</div>
+	<div class="item">&nbsp;&nbsp;&nbsp;所在区：	
+		<select name="section" id="area">
+			<if condition="$data['area']">
+				<volist name="areas" id="ar">
+					<option value="{$ar['areaID']}" <if condition="$ar['areaID'] eq $data['area']"> selected </if> >{$ar['AREA']}</option>
+				</volist>
+			<else/>
+				<option value="-1">所在区</option>
+			</if>
+		</select>
+		<input type="button" onclick="searchMap()" value="获取经纬度">					
+	</div>
+	<div class="item">详细地址： <input type="text" name="address" id="address" style='width:170px'value="{$data['address']}"  /></div>	
+	<div class="item">经&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;度： <input type="text" name="longitude" id="longitude" style='width:170px'value="{$data['longitude']}"  /></div>
+	<div class="item">纬&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;度： <input type="text" name="latitude"  id="latitude" style='width:170px'value="{$data['latitude']}"  /></div>
+	<div class="item">&nbsp;&nbsp;&nbsp;诊所名： <input type="text" name="clinic_name"  style='width:170px'value="{$data['clinic_name']}"  /></div>	
+	<div class="item">房&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型： <input type="text" name="clinic_nature"  style='width:170px'value="{$data['clinic_nature']}"  /></div>
+	<div class="item">租&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;金： <input type="text" name="clinic_rent"  style='width:170px'value="{$data['clinic_rent']}"  /></div>
+	<div class="item">使用年限： <input type="text"  name="clinic_age" style='width:170px'value="{$data['clinic_age']}"  /></div>
+	<div class="item">周边描述：
+			<textarea cols="30" rows="3" name="clinic_edge">{$data['clinic_edge']}</textarea>	 		
+	 </div>
+	<div class="item">&nbsp;&nbsp;&nbsp;审批人： <input type="text" disabled style='width:170px'value="{$data['manager_name']}"  /></div>
+	<div class="item">审批时间： <input type="text"   style='width:170px'value="{$data['manage_time']}" disabled /></div>
+	 	
+	<div class="item">审批状态：<input type="radio" name="state" value="1" <if condition="$data['state'] eq 1">checked</if>>待审批 <input type="radio" name="state" value="2" <if condition="$data['state'] eq 2">checked</if>>通过 <input type="radio" name="state" value="3" <if condition="$data['state'] eq 3">checked</if>>未通过 </div>	
+	<div class="item">拒绝理由：
+		<select name="manage_state">
+			<option value="0"  <if condition="$data['manage_state'] eq 0">selected</if> >请选择</option>
+		<!-- 	<option value="1"  <if condition="$data['manage_state'] eq 1">selected</if> >不在此次规划范围内</option>  -->
+			<option value="2"  <if condition="$data['manage_state'] eq 2">selected</if> >场所面积不达标</option>
+			<option value="3"  <if condition="$data['manage_state'] eq 3">selected</if> >场所位置重合</option>
+			<option value="4"  <if condition="$data['manage_state'] eq 4">selected</if> >合伙人已拥有诊所</option>
+		</select>		
+	</div>
+	<div style="clear:both"></div>
+	 
+	<div class="item" style="color:red;">
+		不在此次规划范围内：（不做任何审批操作）<br>		
+	</div>
+			
+	<input type="hidden" name="id" value="{$data['id']}">
+	
+	    <div id="container" 
+            style="position: absolute;
+                margin-top:30px; 
+                width: 730px; 
+                height: 590px; 
+                top: 50; 
+                border: 1px solid gray;
+                display:none;
+                overflow:hidden;">
+        </div>
+        
+</div>
+<div style="float:right;margin-right:36px;margin-top:10px"><include file="Template/button"/></div>
+</form>
+<script>
+	$('#province').change(function(){
+		var province=$('#province').val();
+		var url="{:U('ajax/changeProvince')}";	
+		var str='';
+		$.ajax({
+			url: url,
+			type: 'POST',
+			data:{province:province},
+			dataType: 'JSON',
+			error: function () {  },
+			success: function(data){
+				str+='<option value="-1">所在市</option>';
+				$.each(data,function(i,val){
+					 str+="<option value="+val.cityID+">"+val.city+"</option>";
+				})
+				$('#city').html(str);
+			}
+		});
+     });
+	$('#city').change(function(){
+		var city=$('#city').val();
+		var url="{:U('ajax/changeCity')}";	
+		var str='';
+		$.ajax({
+			url: url,
+			type: 'POST',
+			data:{city:city},
+			dataType: 'JSON',
+			error: function () {  },
+			success: function(data){
+				str+='<option value="-1">所在区</option>';				
+				$.each(data,function(i,val){
+					 str+="<option value="+val.areaID+">"+val.AREA+"</option>";
+				})
+				$('#area').html(str);
+			}
+		});
+     });	
+
+</script>
+<script type="text/javascript">
+    var map = new BMap.Map("container");
+    map.centerAndZoom("西安", 12);
+    map.enableScrollWheelZoom();    //启用滚轮放大缩小，默认禁用
+    map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+
+    map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+    map.addControl(new BMap.OverviewMapControl()); //添加默认缩略地图控件
+    map.addControl(new BMap.OverviewMapControl({ isOpen: true, anchor: BMAP_ANCHOR_BOTTOM_RIGHT }));   //右下角，打开
+
+    var localSearch = new BMap.LocalSearch(map);
+    localSearch.enableAutoViewport(); //允许自动调节窗体大小
+function searchMap() {
+    map.clearOverlays();//清空原来的标注
+    
+    
+    
+    var province=$("#province").find("option:selected").text();
+    var city=$("#city").find("option:selected").text();
+    var area=$("#area").find("option:selected").text();
+    var address=$("#address").val();
+    
+    if(city){
+    	var keyword=province+city+address;	
+    }else{
+    	var keyword=province+address;	
+    }
+    
+    
+    //alert(keyword);
+    
+   // var keyword = document.getElementById("text_").value;
+    localSearch.setSearchCompleteCallback(function (searchResult) {
+        var poi = searchResult.getPoi(0);
+        
+        $("#longitude").val(poi.point.lng);
+        $("#latitude").val(poi.point.lat);
+        
+        //document.getElementById("result_").value = poi.point.lng + "," + poi.point.lat;
+        //map.centerAndZoom(poi.point, 13);
+        //var marker = new BMap.Marker(new BMap.Point(poi.point.lng, poi.point.lat));  // 创建标注，为要查询的地方对应的经纬度
+        //map.addOverlay(marker);
+        //var content = document.getElementById("text_").value + "<br/><br/>经度：" + poi.point.lng + "<br/>纬度：" + poi.point.lat;
+        //var infoWindow = new BMap.InfoWindow("<p style='font-size:14px;'>" + content + "</p>");
+       // marker.addEventListener("click", function () { this.openInfoWindow(infoWindow); });
+        // marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+    });
+    localSearch.search(keyword);
+} 
+</script>
+</body>
+</html>

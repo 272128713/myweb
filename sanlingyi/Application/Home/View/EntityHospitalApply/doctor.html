@@ -1,0 +1,84 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>  
+
+<style type="text/css">
+.frmMain{
+	position:relative;
+	width:800px;
+	height:26px;	
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+}
+.item{
+	float:left;
+	margin-left:5px;
+	margin-bottom:5px;
+	width:350px;
+}
+</style>
+</head>
+<body bgcolor="#E9EEF5">
+<script language="JavaScript">
+<!--
+$(function(){
+	$('#frmForm').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		// 可以在此添加其它判断
+	
+
+		
+	}
+    function complete(data){
+        if(data>0)
+        {
+        	if(data==1)
+        	{
+        		var info='错误：数据库异常！';
+        	}
+            alert(info);
+        }
+        else
+        {
+        	alert('修改成功');        
+        	window.top.mainFrame.optFrame.location.reload();
+        	window.parent.hiddenWindow()
+        }
+    }
+});
+//-->
+</script>
+	<form name="frmForm" id="frmForm" method="post" action="__URL__/EntityHospitalDoctorManageModify">
+
+<div class="frmMain">
+<div style="">		 	 
+	 <div class="item" style="">{$data[0]['doctor_name']}：({$data[0]['mobile']})
+	 	<textarea name="content[]" cols="40" rows="5" style="float:right;">{$data[0]['content']}</textarea>		 				
+	 </div>		 
+	 <div style="clear:both"></div>		
+	 <div class="item" style="">{$data[1]['doctor_name']}：({$data[1]['mobile']})
+	 	<textarea name="content[]" cols="40" rows="5" style="float:right;">{$data[1]['content']}</textarea>		 				
+	 </div>		 
+	 <div style="clear:both"></div>	
+	 <div class="item" style="">{$data[2]['doctor_name']}：({$data[2]['mobile']})<span style="color:red">申请提交者</span>
+	 	<textarea name="content[]" cols="40" rows="5" style="float:right;">{$data[2]['content']}</textarea>		 				
+	 </div>		 
+	 <div style="clear:both"></div>		 	 
+	 <div style="float:left;margin-left:200px;"><include file="Template/button" /> </div>
+	 </div>		
+	<input type="hidden" name="id[]" value="{$data[0]['doctor_id']}">
+	<input type="hidden" name="id[]" value="{$data[1]['doctor_id']}">
+	<input type="hidden" name="id[]" value="{$data[2]['doctor_id']}">
+</div>
+</form>
+</body>
+</html>

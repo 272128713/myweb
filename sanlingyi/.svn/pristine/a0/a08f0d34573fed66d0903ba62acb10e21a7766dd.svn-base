@@ -1,0 +1,63 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<style type="text/css">
+.frmMain{
+	position:relative;
+	width:90%;
+	height:26px;	
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+}
+.item{
+	margin-left:10px;
+}
+</style>
+</head>
+<body bgcolor="#E9EEF5">
+<script language="JavaScript">
+<!--
+$(function(){
+	$('#frmForm').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		// 可以在此添加其它判断
+	}
+    function complete(data){
+        if(data>0)
+        {
+        	if(data==1)
+        	{
+        		var info='错误：数据库异常！';
+        	}
+            alert(info);
+        }
+        else
+        {
+        	window.location.href=window.location.href;
+        	window.top.mainFrame.optFrame.location.reload();
+        }
+    }
+});
+//-->
+</script>
+<div class="frmMain">	
+	<div class="item">用户&nbsp;&nbsp;ID： <input type="text"  style='width:170px'value="{$data['user_id']}"  /></div>
+</div>		
+<div class="frmMain">	
+	<div class="item">手机号码： <input type="text"  style='width:170px'value="{$data['phone']}"  /></div>
+</div>		
+<div class="frmMain">	
+	<div class="item"><textarea style="width:380px;height:260px">{$data['content']}</textarea></div>
+</div>	
+</form>
+</body>
+</html>

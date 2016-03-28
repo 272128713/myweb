@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+<!--
+var _PUBLIC="__PUBLIC__";
+//-->
+</script>
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<script type="text/javascript">
+<!--
+
+//-->
+</script>
+</head>
+<body>
+<div style="border-bottom:1px solid #7c98bd;">
+  <include file="Template/list" />
+</div>
+<form name="frmForm" id="frmForm" method="post" action="__URL__/EnHospitalManageServiceCreate">
+<div style="margin-left:10px;margin-top:5px;">
+添加一个服务:
+<select id="service_id" style="width:100px" >
+	<volist name="sList" id='vo'>
+		<option value="{$vo.id}">{$vo.name}</option>
+	</volist>
+</select> 
+价格：<input type=" text" id="price" style="width:50px" >
+浮动率：<input type=" text" id="drift" style="width:50px" >
+排序：<input type=" text" id="index_key" style="width:50px" >
+<input type="hidden" id="clinic_id" value='{$clinic_id}'>
+<input type="button" value="保存信息" id="EnHospitalManageServiceAdd" class="b">
+</div>
+
+</form>
+</body>
+<script type="text/javascript">
+$('#EnHospitalManageServiceAdd').click(function(){
+	var service_id=$('#service_id').val();
+		
+	if(service_id<1){
+		alert('未选择服务');
+		return false;
+	}
+	
+	var price=$('#price').val();
+	var drift=$('#drift').val();
+	var index_key=$('#index_key').val();
+	var clinic_id=$('#clinic_id').val();
+	var url="{:U('EnHospitalManage/EnHospitalManageServiceCreate')}";	
+	var str='';
+	$.ajax({
+		url: url,
+		type: 'POST',
+		data:{service_id:service_id,price:price,drift:drift,index_key:index_key,clinic_id:clinic_id},
+		dataType: 'JSON',
+		error: function () {  },
+		success: function(data){
+				if(data>0){
+					alert('分配失败');
+				}else{
+					alert('分配成功');
+				}				
+				window.location.reload();
+	        	/*
+	        	window.parent.hiddenWindow()
+	        	*/
+	        	
+		}
+	});
+});
+
+
+
+
+
+<!--
+var th = $(window).height()-90;
+$('#optFrame').height(th);
+//-->
+</script>
+</html>

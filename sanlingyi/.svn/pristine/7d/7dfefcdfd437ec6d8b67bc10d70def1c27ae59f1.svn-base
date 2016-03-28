@@ -1,0 +1,165 @@
+head h1{
+}
+header img{
+	height: 44px;
+	cursor: pointer;
+}
+.navi{
+	position: fixed;
+	top:45px;
+	right: 0;
+	width: 30%;
+	color: #000;
+	z-index: 9999;
+	display: none;
+	padding: 4px;
+	text-align: center;
+}
+.navi .bg{
+	position: absolute;
+	top:0;
+	right: 0;
+	width: 100%;
+	z-index: 9000;
+    height: 100%;
+    background-color:#676767;
+    filter:Alpha(opacity=50);
+    background-color: rgba(0,0,0,0.5);
+}
+.navi p{
+	position: relative;
+	z-index: 9001;
+	border-bottom: 1px solid #fff;
+	margin: 0;
+	
+}
+
+.navi a{
+	line-height: 3.5em;
+	font-size: 12px;
+	color: #fff;
+	display: block;
+}
+.navi img{
+	width: 1.5em;
+	position: relative;
+	top:0.4em;
+	margin-right: 0.3em;
+}
+.navi .p_btm {
+	border: 0;
+}
+.navi .p_btm a{
+	line-height: 1em;
+	padding-top:10px;
+	padding-bottom: 10px;
+}
+.p_btm img{
+	position: inherit;
+	margin-left: 0.5em;
+	width: 2.2em;
+}
+.navi a:hover{
+	background: #666;
+}
+.hot{
+	line-height: 3em;
+	font-size: 16px;
+	color: #30C6DF;
+}
+.hot img{
+	position: relative;
+	top:2px;
+	margin-right: 0.3em;
+	height: 16px;
+}
+.arrow{
+	line-height: 2em;
+	padding-left: 1em;
+	cursor: pointer;
+}
+.hot-box{
+	border: 1px solid #e1e1e1;
+	padding: 3px;
+	cursor: pointer;
+}
+.hot-box img{
+	width: 100%;
+}
+.hot-title{
+	width:98%;
+	margin: auto;
+	color:#000;
+	line-height: 2.2em;
+}
+.hot-content{
+	width: 98%;
+	margin: auto;
+	padding-bottom: 0.5em;
+}
+.canyu{
+	width: 98%;
+	margin: auto;
+	border-top: 1px solid #E1E1E1;
+	line-height: 2em;
+	font-size:12px;
+}
+.canyu span{
+	font-size:12px;
+}
+.canyu img{
+	width: 0.9em;
+	position: relative;
+	top:1px;
+	margin-right: 0.3em;
+}
+.newat{
+	font-size:14px;
+	height: 2em;
+	line-height: 2em;
+	padding-left: 2%;
+	background: #82dbeb;
+	color: #fff;
+	margin-top: 1em;
+}
+.newat a{
+	font-size:12px;
+}
+.new-list{
+	width:100%;
+}
+.new-list li{
+	padding-top: 1em;
+	padding-bottom: 1em;
+	border-bottom: 1px solid #dcdcdc;
+	cursor: pointer;
+}
+.new-list .headimg{
+	width: 100%;
+	position: relative;
+}
+.new-list img {
+	float: left;
+	width: 17%;
+}
+.list-box{
+	float: left;
+	width: 83%;
+	padding-left: 0.5em;
+}
+.list-box .p1{
+	font-size:15px;
+	font-family: "微软雅黑";
+	color:#000;
+	float: left;
+}
+.list-box .p2{
+	position: absolute;
+	right: 3%;
+	color: #333;
+	font-size:12px;
+}
+.list-box .p3{
+	padding-top:0.5em;
+	color: #333;
+}

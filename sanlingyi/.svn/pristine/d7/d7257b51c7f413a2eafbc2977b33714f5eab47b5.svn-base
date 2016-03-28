@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+<!--
+var _PUBLIC="__PUBLIC__";
+//-->
+</script>
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/frameCombine.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+<!--
+$(function(){
+	var mv=document.getElementById('MoveButton');
+	var ttw=document.getElementById('TreeTitle');
+	var tfw=document.getElementById('TreeFrame');
+	var moveable = false;
+	mv.onmouseover=function(e){
+		mv.style.cursor='w-resize';
+	};
+	mv.onmousedown=function(e){
+		moveable=true;
+		window.document.onmousemove=function(e){
+			if(moveable){
+				e = window.event?window.event:e;
+				var x = e.clientX;
+				if ( x > 160 && x < 360 ) 
+				{
+					ttw.style.width = x + "px";
+					ttw.style.margin = "auto";
+					tfw.style.width = x+2 + "px";
+					tfw.style.margin = "auto";	
+				}
+			}
+		}
+		window.document.onmouseup = function () {moveable = false;};
+		ttw.onselectstart = function(e){return false;}
+	};
+})
+//-->
+</script>
+</head>
+<body>
+<table>
+  <tr>
+  	<td id="TreeTitle"><img class="TreeTitleIcon" src="__PUBLIC__/Home/images/dtree/title.gif" />树形菜单列表选择区</td>
+	<td id="MoveButton"></td>
+	<td><include file="Template/bar" /></td>
+  </tr>
+</table>
+<table>
+  <tr>
+  	<td id="TreeFrame" valign='top'><include file="Template/tree" /></td>
+  	<td width="1" bgcolor="#99bbe8"></td>
+  	<td valign="top"><include file="Template/list" /></td>
+  </tr>
+</table>
+<script language="JavaScript">
+var th = $(window).height();
+$("#TreeFrame").height(th-27);
+$(function(){
+	$(window).resize(function() {
+		var th = $(window).height();
+		$("#TreeFrame").height(th-27);
+	});
+});
+</script>
+</body>
+</html>

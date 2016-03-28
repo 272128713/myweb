@@ -1,0 +1,48 @@
+
+                        <foreach name="news" item="vo">
+                            <li>
+                                <a  onclick="gotoIos('{:U('Index/detail',array('aid'=>$vo['id']))}')">
+
+                                <div class="headimg">
+                                    <div style="position: absolute;z-index:1;width: 100%;">
+                                        <php>
+                                            if($vo['authentication']==11){
+
+                                        </php>
+                                        <img src="__IMG__/icon_authdoctor_v2.png" style="width:8.5%;"/>
+                                        <php>
+                                            }else if($vo['authentication']==1){
+                                        </php>
+                                        <img src="__IMG__/icon_authdoctor_v1.png" style="width:8.5%;"/>
+                                        <php>}</php>
+                                        <img class="auth" src="__IMG__/icon_authdoctor.png" style="width:5.5%;position:absolute;left:9%;"/>
+                                    </div>
+                                    <img src="{$vo.img_url}"/>
+                                </div>
+
+                                <div class="list-box">
+                                    <p class="p1 ">
+                                         {$vo.user_name}
+                                        <p class="p2"><php>echo $vo['recollection_id'];</php></p>
+                                        <div class="clear"></div>
+                                    </p>
+
+                                    <div class="p3">
+                                        <div>{$vo.title}</div>
+                                        <php>
+                                            if($vo['cimg_url'][0]['source_image_url']){
+                                        </php>
+                                        <img src="<php>echo $vo['cimg_url'][0]['source_image_url'];</php>" alt="" style="width: 35%;float: none;margin-top: 5px"/>
+                                        <php>}</php>
+                                    </div>
+                                    <div class="p4">
+                                        <div class="time"><php>echo substr($vo['createDate'],5,5);</php></div>
+                                        <div class="blue sort"><php> echo get_name($vo['columns']); </php></div>
+                                        <div class="joined">已参与人次：{$vo.comment_cont}</div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                                </a>
+                            </li>
+                        </foreach>

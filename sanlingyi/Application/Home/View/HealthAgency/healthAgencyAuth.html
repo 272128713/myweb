@@ -1,0 +1,137 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<style type="text/css">
+.frmMain{
+	position:relative;
+	width:90%;
+	height:26px;	
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:5px;
+}
+.item{
+	float:left;
+	margin-left:10px;
+}
+</style>
+</head>
+<body bgcolor="#E9EEF5">
+<script language="JavaScript">
+<!--
+$(function(){
+	$('#frmForm').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		// 可以在此添加其它判断
+	}
+    function complete(data){
+        if(data>0)
+        {
+        	if(data==1)
+        	{
+        		var info='错误：数据库异常！';
+        	}
+            alert(info);
+        }
+        else
+        {
+        	alert(' 审批成功');        
+        	window.top.mainFrame.optFrame.location.reload();
+        	window.parent.hiddenWindow()
+        }
+    }
+});
+//-->
+</script>
+
+<div class="frmMain">
+	<div class="item">&nbsp;&nbsp;申请人： <input type="text"  style='width:170px'value="{$data['name']}"  /></div>
+	<div class="item">&nbsp;&nbsp;&nbsp;性别： <input type="text"  style="width:170px"value="{$data['sex']}" /></div>
+</div>
+<div class="frmMain">
+	<div class="item">出生日期： <input type="text"  style='width:170px' value="{$data['birthday']}"/></div>
+	<div class="item">&nbsp;&nbsp;&nbsp;电话： <input type="text"  style="width:170px" value="{$data['mobile']}" /></div>
+</div>
+<div class="frmMain">
+	<div class="item">&nbsp;&nbsp;所在省： <input type="text"  style='width:170px' value="{$data['province']}"/></div>
+	<div class="item">&nbsp;&nbsp;所在市： <input type="text"  style="width:170px" value="{$data['city']}" /></div>
+</div>
+<div class="frmMain">
+	<div class="item">&nbsp;&nbsp;所在区： <input type="text"  style='width:170px' value="{$data['district']}"/></div>
+	<div class="item">详细地址： <input type="text"  style='width:170px' value="{$data['address']}"/></div>
+</div>
+<div class="frmMain">	
+	<div class="item">&nbsp;&nbsp;&nbsp;&nbsp;学历： <input type="text"  style="width:170px"  value="{$data['degree']}"/></div>
+</div>
+<div class="frmMain">
+	<div class="item" >教育经历： <textarea  style="width:400px;height:45px;" >{$data['education']}</textarea></div>
+	
+</div>
+<div class="frmMain" >
+	<div class="item">工作简历： <textarea  style="width:400px;height:45px;">{$data['resume']}</textarea></div>	
+</div>
+<div class="" style="height:130px;margin-left:30px">
+	<div class="item" style="margin-left:30px;margin-top:10px;margin-bottom:10px;">		
+	<span style="float:left;margin-left:40px;">		
+		<a href="{:U('DocManage/showImg',array('url'=>$data['u_iDcardUrl']))}" target="_blank"><img src="{$data['iDcardUrl']}" width="50" height="50" ></a><br>
+	<b>身份证正面</b>
+	</span>
+	<span style="float:left;margin-left:10px;">		
+		<a href="{:U('DocManage/showImg',array('url'=>$data['u_iDcardUrl_back']))}" target="_blank"><img src="{$data['iDcardUrl_back']}" width="50" height="50" ></a><br>
+	<b>身份证反面</b>
+	</span>
+	<span style="float:left;margin-left:20px;">		
+		<a href="{:U('DocManage/showImg',array('url'=>$data['u_diplomaUrl_f']))}" target="_blank"><img src="{$data['diplomaUrl_f']}" width="50" height="50" ></a><br>
+	<b>专业技术资格证正面</b>
+	</span>	
+	<span style="float:left;margin-left:10px;">		
+		<a href="{:U('DocManage/showImg',array('url'=>$data['u_diplomaUrl_s']))}" target="_blank"><img src="{$data['diplomaUrl_s']}" width="50" height="50" ></a><br>
+	<b>专业技术资格证反面</b>
+	</span>
+	<span style="float:left;margin-left:40px;">		
+		<a href="{:U('DocManage/showImg',array('url'=>$data['u_job_seniorityUrl_f']))}" target="_blank"><img src="{$data['job_seniorityUrl_f']}" width="50" height="50" ></a><br>
+	<b>护士执业证书正面</b>
+	</span>
+	<span style="float:left;margin-left:10px;">		
+		<a href="{:U('DocManage/showImg',array('url'=>$data['u_job_seniorityUrl_s']))}" target="_blank"><img src="{$data['job_seniorityUrl_s']}" width="50" height="50" ></a><br>
+	<b>护士执业证书反面</b>
+	</span>					
+	</div>			
+</div>
+
+
+
+<form name="frmForm" id="frmForm" method="post" action="__URL__/doAuth">
+<div class="frmMain">
+	<div class="item">是否认证： 
+		<input type="radio" name="state" value="0" <if condition="$data['state'] eq 0"> checked </if>>未审批
+		<input type="radio" name="state" value="1" <if condition="$data['state'] eq 1"> checked </if>>审批通过
+		<input type="radio" name="state" value="2" <if condition="$data['state'] eq 2"> checked </if>>审批未通过	
+	</div>
+	
+</div>	
+<div class="frmMain" style="float:left;margin-left:30px;">
+	<div class="item">所属代理商：
+		<select name="agent" > 
+			<volist name="agents" id="val">
+				<option value="{$val['id']}" <if condition="$data['org_id'] eq $val['id']">selected</if>  >{$val['name']}</option>
+			</volist>	
+		</select>
+	</div>	
+</div>	
+<div style="clear:both"></div>
+      <input type="hidden" name="id" value="{$data['id']}">
+      <input type="hidden" name="ast_id" value="{$data['ast_id']}">
+<div style="margin-left:400px;margin-top:20px"><include file="Template/button"/></div>
+
+</form>
+</body>
+</html>

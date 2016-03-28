@@ -1,0 +1,72 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<style type="text/css">
+#frmMain{
+	position:relative;
+	margin-top:20px;
+	margin-left:20px;
+	width:340px;
+}
+.frmItem{
+	position:relative;
+	height:24px;
+	margin-top:10px;
+}
+</style>
+</head>
+<body bgcolor="#E9EEF5">
+<script language="JavaScript">
+<!--
+$(function(){
+	$('#frmForm').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		if(''==$.trim($('#name').val())){
+			alert("错误：信息必须填写完整！");
+			return false;
+		}
+		// 可以在此添加其它判断
+	}
+    function complete(data){
+        if(data>0){
+        	if(data==1){
+        		var info='错误：名称重复！';
+        	}
+        	else{
+        		var info='错误：数据库异常！';	
+        	}
+            alert(info);
+        }
+        else{
+        	alert('添加成功');        
+        	window.top.mainFrame.optFrame.location.reload();
+        	window.parent.hiddenWindow()
+        }
+    }
+});
+
+//-->
+</script>
+<form name="frmForm" id="frmForm" method="post" action="__URL__/dutyCreate">
+<div id="frmMain">
+	<div class="frmItem">岗位名称： <input type="text" name="name" id="name" style="width:160px;" /></div>
+	<div class="frmItem">排列顺序： <select name="position" id="position" style="width:164px;">
+		<option value='0' <if condition="$data.position eq 1">selected</if>>显示在第一位</option>
+		<volist name="poList" id="vo">
+			<option value="{$vo.position}">在【{$vo.name}】之后</option>
+		</volist>
+	</select></div>
+	<div class="frmItem" style="height:auto">岗位职责： <textarea style="width:250px;height:120px;" name="resume"></textarea></div>
+</div>
+<div class="frmMain" style="float:right;margin-right:20px;margin-top:10px;"><include file="Template/button" /></div>
+</form>
+</body>
+</html>

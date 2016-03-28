@@ -1,0 +1,157 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<style type="text/css">
+.frmMain{
+	position:relative;
+	width:90%;
+	height:26px;	
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+}
+.item{
+	margin-left:10px;
+}
+</style>
+</head>
+<body bgcolor="#E9EEF5">
+<script language="JavaScript">
+<!--
+$(function(){
+	$('#frmForm').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		// 可以在此添加其它判断
+	}
+    function complete(data){
+        if(data>0)
+        {
+        	if(data==1)
+        	{
+        		var info='错误：数据库异常！';
+        	}
+            alert(info);
+        }
+        else
+        {
+        	alert('审核成功');        
+        	window.top.mainFrame.optFrame.location.reload();
+        	window.parent.hiddenWindow()
+        }
+    }
+});
+//-->
+</script>
+<div class="frmMain">	
+	<div class="item" ><b clsss="head_title">K服务医生认证</b></div>
+	<div class="item ">
+		1、题目：全科医生培训（含全科医师岗位培训、全科医师转岗培训或全科医师规范化培训）<br/>	
+		&nbsp;&nbsp;&nbsp;答案：<if condition="$ans[0] eq '1a' ">
+									参加过并取得合格证明。
+								<elseif condition="$ans[0] eq '1b' "/>
+									仅参加过相关培训未取得证明。
+								<else/>
+									自学过全科医生课程。
+								</if>
+		<hr></hr>
+	</div>	
+	<div class="item">
+		2、题目：自有诊所或独立可用办公室	<br/>
+		&nbsp;&nbsp;&nbsp;答案：<if condition="$ans[1] eq '2a' ">
+									具有独立诊所。
+								<elseif condition="$ans[1] eq '2b' "/>
+									具有独立办公室。
+								<elseif condition="$ans[1] eq '2c' "/>	
+									两者皆有。
+								<else/>
+									两者皆无。
+								</if>
+		<hr></hr>
+	</div>	
+	<div class="item">
+		3、题目：三甲类医院绿色医疗通道	<br/>
+		&nbsp;&nbsp;&nbsp;答案：<if condition="$ans[2] eq '3a' ">
+									认识1-10名医生。
+								<elseif condition="$ans[2] eq '3b' "/>
+									认识10名以上以上。
+								<elseif condition="$ans[2] eq '3c' "/>	
+									具有1-3家医院绿色通道。
+								<else/>
+									具有3家以上医院绿色通道。
+								</if>
+		<hr></hr>
+	</div>
+	<div class="item">
+		4、题目：每天可以支配的工作时间	<br/>
+		&nbsp;&nbsp;&nbsp;答案：<if condition="$ans[3] eq '4a' ">
+									少于2小时。
+								<elseif condition="$ans[3] eq '4b' "/>
+									2小时到4小时间。
+								<elseif condition="$ans[3] eq '4c' "/>	
+									4小时到8小时间。
+								<else/>
+									大于8小时。
+								</if>
+		<hr></hr>
+	</div>	
+	<div class="item">
+		5、题目：每周可支配的时间<br/>
+		&nbsp;&nbsp;&nbsp;答案：<if condition="$ans[4] eq '5a' ">
+									少于一天。
+								<elseif condition="$ans[4] eq '5b' "/>
+									一到两天。
+								<elseif condition="$ans[4] eq '5c' "/>	
+									两到五天。
+								<else/>
+									五天以上。
+								</if>
+		<hr></hr>
+	</div>		
+	<div class="item" ><b clsss="head_title">专家组成员</b></div>
+	<div class="item ">
+		{$data['docs']}
+		<hr></hr>
+	</div>	
+<form name="frmForm" id="frmForm" method="post" action="__URL__/kmanageAuthModify">		
+	<div class="item" style="float:left"><b clsss="head_title">审批：</b></div>
+	<div class="item " style="float:left;margin-left:43px;">
+		<select name="state">
+			<option value="0"  selected>--请选择--</option>
+			<option value="2" <if condition="2 eq $data['state']"> selected</if> >审批未通过</option>
+			<option value="3" <if condition="3 eq $data['state']"> selected</if>>审批通过需排队</option>
+			<option value="4" <if condition="4 eq $data['state']"> selected</if>>系统停用</option>
+			<option value="5" <if condition="5 eq $data['state']"> selected</if>>通过</option>
+		</select>		
+	</div>	
+	<div style="clear:both"></div>
+	<div class="item" style="float:left"><b clsss="head_title">K服务类型：</b></div>
+	<div class="item " style="float:left;">
+		<select name="type">
+			<option value="-1" selected>--请选择--</option>
+			<volist name="data['ks']" id="v">				
+				<option value="{$v['id']}" <if condition="$v['id'] eq $data['type']"> selected</if> >{$v['name']}</option>
+			</volist>	
+		</select>		
+	</div>
+	<div style="clear:both"></div>
+	<div class="item" style="float:left"><b clsss="head_title">审批人：</b></div>
+	<div class="item " style="float:left;margin-left:30px;">
+		<input type="text" value="{$data['check_name']}" disabled="disabled">		
+	</div>	
+	<input type="hidden" name="user_id" value="{$data['user_id']}">
+	<div style="clear:both"></div>
+	<div style="font-size:14px;color:red">一线城市K2，K10；二线城市K1，K5；（一线城市：上海、广州、北京、深圳、南京、天津、重庆、杭州）</div>				
+<div style="float:right;margin-right:36px;margin-top:10px"><include file="Template/button"/></div>
+</div>
+
+</form>
+</body>
+</html>

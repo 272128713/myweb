@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>阅读内容</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="__PUBLIC__/Article/css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/Article/css/app.css"/>
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/Article/css/actcontent.css"/>
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/Article/css/iconfont.css"/>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background:#23272a;position: fixed;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="history.go(-1)"></a>
+			<h1 class="mui-title" style="color:#fff">我的评论</h1>
+		</header>
+		<!--
+        	时间：2015-06-29
+        	描述：主要内容
+        -->
+		<div class="mui-content" >
+		   <div style="margin-top:0.8em">
+               <?php
+                       $img=str_replace('M00','MOO/data',$pic);
+                       $img='http://'.C('DB_HOST').$img;
+               ?>
+        		<img src="<?php echo $img ;?> " class="mui-pull-left com-img" style="border:1px solid #30C6DF"/>
+        		<div style="margin-left:3.8em;padding-top: 0.5em;">
+        			<div>{$me.user_name}</div>
+        			<div>
+        				<span class="mui-icon mui-icon-location" style="font-size: 14px;color:#666666"> {$province.name} {$city.name}</span>
+        			</div>
+        		</div>
+		   </div>
+		   <div class="leftline mui-pull-left" ></div>
+		   <ul class="rightli">
+               <foreach name="mc" item="v">
+
+		   	<li class="libo">
+					<div class="mui-pull-left tu">
+					</div>
+					<div class="wen">
+						{$v.content}
+						<div class="ltitle">
+							{$v.article_from}：{$v.title}
+							<div class="">
+								<span class="mui-pull-left">
+										{$v.create_time}
+								</span>
+								
+								<div class="mui-pull-right">
+									<span class=" iconfont icon-zan blue" style="font-size:14px"></span>({$v.up_num})
+									<span class ="delete_evalu" eid="{$v.id}"><span  class=" mui-icon mui-icon-trash blue" style="font-size:16px;"></span>删除</span>
+								</div>
+							</div>
+						</div>
+					</div>		
+		   	</li>
+
+
+               </foreach>
+
+		   </ul>
+		</div>
+	</body>
+    <script src="__PUBLIC__/Article/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var ulheight = $(".mui-content").height();
+			$(".leftline").height(ulheight-43);
+		});
+        $
+        //删除评论
+        $('.delete_evalu').click(function(){
+            var prents_node=$(this).parents('.libo');
+            var eid=$(this).attr('eid');
+            var url="{:U('delete')}";
+            $.post(url,{'eid':eid}, function (data) {
+                if(data==1){
+                    prents_node.remove();
+                }
+            },'text');
+        });
+	</script>
+</html>

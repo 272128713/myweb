@@ -1,0 +1,103 @@
+
+
+/**
+ *用户看已解决的 
+ */
+.mui-table-view-cell{
+	padding-left:0 ;
+	padding-right: 0;
+}
+.wen{
+	float:left;
+	width:1em;
+	margin-top:0.2em;
+
+}
+.wen1{
+    clear: both;
+	float:left;
+	width:1em;
+	margin-top:0.2em;
+
+}
+.ti{
+	margin-left: 0.2em;
+	font-size: 14px;
+	line-height: 1.8em;
+	float:left;
+	color:#000;
+}
+.tifoot{
+	margin-top:0.5em;
+	color:#666;
+	font-size:12px;
+}
+.tifoot span{
+	font-size:12px;
+	min-width: 2em;
+}
+.ct img{
+	width: 100%;
+	margin:auto;
+}
+.accept{
+	height: 36px;
+	margin:0.5em 0 1.5em 0;
+}
+.headimg{
+	height: 3em;
+	border-radius: 10px;
+}
+.headp{
+	float:left;
+	margin-left:0.5em;
+}
+.headp p{
+	margin-bottom: 10px;
+}
+.hh3{
+	color:#000;
+	font-size:15px;
+}
+.pp3{
+	margin-left:1em;
+	font-size: 14px;
+}
+.pp12{
+	font-size: 14px;
+}
+.option{
+	line-height: 1.5em;
+}
+.optiont{
+	padding-top: 0.3em;
+	font-size:15px;
+}
+.option span{
+	font-size: 14px;
+	color: #999999;
+}
+.uli{
+	margin-top:0.5em;
+}
+.rela{
+	height:2.5em;
+	font-size:16px;
+	line-height:2.5em;
+	background:#e8e8e8;
+	color:#000;
+	margin-bottom: 1em;
+}
+.relatext{
+	width:95%;
+	margin:0 auto;
+}
+.line{
+	width: 100%;
+	height: 1px;
+	background: #c9c8cd;
+	margin-bottom: 1em;
+}
+.jhbtn{
+	margin-left:1em;
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>投资健康</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="__CSS__/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="__CSS__/app.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/common.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/jkxqr.css" />
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background:#23272a;position: fixed;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="history.go(-1)"></a>
+			<h1 class="mui-title" style="color:#fff" onclick="history.go(-1)">健康险确认</h1>
+		</header>
+		<!--
+        	时间：2015-06-29
+        	描述：主要内容
+        -->
+        <div class="container">
+        	<div class="content-top">
+        		<p class="p1"><img src="__IMG__/warning.png" />购买健康险，免费拥有私人医生</p>
+        		<p class="p2">只要您在《空中医院》平台上购买了保险公司指定的健康险，即可免费拥有私人医生。</p>
+        	</div>
+        	<div class="content-middle"></div>
+        	<div class="content-bottom">
+        		<input id="c_content" name="danhao" type="text" placeholder="请输入您的健康险保单号" />
+                <p id="notice" style="margin-bottom: 1em;">&nbsp;</p>
+        		<a class="tips" href="{:U('cate')}" style="display: block;">还没有购买健康险？点击这里购买</a>
+        		<div class="btn" onclick="ajax_check()">下一步</div>
+        	</div>
+        </div>
+		<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				  var get_navi = $('.navi');
+				  $(".xiala").click(function(){
+				  		get_navi.slideToggle('fast');
+				  });
+				  $('.mui-content').click(function(){
+				  		if(get_navi.css('display')=="block"){
+				  		get_navi.slideUp('fast');
+				  		}
+				  });
+				  $('.new-list li').hover(function(){
+				  	$(this).css('background','#EFEFEF');
+				  },function(){
+				  	$(this).css('background','#fff');
+				  });
+			});
+			layer.config({
+					    skin: 'demo-class'
+					})
+			function laconfirm(){
+				layer.alert('<p>购买成功</p>', {
+					
+					title:'恭喜您拥有了自己的私人医生',
+					closeBtn: false,
+					area: '90%'
+					
+				},function(index){
+				    //do something
+				    layer.close(index)
+				});
+			}
+            function fail(title){
+                layer.alert('<p>购买失败</p>', {
+
+                    title:title,
+                    closeBtn: false,
+                    area: '90%'
+
+                },function(index){
+                    //do something
+                    layer.close(index)
+                });
+            }
+
+            //提交评论
+            function ajax_check() {
+                var value=$('#c_content').val();
+                if(value.length==0){
+                    $('#notice').html('单号不能为空');
+                    $('#notice').show();
+                    return false;
+                }
+                if(value.length>500){
+                    $('#notice').html('不能超过100个字');
+                    $('#notice').show();
+                    return false;
+                }
+                var url="{:U('checkOrder')}";
+                var dic="{$Think.get.uid}";
+                var hid="{$Think.get.id}";
+                $.post(url,{'dic':dic,'order':value,'hid':hid},function (date){
+                            if(date==1){
+                                laconfirm()
+                            }else{
+                                fail(date);
+                            }
+
+                        }
+                ,'text');
+            }
+            $('#c_content').click(function(){
+                $('#notice').html('&nbsp;');
+            });
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>医苑天地</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <include file="Public:css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/exchange.css" />
+
+	</head>
+
+	<body>
+    <include file="Public:header" />
+		<!--
+        	时间：2015-06-29
+        	描述：主要内容
+        -->
+    <include file="Public:nav" />
+
+		<div class="mui-content">
+			<div class="nav">
+				<ul>
+					<php>
+                        echo get_ret_nav();
+                    </php>
+					<li>
+						<a class="mui-icon mui-icon-arrowdown"></a>
+					</li>
+				</ul>
+			</div>
+            <div class="nav-hid" style="display: none;">
+                <div class="rightnav" >
+                    <foreach name="ret" item="v">
+
+                    <a>
+                        【{$v.name}】<img src="__IMG__/iconfont-iconfont58.png" class="nav0"/>
+                    </a>
+
+                    <div class="recnav" >
+                    	  <a href="{:U('Index/lists',array('rid'=>$v['recollection_id'],'cid'=>$_GET['cid']))}">
+                            【{$v.name}】<img src="__IMG__/iconfont-right.png" />
+                        </a>
+                        <foreach name="v['child']" item="vo">
+                        <a href="{:U('Index/lists',array('rid'=>$vo['recollection_id'],'cid'=>$_GET['cid']))}">
+                            【{$vo.name}】<img src="__IMG__/iconfont-right.png" />
+                        </a>
+                        </foreach>
+                    </div>
+                    </foreach>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+           
+			<div class="content-list" id="thelist">
+				<php>
+					if($cname){
+				</php>
+				<div class="list-box-1">
+				当前栏目：{$cname}
+				</div>
+				<php>
+					}
+				</php>
+                <foreach name="news" item="vo">
+                    <div class="list-box">
+                        <a href="{:U('Index/detail',array('aid'=>$vo['id']))}" style="color:#333">
+                        <img src="{$vo.img_url}"/>
+                        <div class="cont-li">
+                            <div class="li-title">
+                                <div class="p1">
+                                    {$vo.user_name}
+                                </div>
+                                <p class="p2">{$vo.createDate}</p>
+                                <div class="clear"></div>
+                            </div>
+                            <p class="p3">{$vo.title}</p>
+                        </div>
+                        <div class="clear"></div>
+                        </a>
+                    </div>
+                </foreach>
+
+
+			</div>
+           
+		</div>
+		 <php>
+                if($nums>=C('PAGE_NUM')){
+
+            </php>
+             <div id="order_list" onclick="get_more()" style="text-align: center;line-height: 2em; margin:2em 0em 0 0; color: #333; font-size: 14px; background: #DDDDDD">
+  				  点击加载更多
+			</div>
+    <php>
+        }
+    </php>
+    <script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__JS__/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+            $(function(){
+                var get_navi = $('.navi');
+                var get_navhid = $('.nav-hid');
+                //一级导航
+
+                $(".xiala").click(function(){
+                    get_navi.slideToggle(0);
+                    $('.nav li:last-child a').removeClass().addClass('mui-icon mui-icon-arrowdown');
+                    get_navhid.css('display','none');
+                    $('.content-list').css('display','block');
+                });
+                $('.mui-content').click(function(){
+                    if(get_navi.css('display')=="block"){
+                        get_navi.slideUp('fast');
+                    }
+                });
+
+
+                //二级导航
+                $('.nav li:last-child a').click(function(){
+                    if(get_navhid.css('display')=='none'){
+                        $(this).removeClass('mui-icon-arrowdown').addClass('mui-icon-arrowup');
+                        get_navhid.css('display','block');
+                        $('.content-list,#order_list').css('display','none');
+                    }else if(get_navhid.css('display')=='block'){
+                        $(this).removeClass('mui-icon-arrowup').addClass('mui-icon-arrowdown');
+                        get_navhid.css('display','none');
+                        $('.content-list,#order_list').css('display','block');
+                    }
+                });
+
+                //三级科室导航
+                $('.rightnav a').click(function(){
+                    var get_asrc = $(this).children('.nav0');
+                    if(get_asrc.attr('src')=='__IMG__/iconfont-iconfont58.png'){
+                        get_asrc.attr('src','__IMG__/iconfont-up.png');
+                        $(this).next('.recnav').css('display','block');
+                    }else{
+                        get_asrc.attr('src','__IMG__/iconfont-iconfont58.png');
+                        $(this).next('.recnav').css('display','none');
+                    }
+
+
+                });
+
+            });
+
+        </script>
+      
+    	<script>
+    	//分页
+    sanlingyi_page=1;
+    function get_more(){
+            //加载文章
+          	var article=$('#thelist');
+            var url="{:U('index/lists',array('rid'=>$_GET['rid'],'cid'=>$_GET['cid']),'')}";
+            $.post(
+                    url,{"page":sanlingyi_page,"ajax":1},function(date){
+
+                        if(date!=0){
+                            sanlingyi_page+=1;
+                            article.append(date);
+                          
+                        }else{
+                        	$('#order_list').html('暂无更多')
+                        }
+                    }
+                    ,'text' );
+
+        
+    }
+</script>	
+    
+
+
+    </body>
+
+</html>

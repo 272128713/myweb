@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>投资健康</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="__CSS__/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="__CSS__/app.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/common.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/content.css" />
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background:#23272a;position: fixed;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="logoutConsultings()"></a>
+			<h1 class="mui-title" style="color:#fff" onclick="logoutConsultings()">投资健康</h1>
+
+			<div class="right" style="height: 45px;">
+				<a href="{:U('search')}"><img class="pl"  src="__IMG__/jilu1 (2).png" /></a>
+			</div>
+		</header>
+        <script>
+            /**
+             * 返回app
+             */
+            function logoutConsultings(){
+
+                if(navigator.userAgent.match('iPhone')){
+                    logoutConsulting();
+                }
+                if(navigator.userAgent.match('Android')){
+                    Android.logoutConsulting();
+                }
+            }
+        </script>
+				
+		<!--
+        	时间：2015-06-29
+        	描述：主要内容
+        -->
+        
+			<div class="nav">
+				<ul>
+				
+					<!--<li><a href="">离我最近</a></li>-->
+					<li><a href="{:U('index')}"
+						<php>if($type==3){</php>
+						 class="active"
+						<php>}</php>	
+						>离我最近</a></li>
+					<li><a href="{:U('Index/index',array('type'=>0))}"
+						<php>if($type==0){</php>
+						 class="active"
+						<php> }</php>						 
+						 >综合推荐</a></li>	
+					<li><a href="{:U('index',array('type'=>1))}" 
+						<php>if($type==1){</php>
+						 class="active"
+						<php>}</php>	
+						>达成最多</a></li>
+					<li><a href="{:U('index',array('type'=>2))}"
+						<php>if($type==2){</php>
+						 class="active"
+						<php>}</php>	
+						>最新上线</a></li>
+					
+				</ul>
+				<div class="clear">
+					
+				</div>
+			</div>
+			<!--
+            	作者：272128713@qq.com
+            	时间：2015-07-30
+            	描述：诊所box
+            -->
+        <div>
+            <div id="content_list">
+            <foreach name="news" item="v">
+
+				<div class="zs-box">
+					<div class="content" url="{:U('Index/detail',array('id'=>$v['id']))}">
+							<img src="__IMG__/czfx.jpg"/>
+							<div class="contentR">
+								<p class="title1">{$v.clinic_name}</p>
+								<p class="title2">诊所类别：{$v.type}</p>
+								<div class="clear"></div>
+								<p class="title3">{$v.address}
+								</p>
+							</div>
+							<div class="clear"></div>
+						
+						<div class="arrow-right">
+							<img src="__IMG__/arrow-right1.png"  />
+						</div>
+						
+					</div>
+					<div class="money">
+						  <php>
+		                    $people=0;
+		                    $bpeople=0;
+		                    $dnmoney=0;
+		                    $dtmoney=0;
+
+               			 </php>
+					    <foreach name="v['doc']" item="vo">
+					   <php>
+	                        $people+=$vo['sale_num'];
+	                        $bpeople+=$vo['service_num'];
+	                        $dnmoney+=$vo['dnmoney'];
+	                        $dtmoney+=$vo['dtmoney'];
+
+                      </php>
+					    </foreach>
+						<div class="l">已投资：{$bpeople}人</div>
+						
+						<?php if($type!=3){ ?>
+						<div class="r">剩余：<?php echo ($people-$bpeople); ?>人</div>
+						<?php } ?>
+						
+						<?php if($type==3){ ?>
+						<div class="m">剩余：<?php echo ($people-$bpeople); ?>人</div>
+						<div class="r" >
+							<img src="__IMG__/daohang.png"/>
+							距离：<?php echo makeDistance($v['mete']); ?></div>
+						<?php } ?>
+						<div class="clear"></div>
+					</div>
+				<div class="border"></div>
+            </foreach>
+            </div>
+            <php>
+                if($nums>=C('PAGE_NUM')){
+
+            </php>
+            <div id="order_list" onclick="get_more()" style="text-align: center;line-height: 2em; margin:2em 0em 0 0; color: #333; font-size: 1em; background: #DDDDDD">
+                点击加载更多
+            </div>
+            <php>
+                }
+            </php>
+        <script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__JS__/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$('.content').on('touchstart',function(){
+				$(this).css('background-color','#f9f9f9');
+			});
+			$('.content').on('touchend',function(){
+				$(this).css('background-color','#fff');
+			});
+			$(function(){
+				var get_bg_img = $('.banner').height();
+				$('.bg-img img').height(get_bg_img);
+				var get_left = $('.auth').css('left');
+				$('.auth').css('top',get_left);
+			
+                $('.content').click(function(){
+                    var url=$(this).attr('url');
+                    //alert(url);
+                    window.location.href=url;
+                });
+			});
+		</script>
+            <script>
+                //分页
+                sanlingyi_page=1;
+                function get_more(){
+                    //加载文章
+                    var article=$('#content_list');
+                    var url="{:U('Index/index',array('type'=>$_GET['type'],'svalue'=>$search),'')}";
+                    $.get(
+                            url,{"page":sanlingyi_page,"ajax":1},function(date){
+
+                                if(date!=0){
+                                    sanlingyi_page+=1;
+                                    article.append(date);
+
+                                }else{
+                                    $('#order_list').html('暂无更多')
+                                }
+                            }
+                            ,'text' );
+
+
+                }
+            </script>
+    </body>
+
+</html>

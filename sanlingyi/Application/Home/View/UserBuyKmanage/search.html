@@ -1,0 +1,45 @@
+<div style="width:700px;float:left;">
+<div style="width:350px;float:left">
+	<form  >	
+		搜索<select name="type" id="type">
+				<option value="1">医生姓名</option>
+				<option value="2">用户姓名</option>
+			</select>	
+		<input type="text"  name="username"  id="username" style='width:90px;'  />		
+		状态 <select name="status" id="status" style='width:90px;'>
+				<option value='-1' selected >请选择</option>
+				<option value='0' >预定</option>
+				<option value='1' >退订</option>
+				<option value='2' >补交余款</option>
+				<option value='3' >申请取消服务</option>
+				<option value='4' >服务完成</option>
+				<option value='5' >更换医生</option>
+				<option value='6' >升级服务</option>
+		   </select>
+	</form>
+</div>
+<div id="my_st" style="float:left;" class='PageIcon' onmouseover="this.style.cursor='pointer';this.style.backgroundImage='url(__PUBLIC__/Home/images/page/bg_button.gif)'" onmouseout="this.style.backgroundImage=''"><img class='PageSearch' src='__PUBLIC__/Home/images/page/search.gif' /></div>
+
+</div>
+<script>
+function changePage(p){ 
+	var url="{:U('Ajax/pageTo')}";
+	url=url.substring(0,url.indexOf('.html'));
+	$.ajax({
+		url: url+'/opt/'+p+'/rowNums/'+$('#rowNums').html(),
+		type: 'POST',
+		dataType: 'JSON',
+		error: function () { alert('错误：加载数据异常，请重试!'); },
+		success: function(){
+			window.optFrame.location.reload();
+		}
+	});
+}
+
+$('#my_st').click(function(){
+	var name=$('#username').val();
+	var type=$('#type').val();
+	var con='form,'+name+','+type+','+$('#status').val();
+	changePage(con);
+});	
+</script>

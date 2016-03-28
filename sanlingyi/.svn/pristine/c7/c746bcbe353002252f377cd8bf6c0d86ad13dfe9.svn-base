@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<style type="text/css">
+#frmMain{
+	position:relative;
+	margin-top:20px;
+	margin-left:20px;
+	width:300px;
+}
+.frmItem{
+	position:relative;
+	height:24px;
+	margin-top:10px;
+	float:left;
+}
+</style>
+<script language="JavaScript">
+<!--
+$(function(){
+	$('#frmForm').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		if(''==$.trim($('#mName').val()) || ''==$.trim($('#mEn').val()))
+		{
+			alert("错误：信息必须填写完整！");
+			return false;
+		}
+		// 可以在此添加其它判断
+	}
+    function complete(data){
+        if(data>0)
+        {
+        	if(data==1)
+        	{
+        		var info='中文名或英文名有重复！';
+        	}
+        	else
+        	{
+        		var info='数据库异常！';	
+        	}
+        	alert(info);
+        }
+        else
+        {
+        	window.location.href=window.location.href;
+        	window.parent.treeFrame.location.href=window.parent.treeFrame.location.href;
+        }
+    }
+    
+    optTypeChange($('#operateType').val());
+    confirmChange($('#isConfirm').val());
+    $('#operateType').change(function(){
+    	optTypeChange($('#operateType').val());
+    });
+    function optTypeChange(s){
+    	if(s==2){
+    		$('#divAjax').show();
+    		$('#divWin').hide();
+    	}
+    	else if(s==1){
+    		$('#divAjax').hide();
+    		$('#divWin').show();
+    	}
+    	else{
+    		$('#divAjax').hide();
+    		$('#divWin').hide();
+    	}
+    }
+    
+    $('#isConfirm').change(function(){
+    	confirmChange($('#isConfirm').val());
+    });
+    function confirmChange(s){
+    	if(s==0){
+    		$('#cText').hide();
+    	}
+    	else{
+    		$('#cText').show();
+    	}
+    }
+    
+    $('#parent').change(function(){
+		$('#position option').remove();
+		loadData($('#parent').val(),$('#mid').val());
+	});
+	function loadData(pid,mid){
+		var url="{:U('Ajax/getRadioOption')}";
+		url=url.substring(0,url.indexOf('.html'));
+		 $.ajax({
+			url: url+'/id/'+mid+'/parentID/'+pid+'/table/module_info',
+            type: 'POST',
+            dataType: 'JSON',
+            error: function () { alert('加载数据异常，请重试!'); },
+            success: function (data) {
+	           	$('#position option').remove();
+	           	$("#position").append("<option value='0'>显示在第一位</option>");
+	            $.each(data, function(i,item){ 
+	            	if(item['module_id']>0)
+	            	{
+	            		$("#position").append("<option value='"+item['module_id']+"'>在【"+item['module_name']+"】之后</option>");             			
+	            	}
+	           	});	            
+            }
+		 });
+	}
+});
+
+//-->
+</script>
+</head>
+<body bgcolor="#E9EEF5">
+<form name="frmForm" id="frmForm" method="post" action="__URL__/moduleModify">
+<div id="frmMain">
+	<div class="frmItem">模块名称： <input type="text" name="module_name" value="{$data.module_name}" id="mName" style="width:200px" /></div>
+	<div class="frmItem">英文名称： <input type="text" name="en" id="mEn" value="{$data.en}" style="width:200px" /></div>
+	<div class="frmItem">所属模块： <select name="parentId" id="parent" style="width:204px">
+		<if condition="$data.level eq 1"><option value='0'>本身就是一级模块</option></if>
+		<volist name="mpList" id="vo">
+			<option value="{$vo.module_id}" <eq name="vo.module_id" value="$data.parentId">selected</eq>>{$vo.module_name}</option>
+	</volist>
+	</select></div>
+	<div class="frmItem">排列顺序： <select name="position" id="position" style="width:204px">
+		<option value='0'>显示在第一位</option>
+		<volist name="poList" id="vo">
+			<option value="{$vo.module_id}" <eq name="vo.position" value="$data.op">selected</eq>>在【{$vo.module_name}】之后</option>
+		</volist>
+	</select></div><if condition="$data.level eq 2">
+	<div class="frmItem">选择样式： <select name="module_style" id="mStyle" style="width:204px">
+		<option value='0' <if condition="$data.module_style eq 0">selected</if>>不使用固定样式</option>
+		<option value='1' <if condition="$data.module_style eq 1">selected</if>>整页显示列表</option>
+		<option value='2' <if condition="$data.module_style eq 2">selected</if>>树形菜单+操作页面</option>
+		<option value='3' <if condition="$data.module_style eq 3">selected</if>>树形菜单+列表页面</option>
+		<option value='4' <if condition="$data.module_style eq 4">selected</if>>树形菜单+自定义页面</option>
+	</select></div>
+	<div id="second" class="frmItem">地区限制： <select name="area_limit" style="width:204px">
+		<option value='0' <if condition="$data.arae_limit eq 0">selected</if>>否</option>
+		<option value='1' <if condition="$data.area_limit eq 1">selected</if>>开启地区限制</option>
+	</select></div></if><if condition="$data.level gt 2">
+	<div class="frmItem">显示位置： <select style="width:204px" name="show_place" id="showPlace">
+		<option value="3" <if condition="$data.show_place gt 2">selected</if>>自定义显示位置</option>
+		<option value='0' <if condition="$data.show_place eq 0">selected</if>>显示在页面按钮区</option>
+		<option value='1' <if condition="$data.show_place eq 1">selected</if>>显示在导航区</option>
+		<option value='2' <if condition="$data.show_place eq 2">selected</if>>显示在列表区</option>
+	</select></div>
+	<div class="frmItem">操作类型： <select class="s" style="width:204px" size="1" name="operate_type" id="operateType">
+		<option value='0' <if condition="$data.operate_type eq 0">selected</if>>默认框架的页面跳转</option>
+		<option value='3' <if condition="$data.operate_type eq 3">selected</if>>在本框架内页面跳转</option>
+		<option value='5' <if condition="$data.operate_type eq 5">selected</if>>在父框架内页面跳转</option>
+		<option value='1' <if condition="$data.operate_type eq 1">selected</if>>打开新窗口</option>
+		<option value='2' <if condition="$data.operate_type eq 2">selected</if>>Ajax</option>
+		<option value='4' <if condition="$data.operate_type eq 4">selected</if>>Form表单提交</option>
+	</select></div>
+	<div id="divAjax" style="display:none">
+		<div class="frmItem" id="conf">是否需要在执行前确认： <select class="s" style="width:132px" size="1" name="isConfirm" id="isConfirm">
+			<option value='0' <if condition="$data.isConfirm neq 1">selected</if>>否</option>
+			<option value='1' <if condition="$data.isConfirm eq 1">selected</if>>是</option>
+		</select></div>
+		<div class="frmItem" id="loadType">执行后的页面刷新方式： <select class="s" style="width:132px" size="1" name="reload_type" id="reloadType">
+			<option value='0' <if condition="$data.reload_type eq 0">selected</if>>不刷新</option>
+			<option value='1' <if condition="$data.reload_type eq 1">selected</if>>只刷新本页</option>
+			<option value='2' <if condition="$data.reload_type eq 2">selected</if>>只刷新Tree</option>
+			<option value='3' <if condition="$data.reload_type eq 3">selected</if>>只刷新optFrame</option>
+			<option value='4' <if condition="$data.reload_type eq 4">selected</if>>本页和optFrame</option>
+			<option value='5' <if condition="$data.reload_type eq 5">selected</if>>本页和Tree</option>
+			<option value='6' <if condition="$data.reload_type eq 6">selected</if>>Tree和optFrame</option>
+			<option value='7' <if condition="$data.reload_type eq 7">selected</if>>全部页面刷新</option>
+		</select></div>
+		<div class="frmItem" id="cText" style="display:none">确认文字： <input class="t" style="width:200px" type="text" name="confirm_text" id="confirmText" value='{$data.confirm_text}' /></div>
+	</div>
+	<div id="divWin" style="display:none">
+		<div class="frmItem">窗口宽度： <input class="t" type="text" name="window_width" style="width:50px" id="windowWidth" value='{$data.window_width}' /></div>
+		<div class="frmItem" style="margin-left:30px;">窗口高度： <input class="t" type="text" name="window_height" style="width:50px" id="windowHeight" value='{$data.window_height}' /></div>
+	</div></if>
+	<div class="frmItem" style="clear:left;">使用状态： <if condition="$data.status eq 1">
+		正常使用中
+	<else />
+		停用状态
+	</if></div>	
+</div>
+<div class="frmMain" style="clear:left;margin-left:20px;"><include file="Template/button" /></div>
+<input type="hidden" name="level" value="{$data.level}" />
+<input type="hidden" id="mid" name="mid" value="{$data.module_id}" />
+</form>
+</body>
+</html>

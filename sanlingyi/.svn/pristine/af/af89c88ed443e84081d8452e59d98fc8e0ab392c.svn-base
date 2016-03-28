@@ -1,0 +1,8 @@
+<header class="mui-bar mui-bar-nav" style="position: fixed;">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="history.go(-1)"></a>
+    <h1 class="mui-title" style="">医苑天地</h1>
+
+    <div class="right">
+        <span style="display: block;height: 44px;width:3em;text-align:center;line-height:44px;font-size:16px;"></span>
+    </div>
+</header>

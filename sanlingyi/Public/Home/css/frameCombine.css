@@ -1,0 +1,19 @@
+#TreeTitle{
+	background-image:url(../images/dtree/bg_title.gif);
+	width:160px;
+	height:26px;
+	line-height:26px;
+	border-bottom:1px solid #99bbe8;
+	color:#15428b;
+}
+#TreeFrame{
+	width:162px;	
+}
+.TreeTitleIcon{
+	float:left;
+	padding:6px;
+}
+#MoveButton{
+	width:5px;
+	background-color: #FF0000;
+}

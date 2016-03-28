@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+<!--
+var _PUBLIC="__PUBLIC__";
+//-->
+</script>
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<style type="text/css">
+#dbInfo{
+	margin-left:auto;
+	margin-right:auto;
+	width:220px;
+	margin-top:30px;
+	text-align: center;
+}
+.sd,.st,.sc{
+	width:220px;
+	height:24px;
+	margin-left:10px;
+	margin-top:10px;
+}
+p{
+	font-size: 18px;
+}
+.t{
+	width:40px;
+	height:18px;
+}
+</style>
+<script type="text/javascript">
+<!--
+$(function(){
+	$('#dbID').change(function(){
+		$('#dbTable option').remove();
+		var dbID=$('#dbID').val();
+		if(dbID!=''){
+			loadData(dbID);	
+		}
+		else{
+			$("#dbTable").append("<option value=''>请选择数据表</option>");
+		}
+	});
+	function loadData(id){
+		var url="{:U('Ajax/getTableInfo')}";
+		url=url.substring(0,url.indexOf('.html'));
+		$.ajax({
+			url: url+'/dbID/'+id,
+            type: 'POST',
+            dataType: 'JSON',
+            error: function () { alert('错误：加载数据异常，请重试!'); },
+            success: function (data) {
+            	$.each(data, function(i,item){
+					var op="<option value='"+item['name']+"'>"+item['name']+"</option>";
+	            	$("#dbTable").append(op);
+	           	});	           
+            }
+		});
+	}
+	
+	$('#frmForm').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		if($('#dbID').val()=='' || $('#dbTable').val()==''){
+			alert('错误：必须选择数据库和数据表！');
+			return false;
+		}
+		// 可以在此添加其它判断
+	}
+    function complete(data){
+        if(data>0){
+            alert('错误：服务器异常，请稍后重试！');
+        }
+        else{
+        	window.location.reload();;
+        }
+    }
+});
+//-->
+</script>
+</head>
+<body bgcolor="#E9EEF5">
+<div id="dbInfo">
+<p>请先设置数据源信息</p>
+<form name="frmForm" id="frmForm" method="post" action="__URL__/moduleListDbSave">
+<select class="sd" name="db_id" id="dbID">
+	<option value=''>选择数据库</option>
+	<option value='0'>使用OA系统默认配置</option>
+	<volist name="dbData" id='vo'>
+		<option value='{$vo.id}'>{$vo.name}[{$vo.en}]</option>
+	</volist>
+</select>
+<select class="st" name="db_table" id="dbTable">
+	<option value=''>选择数据表</option>
+</select>
+<div style="margin-top:10px;margin-left:10px;">每页显示的信息数量：<input class='t' type="text" value='0' name="list_limit" /></div>
+<input style="margin-top:10px;" type="submit" value="{$data.btName}" />
+<input type="hidden" name="module_id" value="{$data.objectID}" />
+</form>
+</div>
+</body>
+</html>

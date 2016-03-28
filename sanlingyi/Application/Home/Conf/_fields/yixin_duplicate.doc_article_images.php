@@ -1,0 +1,1 @@
+a:6:{i:0;s:16:"article_image_id";i:1;s:10:"article_id";i:2;s:16:"source_image_url";i:3;s:10:"createDate";s:3:"_pk";s:16:"article_image_id";s:5:"_type";a:4:{s:16:"article_image_id";s:10:"bigint(20)";s:10:"article_id";s:10:"bigint(20)";s:16:"source_image_url";s:12:"varchar(255)";s:10:"createDate";s:8:"datetime";}}

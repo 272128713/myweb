@@ -1,0 +1,53 @@
+#head{
+	position: relative;
+	width:100%;
+	height:33px;
+	background-image: url('../images/head/bg_head.gif');
+}
+#logo,#title,#power{
+	float:left;
+	margin-top:5px;
+	margin-left: 5px;
+}
+#title{
+	margin-top:6px;
+}
+#power{
+	float: right;
+	margin-right:10px;
+}
+#menuMain{
+	position: relative;
+	width:100%;
+	height:25px;
+	background-image: url('../images/head/bg_menu.gif');
+}
+.split{
+	float:left;
+}
+
+#menuList{
+	margin-left:1px;
+	width:600px;
+	height:25px;
+	float:left;
+}
+#menuOpt{
+	float:right;
+	width:130px;
+	height:25px;
+}
+#btImg{
+	float:right;
+	margin-right:5px;
+	margin-top:2px;
+}
+#remind{
+	float:right;
+	margin-right:5px;
+	margin-top:2px;
+}
+#line1{
+	float:right;
+	margin-right:10px;
+}

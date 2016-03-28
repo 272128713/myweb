@@ -1,0 +1,41 @@
+<style>
+#tcal {
+	top: 450px !important; 
+	left: 550px !important; 
+	visibility: visible;
+}	
+</style>
+<div style="width:700px;float:left;margin-left:-200px;">
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/dateSelect.js"></script> 
+<link rel="stylesheet" href="__PUBLIC__/Home/css/dateSelect.css" type="text/css" />
+
+<form  style="width:780px">
+	<span style="float:right;"><a href="{:U('UserManage/getExcel')}" >导出EXCEL表</a></span>
+	开始时间<input type="text" id="start" name="entry_date" class="tcal" readonly="readonly" style='width:90px' value="{$date['start']}" />
+	结束时间<input type="text" id="end" name="entry_date" class="tcal" readonly="readonly" style='width:90px' value="{$date['end']}" />
+	用户名<input type="text" name="doc_name" id="doc_name" >
+	手机号<input type="text" name="mobile" id="mobile" >		
+	<div id="my_st" style="float:right;" class='PageIcon' onmouseover="this.style.cursor='pointer';this.style.backgroundImage='url(__PUBLIC__/Home/images/page/bg_button.gif)'" onmouseout="this.style.backgroundImage=''"><img class='PageSearch' src='__PUBLIC__/Home/images/page/search.gif' /></div>
+</form>
+</div>
+<script>
+function changePage(p){
+	var url="{:U('Ajax/pageTo')}";
+	url=url.substring(0,url.indexOf('.html'));
+	$.ajax({
+		url: url+'/opt/'+p+'/rowNums/'+$('#rowNums').html(),
+		type: 'POST',
+		dataType: 'JSON',
+		error: function () { alert('错误：加载数据异常，请重试!'); },
+		success: function(){
+			window.optFrame.location.reload();
+		}
+	});
+}
+
+$('#my_st').click(function(){
+	var con='form,'+$('#start').val()+','+$('#end').val()+','+$('#doc_name').val()+','+$('#mobile').val();
+	changePage(con);
+});	
+</script>

@@ -1,0 +1,124 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<style type="text/css">
+.frmMain{
+	position:relative;
+	width:90%;
+	height:26px;	
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+}
+.item{
+	float:left;
+	margin-left:10px;
+}
+</style>
+</head>
+<body bgcolor="#E9EEF5">
+<script language="JavaScript">
+<!--
+$(function(){
+	$('#frmForm').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		// 可以在此添加其它判断
+	}
+    function complete(data){
+        if(data>0)
+        {
+        	if(data==1)
+        	{
+        		var info='错误：数据库异常！';
+        	}
+            alert(info);
+        }
+        else
+        {
+        	alert('认证成功');        
+        	window.top.mainFrame.optFrame.location.reload();
+        	window.parent.hiddenWindow()
+        }
+    }
+});
+//-->
+</script>
+
+<div class="frmMain">
+	<div class="item">姓&nbsp&nbsp&nbsp&nbsp名： <input type="text"  style='width:170px'value="{$data['user_name']}"  /></div>
+	<div class="item">EMAIL： <input type="text"  style="width:170px"value="{$data['email']}" /></div>
+</div>
+<div class="frmMain">
+	<div class="item">出生日期： <input type="text"  style='width:170px' value="{$data['birthday']}"/></div>
+	<div class="item">电&nbsp&nbsp&nbsp&nbsp话： <input type="text"  style="width:170px" value="{$data['mobile']}" /></div>
+</div>
+<div class="frmMain">
+	<div class="item">居住省份： <input type="text"  style='width:170px' value="{$data['live_province']}"/></div>
+	<div class="item">详细地址： <input type="text"  style="width:170px"  value="{$data['address']}"/></div>
+</div>
+<div class="frmMain">
+	<div class="item">血&nbsp&nbsp&nbsp&nbsp型： <input type="text"  style='width:170px' value="{$data['blood']}"  /></div>
+	<div class="item">性&nbsp&nbsp&nbsp&nbsp别： <input type="text"  style="width:170px"  value="{$data['sex']}" /></div>
+</div>
+<div class="frmMain">
+	<div class="item">所属医院： <input type="text"  style='width:170px'  value="{$data['hospital']}" /></div>
+	<div class="item">科&nbsp&nbsp&nbsp&nbsp室： <input type="text"  style="width:170px" value="{$data['section_name']}" /></div>
+</div>
+<div class="frmMain">
+	<div class="item">职&nbsp&nbsp&nbsp&nbsp称： <input type="text"   style='width:170px' value="{$data['duty']}"/></div>
+	<div class="item">擅&nbsp&nbsp&nbsp&nbsp长： <input type="text"  style="width:170px" value="{$data['skills']}"/></div>
+</div>
+<div class="" style="height:130px;margin-left:30px">
+	<div class="item" style="margin-left:30px;margin-top:10px;margin-bottom:10px;">		
+	<volist name="img" id="val">
+		<span style="float:left;margin-left:10px;">		
+			<a href="{:U('DocManage/showImg',array('url'=>$val['u_img']))}" target="_blank"><img src="{$val['img']}" width="50" height="50" ></a><br>
+		<if condition="$key lt 4">
+			<b>执业医师资格证</b>		
+		<elseif condition="$key gt 3 && $key lt 7"/>
+			<b>医师执业证书</b>
+		<else/>
+			<b>其他资质</b>	
+		</if>
+		</span>
+	</volist>				
+	</div>			
+</div>
+<form name="frmForm" id="frmForm" method="post" action="__URL__/docManageAuthModify">
+<div class="frmMain">
+	<div class="item">是否认证： 
+		<select name="authentication">
+			<option value="0" disabled="disable" <if condition="$data['authentication'] eq 0">selected</if> >未认证</option>
+			<option value="1"  <if condition="$data['authentication'] eq 1">selected</if> >完全认证</option>
+			<option value="2" disabled="disable" <if condition="$data['authentication'] eq 2">selected</if> >待认证</option>
+			<option value="3" <if condition="$data['authentication'] eq 3">selected</if> >未通过</option>
+			<option value="11" <if condition="$data['authentication'] eq 11">selected</if> >工牌认证</option>
+		</select>
+	</div>
+	<span style="color:red">(完全认证：提交了完整的执业医师等证件，工牌认证：仅提供了工牌照片)</span>
+</div>
+<div class="frmMain">
+	<div class="item">认证人： <input type="text"  style='width:170px' value="{$data['check_name']}" disabled="disabled"/></div>
+	<div class="item">发展人： <input type="text"  name="staff_name" style='width:170px'value="{$data['staff_name']}" /></div>
+</div>
+	  <input type="hidden"  name="check_name" id="check_name"  value="{$data['check_name']}" />
+	  <input type="hidden" name="province" value="{$data['province_id']}"><!--医院——省ID-->
+	  <input type="hidden" name="city" value="{$data['city_id']}"><!--医院——市ID-->
+	  <input type="hidden" name="district" value="{$data['district_id']}"><!--医院——区ID-->
+	  <input type="hidden" name="hospital_name" value="{$data['hospital_name']}"><!--医院——医院名-->
+	  
+	  <input type="hidden" name="docId" value="{$data['id']}"><!--医生ID-->	  
+	  <input type="hidden" name="doctor_name" value="{$data['user_name']}"><!--医生名-->
+	  <input type="hidden" name="doctor_phone" value="{$data['mobile']}"><!--医生手机-->
+<div style="float:right;margin-right:36px;margin-top:10px"><include file="Template/button"/></div>
+</form>
+</body>
+</html>

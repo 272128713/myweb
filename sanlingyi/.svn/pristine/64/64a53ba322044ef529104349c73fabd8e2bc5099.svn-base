@@ -1,0 +1,55 @@
+#windownbg{
+	display:none;
+	position:absolute;
+	background:#000;
+	top:0;
+	left:0;
+	display:none;
+	filter:alpha(opacity=0);
+	opacity:0;
+	z-index: 999901
+}
+#windown-box{
+	position:fixed;
+	_position:absolute;
+	background:#FFFFFF;
+	border-radius:6px;
+	text-align:left;
+	display:none;
+	z-index: 999902
+}
+#windown-title{
+	position:relative;
+	height:26px;
+	overflow:hidden;
+	border:1px solid #99bbe8;
+	border-top-left-radius:6px;
+	border-top-right-radius:6px;
+	background-image: url('../images/windown/bg_title.gif');
+}
+#windown-icon{
+	float:left;
+	margin-top:4px;
+	margin-left:4px;
+}
+#windown_title{
+	float:left;
+	margin-top:5px;
+	margin-left:2px;
+	color:#15428b;
+}
+#windown-close{
+	float:right;
+	margin-right:8px;
+	margin-top:5px;
+	cursor:pointer;
+}
+#windown-content-border{
+	position:relative;
+	border-right:1px solid #99bbe8;
+	border-left:1px solid #99bbe8;
+	border-bottom:1px solid #99bbe8;
+	border-bottom-left-radius:6px;
+	border-bottom-right-radius:6px;
+}
+

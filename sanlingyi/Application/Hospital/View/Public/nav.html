@@ -1,0 +1,28 @@
+<div class="navi">
+    <div class="bg"></div>
+    <p><a href="{:U('Index/cate')}"><img src="__IMG__/xb (2).png"/>热点话题</a></p>
+    <p><a href="{:U('Index/lists',array('cid'=>1))}"><img src="__IMG__/xb (3).png"/>学术交流</a></p>
+    <p><a href="{:U('Index/lists',array('cid'=>2))}"><img src="__IMG__/xb (4).png"/>有问必答</a></p>
+    <p><a href="{:U('Index/lists',array('cid'=>3))}"><img src="__IMG__/xb (5).png"/>病例分析</a></p>
+    <p><a href="{:U('Index/lists',array('cid'=>4))}"><img src="__IMG__/xb (6).png"/>行业观察</a></p>
+    <p><a href="{:U('MyChat/index')}"><img src="__IMG__/xb (7).png"/>我的记录</a></p>
+    <p class="p_btm" onclick="publishs('')"><a>
+        <img src="__IMG__/xb (1).png"/>
+        <br />
+        发表
+    </a>
+    </p>
+</div>
+<script>
+function publishs(aid){
+    if(navigator.userAgent.match('iPhone')){
+        // alert();
+        publish(aid);
+    }
+    if(navigator.userAgent.match('Android')){
+        //alert($uid);
+        Android.publish(aid);
+    }
+}
+
+</script>

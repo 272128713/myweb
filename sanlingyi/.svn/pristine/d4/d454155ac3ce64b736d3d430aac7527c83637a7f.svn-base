@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<style type="text/css">
+.info{
+	text-align:center;
+	width:100%;
+	margin-top:4px;
+	height:22px;
+	line-height:22px;
+}
+.frmItem{
+	position:relative;
+	margin-top:20px;
+	margin-left:20px;
+	height:24px;
+	float:left;
+}
+.t,.s{
+	border: 1px solid #7C98BD;
+	height:20px;
+}
+.s{
+	height:24px;
+}
+</style>
+<script language="JavaScript">
+<!--
+$(function(){	
+	$('#frmForm').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+
+	}
+    function complete(data){
+        if(data>0)
+        {
+        	if(data==1)
+        	{
+        		var info='错误：名称重复！';
+        	}
+        	else
+        	{
+        		var info='错误：数据库异常，请稍候再试！';	
+        	}
+        	alert(info);
+        }
+        else
+        {
+        	alert('修改成功');        
+        	window.top.mainFrame.optFrame.location.reload();
+        	window.parent.hiddenWindow()
+        }
+    }
+});
+//-->
+</script>
+</head>
+<body bgcolor="#E9EEF5">
+<!-- 
+<div class="info">数据库：{$data.dbName} &nbsp;&nbsp; 数据表：{$data.tbName}</div>
+<hr />
+ -->
+<form name="frmForm" id="frmForm" method="post" action="__URL__/EnHospitalManageServiceModify">
+<div style="margin-left:auto;margin-right:auto;width:80%">
+	系统服务定价：{$base.name} {$base.price}元
+	<div class="frmItem">价&nbsp;&nbsp;&nbsp;格： <input class="t" type="text" name="price"  value="{$data.price}" /></div><div style="clear:both"></div>
+	<div class="frmItem">浮动率： <input class="t" type="text" name="drift"  value="{$data.drift}" /></div><div style="clear:both"></div>
+	<div class="frmItem">排&nbsp;&nbsp;&nbsp;序： <input class="t" type="text" name="index_key"  value="{$data.index_key}" /></div><div style="clear:both"></div>	
+	<div class="frmItem">状&nbsp;&nbsp;&nbsp;态：  <select class="s" name="state" style="width:60px">
+		<option value='1' <if condition="$data.state eq 1">selected</if>>开启</option>
+		<option value='0' <if condition="$data.state eq 0">selected</if>>关闭</option>		
+	</select></div>
+	
+	<div style="clear:left;margin-top:30px;float:right;margin-right:10px;"><include file="Template/button" /><input type="button" value="返回列表" onclick="javascript:history.go(-1);"></div>
+</div>
+<input type="hidden" name="id" value="{$data.id}" />
+
+</form>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>医苑天地</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <include file="Public:css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/doctorhot-list.css" />
+
+	</head>
+
+	<body>
+    <include file="Public:header" />
+		<!--
+        	时间：2015-06-29
+        	描述：主要内容
+        -->
+    <include file="Public:nav" />
+		<div class="mui-content">
+            <foreach name="news" item="at">
+
+            <div class="hot-box">
+                <a href="{:U('Index/detail',array('aid'=>$at['id']))}">
+                    <foreach name="news['img']" item="vo">
+                        <img src="{$vo.source_image_url}"/>
+                    </foreach>
+
+                    <p class="hot-title">{$at.title}</p>
+                    <p class="hot-content">{$at.intro}</p>
+                    <p class="canyu"><img src="__IMG__/canyu.png"/>已参与<span class="red">{$at.recommend_num}</span>人次 <span class="right">{$at.createDate}</span></p>
+                </a>
+            </div>
+
+            </foreach>
+		</div>
+    <script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__JS__/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				  var get_navi = $('.navi');
+				  $(".xiala").click(function(){
+				  		get_navi.slideToggle('fast');
+				  });
+				  $('.mui-content').click(function(){
+				  		if(get_navi.css('display')=="block"){
+				  		get_navi.slideUp('fast');
+				  		}
+				  });
+				  $('.hot-box').hover(function(){
+				  	$(this).css('background','#EFEFEF');
+				  },function(){
+				  	$(this).css('background','#fff');
+				  });
+			});
+		</script>
+	</body>
+
+</html>

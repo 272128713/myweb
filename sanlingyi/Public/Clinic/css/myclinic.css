@@ -1,0 +1,122 @@
+body,ul,li,div{
+    margin: 0;
+    padding: 0;
+}
+.clear{
+    clear:both;
+}
+.headerbar{
+    background: #4dbbaa;
+    height: 50px;
+    color:#fff;
+    line-height: 50px;
+    font-size: 14px;
+    padding: 0 15px;
+    border-bottom: 1px solid #baded9;
+}
+.areanum{
+    float: left;
+}
+.selectarea{
+    float: right;
+    background:url("../images/top.png") no-repeat 0px 18px;
+    background-size: 19px 12px;
+    padding-left: 25px;
+}
+.clinicbox{
+    padding: 18px 15px 0px 15px;
+}
+.clinicbox .houseimg{
+    float: left;
+    width: 100px;
+    border-radius: 5px;
+}
+.clinicbox .houseintroduce{
+    float: left;
+    font-size: 14px;
+    line-height: 20px;
+    color:#464646;
+    padding-top: 3px;
+    text-align:justify
+}
+.houseintroduce .housetitile{
+    padding-left: 28px;
+    background: url("../images/name@2x.png") no-repeat 9px 3px;
+    background-size: 14px 14px;
+}
+
+.houseintroduce .houseaddr{
+    padding-left: 28px;
+    background: url("../images/address@2x.png") no-repeat 9px 3px;
+    background-size: 14px 14px;
+    margin-top: 5px;
+}
+.housedoctor{
+    background: #f7f7f7;
+    margin: 12px -10px 10px -10px;
+    padding: 10px;
+    border-radius: 7px;
+}
+.housedoctor .titledoc{
+    font-size: 15px;
+    color:#4dbbaa;
+    padding-left: 20px;
+    background: url("../images/doctor@2x.png") no-repeat 0px 0px;
+    background-size: 16px 16px;
+}
+.doc{
+    width: 100%;
+}
+.doc .docbox{
+    float: left;
+    width: calc(100% / 3);
+    text-align: center;
+    padding-top: 10px;
+    font-size: 14px;
+}
+.docbox img{
+    width: 60px;
+    border-radius: 70px;
+}
+.docbox .p1{
+    color:#808080;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+
+}
+.docbox .p2{
+    color:#464646
+}
+.housebottom{
+    height: 12px;
+    font-size: 12px;
+}
+.housebottom .distin{
+    float: left;
+    padding-left: 18px;
+    background: url("../images/distance@2x.png") no-repeat 0px 1px;
+    background-size: 12px 12px;
+    color:#787878;
+}
+.housebottom .position{
+    float: right;
+    padding-left: 18px;
+    background: url("../images/location@2x.png") no-repeat 0px 1px;
+    background-size: 12px 12px;
+    color:#ff9849;
+}
+.houseborder{
+    clear: both;
+    margin: 12px -15px 0;
+    height: 10px;
+    background: #eeeeee;
+    border-top: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
+}

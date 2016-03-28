@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<head>
+<style type="text/css">
+.Item{
+	background-image:url(__PUBLIC__/Home/images/split_list.gif);
+	background-position: right;
+	background-repeat: repeat-y;
+	border-bottom:1px solid #D0D0D0;
+}
+.Item.can_order{
+	background-image:url(__PUBLIC__/Home/images/dept.gif);
+	background-repeat: no-repeat
+}
+.Item.asc{
+	background-image:url(__PUBLIC__/Home/images/up.gif);
+	background-repeat: no-repeat
+}
+.Item.desc{
+	background-image:url(__PUBLIC__/Home/images/down.gif);
+	background-repeat: no-repeat
+}
+</style>
+</head>
+<table>
+<php>//dump($listTitle);</php>
+  <tr height="24" background="__PUBLIC__/Home/images/bg_bar.gif">
+  	<volist name='listTitle' id='vo'>
+		<td <if condition='$vo.width gt 0'>width="{$vo.width}px"</if> class="Item <if condition='$vo.order eq 1'>can_order</if>" <if condition='$vo.center eq 1'>style="text-align:center"</if> <if condition='$vo.order eq 1'> ord="{$vo.name}" ordType="asc" onclick="javascript:orderBy(this)"</if> >{$vo.name}</td>
+  	</volist>
+  	<td width='14px'></td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td><iframe name="optFrame" id="optFrame" src="{:U(session('SESS_optModuleEN').'/'.$listController,$param)}"></iframe></td>
+  </tr>
+</table>
+<if condition="$pageEnable eq 1"><include file="Template/page" /></if>
+<script type="text/javascript">
+<!--
+var h=0;
+<if condition="$pageEnable eq 1">h=26;</if>
+var th = $(window.top).height()-h-110;
+$('#optFrame').height(th);
+//-->
+function orderBy(obj){
+	//alert($(obj).attr('ord'));
+	var url="{:U('Ajax/orderTo')}";
+	url=url.substring(0,url.indexOf('.html'));
+	$.ajax({
+		url: url,
+		type: 'POST',
+		data: {ord:$(obj).attr('ord'), ordType:$(obj).attr('ordType')},
+		dataType: 'JSON',
+		error: function () { alert('错误：加载数据异常，请重试!'); },
+		success: function(){	
+			$(obj).removeClass('can_order');
+			if($(obj).attr('ordType') == 'asc'){
+				$(obj).attr('ordType','desc');
+				$(obj).addClass('asc');
+				$(obj).removeClass('desc');
+			}else{
+				$(obj).attr('ordType','asc');
+				$(obj).addClass('desc');
+				$(obj).removeClass('asc');				
+			}		
+			window.optFrame.location.reload();
+		}
+	});
+
+}
+</script>

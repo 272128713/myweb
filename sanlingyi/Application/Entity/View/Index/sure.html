@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>投资健康</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="__CSS__/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="__CSS__/app.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/common.css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/orderConfirm.css" />
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="background:#23272a;position: fixed;">
+		 <php>
+                if(!isset($_GET['type'])){
+
+            </php>
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="history.go(-1)"></a>
+			<h1 class="mui-title" style="color:#fff" onclick="history.go(-1)">投资确认</h1>
+            <php>
+                }else{
+            </php>
+            <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="logoutConsultings()"></a>
+            <h1 class="mui-title" style="color:#fff" onclick="logoutConsultings()">投资确认</h1>
+            
+            <php>
+                }
+            </php>
+		</header>
+		 <script>
+            /**
+             * 返回app
+             */
+            function logoutConsultings(){
+
+                if(navigator.userAgent.match('iPhone')){
+                    logoutConsulting();
+                }
+                if(navigator.userAgent.match('Android')){
+                    Android.logoutConsulting();
+                }
+            }
+        </script>
+		<!--
+        	时间：2015-06-29
+        	描述：主要内容
+    -->
+        	<div class="textarea">
+        		<div class="text">
+                    <p class="title1">{$v.clinic_name}</p>
+                    <p class="title2">诊所类别：{$v.type}<span>2015-09-06&nbsp;&nbsp;成立</span></p>
+                    <p class="title3">{$v.address}</p>
+				</div>
+			</div>
+		
+			<div class="content">
+                <foreach name="v['doc']" item="vo">
+                <php>
+                    if($vo['doctor_id']==$_GET['uid']){
+                    $service_num=$vo['service_num'];
+                    $sale_num=$vo['sale_num'];
+                    $user_name=$vo[user_name];
+                </php>
+
+                <div class="content-inner" style="position:relative" >
+                	<div style="position:absolute;z-index:1;width:100%">
+					    <php>
+					    	if($vo['authentication']==11){
+					    	
+					    </php>
+						<img src="__IMG__/icon_authdoctor_v2.png" style="width:8.5%;"/>
+						<php>
+							}else if($vo['authentication']==1){
+						</php>
+						<img src="__IMG__/icon_authdoctor_v1.png" style="width:8.5%;"/>
+						<php>}</php>
+						<img class="auth" src="__IMG__/icon_authdoctor.png" style="width:5.5%;position:absolute;left:11%"/>			
+					</div>
+                    <img src="{$vo.img_url}" style="border-radius:3px;" />
+                    <div class="doctor_info">
+                        <p class="xingming">{$vo.user_name}
+                            <span class="orange">{$vo.k_name}</span>
+                            <span class="red">
+                            	<!--¥{$vo.money}
+                            	<span class="red" style="margin-left:1em"-->
+                            		{$vo.service_num}/{$vo.sale_num}</span>
+                            	</span>
+                        </p>
+                        <p class="keshi">{$vo.recollection_name}
+                        	<span class="yishi">{$vo.duty_name}</span>
+                        </p>
+                    </div>
+                    <div class="clear"></div>
+                    <p class="address">
+                        	<span>第一执业地点：</span>{$vo.hospital}{$vo.h_area}
+                    </p>
+                    <p class="grjl">
+                        <span>个人简历：</span>{$vo.summary}
+                    </p>
+                </div>
+                 <php>
+                     }
+                 </php>
+                </foreach>
+                <div class="btn">
+					<div class="btn1">
+					    <!-- 
+						<div class="canyu"> <a href="{:U('optipon',array('id'=>$_GET['id'],'uid'=>$vo['doctor_id']))}">购买健康险参与</a></div>
+						 -->
+						<php>
+	                        if($service_num<$sale_num){
+	                    </php>
+	                    <div class="buy"><a onclick="save_order()">确定投资该医生作为我的私人医生</a></div>
+						<php>
+	                        }
+	                    </php>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+			<!--div class="img-hb">
+				<img src="__IMG__/huibao.png" id="hb">
+			</div>
+			<div class="service">
+				<div class="serv">
+					<p class="sd">标准化K服务</p>
+				<div class="know">
+					<a href="href="{:U('Index/k_xy')}"">
+						<img src="__IMG__/icon.png"/>
+						<span>了解K服务</span>
+					</a>
+				</div>
+				<div class="clear"></div>
+				</div>
+			</div>
+			<div style="width:100%;height:10px;background:#e8e8e8">
+			</div>
+			
+			<div class="jieshao">
+				<p class="wenzi">{$v.other_service_content}</p>
+			</div-->
+			<php>
+                if(isset($_GET['type'])){
+
+            </php>
+			<div class="service-other">
+				<div class="red-line"></div>
+				<p class="serv">同诊所其他医生</p>
+			</div>
+			 <foreach name="v['doc']" item="vo">
+                <php>
+                    if($vo['doctor_id']!=$_GET['uid']){
+                    $service_num=$vo['service_num'];
+                    $sale_num=$vo['sale_num'];
+                </php>
+			<div class="content2" url="{:U('sure',array('uid'=>$vo['doctor_id'],'type'=>1))}">
+				<div class="content-inner" style="position:relative" >
+	                	<div style="position:absolute;z-index:1;width:100%">
+						    <php>
+						    	if($vo['authentication']==11){
+						    	
+						    </php>
+							<img src="__IMG__/icon_authdoctor_v2.png" style="width:8.5%;"/>
+							<php>
+								}else if($vo['authentication']==1){
+							</php>
+							<img src="__IMG__/icon_authdoctor_v1.png" style="width:8.5%;"/>
+							<php>}</php>
+							<img class="auth" src="__IMG__/icon_authdoctor.png" style="width:5.5%;position:absolute;left:11%"/>			
+						</div>
+	                    <img src="{$vo.img_url}" style="border-radius:3px;" />
+	                    <div class="doctor_info">
+	                        <p class="xingming">{$vo.user_name}
+	                            <span class="orange">{$vo.k_name}</span>
+	                            <span class="red">
+	                            		{$vo.service_num}/{$vo.sale_num}</span>
+	                            	</span>
+	                        </p>
+	                        <p class="keshi">{$vo.recollection_name}
+	                        	<span class="yishi">{$vo.duty_name}</span>
+	                        </p>
+	                        <p class="address">第一执业地点：{$vo.hospital}</p>
+	                        <p class="area">{$vo.h_area}</p>
+	                    </div>
+	                    <div class="clear"></div>
+	                </div>
+            </div>
+            <php>}</php>
+			</foreach>
+			   <php>}</php>
+		<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="__JS__/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				  var get_navi = $('.navi');
+				  $(".xiala").click(function(){
+				  		get_navi.slideToggle('fast');
+				  });
+				  var get_left = $('.auth').css('left');
+					$('.auth').css('top',get_left);
+				  $('.mui-content').click(function(){
+				  		if(get_navi.css('display')=="block"){
+				  		get_navi.slideUp('fast');
+				  		}
+				  });
+				  $('.new-list li').hover(function(){
+				  	$(this).css('background','#EFEFEF');
+				  },function(){
+				  	$(this).css('background','#fff');
+				  });
+				  $('.content2').click(function(){
+					  window.location.href=$(this).attr('url');
+				  });
+				  
+			});
+			layer.config({
+					    skin: 'demo-class'
+					})
+			function laconfirm(){
+				layer.alert('<p>恭喜您预定私人医生服务成功</p>', {
+					
+					title:'提醒',
+					closeBtn: false,
+					area: '90%'
+					
+				},function(index){
+				    //do something
+				    layer.close(index)
+				});
+			}
+
+            function save_order(){
+
+            	
+            	layer.alert("<p>您好,恭喜您已成功投资<span style='color:#000'>{$user_name}</span>医生私人医生服务,您的健康代表<span style='color:#000'>{$h}</span>稍后会与您联系。</p>", {
+					
+					title:'恭喜您拥有了自己的私人医生',
+					closeBtn: false,
+					area: '90%',
+					
+				},function(index){
+					layer.close(index);
+	                var value="{$Think.get.uid}";
+	                var hid="{$Think.get.id}";
+	                var url="{:U('MyChat/saveOrder')}";
+	                $.post(url,{'dic':value,'hid':hid},function (date){
+	                            if(date==1){
+	                            	goTolistPro();
+	                            }else{
+	                                //fail(date);
+	                            }
+	
+	                        }
+	                        ,'text');
+				});
+
+
+            }
+            //返
+            function goTolistPro(){
+
+                if(navigator.userAgent.match('iPhone')){
+                	goTolistPro();
+                }
+                if(navigator.userAgent.match('Android')){
+                    Android.goTolistPro(0);
+                }
+            }
+		</script>
+	</body>
+
+</html>

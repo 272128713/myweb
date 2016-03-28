@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+<!--
+var _PUBLIC="__PUBLIC__";
+//-->
+</script>
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/operateAjax.js"></script>
+<script type="text/javascript">
+<!--
+$(function(){
+	$('#BT').click(function(){
+		var l=window.document.getElementById('l').value;
+		var url="{:U('ajax/doAjax')}";
+		url=url.substring(0,url.indexOf('.html'));
+		$.ajax({
+			url: url+'/id/{$data.btID}/data/{$data.objectID}/parameter/'+l,
+			type: 'POST',
+			dataType: 'JSON',
+			error: function () { alert('错误：加载数据异常，请重试!'); },
+			success: function(data){
+				if(data=='E'){
+					alert('错误：服务器异常。请稍候再试！');
+				}
+				else{
+					alert('提示：保存成功！');	
+				}
+			}
+		});
+	});
+});
+//-->
+</script>
+<style type="text/css">
+#List{
+	border-bottom:1px solid #7c98bd;
+}
+.sd,.st,.sc{
+	border: 1px solid #7C98BD;
+	width:140px;
+	height:24px;
+	margin-left:10px;
+	margin-top:3px;
+	float:left;
+}
+.st{
+	width:160px;
+}
+.sc{
+	width:120px;
+}
+</style>
+</head>
+<body>
+<div id='List'>
+  <include file="Template/list" />
+</div>
+<div style="float:left;margin-left:10px;margin-top:5px;">每页信息数：<input type="text" id='l' value='{$data.listLimit}' style="height:18px;width:40px;" /><input type="button" value="{$data.btName}" style="height:24px;width:50px;" id="BT"></div>
+<div style="float:right;margin-right:10px;margin-top:5px;"><include file="Template/button" /></div>
+</body>
+<script type="text/javascript">
+<!--
+var th = $(window).height()-62;
+$('#optFrame').height(th);
+//-->
+</script>
+</html>

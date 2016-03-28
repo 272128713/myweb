@@ -1,0 +1,68 @@
+<?php
+/**
+ * 普通用户管理
+ * 
+ */
+
+namespace Home\Controller;
+use Think\Controller;
+class UserManageController extends TemplateController{
+	public function index(){
+		
+	}	
+	
+	public function UserManageList(){
+		$ListData=session('SESS_ListItemData');
+		$pageList=$ListData[session('SESS_optModuleID')];
+		$pageList=$pageList['parameter'];
+		
+		
+		
+		
+		
+		$dbc=M('user_base_info','',$this->getDbLink(1));
+
+		$condition=$pageList['condition'];
+		if($condition != ''){			
+			if(strstr($condition, 'form,')){//复杂搜索
+				$arr=explode(',', $condition);
+					$end=$arr[2]?$arr[2]:date('Y-m-d',time());
+					$start=$arr[1]?$arr[1]:0;
+					$start=$start.' 00:00:00';
+					$end=$end.' 23:59:59';
+					$s = ' and reg_date >"'.$start.'" and reg_date < "'.$end.'"';	
+					if($arr[3]!=''){
+						$s.=" and user_base_info.user_name LIKE '%$arr[3]%'";					
+					}			
+					if($arr[4]!=''){
+						$s.=" and user_base_info.mobile LIKE '%$arr[4]%'";
+					}					
+			}			
+		}	
+		$where='user_base_info.user_type_id=1 '.$s;
+		//dump($condition);
+		$count=$dbc->where($where)
+					->count();
+		//echo $dbc->getLastSql();
+		$result=$dbc->field('user_name,mobile,sex_id,reg_date,live_province_id,live_place')
+					->where($where)
+					->limit($pageList['start'],$pageList['limit'])
+					->order('reg_date desc')
+					->select();
+		foreach($result as &$v){			
+			$sexArr=array(
+				0=>'未选择',
+				1=>'男',
+				2=>'女',
+			);
+			$v['sex_id']=$sexArr[$v['sex_id']];			
+			$v['live_province_id']=M('hat_province')->where('provinceID='.$v['live_province_id'])->getField('province');
+						
+		}				
+		//dump($result);
+		$this->tplListItem(session('SESS_optModuleID'),$result,$count);	
+	}	
+	
+	
+	
+}

@@ -1,0 +1,17 @@
+<script type="text/javascript">
+<!--
+var APP_PATH="__APP__";
+var _PUBLIC="__PUBLIC__";
+//-->
+</script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/windown.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/operateAjax.js"></script>
+<style type="text/css">
+.b{
+	margin-right:10px;
+}
+</style>
+<volist name="buttonList" id="vo">
+	<input class='b' id="{$vo.en}" <if condition='$vo.operateType lt 4'>type="button" onclick="javascript:operateAjax('{$vo.property}','{$objectID}','{$page}')" value="{$vo.name}"<else />type="submit" value="保存信息"</if> />
+</volist>
+<input type="hidden" id="optAjaxData" />

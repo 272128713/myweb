@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script language="JavaScript">
+var _PUBLIC="__PUBLIC__";
+var _URL="{:U($data['optUrl'],$data['param'])}";
+_URL=_URL.substring(0,_URL.indexOf('.html'));
+var isTarget='{$data.target}';
+var isHidden='{$data.hidden}';
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/dtree.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/dtree/{$data.jsTree}.js"></script>
+</head>
+<body>
+<div class="dtree">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+d = new dTree('d');
+d.add(0,-1,'{$data.title}');
+<volist name="treeList" id="vo">
+d.add('{$vo.id}','{$vo.parentId}','{$vo.name}','1','dept','{$vo.selected}');
+</volist>
+d.draw();
+//-->
+
+
+$(function(){
+	$('#frmForm').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		if(''==$.trim($('#status').val()))
+		{
+			//alert("错误：信息必须填写完整！");
+			//return false;
+		}
+		// 可以在此添加其它判断
+	}
+    function complete(data){
+        if(data>0)
+        {
+        	if(data==1)
+        	{
+        		var info='新增失败';
+        	}
+        	else
+        	{
+        		var info='错误：数据库异常！';	
+        	}
+            alert(info);
+        }
+        else
+        {
+        	alert('修改成功');        
+        	window.top.mainFrame.optFrame.location.reload();
+        	window.parent.hiddenWindow()
+        }
+    }
+});
+</SCRIPT>
+</div>
+</body>
+</html>

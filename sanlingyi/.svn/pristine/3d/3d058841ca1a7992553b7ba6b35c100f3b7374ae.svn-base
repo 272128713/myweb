@@ -1,0 +1,55 @@
+<style>
+#tcal {
+	top: 450px !important; 
+	left: 550px !important; 
+	visibility: visible;
+}	
+</style>
+<div style="width:700px;float:left;margin-left:-200px;">
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/dateSelect.js"></script> 
+<link rel="stylesheet" href="__PUBLIC__/Home/css/dateSelect.css" type="text/css" />
+
+<form  style="width:750px">
+	
+	开始时间<input type="text" id="start" name="entry_date" class="tcal" readonly="readonly" style='width:90px' value="{$date['start']}" />
+	结束时间<input type="text" id="end" name="entry_date" class="tcal" readonly="readonly" style='width:90px' value="{$date['end']}" />
+	标题<input type="text" name="title" id="title" >
+	栏目<select name="class" id="class">
+				<option value=-1>请选择</option>
+				<option value=1>学术交流</option>
+				<option value=2>有问必答</option>
+				<option value=3>病例分析</option>
+				<option value=4>行业观察</option>
+				<option value=20>热点话题</option>
+			</select>	
+	投稿<select name="state" id="state">
+				<option value=-1>请选择</option>
+				<option value=0>未投稿</option>
+				<option value=1>待审批</option>
+				<option value=2>已通过</option>
+				<option value=3>未通过</option>
+			</select>						
+	<div id="my_st" style="float:right;" class='PageIcon' onmouseover="this.style.cursor='pointer';this.style.backgroundImage='url(__PUBLIC__/Home/images/page/bg_button.gif)'" onmouseout="this.style.backgroundImage=''"><img class='PageSearch' src='__PUBLIC__/Home/images/page/search.gif' /></div>
+</form>
+</div>
+<script>
+function changePage(p){
+	var url="{:U('Ajax/pageTo')}";
+	url=url.substring(0,url.indexOf('.html'));
+	$.ajax({
+		url: url+'/opt/'+p+'/rowNums/'+$('#rowNums').html(),
+		type: 'POST',
+		dataType: 'JSON',
+		error: function () { alert('错误：加载数据异常，请重试!'); },
+		success: function(){
+			window.optFrame.location.reload();
+		}
+	});
+}
+
+$('#my_st').click(function(){
+	var con='form,'+$('#start').val()+','+$('#end').val()+','+$('#title').val()+','+$('#class').val()+','+$('#state').val();
+	changePage(con);
+});	
+</script>

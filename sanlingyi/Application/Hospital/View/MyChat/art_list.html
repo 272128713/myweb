@@ -1,0 +1,56 @@
+<div class="art-box">
+    <foreach name="news" item="v">
+        <div class="art-box-list">
+            <p class="p1">{$v.title}</p>
+            <div class="p2">
+                <p class="p3"><span class="blue">【<php>echo get_name($v['columns']);</php>】</span>{$v.name}</p>
+                <php> if($v['report_flag']!=0){
+
+                </php>
+                <p class="p4"><span class="blue">【医讯头条】</span>{$v.class_name}</p>
+                <php>
+                    }
+                </php>
+                <div class="clear"></div>
+            </div>
+            <div class="time">
+                <p class="ptime">{$v.createDate}</p>
+                <div class="jh">
+                    <php> if($v['report_flag']==0){
+                    $model=D('Article');
+                    $img=$model->getImg($v['id']);
+                    $v['img_url']= $img[0]['source_image_url'];
+                    $v['img_id']= $img[0]['article_image_id'];
+                    $v['content']=urlencode($v['content']);
+                    $data=json_encode($v);
+      
+                    $name='data'.$key;
+                    </php>
+                    <script>
+                        var <?php echo $name; ?>='<?php echo $data; ?>';
+                    </script>
+                    <div class="bj" onclick="publishs(<?php echo  $name;?>)">
+                        <img src="__IMG__/iconfont-bianji.png" />编辑
+                    </div>
+                    <div class="sc delete_article"  aid="{$v.id}">
+                        <img  src="__IMG__/iconfont-shanchu.png"/>删除
+                    </div>
+                    <php>
+                        }else{
+                    </php>
+                    <div class="sh">
+                        <php> echo get_status($v['report_flag']);</php>
+                    </div>
+                    <!--<div class="sc">-->
+                        <!--<img src="__IMG__/iconfont-shanchu.png"/>删除-->
+                    <!--</div>-->
+                    <php>
+                        }
+                    </php>
+
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </foreach>
+</div>

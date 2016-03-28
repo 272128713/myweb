@@ -1,0 +1,254 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/jquery.uploadify.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/js/uploadify.css"></script>
+
+<script type="text/javascript" src="__PUBLIC__/Home/js/jquery.datetimepicker.js"></script> 
+<link rel="stylesheet" href="__PUBLIC__/Home/css/jquery.datetimepicker.css" type="text/css" />  
+
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Home/js/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Home/js/ueditor/ueditor.all.min.js"> </script>
+<!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+<!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/Home/js/ueditor/lang/zh-cn/zh-cn.js"></script>
+    
+<style type="text/css">
+.frmMain{
+	position:relative;
+	width:800px;
+	height:26px;	
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+}
+.item{
+	float:left;
+	margin-left:10px;
+	margin-bottom:5px;
+}
+</style>
+</head>
+<body bgcolor="#E9EEF5">
+<script language="JavaScript">
+<!--
+$(function(){
+	$('#frmForm').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		// 可以在此添加其它判断
+	
+		if($('#title').val()==''){
+			alert('标题不能为空');
+			return false;
+		}
+		if($('#title').val().length>24){
+			alert('标题超过24个字符');
+			return false;
+		}	
+		if($('#article_from').val().length>6){
+			alert('来源超过6个字符');
+			return false;
+		}		
+		
+		if($('#content').val()==''){
+			alert('内容不能为空');
+			return false;
+		}
+		
+	var n_num=$('#view_type').val();
+		if(n_num==-1){
+			alert('请选择展示方式');
+			return false;
+		}
+	if(n_num==2){
+		n_num=1;
+	}
+	if(n_num==4){
+		n_num=0;
+	}
+	var num=$('.pic').length;	
+	if(num < n_num){
+		alert('图片不够'+n_num+'张');
+		return false;
+	}
+	if(num > n_num){
+		alert('图片超过'+n_num+'张');
+		return false;
+	}
+		
+	}
+    function complete(data){
+        if(data>0)
+        {
+        	if(data==1)
+        	{
+        		var info='错误：数据库异常！';
+        	}
+            alert(info);
+        }
+        else
+        {
+        	alert('修改成功');        
+        	window.top.mainFrame.optFrame.location.reload();
+        	window.parent.hiddenWindow()
+        }
+    }
+});
+//-->
+</script>
+<if condition="$data['id']">
+	<form name="frmForm" id="frmForm" method="post" action="__URL__/ArticleManageModify">
+<else/>
+	<form name="frmForm" id="frmForm" method="post" action="__URL__/ArticleManageCreate">
+</if>
+
+<div class="frmMain">
+<div style="width:400px;float:left;margin-left:-60px;">
+	<div class="item" >标题： <input type="text" id="title" name="title" style='width:250px'value="{$data['title']}"  /></div>
+	<div style="clear:both"></div>
+	<div class="item">来源： <input id="article_from" type="text"  name="article_from"  style='width:250px' style='width:170px' <if condition="$data['article_from']">value="{$data['article_from']}"<else/>value="来自互联网"</if>   /></div>
+	<div style="clear:both"></div>
+	<div class="item" style="width:350px;">类别：
+		<volist name="class" id="c">
+		 		<input type="checkbox"  name="class[]"  value="{$c['id']}"  <if condition="$c['f'] eq 1"> checked </if>  />{$c['class_name']}
+		 </volist>
+	</div>
+	<div style="clear:both"></div>
+	<div class="item">排序： <input type="text"  style='width:250px' name="sort" style='width:170px'value="{$data['sort']|default=255}"  /></div>
+	<div style="clear:both"></div>	 
+	<div class="item">展示：
+		<select name="view_type"style='width:250px' id="view_type">
+				<option value=-1  >请选择选择</option>
+				<option value=1 <if condition="$data['view_type'] eq 1"> selected </if> >一张大图</option>
+				<option value=2 <if condition="$data['view_type'] eq 2"> selected </if> >一张小图</option>
+				<option value=3 <if condition="$data['view_type'] eq 3"> selected </if> >三张小图</option>
+				<option value=4 <if condition="$data['view_type'] eq 4"> selected </if> >无图</option>
+			</select>	
+	</div>	
+	<div style="clear:both"></div>
+	<div class="item">状态：
+		<select name="state" style='width:250px'>
+				<option value=0  >未发布</option>
+				<option value=1 <if condition="$data['state'] eq 1"> selected </if> >已发布</option>
+				<option value=2 <if condition="$data['state'] eq 2"> selected </if> >已删除</option>
+				<option value=3 <if condition="$data['state'] eq 3"> selected </if> >待审核</option>
+			</select>	
+	</div>
+	<div style="clear:both"></div>
+	<div class="frmMain">发布时间： <input id="start_time" class="t" name="start_time" style="width:250px;" type="text"  value="{$data['examine_time']}"/></div>
+	<div style="clear:both"></div>
+	<div class="item">图片：
+	<div style="margin-left:40px;margin-top:-15px;">
+		<input type="file" id="upload_img">	
+		<input type="hidden" name="pic_url" id="pic_url" value="" >			
+		<div id="upload-img-box">
+		<notempty name="data['pic_url']">
+		<volist name="data['pic_url']" id="img">
+			<div class="upload-pre-item"><img width="90px;" height="50px;" class="pic" src="{$img}"/><input type="hidden" name="pic_url[]" value="{$img}"> </div>
+		</volist>
+			
+		</notempty>
+		</div>
+			<button id="clear_img" src="javascript:;">清空图片</button>
+	</div>
+
+	 </div>	
+	 
+	 <div style="float:right;margin-left:100px;margin-bottom:10px"><include file="Template/button"/></div>
+	 </div>
+	 
+	 <div class="item" style="float:right;width:450px;">内容：	
+	 
+	 
+	 <script id="editor" type="text/plain" style="width:450px;height:250px;">{$data['content']}</script>	
+			<input type="hidden" name="content" id="content" value="">	 				
+	 </div>			
+	<input type="hidden" name="id" value="{$data['id']}">
+</div>
+
+<div style="clear:both"></div>
+<script>
+
+$('#start_time').datetimepicker();
+
+//上传图片
+/* 初始化上传插件 */
+$("#upload_img").uploadify({
+    "height"          : 20,
+    "swf"             : "__PUBLIC__/Home/js/uploadify.swf",
+    "fileObjName"     : "download",
+    "buttonText"      : "上传图片",
+    "uploader"        : "{:U('Common/uploadPicture',array('session_id'=>session_id()))}",
+    "width"           : 100,
+    'removeTimeout'	  : 1,
+    'fileSizeLimit'   : '1MB',
+    'fileTypeExts'	  : '*.jpg; *.png; *.gif;',
+    "onUploadSuccess" : uploadPictureimg,
+    'onFallback' : function() {
+        alert('未检测到兼容版本的Flash.');
+    },
+    'formData'     : {
+        '<{:session_name()}>' : '<{:session_id()}>', //此处获取SESSIONID
+        'my_session' : '{$_SESSION["SESS_EmployeeInfo"]["id"]}',
+    }
+
+});
+function uploadPictureimg(file, data){
+	var data = $.parseJSON(data);
+	var src = '';
+    if(data.status){
+    	src = data.url || '__ROOT__' + data.path
+    	$('#upload-img-box').append(
+    		'<div class="upload-pre-item"><img width="90" height="50" src="' + src + '"/><input class="pic" type="hidden" name="pic_url[]" value="' + src + '"></div>'
+    	);
+    } else {
+    	updateAlert(data.info);
+    	setTimeout(function(){
+            $('#top-alert').find('button').click();
+            $(that).removeClass('disabled').prop('disabled',false);
+        },1500);
+    }
+}
+$('#clear_img').click(function(){
+	$('#upload-img-box').html('');
+	$("#pic_url").val('');
+	return false;
+});
+</script>
+<script type="text/javascript">
+
+    //实例化编辑器
+    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+    var ue = UE.getEditor('editor');
+    
+
+    
+    ue.addListener('blur',function(){        
+		var con=UE.getEditor('editor').getContent();
+		$('#content').val(con);        
+    });
+
+    function isFocus(e){
+        alert(UE.getEditor('editor').isFocus());
+        UE.dom.domUtils.preventDefault(e)
+    }
+    function setblur(e){
+        UE.getEditor('editor').blur();
+        UE.dom.domUtils.preventDefault(e)
+    }
+    function insertHtml() {
+        var value = prompt('插入html代码', '');
+        UE.getEditor('editor').execCommand('insertHtml', value)
+    }
+</script>
+</form>
+</body>
+</html>

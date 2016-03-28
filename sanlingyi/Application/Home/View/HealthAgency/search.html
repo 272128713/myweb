@@ -1,0 +1,30 @@
+<div style="width:700px;float:left;">
+<div style="width:310px;float:left">
+	<form  >	
+		姓名 <input type="text"  name="name"  id="name" style='width:90px;' value="{$date['name']}" />		
+		手机号码 <input type="text"  name="mobile" id="mobile"   style='width:90px;' value="{$date['mobile']}" />
+	</form>
+</div>
+<div id="my_st" style="float:left;" class='PageIcon' onmouseover="this.style.cursor='pointer';this.style.backgroundImage='url(__PUBLIC__/Home/images/page/bg_button.gif)'" onmouseout="this.style.backgroundImage=''"><img class='PageSearch' src='__PUBLIC__/Home/images/page/search.gif' /></div>
+
+</div>
+<script>
+function changePage(p){ 
+	var url="{:U('Ajax/pageTo')}";
+	url=url.substring(0,url.indexOf('.html'));
+	$.ajax({
+		url: url+'/opt/'+p+'/rowNums/'+$('#rowNums').html(),
+		type: 'POST',
+		dataType: 'JSON',
+		error: function () { alert('错误：加载数据异常，请重试!'); },
+		success: function(){
+			window.optFrame.location.reload();
+		}
+	});
+}
+
+$('#my_st').click(function(){
+	var con='form,'+$('#name').val()+','+$('#mobile').val();
+	changePage(con);
+});	
+</script>

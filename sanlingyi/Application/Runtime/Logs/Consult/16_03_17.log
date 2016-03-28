@@ -1,0 +1,939 @@
+[ 2016-03-17T14:27:23+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/detail/aid/268
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.024002s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.006001s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE `question_id` = '268' LIMIT 1   [ RunTime:0.007000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_images_info` [ RunTime:0.008000s ]
+SQL: SELECT * FROM `bbs_question_images_info` WHERE `question_id` = '268'  [ RunTime:0.005001s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 92 行.
+SQL: SELECT a.*,b.user_name,b.hospital,c.name as duty,d.name as recollection ,e.thumbnail_image_url as img_url from bbs_doctor_answer_info as a LEFT JOIN user_base_info as b ON b.user_id=a.doctor_id LEFT JOIN dim_duty_code as c ON c.duty_id=b.duty_id
+LEFT JOIN dim_recollection_code as d ON d.recollection_id=b.recollection_id LEFT JOIN user_version_info as e ON e.user_id=b.user_id WHERE a.question_id=268  ORDER BY a.creatDate desc [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_to_answer_info` [ RunTime:0.006001s ]
+SQL: SELECT * FROM `bbs_question_to_answer_info` WHERE `answer_id` = '114'  [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.009001s ]
+SQL: SELECT `user_type_id` FROM `user_base_info` WHERE `user_id` = null LIMIT 1   [ RunTime:0.005000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT `user_type_id` FROM `user_base_info` WHERE `user_id` = null LIMIT 1   [ RunTime:0.005001s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.109006s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.109006s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-03-17T14:27:31+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.010000s ]
+SQL: SELECT `user_type_id` FROM `user_base_info` WHERE `user_id` = null LIMIT 1   [ RunTime:0.006000s ]
+NOTIC: [8] Undefined index: page E:\myweb\sanlingyi\Application\Consult\Controller\IndexController.class.php 第 32 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Consult\Controller\IndexController.class.php 第 33 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Consult\Controller\IndexController.class.php 第 35 行.
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007000s ]
+NOTIC: [8] Undefined index: _string E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 36 行.
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.008000s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE ( (answer_id =10000000 or user_id= or answer_id=) ) ORDER BY question_id desc,createDate desc LIMIT 0,10   [ RunTime:0.006000s ]
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'or answer_id=) ) ORDER BY question_id desc,createDate desc LIMIT 0,10' at line 1
+ [ SQL语句 ] : SELECT * FROM `bbs_user_question_info` WHERE ( (answer_id =10000000 or user_id= or answer_id=) ) ORDER BY question_id desc,createDate desc LIMIT 0,10  
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Runtime\Cache\Consult\98078c8f411d051c678226fe2bcde91a.php 第 45 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Runtime\Cache\Consult\98078c8f411d051c678226fe2bcde91a.php 第 46 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Runtime\Cache\Consult\98078c8f411d051c678226fe2bcde91a.php 第 47 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.062004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.063004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-03-17T14:27:49+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/index/ss/njt2O1CpymYrZUW0kTonauiFlOwgYzB0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `user_session_info` [ RunTime:0.007001s ]
+SQL: SELECT `user_id` FROM `user_session_info` WHERE `session` = 'njt2O1CpymYrZUW0kTonauiFlOwgYzB0' LIMIT 1   [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.008000s ]
+SQL: SELECT `user_type_id` FROM `user_base_info` WHERE `user_id` = '25000155' LIMIT 1   [ RunTime:0.006000s ]
+
+[ 2016-03-17T14:27:49+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/docindex
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: page E:\myweb\sanlingyi\Application\Consult\Controller\IndexController.class.php 第 74 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Consult\Controller\IndexController.class.php 第 75 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Consult\Controller\IndexController.class.php 第 77 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Consult\Controller\IndexController.class.php 第 79 行.
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007001s ]
+NOTIC: [8] Undefined index: _string E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 36 行.
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.009000s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE ( (answer_id =10000000 or user_id=25000155 or answer_id=25000155) ) AND `is_end` = 0 ORDER BY question_id desc LIMIT 0,10   [ RunTime:0.005000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Runtime\Cache\Consult\bd5b2a77e5edcde7e8e8d87e7ecbe0d2.php 第 41 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Runtime\Cache\Consult\bd5b2a77e5edcde7e8e8d87e7ecbe0d2.php 第 42 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Runtime\Cache\Consult\bd5b2a77e5edcde7e8e8d87e7ecbe0d2.php 第 43 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Runtime\Cache\Consult\bd5b2a77e5edcde7e8e8d87e7ecbe0d2.php 第 44 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.072004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.073004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.009000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.011000s ]
+
+[ 2016-03-17T14:32:26+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/docindex
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+NOTIC: [8] Undefined index: page E:\myweb\sanlingyi\Application\Consult\Controller\IndexController.class.php 第 74 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Consult\Controller\IndexController.class.php 第 75 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Consult\Controller\IndexController.class.php 第 77 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Consult\Controller\IndexController.class.php 第 79 行.
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.008000s ]
+NOTIC: [8] Undefined index: _string E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 36 行.
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE ( (answer_id =10000000 or user_id=25000155 or answer_id=25000155) ) AND `is_end` = 0 ORDER BY question_id desc LIMIT 0,10   [ RunTime:0.006000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Runtime\Cache\Consult\bd5b2a77e5edcde7e8e8d87e7ecbe0d2.php 第 41 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Runtime\Cache\Consult\bd5b2a77e5edcde7e8e8d87e7ecbe0d2.php 第 42 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Runtime\Cache\Consult\bd5b2a77e5edcde7e8e8d87e7ecbe0d2.php 第 43 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Runtime\Cache\Consult\bd5b2a77e5edcde7e8e8d87e7ecbe0d2.php 第 44 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.142008s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.144008s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004000s ]
+
+[ 2016-03-17T14:32:27+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/docindex
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] Undefined index: page E:\myweb\sanlingyi\Application\Consult\Controller\IndexController.class.php 第 74 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Consult\Controller\IndexController.class.php 第 75 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Consult\Controller\IndexController.class.php 第 77 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Consult\Controller\IndexController.class.php 第 79 行.
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.013001s ]
+NOTIC: [8] Undefined index: _string E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 36 行.
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.024001s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE ( (answer_id =10000000 or user_id=25000155 or answer_id=25000155) ) AND `is_end` = 0 ORDER BY question_id desc LIMIT 0,10   [ RunTime:0.009001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Runtime\Cache\Consult\bd5b2a77e5edcde7e8e8d87e7ecbe0d2.php 第 41 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Runtime\Cache\Consult\bd5b2a77e5edcde7e8e8d87e7ecbe0d2.php 第 42 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Runtime\Cache\Consult\bd5b2a77e5edcde7e8e8d87e7ecbe0d2.php 第 43 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Runtime\Cache\Consult\bd5b2a77e5edcde7e8e8d87e7ecbe0d2.php 第 44 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.129008s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.131008s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005000s ]
+
+[ 2016-03-17T14:34:28+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/docindex
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [8] Undefined index: page E:\myweb\sanlingyi\Application\Consult\Controller\IndexController.class.php 第 74 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Consult\Controller\IndexController.class.php 第 75 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Consult\Controller\IndexController.class.php 第 77 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Consult\Controller\IndexController.class.php 第 79 行.
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007000s ]
+NOTIC: [8] Undefined index: _string E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 36 行.
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007001s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE ( (answer_id =10000000 or user_id=25000155 or answer_id=25000155) ) AND `is_end` = 0 ORDER BY question_id desc LIMIT 0,10   [ RunTime:0.007000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001001s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.002001s ]
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Runtime\Cache\Consult\bd5b2a77e5edcde7e8e8d87e7ecbe0d2.php 第 41 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Runtime\Cache\Consult\bd5b2a77e5edcde7e8e8d87e7ecbe0d2.php 第 42 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Runtime\Cache\Consult\bd5b2a77e5edcde7e8e8d87e7ecbe0d2.php 第 43 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Runtime\Cache\Consult\bd5b2a77e5edcde7e8e8d87e7ecbe0d2.php 第 44 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.076004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.077004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004001s ]
+
+[ 2016-03-17T14:34:30+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/docindex
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [8] Undefined index: page E:\myweb\sanlingyi\Application\Consult\Controller\IndexController.class.php 第 74 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Consult\Controller\IndexController.class.php 第 75 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Consult\Controller\IndexController.class.php 第 77 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Consult\Controller\IndexController.class.php 第 79 行.
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007001s ]
+NOTIC: [8] Undefined index: _string E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 36 行.
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007001s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE ( (answer_id =10000000 or user_id=25000155 or answer_id=25000155) ) AND `is_end` = 0 ORDER BY question_id desc LIMIT 0,10   [ RunTime:0.007001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Runtime\Cache\Consult\bd5b2a77e5edcde7e8e8d87e7ecbe0d2.php 第 41 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Runtime\Cache\Consult\bd5b2a77e5edcde7e8e8d87e7ecbe0d2.php 第 42 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Runtime\Cache\Consult\bd5b2a77e5edcde7e8e8d87e7ecbe0d2.php 第 43 行.
+NOTIC: [8] Undefined index: type E:\myweb\sanlingyi\Application\Runtime\Cache\Consult\bd5b2a77e5edcde7e8e8d87e7ecbe0d2.php 第 44 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.091005s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.091005s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004001s ]
+
+[ 2016-03-17T14:34:33+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/detail/aid/268
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007001s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE `question_id` = '268' LIMIT 1   [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_images_info` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `bbs_question_images_info` WHERE `question_id` = '268'  [ RunTime:0.005000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 92 行.
+SQL: SELECT a.*,b.user_name,b.hospital,c.name as duty,d.name as recollection ,e.thumbnail_image_url as img_url from bbs_doctor_answer_info as a LEFT JOIN user_base_info as b ON b.user_id=a.doctor_id LEFT JOIN dim_duty_code as c ON c.duty_id=b.duty_id
+LEFT JOIN dim_recollection_code as d ON d.recollection_id=b.recollection_id LEFT JOIN user_version_info as e ON e.user_id=b.user_id WHERE a.question_id=268  ORDER BY a.creatDate desc [ RunTime:0.007000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_to_answer_info` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `bbs_question_to_answer_info` WHERE `answer_id` = '114'  [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.009001s ]
+SQL: SELECT `user_type_id` FROM `user_base_info` WHERE `user_id` = '25000155' LIMIT 1   [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `bbs_doctor_answer_info` [ RunTime:0.007000s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' AND `is_answer` = 1 LIMIT 1   [ RunTime:0.006001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.002000s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' LIMIT 1   [ RunTime:0.006000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.086005s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.086005s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2016-03-17T14:34:54+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/detail/aid/268
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.008001s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.008001s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE `question_id` = '268' LIMIT 1   [ RunTime:0.007000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_images_info` [ RunTime:0.007000s ]
+SQL: SELECT * FROM `bbs_question_images_info` WHERE `question_id` = '268'  [ RunTime:0.006001s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 92 行.
+SQL: SELECT a.*,b.user_name,b.hospital,c.name as duty,d.name as recollection ,e.thumbnail_image_url as img_url from bbs_doctor_answer_info as a LEFT JOIN user_base_info as b ON b.user_id=a.doctor_id LEFT JOIN dim_duty_code as c ON c.duty_id=b.duty_id
+LEFT JOIN dim_recollection_code as d ON d.recollection_id=b.recollection_id LEFT JOIN user_version_info as e ON e.user_id=b.user_id WHERE a.question_id=268  ORDER BY a.creatDate desc [ RunTime:0.007000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_to_answer_info` [ RunTime:0.009000s ]
+SQL: SELECT * FROM `bbs_question_to_answer_info` WHERE `answer_id` = '114'  [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.008001s ]
+SQL: SELECT `user_type_id` FROM `user_base_info` WHERE `user_id` = '25000155' LIMIT 1   [ RunTime:0.005001s ]
+SQL: SHOW COLUMNS FROM `bbs_doctor_answer_info` [ RunTime:0.006000s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' AND `is_answer` = 1 LIMIT 1   [ RunTime:0.005000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001001s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001001s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' LIMIT 1   [ RunTime:0.009000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.080005s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.081005s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.006000s ]
+
+[ 2016-03-17T14:35:25+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/detail/aid/268
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.015001s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE `question_id` = '268' LIMIT 1   [ RunTime:0.007001s ]
+SQL: SHOW COLUMNS FROM `bbs_question_images_info` [ RunTime:0.009000s ]
+SQL: SELECT * FROM `bbs_question_images_info` WHERE `question_id` = '268'  [ RunTime:0.007000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 92 行.
+SQL: SELECT a.*,b.user_name,b.hospital,c.name as duty,d.name as recollection ,e.thumbnail_image_url as img_url from bbs_doctor_answer_info as a LEFT JOIN user_base_info as b ON b.user_id=a.doctor_id LEFT JOIN dim_duty_code as c ON c.duty_id=b.duty_id
+LEFT JOIN dim_recollection_code as d ON d.recollection_id=b.recollection_id LEFT JOIN user_version_info as e ON e.user_id=b.user_id WHERE a.question_id=268  ORDER BY a.creatDate desc [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_to_answer_info` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `bbs_question_to_answer_info` WHERE `answer_id` = '114'  [ RunTime:0.006001s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.007000s ]
+SQL: SELECT `user_type_id` FROM `user_base_info` WHERE `user_id` = '25000155' LIMIT 1   [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `bbs_doctor_answer_info` [ RunTime:0.006000s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' AND `is_answer` = 1 LIMIT 1   [ RunTime:0.006000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.003000s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' LIMIT 1   [ RunTime:0.005001s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.086005s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.088005s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003001s ]
+
+[ 2016-03-17T14:35:27+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/detail/aid/268
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.023001s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE `question_id` = '268' LIMIT 1   [ RunTime:0.010000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_images_info` [ RunTime:0.007001s ]
+SQL: SELECT * FROM `bbs_question_images_info` WHERE `question_id` = '268'  [ RunTime:0.007000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 92 行.
+SQL: SELECT a.*,b.user_name,b.hospital,c.name as duty,d.name as recollection ,e.thumbnail_image_url as img_url from bbs_doctor_answer_info as a LEFT JOIN user_base_info as b ON b.user_id=a.doctor_id LEFT JOIN dim_duty_code as c ON c.duty_id=b.duty_id
+LEFT JOIN dim_recollection_code as d ON d.recollection_id=b.recollection_id LEFT JOIN user_version_info as e ON e.user_id=b.user_id WHERE a.question_id=268  ORDER BY a.creatDate desc [ RunTime:0.015000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_to_answer_info` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `bbs_question_to_answer_info` WHERE `answer_id` = '114'  [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.010000s ]
+SQL: SELECT `user_type_id` FROM `user_base_info` WHERE `user_id` = '25000155' LIMIT 1   [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `bbs_doctor_answer_info` [ RunTime:0.007001s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' AND `is_answer` = 1 LIMIT 1   [ RunTime:0.006000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001001s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.003001s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' LIMIT 1   [ RunTime:0.006000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.088006s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.089006s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2016-03-17T14:42:20+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/detail/aid/268
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007001s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE `question_id` = '268' LIMIT 1   [ RunTime:0.008001s ]
+SQL: SHOW COLUMNS FROM `bbs_question_images_info` [ RunTime:0.012001s ]
+SQL: SELECT * FROM `bbs_question_images_info` WHERE `question_id` = '268'  [ RunTime:0.006000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 92 行.
+SQL: SELECT a.*,b.user_name,b.hospital,c.name as duty,d.name as recollection ,e.thumbnail_image_url as img_url from bbs_doctor_answer_info as a LEFT JOIN user_base_info as b ON b.user_id=a.doctor_id LEFT JOIN dim_duty_code as c ON c.duty_id=b.duty_id
+LEFT JOIN dim_recollection_code as d ON d.recollection_id=b.recollection_id LEFT JOIN user_version_info as e ON e.user_id=b.user_id WHERE a.question_id=268  ORDER BY a.creatDate desc [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_to_answer_info` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `bbs_question_to_answer_info` WHERE `answer_id` = '114'  [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.008001s ]
+SQL: SELECT `user_type_id` FROM `user_base_info` WHERE `user_id` = '25000155' LIMIT 1   [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `bbs_doctor_answer_info` [ RunTime:0.017001s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' AND `is_answer` = 1 LIMIT 1   [ RunTime:0.006000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.002001s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' LIMIT 1   [ RunTime:0.005000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.105006s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.107007s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004000s ]
+
+[ 2016-03-17T14:43:01+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/detail/aid/268
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.011000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.015000s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE `question_id` = '268' LIMIT 1   [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_images_info` [ RunTime:0.014001s ]
+SQL: SELECT * FROM `bbs_question_images_info` WHERE `question_id` = '268'  [ RunTime:0.011000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 92 行.
+SQL: SELECT a.*,b.user_name,b.hospital,c.name as duty,d.name as recollection ,e.thumbnail_image_url as img_url from bbs_doctor_answer_info as a LEFT JOIN user_base_info as b ON b.user_id=a.doctor_id LEFT JOIN dim_duty_code as c ON c.duty_id=b.duty_id
+LEFT JOIN dim_recollection_code as d ON d.recollection_id=b.recollection_id LEFT JOIN user_version_info as e ON e.user_id=b.user_id WHERE a.question_id=268  ORDER BY a.creatDate desc [ RunTime:0.010001s ]
+SQL: SHOW COLUMNS FROM `bbs_question_to_answer_info` [ RunTime:0.008001s ]
+SQL: SELECT * FROM `bbs_question_to_answer_info` WHERE `answer_id` = '114'  [ RunTime:0.010000s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.008000s ]
+SQL: SELECT `user_type_id` FROM `user_base_info` WHERE `user_id` = '25000155' LIMIT 1   [ RunTime:0.008001s ]
+SQL: SHOW COLUMNS FROM `bbs_doctor_answer_info` [ RunTime:0.009001s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' AND `is_answer` = 1 LIMIT 1   [ RunTime:0.005000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' LIMIT 1   [ RunTime:0.007000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.080005s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.081005s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001001s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003001s ]
+
+[ 2016-03-17T14:44:01+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/detail/aid/268
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.010000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007000s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE `question_id` = '268' LIMIT 1   [ RunTime:0.006001s ]
+SQL: SHOW COLUMNS FROM `bbs_question_images_info` [ RunTime:0.007000s ]
+SQL: SELECT * FROM `bbs_question_images_info` WHERE `question_id` = '268'  [ RunTime:0.011000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 92 行.
+SQL: SELECT a.*,b.user_name,b.hospital,c.name as duty,d.name as recollection ,e.thumbnail_image_url as img_url from bbs_doctor_answer_info as a LEFT JOIN user_base_info as b ON b.user_id=a.doctor_id LEFT JOIN dim_duty_code as c ON c.duty_id=b.duty_id
+LEFT JOIN dim_recollection_code as d ON d.recollection_id=b.recollection_id LEFT JOIN user_version_info as e ON e.user_id=b.user_id WHERE a.question_id=268  ORDER BY a.creatDate desc [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_to_answer_info` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `bbs_question_to_answer_info` WHERE `answer_id` = '114'  [ RunTime:0.008000s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.007001s ]
+SQL: SELECT `user_type_id` FROM `user_base_info` WHERE `user_id` = '25000155' LIMIT 1   [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `bbs_doctor_answer_info` [ RunTime:0.005000s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' AND `is_answer` = 1 LIMIT 1   [ RunTime:0.006001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.002000s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' LIMIT 1   [ RunTime:0.006001s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.075004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.075004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004000s ]
+
+[ 2016-03-17T14:44:20+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/detail/aid/268
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007001s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007000s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE `question_id` = '268' LIMIT 1   [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_images_info` [ RunTime:0.006001s ]
+SQL: SELECT * FROM `bbs_question_images_info` WHERE `question_id` = '268'  [ RunTime:0.005000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 92 行.
+SQL: SELECT a.*,b.user_name,b.hospital,c.name as duty,d.name as recollection ,e.thumbnail_image_url as img_url from bbs_doctor_answer_info as a LEFT JOIN user_base_info as b ON b.user_id=a.doctor_id LEFT JOIN dim_duty_code as c ON c.duty_id=b.duty_id
+LEFT JOIN dim_recollection_code as d ON d.recollection_id=b.recollection_id LEFT JOIN user_version_info as e ON e.user_id=b.user_id WHERE a.question_id=268  ORDER BY a.creatDate desc [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_to_answer_info` [ RunTime:0.007000s ]
+SQL: SELECT * FROM `bbs_question_to_answer_info` WHERE `answer_id` = '114'  [ RunTime:0.020001s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.008000s ]
+SQL: SELECT `user_type_id` FROM `user_base_info` WHERE `user_id` = '25000155' LIMIT 1   [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `bbs_doctor_answer_info` [ RunTime:0.006001s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' AND `is_answer` = 1 LIMIT 1   [ RunTime:0.005000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.002000s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' LIMIT 1   [ RunTime:0.005000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.072004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.073004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2016-03-17T14:44:22+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/detail/aid/268
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.006001s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE `question_id` = '268' LIMIT 1   [ RunTime:0.008000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_images_info` [ RunTime:0.020001s ]
+SQL: SELECT * FROM `bbs_question_images_info` WHERE `question_id` = '268'  [ RunTime:0.006000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 92 行.
+SQL: SELECT a.*,b.user_name,b.hospital,c.name as duty,d.name as recollection ,e.thumbnail_image_url as img_url from bbs_doctor_answer_info as a LEFT JOIN user_base_info as b ON b.user_id=a.doctor_id LEFT JOIN dim_duty_code as c ON c.duty_id=b.duty_id
+LEFT JOIN dim_recollection_code as d ON d.recollection_id=b.recollection_id LEFT JOIN user_version_info as e ON e.user_id=b.user_id WHERE a.question_id=268  ORDER BY a.creatDate desc [ RunTime:0.010000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_to_answer_info` [ RunTime:0.016001s ]
+SQL: SELECT * FROM `bbs_question_to_answer_info` WHERE `answer_id` = '114'  [ RunTime:0.007000s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.008001s ]
+SQL: SELECT `user_type_id` FROM `user_base_info` WHERE `user_id` = '25000155' LIMIT 1   [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `bbs_doctor_answer_info` [ RunTime:0.008001s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' AND `is_answer` = 1 LIMIT 1   [ RunTime:0.009001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.002000s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' LIMIT 1   [ RunTime:0.015001s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.115006s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.116006s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2016-03-17T14:44:38+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/detail/aid/268
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004001s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007000s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE `question_id` = '268' LIMIT 1   [ RunTime:0.008001s ]
+SQL: SHOW COLUMNS FROM `bbs_question_images_info` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `bbs_question_images_info` WHERE `question_id` = '268'  [ RunTime:0.004000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 92 行.
+SQL: SELECT a.*,b.user_name,b.hospital,c.name as duty,d.name as recollection ,e.thumbnail_image_url as img_url from bbs_doctor_answer_info as a LEFT JOIN user_base_info as b ON b.user_id=a.doctor_id LEFT JOIN dim_duty_code as c ON c.duty_id=b.duty_id
+LEFT JOIN dim_recollection_code as d ON d.recollection_id=b.recollection_id LEFT JOIN user_version_info as e ON e.user_id=b.user_id WHERE a.question_id=268  ORDER BY a.creatDate desc [ RunTime:0.007000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_to_answer_info` [ RunTime:0.008000s ]
+SQL: SELECT * FROM `bbs_question_to_answer_info` WHERE `answer_id` = '114'  [ RunTime:0.006001s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.010000s ]
+SQL: SELECT `user_type_id` FROM `user_base_info` WHERE `user_id` = '25000155' LIMIT 1   [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `bbs_doctor_answer_info` [ RunTime:0.008001s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' AND `is_answer` = 1 LIMIT 1   [ RunTime:0.006001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.002000s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' LIMIT 1   [ RunTime:0.005000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.078004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.080004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2016-03-17T14:48:46+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/detail/aid/268
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.008000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007001s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE `question_id` = '268' LIMIT 1   [ RunTime:0.006001s ]
+SQL: SHOW COLUMNS FROM `bbs_question_images_info` [ RunTime:0.014001s ]
+SQL: SELECT * FROM `bbs_question_images_info` WHERE `question_id` = '268'  [ RunTime:0.006000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 92 行.
+SQL: SELECT a.*,b.user_name,b.hospital,c.name as duty,d.name as recollection ,e.thumbnail_image_url as img_url from bbs_doctor_answer_info as a LEFT JOIN user_base_info as b ON b.user_id=a.doctor_id LEFT JOIN dim_duty_code as c ON c.duty_id=b.duty_id
+LEFT JOIN dim_recollection_code as d ON d.recollection_id=b.recollection_id LEFT JOIN user_version_info as e ON e.user_id=b.user_id WHERE a.question_id=268  ORDER BY a.creatDate desc [ RunTime:0.007000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_to_answer_info` [ RunTime:0.006001s ]
+SQL: SELECT * FROM `bbs_question_to_answer_info` WHERE `answer_id` = '114'  [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.007001s ]
+SQL: SELECT `user_type_id` FROM `user_base_info` WHERE `user_id` = '25000155' LIMIT 1   [ RunTime:0.006001s ]
+SQL: SHOW COLUMNS FROM `bbs_doctor_answer_info` [ RunTime:0.006000s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' AND `is_answer` = 1 LIMIT 1   [ RunTime:0.005000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.002000s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' LIMIT 1   [ RunTime:0.010000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.083005s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.083005s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2016-03-17T14:48:49+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/detail/aid/268
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE `question_id` = '268' LIMIT 1   [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_images_info` [ RunTime:0.006001s ]
+SQL: SELECT * FROM `bbs_question_images_info` WHERE `question_id` = '268'  [ RunTime:0.007000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 92 行.
+SQL: SELECT a.*,b.user_name,b.hospital,c.name as duty,d.name as recollection ,e.thumbnail_image_url as img_url from bbs_doctor_answer_info as a LEFT JOIN user_base_info as b ON b.user_id=a.doctor_id LEFT JOIN dim_duty_code as c ON c.duty_id=b.duty_id
+LEFT JOIN dim_recollection_code as d ON d.recollection_id=b.recollection_id LEFT JOIN user_version_info as e ON e.user_id=b.user_id WHERE a.question_id=268  ORDER BY a.creatDate desc [ RunTime:0.007001s ]
+SQL: SHOW COLUMNS FROM `bbs_question_to_answer_info` [ RunTime:0.005000s ]
+SQL: SELECT * FROM `bbs_question_to_answer_info` WHERE `answer_id` = '114'  [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.009001s ]
+SQL: SELECT `user_type_id` FROM `user_base_info` WHERE `user_id` = '25000155' LIMIT 1   [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `bbs_doctor_answer_info` [ RunTime:0.006000s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' AND `is_answer` = 1 LIMIT 1   [ RunTime:0.005001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.003000s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' LIMIT 1   [ RunTime:0.005000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.085005s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.087005s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004000s ]
+
+[ 2016-03-17T14:51:44+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/detail/aid/268
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007000s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE `question_id` = '268' LIMIT 1   [ RunTime:0.006001s ]
+SQL: SHOW COLUMNS FROM `bbs_question_images_info` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `bbs_question_images_info` WHERE `question_id` = '268'  [ RunTime:0.007001s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 92 行.
+SQL: SELECT a.*,b.user_name,b.hospital,c.name as duty,d.name as recollection ,e.thumbnail_image_url as img_url from bbs_doctor_answer_info as a LEFT JOIN user_base_info as b ON b.user_id=a.doctor_id LEFT JOIN dim_duty_code as c ON c.duty_id=b.duty_id
+LEFT JOIN dim_recollection_code as d ON d.recollection_id=b.recollection_id LEFT JOIN user_version_info as e ON e.user_id=b.user_id WHERE a.question_id=268  ORDER BY a.creatDate desc [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_to_answer_info` [ RunTime:0.007001s ]
+SQL: SELECT * FROM `bbs_question_to_answer_info` WHERE `answer_id` = '114'  [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.009001s ]
+SQL: SELECT `user_type_id` FROM `user_base_info` WHERE `user_id` = '25000155' LIMIT 1   [ RunTime:0.006001s ]
+SQL: SHOW COLUMNS FROM `bbs_doctor_answer_info` [ RunTime:0.007000s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' AND `is_answer` = 1 LIMIT 1   [ RunTime:0.006000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.002000s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' LIMIT 1   [ RunTime:0.005000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.096006s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.096006s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2016-03-17T14:52:01+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/detail/aid/268
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.006001s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE `question_id` = '268' LIMIT 1   [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_images_info` [ RunTime:0.007001s ]
+SQL: SELECT * FROM `bbs_question_images_info` WHERE `question_id` = '268'  [ RunTime:0.005000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 92 行.
+SQL: SELECT a.*,b.user_name,b.hospital,c.name as duty,d.name as recollection ,e.thumbnail_image_url as img_url from bbs_doctor_answer_info as a LEFT JOIN user_base_info as b ON b.user_id=a.doctor_id LEFT JOIN dim_duty_code as c ON c.duty_id=b.duty_id
+LEFT JOIN dim_recollection_code as d ON d.recollection_id=b.recollection_id LEFT JOIN user_version_info as e ON e.user_id=b.user_id WHERE a.question_id=268  ORDER BY a.creatDate desc [ RunTime:0.006001s ]
+SQL: SHOW COLUMNS FROM `bbs_question_to_answer_info` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `bbs_question_to_answer_info` WHERE `answer_id` = '114'  [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.008001s ]
+SQL: SELECT `user_type_id` FROM `user_base_info` WHERE `user_id` = '25000155' LIMIT 1   [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `bbs_doctor_answer_info` [ RunTime:0.006000s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' AND `is_answer` = 1 LIMIT 1   [ RunTime:0.005001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.002001s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' LIMIT 1   [ RunTime:0.006000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.079004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.079004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2016-03-17T14:52:03+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/detail/aid/268
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.004000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007001s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007000s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE `question_id` = '268' LIMIT 1   [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_images_info` [ RunTime:0.007001s ]
+SQL: SELECT * FROM `bbs_question_images_info` WHERE `question_id` = '268'  [ RunTime:0.005000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 92 行.
+SQL: SELECT a.*,b.user_name,b.hospital,c.name as duty,d.name as recollection ,e.thumbnail_image_url as img_url from bbs_doctor_answer_info as a LEFT JOIN user_base_info as b ON b.user_id=a.doctor_id LEFT JOIN dim_duty_code as c ON c.duty_id=b.duty_id
+LEFT JOIN dim_recollection_code as d ON d.recollection_id=b.recollection_id LEFT JOIN user_version_info as e ON e.user_id=b.user_id WHERE a.question_id=268  ORDER BY a.creatDate desc [ RunTime:0.007000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_to_answer_info` [ RunTime:0.007001s ]
+SQL: SELECT * FROM `bbs_question_to_answer_info` WHERE `answer_id` = '114'  [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.009000s ]
+SQL: SELECT `user_type_id` FROM `user_base_info` WHERE `user_id` = '25000155' LIMIT 1   [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `bbs_doctor_answer_info` [ RunTime:0.007001s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' AND `is_answer` = 1 LIMIT 1   [ RunTime:0.005000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.003001s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' LIMIT 1   [ RunTime:0.005000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.096006s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.097006s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004000s ]
+
+[ 2016-03-17T14:52:58+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/detail/aid/268
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007001s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE `question_id` = '268' LIMIT 1   [ RunTime:0.025001s ]
+SQL: SHOW COLUMNS FROM `bbs_question_images_info` [ RunTime:0.027002s ]
+SQL: SELECT * FROM `bbs_question_images_info` WHERE `question_id` = '268'  [ RunTime:0.006000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 92 行.
+SQL: SELECT a.*,b.user_name,b.hospital,c.name as duty,d.name as recollection ,e.thumbnail_image_url as img_url from bbs_doctor_answer_info as a LEFT JOIN user_base_info as b ON b.user_id=a.doctor_id LEFT JOIN dim_duty_code as c ON c.duty_id=b.duty_id
+LEFT JOIN dim_recollection_code as d ON d.recollection_id=b.recollection_id LEFT JOIN user_version_info as e ON e.user_id=b.user_id WHERE a.question_id=268  ORDER BY a.creatDate desc [ RunTime:0.006001s ]
+SQL: SHOW COLUMNS FROM `bbs_question_to_answer_info` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `bbs_question_to_answer_info` WHERE `answer_id` = '114'  [ RunTime:0.007001s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.008000s ]
+SQL: SELECT `user_type_id` FROM `user_base_info` WHERE `user_id` = '25000155' LIMIT 1   [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `bbs_doctor_answer_info` [ RunTime:0.006001s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' AND `is_answer` = 1 LIMIT 1   [ RunTime:0.006000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' LIMIT 1   [ RunTime:0.007000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.072004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.072004s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2016-03-17T14:53:02+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/detail/aid/268
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.008000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE `question_id` = '268' LIMIT 1   [ RunTime:0.008001s ]
+SQL: SHOW COLUMNS FROM `bbs_question_images_info` [ RunTime:0.007000s ]
+SQL: SELECT * FROM `bbs_question_images_info` WHERE `question_id` = '268'  [ RunTime:0.005000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 92 行.
+SQL: SELECT a.*,b.user_name,b.hospital,c.name as duty,d.name as recollection ,e.thumbnail_image_url as img_url from bbs_doctor_answer_info as a LEFT JOIN user_base_info as b ON b.user_id=a.doctor_id LEFT JOIN dim_duty_code as c ON c.duty_id=b.duty_id
+LEFT JOIN dim_recollection_code as d ON d.recollection_id=b.recollection_id LEFT JOIN user_version_info as e ON e.user_id=b.user_id WHERE a.question_id=268  ORDER BY a.creatDate desc [ RunTime:0.007001s ]
+SQL: SHOW COLUMNS FROM `bbs_question_to_answer_info` [ RunTime:0.007000s ]
+SQL: SELECT * FROM `bbs_question_to_answer_info` WHERE `answer_id` = '114'  [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.007000s ]
+SQL: SELECT `user_type_id` FROM `user_base_info` WHERE `user_id` = '25000155' LIMIT 1   [ RunTime:0.024001s ]
+SQL: SHOW COLUMNS FROM `bbs_doctor_answer_info` [ RunTime:0.006001s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' AND `is_answer` = 1 LIMIT 1   [ RunTime:0.005000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.002000s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' LIMIT 1   [ RunTime:0.005000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.093005s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.094005s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2016-03-17T14:53:04+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/detail/aid/268
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.006001s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE `question_id` = '268' LIMIT 1   [ RunTime:0.008001s ]
+SQL: SHOW COLUMNS FROM `bbs_question_images_info` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `bbs_question_images_info` WHERE `question_id` = '268'  [ RunTime:0.006001s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 92 行.
+SQL: SELECT a.*,b.user_name,b.hospital,c.name as duty,d.name as recollection ,e.thumbnail_image_url as img_url from bbs_doctor_answer_info as a LEFT JOIN user_base_info as b ON b.user_id=a.doctor_id LEFT JOIN dim_duty_code as c ON c.duty_id=b.duty_id
+LEFT JOIN dim_recollection_code as d ON d.recollection_id=b.recollection_id LEFT JOIN user_version_info as e ON e.user_id=b.user_id WHERE a.question_id=268  ORDER BY a.creatDate desc [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_to_answer_info` [ RunTime:0.007001s ]
+SQL: SELECT * FROM `bbs_question_to_answer_info` WHERE `answer_id` = '114'  [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.013000s ]
+SQL: SELECT `user_type_id` FROM `user_base_info` WHERE `user_id` = '25000155' LIMIT 1   [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `bbs_doctor_answer_info` [ RunTime:0.007001s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' AND `is_answer` = 1 LIMIT 1   [ RunTime:0.005000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' LIMIT 1   [ RunTime:0.006000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.083004s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.085005s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004000s ]
+
+[ 2016-03-17T14:55:29+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/detail/aid/268
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.006001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.007001s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007001s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.006000s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE `question_id` = '268' LIMIT 1   [ RunTime:0.008000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_images_info` [ RunTime:0.006001s ]
+SQL: SELECT * FROM `bbs_question_images_info` WHERE `question_id` = '268'  [ RunTime:0.005000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 92 行.
+SQL: SELECT a.*,b.user_name,b.hospital,c.name as duty,d.name as recollection ,e.thumbnail_image_url as img_url from bbs_doctor_answer_info as a LEFT JOIN user_base_info as b ON b.user_id=a.doctor_id LEFT JOIN dim_duty_code as c ON c.duty_id=b.duty_id
+LEFT JOIN dim_recollection_code as d ON d.recollection_id=b.recollection_id LEFT JOIN user_version_info as e ON e.user_id=b.user_id WHERE a.question_id=268  ORDER BY a.creatDate desc [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_to_answer_info` [ RunTime:0.007001s ]
+SQL: SELECT * FROM `bbs_question_to_answer_info` WHERE `answer_id` = '114'  [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.019002s ]
+SQL: SELECT `user_type_id` FROM `user_base_info` WHERE `user_id` = '25000155' LIMIT 1   [ RunTime:0.017001s ]
+SQL: SHOW COLUMNS FROM `bbs_doctor_answer_info` [ RunTime:0.006001s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' AND `is_answer` = 1 LIMIT 1   [ RunTime:0.005001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.003000s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' LIMIT 1   [ RunTime:0.005000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.097005s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.098005s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2016-03-17T14:56:40+08:00 ] 192.168.20.8 /sanlingyi/index.php/Consult/Index/detail/aid/268
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.001000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007001s ]
+SQL: SHOW COLUMNS FROM `bbs_user_question_info` [ RunTime:0.007000s ]
+SQL: SELECT * FROM `bbs_user_question_info` WHERE `question_id` = '268' LIMIT 1   [ RunTime:0.007000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_images_info` [ RunTime:0.008001s ]
+SQL: SELECT * FROM `bbs_question_images_info` WHERE `question_id` = '268'  [ RunTime:0.006000s ]
+NOTIC: [2] Invalid argument supplied for foreach() E:\myweb\sanlingyi\Application\Consult\Model\ProblemModel.class.php 第 92 行.
+SQL: SELECT a.*,b.user_name,b.hospital,c.name as duty,d.name as recollection ,e.thumbnail_image_url as img_url from bbs_doctor_answer_info as a LEFT JOIN user_base_info as b ON b.user_id=a.doctor_id LEFT JOIN dim_duty_code as c ON c.duty_id=b.duty_id
+LEFT JOIN dim_recollection_code as d ON d.recollection_id=b.recollection_id LEFT JOIN user_version_info as e ON e.user_id=b.user_id WHERE a.question_id=268  ORDER BY a.creatDate desc [ RunTime:0.007000s ]
+SQL: SHOW COLUMNS FROM `bbs_question_to_answer_info` [ RunTime:0.007001s ]
+SQL: SELECT * FROM `bbs_question_to_answer_info` WHERE `answer_id` = '114'  [ RunTime:0.006000s ]
+SQL: SHOW COLUMNS FROM `user_base_info` [ RunTime:0.009000s ]
+SQL: SELECT `user_type_id` FROM `user_base_info` WHERE `user_id` = '25000155' LIMIT 1   [ RunTime:0.010000s ]
+SQL: SHOW COLUMNS FROM `bbs_doctor_answer_info` [ RunTime:0.008000s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' AND `is_answer` = 1 LIMIT 1   [ RunTime:0.006000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.002001s ]
+SQL: SELECT `answer_id` FROM `bbs_doctor_answer_info` WHERE `doctor_id` = '25000155' AND `question_id` = '268' LIMIT 1   [ RunTime:0.006000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.088005s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.089005s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+

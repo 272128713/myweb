@@ -1,0 +1,68 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<style type="text/css">
+.frmMain{
+	position:relative;
+	margin-top:10px;
+	margin-left:30px;
+}
+.t,.s{
+	border: 1px solid #7C98BD;
+	height:20px;
+}
+</style>
+</head>
+<body bgcolor="#E9EEF5">
+<script language="JavaScript">
+<!--
+$(function(){
+	$('#frmForm').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		if(''==$.trim($('#status').val()))
+		{
+			//alert("错误：信息必须填写完整！");
+			//return false;
+		}
+		// 可以在此添加其它判断
+	}
+    function complete(data){
+        if(data>0)
+        {
+        	if(data==1)
+        	{
+        		var info='错误：名称重复！';
+        	}
+        	else
+        	{
+        		var info='错误：数据库异常！';	
+        	}
+            alert(info);
+        }
+        else
+        {
+        	alert('处理成功');        
+        	window.top.mainFrame.optFrame.location.reload();
+        	window.parent.hiddenWindow()
+        }
+    }
+});
+
+//-->
+</script>
+<form name="frmForm" id="frmForm" method="post" action="__URL__/EntityHospitalPayModify">
+<div class="frmMain">状态： 未处理<input type="radio" name="status" value="0" <if condition="$data['status'] eq 0">checked</if>> 成功处理<input type="radio" name="status" value="1" <if condition="$data['status'] eq 2">checked</if>></div>
+<div class="frmMain"><textarea style="width:220px;height:80px;" name="resume">{$data['resume']}</textarea></div>
+<input type="hidden" name="id" value="{$data['id']}">
+<div class="frmMain" style="float:right;margin-right:30px;"><include file="Template/button" /></div>
+</form>
+</body>
+</html>

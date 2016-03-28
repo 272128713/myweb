@@ -1,0 +1,212 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<style type="text/css">
+.frmMain{
+	position:relative;
+	width:90%;
+	height:26px;	
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+}
+.item{
+	margin-left:10px;
+}
+</style>
+</head>
+<body bgcolor="#E9EEF5">
+<script language="JavaScript">
+<!--
+$(function(){
+	$('#frmForm').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		// 可以在此添加其它判断
+	}
+    function complete(data){
+        if(data>0)
+        {
+        	if(data==1)
+        	{
+        		var info='错误：数据库异常！';
+        	}
+            alert(info);
+        }
+        else
+        {
+        	alert('审核成功');        
+        	window.top.mainFrame.optFrame.location.reload();
+        	window.parent.hiddenWindow()
+        }
+    }
+});
+//-->
+</script>
+<div class="frmMain">	
+	<div class="item ">
+		1、您是否渴望了解急救常识、学会自救互救技能？<br/>
+		&nbsp;&nbsp;&nbsp;答案：<if condition="$data['q1'] eq '1' ">
+									是。
+								<else/>
+									否。
+								</if>
+		<hr></hr>
+	</div>	
+	<div class="item">
+		2、您曾接受过有关急救知识及技巧的培训么？	<br/>
+		&nbsp;&nbsp;&nbsp;答案：<if condition="$data['q2'] eq '1' ">
+									接受过。
+								<else/>
+									没有接受过。
+								</if>
+		<hr></hr>
+	</div>	
+	<div class="item">
+		3、您是否有主动系统的学习了解一些急救常识？	<br/>
+		&nbsp;&nbsp;&nbsp;答案：<if condition="$data['q3'] eq '2' ">
+									有。
+								<elseif condition="$data['q3'] eq '1' "/>
+									有想法但没去过。
+								<else/>
+									没有想法也没去了解。
+								</if>
+		<hr></hr>
+	</div>
+	<div class="item">
+		4、您认为自己对急救知识掌握的情况如何？<br/>
+		&nbsp;&nbsp;&nbsp;答案：<if condition="$data['q4'] eq '3' ">
+									非常好。
+								<elseif condition="$data['q4'] eq '2' "/>
+									好。
+								<elseif condition="$data['q4'] eq '1' "/>	
+									一般。
+								<else/>
+									差。
+								</if>
+		<hr></hr>
+	</div>	
+	<div class="item">
+		5、您对开展急救知识普及宣传活动持什么态度？<br/>
+		&nbsp;&nbsp;&nbsp;答案：<if condition="$data['q5'] eq '2' ">
+									支持。
+								<elseif condition="$data['q5'] eq '1' "/>
+									中立。
+								<else/>
+									反对。
+								</if>
+		<hr></hr>
+	</div>	
+	<div class="item">
+		6、你为什么认为急救知识重要？<br/>
+		&nbsp;&nbsp;&nbsp;答案：
+								<volist name="data['q6']" id="q6">
+									<if condition=" $q6 eq '3' ">
+										紧要时刻救人一命。
+									<elseif condition="$q6 eq '2' "/>
+										紧要时刻就己一命。	
+									<elseif condition="$q6 eq '1' "/>																		
+										更好的保障亲朋的生命安全。
+									<else/>
+										提高伤病人救活的几率。
+									</if>
+								</volist>
+
+		<hr></hr>
+	</div>
+	<div class="item">
+		7、假如现在有人心脏骤停，您是否有信心、有把握对病人进行心肺复苏？<br/>
+		&nbsp;&nbsp;&nbsp;答案：<if condition="$data['q7'] eq '3' ">
+									非常有。
+								<elseif condition="$data['q7'] eq '2' "/>
+									比较有。
+								<elseif condition="$data['q7'] eq '1' "/>
+									了解一点但不懂得。									
+								<else/>
+									没有。
+								</if>
+		<hr></hr>
+	</div>
+	<div class="item">
+		8、面对需要急救的情况，您的真实想法是什么？<br/>
+		&nbsp;&nbsp;&nbsp;答案：<if condition="$data['q8'] eq '5' ">
+									没学过，躲得越远越好或假装不知道。
+								<elseif condition="$data['q8'] eq '4' "/>
+									一片空白，不知道该做什么。
+								<elseif condition="$data['q8'] eq '3' "/>
+									害怕，忘记要做些什么。
+								<elseif condition="$data['q8'] eq '2' "/>
+									学过急救，但没有信心做好。
+								<elseif condition="$data['q8'] eq '1' "/>
+									学过急救，尽力去帮忙。
+								<elseif condition="$data['q8'] eq '0' "/>
+									学过急救，有信心做好。
+								</if>
+		<hr></hr>
+	</div>
+	<div class="item">
+		9、您认为大中小学校有开设急救知识教育课的必要吗？<br/>
+		&nbsp;&nbsp;&nbsp;答案：<if condition="$data['q9'] eq '3' ">
+									有，一直希望。
+								<elseif condition="$data['q9'] eq '2' "/>
+									比较有。
+								<elseif condition="$data['q9'] eq '1' "/>
+									无所谓。
+								<else/>
+									没有。
+								</if>
+		<hr></hr>
+	</div>
+	<div class="item">
+		10、在您以前有遇到过身边的朋友或家人遇到紧急情况，而自己无法在第一时间采取简单的急救措施，使需要急救的人得到救治来争取时间而感到苦恼吗？<br/>
+		&nbsp;&nbsp;&nbsp;答案：<if condition="$data['q10'] eq '2' ">
+									有。
+								<elseif condition="$data['q10'] eq '1' "/>
+									有一点。
+								<else/>
+									没有。
+								</if>
+		<hr></hr>
+	</div>						
+	<div class="item">
+		11、你的急救知识来源于(多选题)<br/>		
+		&nbsp;&nbsp;&nbsp;答案：	<volist name="data['q11']" id="q11">
+									<if condition="$q11 eq '5' ">
+										书本。
+									<elseif condition="$q11 eq '4' "/>
+										电视。
+									<elseif condition="$q11 eq '3' "/>
+										网络。
+									<elseif condition="$q11 eq '2' "/>
+										红十字会宣传。
+									<elseif condition="$q11 eq '1' "/>
+										急救知识培训讲座。
+									<elseif condition="$q11 eq '0' "/>
+										其他。
+									</if>
+								</volist>
+
+		<hr></hr>
+	</div>		
+	<div class="item">
+		12、你是否愿意参加公益性的急救知识培训<br/>
+		&nbsp;&nbsp;&nbsp;答案：<if condition="$data['q12'] eq '1' ">
+									愿意。
+								<elseif condition="$data['q12'] eq '0' "/>
+									不愿意。
+								</if>
+		<hr></hr>
+	</div>			
+
+</div>
+
+</form>
+</body>
+</html>

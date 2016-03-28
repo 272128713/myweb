@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>空中诊所</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="__CSS__/myclinic.css" />
+        <style>
+        </style>
+	</head>
+
+	<body>
+        <div class="headerbar">
+            <div class="areanum">全国共有{$num}家</div>
+            <div class="selectarea">选择地区</div>
+            <div class="clear"></div>
+        </div>
+        <foreach  name="cmsg" item="vo">
+            <div class="clinicbox">
+                <img class="houseimg" src="<php>
+                    if($vo->logo_url){echo $vo->logo_url;}else{echo '__IMG__/default@2x.png';}
+                </php>" alt=""/>
+                <div class="houseintroduce">
+                    <div class="housetitile"><php>echo $vo->name;</php></div>
+                    <div class="houseaddr"><php>echo $vo->address;</php></div>
+                </div>
+
+                <div class="clear"></div>
+
+
+                <div class="housedoctor">
+                    <div class="titledoc">坐诊医生：</div>
+                        <div class="doc">
+                            <php>
+                            $physicians = $vo->physicians;
+                            foreach($physicians as $k=>$v){
+                                if($k<=2){
+                            </php>
+                                <div class="docbox">
+                                    <img  src="<php>
+                                    if($v->thumbnail_image_url){echo $v->thumbnail_image_url;}else{echo '__IMG__/督脉正阳师-@2x.png';}
+                                    </php>" alt=""/>
+                                    <div class="p1"><php>echo $v->user_name</php></div>
+                                    <div class="p2">{$v->recollection_id|dim_rec_code=###}</div>
+                                </div>
+                            <php>
+                                }
+                                }
+                            </php>
+                            <div class="clear"></div>
+                        </div>
+                </div>
+                <!--div class="housebottom">
+                    <div class="distin">距离我3500米</div>
+                    <div class="position">查看地图上的位置</div>
+                    <div class="clear"></div>
+                </div-->
+                <div class="houseborder"></div>
+            </div>
+        </foreach>
+
+        <script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="__JS__/iscroll.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+
+            getImgwidth = $('.clinicbox').width();
+            $('.houseintroduce').width(getImgwidth-100);
+
+
+        </script>
+
+
+	</body>
+
+</html>

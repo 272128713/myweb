@@ -1,0 +1,8 @@
+<header class="mui-bar mui-bar-nav" style="background:#23272a;position: fixed;">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="history.go(-1)"></a>
+    <h1 class="mui-title" style="color:#fff">医苑天地</h1>
+
+    <div class="right">
+        <span style="color: #fff;display: block;height: 44px;width:3em;text-align:center;line-height:44px;font-size:16px;"><img class="xiala" src="__IMG__/xiala.png"  /></span>
+    </div>
+</header>

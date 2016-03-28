@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<style type="text/css">
+.frmMain{
+	position:relative;
+	margin-top:10px;
+	margin-left:20px;
+	width:360px;
+}
+.item{
+	position:relative;
+	height:24px;
+	margin-top:10px;
+}
+</style>
+</head>
+<body bgcolor="#E9EEF5">
+<script language="JavaScript">
+<!--
+$(function(){
+	$('#frmAjax').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		if(''==$.trim($('#dName').val())){
+			alert('错误：信息必须填写完整！');
+			return false;
+		}
+		// 可以在此添加其它判断
+	}
+    function complete(data){
+        if(data>0){
+        	if(data==1){
+        		var info='错误：名称重复！';
+        	}
+        	else{
+        		var info='错误：数据库异常！';	
+        	}
+            alert(info);
+        }
+        else{
+        	window.location.href=window.location.href;
+        	window.parent.treeFrame.location.reload();
+        }
+    }
+    //改变所属信息时触发的事件
+    $('#parentId').change(function(){
+		loadData($('#parentId').val(),$('#mid').val());
+	});
+	function loadData(pid,mid){
+		var url="{:U('Ajax/getRadioOption')}";
+		url=url.substring(0,url.indexOf('.html'));
+		$.ajax({
+			url: url+'/id/'+mid+'/parentID/'+pid+'/table/department_info',
+	        type: 'POST',
+	        dataType: 'JSON',
+	        error: function () { alert('错误：服务器异常，请稍后重试!'); },
+	        success: function (data) {
+	        	$('#position option').remove();
+	        	$("#position").append("<option value='0'>显示在第一位</option>");
+	         	$.each(data, function(i,item){ 
+	         		$("#position").append("<option value='"+item['id']+"'>在【"+item['name']+"】之后</option>"); 
+	        	});	            
+	        }
+		});
+	}
+	
+	<if condition="$data.level eq 1">
+	
+	$('#province').change(function(){
+    	var p=$('#province').val();
+    	$('#city option').remove();
+    	$("#city").append("<option value='0'>请选择城市</option>");
+       	if(p>0){
+       		loadData(p);	
+       	}
+    });
+    
+    function loadData(r){
+    	var url="{:U('ajax/getRegionOption')}";
+    	url=url.substring(0,url.indexOf('.html'));
+    	$.ajax({
+			url: url+'/id/'+r,
+            type: 'POST',
+            dataType: 'JSON',
+            error: function () { alert('错误：加载数据异常，请重试!'); },
+            success: function (data) {
+	            $.each(data, function(i,item){
+	            	if(item['id']=='{$data.city}'){
+	            		sec="selected";
+	            	}
+	            	else{
+	            		sec="";
+	            	}
+	            	$("#city").append("<option value='"+item['id']+"' "+ sec +">"+item['name']+"</option>"); 
+	           	});	            
+            }
+		});
+    }
+    
+    loadData($('#province').val());
+    </if>
+});
+
+//-->
+</script><br />
+<form name="frmAjax" id="frmAjax" method="post" action="__URL__/departmentEditDo">
+<div class="frmMain">部门名称： <input type="text" name="name" id="dName" value="{$data.name}" style="width:270px" /></div>
+<div class="frmMain">所属部门： <select size="1" name="parentId" id="parentId" style="width:274px">
+	<option value="0">本身就是公司/驻外机构</option><if condition="$data.level gt 1">
+	<volist name="mpList" id="vo">
+		<option value="{$vo.id}" <eq name="vo.id" value="$data.parentId">selected</eq>>
+		<if condition="$vo.level neq 1">
+			<for start='2' end='$vo.level'>
+				&nbsp;&nbsp;
+			</for>|--
+		</if>{$vo.name}
+		</option>
+	</volist></if>
+</select></div>
+<if condition="$data.level eq 1"><div class="frmMain">所在城市： <select name="province" id="province" style="width:120px">
+	<option value="0">请选择省份</option>
+	<volist name="pList" id="vo">
+		<option value='{$vo.id}' <eq name="data.province" value="$vo.id">selected</eq>>{$vo.name}</option>
+	</volist>
+</select>
+<select name="city" id="city" style="width:148px">
+	<option value="0">请选择城市</option>
+</select></div></if>
+<div class="frmMain">显示顺序： <select size="1" name="position" id='position' style="width:274px">
+	<option value='0'>显示在第一位</option>
+	<volist name="poList" id="vo">
+		<option value="{$vo.id}" <lt name="vo.position" value="$data.position">selected</lt>>
+		在【{$vo.name}】之后
+		</option>
+	</volist>
+</select></div>
+<div class="frmMain" style="clear:left;">使用状态： <if condition="$data.status eq 1">
+		正常使用中
+	<else />
+		停用状态
+	</if></div>
+<div class="frmMain" style="width:500px;"><include file='Template/button' /><if condition="$data.level gt 1"><input type="button" value="设置岗位" onclick="javascript:operateAjax('{$data.bt}','{$data.id}','0')" /></if></div>
+<input type="hidden" id="mid" name="id" value="{$data.id}" />
+</form>
+</body>
+</html>

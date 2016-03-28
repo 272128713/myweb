@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<style type="text/css">
+#treeList{
+	overflow:auto;
+	border-right:1px solid #99bbe8;
+	width:189px;
+	float:left;
+}
+#childList{
+	width:239px;
+	height:240px;
+	float:left;
+}
+#region{
+	height:140px;
+	border-top:1px solid #99bbe8;
+}
+.frmItem{
+	margin-left:10px;
+	margin-top:10px;
+}
+</style>
+<script type="text/javascript">
+<!--
+$(document).ready(function(){ 
+	$('#province').change(function(){
+		$('#city option').remove();
+    	$("#city").append("<option value='9'>不受城市限制</option>");
+    	var p=$('#province').val();
+    	if(p>0){
+    		loadData(p);	
+    	}
+	});
+	function loadData(r){
+    	var url="{:U('ajax/getRegionOption')}";
+    	url=url.substring(0,url.indexOf('.html'));
+    	$.ajax({
+			url: url+'/id/'+r,
+            type: 'POST',
+            dataType: 'JSON',
+            error: function () { alert('错误：加载数据异常，请重试!'); },
+            success: function (data) {
+	            $.each(data, function(i,item){ 
+	            	if(item['id']>0)
+	            	{
+	            		$("#city").append("<option value='"+item['id']+"'>"+item['name']+"</option>"); 
+	            	}
+	           	});	            
+            }
+		});
+    }
+	loadData($('#province').val());
+	
+	$('#roleRegionSave').click(function(){
+		var url="{:U('role/roleRegionSave')}";
+		url=url.substring(0,url.indexOf('.html'));
+		var moduleID=$('#optAjaxData').val();
+		var roleID=$('#role_id').val();
+		var province=$('#province').val();
+		var city=$('#city').val();
+		if(moduleID>0){
+			$.ajax({
+				url: url+'/module_id/'+moduleID+'/role_id/'+roleID+'/province/'+province+'/city/'+city,
+	            type: 'POST',
+	            dataType: 'JSON',
+	            error: function () { alert('错误：加载数据异常，请重试!'); },
+	            success: function (data) {
+		            if(data>0){
+		            	if(data<2){
+		            		alert('错误：信息重复！');
+		            	}
+		            	else{
+		            		alert('错误：服务器异常，请稍后再试！');
+		            	}
+		            }
+		            else{
+		            	window.optFrame.optFrame.location.reload();
+		            }
+	            }
+			});	
+		}
+		else{
+			alert('错误：请先选择功能模块！');
+		}
+	}); 
+});
+//-->
+</script>
+</head>
+<body>
+<div id="treeList"><include file="Template/tree" /></div>
+<div id='childList'>
+	<include file='Template/list' />
+	<div id="region">
+		<div class="frmItem">省：<select name="province" id="province" style="width:190px">
+			<option value='9'>不受地域限制</option>
+			<volist name="pList" id="vo">
+				<option value="{$vo.id}">{$vo.name}</option>
+			</volist>
+		</select></div>
+		<div class="frmItem">市：<select name="city" id="city" style="width:190px">
+			<option value='9'>不受城市限制</option>
+			<volist name="cList" id="vo">
+				<option value="{$vo.id}">{$vo.name}</option>
+			</volist>
+		</select></div>
+		<div class="frmItem" style="float:right;margin-right:10px;"><include file="Template/button" /></div>
+		<input type="hidden" id="role_id" value="{$id}" />
+	</div>
+</div>
+<script language="JavaScript">
+var th = $(window).height();
+$("#treeList").height(th);
+$("#optFrame").height(th-134);
+</script>
+</body>
+</html>

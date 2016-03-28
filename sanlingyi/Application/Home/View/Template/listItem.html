@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script type="text/javascript">
+<!--
+var APP_PATH="__APP__";
+var _PUBLIC="__PUBLIC__";
+//-->
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/windown.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/operateAjax.js"></script>
+<style type="text/css">
+html{
+	overflow-y:scroll; 
+}
+.Item,.Operate{
+	background-image:url(__PUBLIC__/Home/images/split_list.gif);
+	background-position: right;
+	background-repeat: repeat-y;
+	border-bottom:1px solid #D0D0D0;
+}
+.ItemLast{
+	border-bottom: 1px solid #D0D0D0;
+}
+</style>
+</head>
+<body>
+<table>
+  <foreach name="itemList" item="vo">
+  <tr height="28" bgcolor="<if condition='fmod($key,2) eq 0'>#FFFFFF<else />#F5F5F5</if>" onmouseover=this.style.backgroundColor="#FFFFCC" onmouseout=this.style.backgroundColor="<if condition='fmod($key,2) eq 0'>#FFFFFF<else />#F5F5F5</if>">
+  	<volist name='vo.value' id='item'>
+  		<td <if condition='$item.width gt 0'>width="{$item.width}px"</if>
+  		 class="<if condition='$i eq count($vo["value"])'>ItemLast<else />Item</if>" 
+  		<if condition='$item.center neq 0'>style="text-align:center"</if>>
+  		<if condition="$item.itemType eq 0">{$item.name}
+  		  <else /><if condition="$item.pic neq HIDE"><img src='__PUBLIC__/Home/images/button/{$item.pic}.gif' onmouseover="this.style.cursor='pointer'" onclick="javascript:operateAjax('{$item.property}','{$vo.id}','0')" /></if>
+  		</if></td>
+  	</volist>
+  </tr>
+  </foreach>
+</table>
+<script type="text/javascript">
+<!--
+$('#pageNums',parent.document).html('{$page.pageNums}');
+$('#nowPage',parent.document).val('{$page.nowPage}');
+$('#rowNums',parent.document).html('{$page.rowNums}');
+$('#PageLimit',parent.document).val('{$page.limit}');
+//-->
+</script>
+</body>
+</html>

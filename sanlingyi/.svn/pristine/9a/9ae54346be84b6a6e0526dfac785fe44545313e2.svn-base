@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+<!--
+var _PUBLIC="__PUBLIC__";
+//-->
+</script>
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<script type="text/javascript">
+<!--
+$(function(){
+    $('#coID').change(function(){
+    	var c=$('#coID').val();
+       	$('#deptID option').remove();
+       	$("#deptID").append("<option value='0'>请选择部门</option>");
+       	if(c>0){       		
+       		LoadDept(c);       		
+       	}
+    });    
+    function LoadDept(c){
+    	var url="{:U('ajax/getDepartmentOption')}";
+    	url=url.substring(0,url.indexOf('.html'));
+    	$.ajax({
+			url: url+'/id/'+c,
+            type: 'POST',
+            dataType: 'JSON',
+            error: function () { alert('错误：加载数据异常，请重试!'); },
+            success: function (data) {
+	            $.each(data, function(i,t){
+	            	var s='';
+	            	if(t['level']>2){
+	            		for(var n=2;n<t['level'];n++){
+	            			s=s+'&nbsp;&nbsp;&nbsp;';
+	            		}
+	            		s=s+'|--';
+	            	}
+	            	$("#deptID").append("<option value='"+t['id']+"'>"+s+t['name']+"</option>"); 
+	           	});	            
+            }
+		});
+    }
+    $('#deptID').change(function(){
+    	var d=$('#deptID').val();
+       	$('#dutyID option').remove();
+       	$("#dutyID").append("<option value='0'>请选择岗位</option>");
+       	if(d>0){
+       		LoadDuty(d);
+       	}
+    });
+    function LoadDuty(d){
+    	var url="{:U('ajax/getDutyOption')}";
+    	url=url.substring(0,url.indexOf('.html'));
+    	$.ajax({
+			url: url+'/id/'+d,
+            type: 'POST',
+            dataType: 'JSON',
+            error: function () { alert('错误：加载数据异常，请重试!'); },
+            success: function (data) {
+	            $.each(data, function(i,t){
+	            	$("#dutyID").append("<option value='"+t['id']+"'>"+t['name']+"</option>"); 
+	           	});	            
+            }
+		});
+    }
+    
+    $('#frmForm').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		if($('#deptID').val()==0 || $('#dutyID').val()==0){
+			alert('错误：必须选择所有的项目！')
+			return false;
+		}
+	}
+    function complete(data){
+    	if(data>0){
+        	if(data==1){
+        		var info='错误：信息重复！';
+        	}
+        	else{
+        		var info='错误：数据库异常！';	
+        	}
+            alert(info);
+        }
+        else{
+        	window.optFrame.location.reload();
+        	window.top.mainFrame.optFrame.location.reload();
+        }
+    }
+});
+//-->
+</script>
+</head>
+<body>
+<div style="border-bottom:1px solid #7c98bd;">
+  <include file="Template/list" />
+</div>
+<form name="frmForm" id="frmForm" method="post" action="__URL__/employeeDepartmentSave">
+<div style="margin-left:10px;margin-top:5px;">
+<select id="coID" style="width:196px">
+	<option value=0>请选择公司</option>
+	<volist name="cList" id='vo'>
+		<option value="{$vo.id}">{$vo.name}</option>
+	</volist>
+</select> <select name="department_id" id="deptID" style="width:196px">
+	<option value=0>请选择部门</option>
+</select>
+</div>
+<div style="margin-left:10px;margin-top:5px;">
+<select name="duty_id" id="dutyID" style="width:120px">
+	<option value=0>请选择岗位</option>
+</select><include file="Template/button"/>
+</div>
+<input type="hidden" name="employee_id" value='{$employee_id}'>
+</form>
+</body>
+<script type="text/javascript">
+<!--
+var th = $(window).height()-90;
+$('#optFrame').height(th);
+//-->
+</script>
+</html>

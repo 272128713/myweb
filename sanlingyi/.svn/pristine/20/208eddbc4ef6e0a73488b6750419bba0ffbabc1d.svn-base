@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>投资健康</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <include file="Public:css" />
+		<link rel="stylesheet" type="text/css" href="__CSS__/mychat.css" />
+
+	</head>
+
+	<body>
+    <header class="mui-bar mui-bar-nav" style="background:#23272a;position: fixed;">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="history.go(-1)"></a>
+        <h1 class="mui-title" style="color:#fff" onclick="history.go(-1)">投资健康</h1>
+
+    </header>
+
+		<!--
+        	时间：2015-06-29
+        	描述：主要内容
+        -->
+
+		<div class="mui-content">
+			<div class="title">
+				<div class="headimg">
+					<img src="{$pic}"/>
+				</div>
+				<div class="name">
+					<p class="p1">{$me.user_name}</p>
+					<!-- 
+					<p class="p2">
+						<img src="__IMG__/weizhi.png"/>
+						{$province.name} {$city.name}
+					</p>
+					 -->
+				</div>
+				<div class="btn">
+					<div class="btnarea">
+						<p class="active" id="art">文章</p>
+						<p id="chat">评论</p>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+
+			<!--
+            	作者：272128713@qq.com
+            	时间：2015-07-28
+            	描述：art
+            -->
+            <include file="MyChat:art_list" />
+			<!--
+            	作者：272128713@qq.com
+            	时间：2015-07-28
+            	描述：chat-box
+            -->
+            <include file="MyChat:com_list" />
+
+		</div>
+    <script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__JS__/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+            $(function(){
+                sanlingyi_show_tab=0;
+                $('#chat').click(function(){
+                    sanlingyi_show_tab=1;
+                    $('#order_list').html('点击加载更多')
+                    $('.art-box').css('display','none');
+                    $('.chat-box').css('display','block');
+                    $(this).addClass('active1');
+                    $('#art').removeClass('active');
+                });
+                $('#art').click(function(){
+                    sanlingyi_show_tab=0;
+                    $('#order_list').html('点击加载更多')
+                    $('.art-box').css('display','block');
+                    $('.chat-box').css('display','none');
+                    $(this).addClass('active');
+                    $('#chat').removeClass('active1');
+                });
+            });
+        </script>
+    <script>
+        function publishs(aid){
+
+            if(navigator.userAgent.match('iPhone')){
+                // alert();
+
+                publish(aid);
+            }
+            if(navigator.userAgent.match('Android')){
+                //alert($uid);
+                Android.publish(aid);
+            }
+        }
+        //删除评论
+        $('.delete_evalu').click(function(){
+            var prents_node=$(this).parents('.chat-list');
+            var eid=$(this).attr('eid');
+            var aid=$(this).attr('aid');
+            var url="{:U('delete')}";
+            $.post(url,{'eid':eid,'aid':aid}, function (data) {
+                if(data==1){
+                    prents_node.remove();
+                }
+            },'text');
+        });
+        //删除文章
+        $('.delete_article').click(function(){
+            var prents_node=$(this).parents('.art-box-list');
+            var aid=$(this).attr('aid');
+            var url="{:U('deleteArt')}";
+            $.post(url,{'aid':aid}, function (data) {
+                if(data==1){
+                    prents_node.remove();
+                }
+            },'text');
+        });
+    </script>
+
+    </body>
+
+</html>

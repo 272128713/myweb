@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>西安三聆医信息有限公司</title>
+<script language="JavaScript">
+var _PUBLIC="__PUBLIC__";
+</script>
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/menu.css" type="text/css" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/windown.css" type="text/css" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/index.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/windown.js"></script>
+<script type="text/javascript">
+
+<if condition="$isRemind eq 1">
+var remind='{$remind}';
+$(function(){
+	function showUnreadNews(){
+		var url="{:U('Loop/remind')}";
+    	url=url.substring(0,url.indexOf('.html'));
+        $.ajax({
+            type: "GET",
+            url: url+'/data/'+remind,
+            dataType: "json",
+            success: function(data) {
+                //alert(data);
+                $.each(data, function(id, msg) {
+                    $("#remind").css('display','block');
+                    $("#remind").attr('tips',msg);
+                });
+            }
+        });
+	}
+	setInterval(showUnreadNews,60000);
+	$('#remind').click(function(){
+		alert($('#remind').attr('tips'));
+	});
+});
+</if>
+
+
+function hiddenWindow(){
+	$('#windown-box').hide();
+	$('#windownbg').hide();
+	
+}
+</script>
+</head>
+<body>
+<div id='windownbg'></div>
+<div id='windown-box'>
+	<div id='windown-title'>
+		<img id='windown-icon' />
+		<span id='windown_title'></span>
+		<img id='windown-close' src='__PUBLIC__/Home/images/windown/close.gif' onmouseover="this.style.cursor='pointer'" onclick="javascript:winClose()" />
+	</div>
+	<div id='windown-content-border'>
+		<div id='windown-content'></div>
+	</div> 
+</div>
+<div id="mainIndex">
+	<div id="head">
+		<img id="logo" src="__PUBLIC__/Home/images/head/logo.gif" alt="三聆医" />
+		<img id="title" src="__PUBLIC__/Home/images/head/title.gif" alt="西安三聆医信息有限公司" />
+		<img id="power" src="__PUBLIC__/Home/images/head/power.gif" alt="Power by CenturySite2.0" />
+	</div>
+	<div id="menuMain">
+		<img class="split" src="__PUBLIC__/Home/images/head/split_line.gif" />
+		<div id="menuList">
+			<div class="imrcmain0 imgl" style="z-index:900; width: 900px; top:1px; position: relative;">
+				<div class="imcm imde" id="imouter0">
+			      	<ul id="imenus0">
+			      		<volist name="modList" id="vo">
+			      	  	<LI class="imatm" style="WIDTH:110px">
+			      	  		<A href='#' onfocus='this.blur()'><SPAN class='imea imeam'><SPAN></SPAN></SPAN><img src='__PUBLIC__/Home/images/button/{$vo.en}.gif' width='18'><span style='mangin-left:2px'> {$vo.module_name}</span></A>
+						  	<DIV class='imsc'>
+						    	<DIV class='imsubc' style='LEFT: 0px; WIDTH: 145px; TOP: 3px'>
+						      		<DIV class='imunder'></DIV>
+						      		<UL>
+						      			<volist name="vo.item" id="item">
+						        		<LI class="dvs"><A href="__URL__/moduleDirect/id/{$item['module_id']}" onfocus='this.blur()' target='mainFrame'><img src='__PUBLIC__/Home/images/button/{$item.en}.gif' width='18' align='middle'><span style='font-size:12px;'>&nbsp;&nbsp;{$item.module_name}</span></A></LI>
+						        		</volist>
+						      		</UL>
+						    	</DIV>
+						  	</DIV>
+						</LI>
+						</volist>
+			      	</ul>
+			      	<div class="imclear"></div>
+			   	</div>
+			</div>
+		</div>
+		<script language="JavaScript" src="__PUBLIC__/Home/js/ocscript.js"></script>
+		<div id="menuOpt">
+			<script language="JavaScript">
+			$(function(){
+				$('.exit').mouseover(function(){
+					$(this).attr('src','__PUBLIC__/Home/images/head/exit_over.gif');
+					$(this).css({'cursor':'pointer'});
+				});
+				$('.exit').mouseout(function(){
+					$(this).attr('src','__PUBLIC__/Home/images/head/exit.gif');
+				});
+				$('.exit').click(function(){
+					window.location="{:U('Login/loginOut')}";
+				});
+				
+				$('.passwd').mouseover(function(){
+					$(this).attr('src','__PUBLIC__/Home/images/head/passwd_over.gif');
+					$(this).css({'cursor':'pointer'});
+				});
+				$('.passwd').mouseout(function(){
+					$(this).attr('src','__PUBLIC__/Home/images/head/passwd.gif');
+				});
+				$('.passwd').click(function(){
+					windown("修改密码","__URL__/changePasswd","300","200","changePasswd");
+				});
+							
+				$('.home').mouseover(function(){
+					$(this).attr('src','__PUBLIC__/Home/images/head/home_over.gif');
+					$(this).css({'cursor':'pointer'});
+				});
+				$('.home').mouseout(function(){
+					$(this).attr('src','__PUBLIC__/Home/images/head/home.gif');
+				});
+				$('.home').click(function(){
+					alert('');
+				});
+			});
+			</script>
+			<img class='exit' id='btImg' src="__PUBLIC__/Home/images/head/exit.gif" title='退出系统' />
+			<img class='passwd' id='btImg' src="__PUBLIC__/Home/images/head/passwd.gif" title='修改密码' />
+			<img class='home' id='btImg' src="__PUBLIC__/Home/images/head/home.gif" title='返回首页' />
+			<img id='line1' src="__PUBLIC__/Home/images/head/split_line.gif" />
+			<img id='remind' src="__PUBLIC__/Home/images/head/remind.gif" onmouseover="this.style.cursor='pointer'" style="display:none" tips=""/>
+		</div>
+		<div style="clear:both"></div>
+	</div>
+	<iframe id="mainFrame" name="mainFrame" src="__URL__/blank"></iframe>
+</div>
+<script language="JavaScript">
+var th = $(window).height()-60;
+var cw = $(window).width()-2;
+
+if(th<600){
+	th=600;
+}
+if(cw<1000){
+	cw=1003;
+}
+$("#mainFrame").height(th);
+$("#mainIndex").width(cw);
+$(function(){
+	$(window).resize(function() {
+		var th = $(window).height()-60;
+		var cw = $(window).width()-2;
+		if(th<600){
+			th=600;
+		}
+		if(cw<1000){
+			cw=1024;
+		}
+		$("#mainFrame").height(th);
+		$("#mainIndex").width(cw);
+	});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+head h1{
+}
+header img{
+	height: 44px;
+	cursor: pointer;
+}
+ul,li{
+	float: left;
+}
+.bg-img img{
+	width:100% ;
+	position: absolute;
+	z-index: 0;
+	top:45px
+}
+.banner{
+	text-align: center;
+	position: relative;
+	z-index: 1;
+	top:45px;
+}
+.banner .logo{
+	width: 15%;
+	margin-top:15px;
+}
+.banner p{
+	margin-top: 10px;
+	color: #fff;
+	font-size: 20px;
+	line-height: 2em;
+}
+.banner .p0{
+	position: relative;
+}
+.banner .p0 img{
+	width: 1.2em;
+}
+.banner .wenhao{
+	position: absolute;
+	top:8px;
+	right: 5px;
+}
+.banner-foot{
+	line-height: 2em;
+}
+.banner-foot p{
+	text-align: left;
+	padding-left: 5%;
+	padding-right: 5%;
+	line-height: 2.5em;
+	font-size: 14px;
+}
+.content{
+	width: 95%;
+	margin: auto;
+}
+.banner-foot img{
+	width: 1em;
+	position: relative;
+	top:1px
+}
+.nav{
+	margin-top: 45px;
+	border-top: 13px solid #e8e8e8;
+	border-bottom: 13px solid #e8e8e8;
+	padding: 12px 2.5% 12px 2.5%;
+	color: #777;
+	width: 100%;
+}
+.nav ul{
+	width: 100%;
+	text-align: center;
+}
+.nav li{
+	width: 25%;
+	border-right: 1px solid #ccc;
+}
+.nav li a{
+	
+	color: #777;
+}
+.nav li:last-child{
+	border: 0;
+}
+.zs-box{
+	cursor: pointer;
+	border-bottom: 12px solid #e8e8e8;
+}
+.zs-box .title1{
+	float: left;
+	font-size: 18px;
+	color: #000;
+	line-height: 45px;
+}
+.zs-box .title2{
+	float: right;
+	margin-right: 1em;
+	line-height: 45px;
+	color: #000;
+}
+.zs-list{
+	padding-top: 16px;
+	border-bottom: 1px solid #ccc;
+}
+.zs-list:last-child{
+	border: 0;
+}
+.zs-box:hover{
+}
+.zs-list img{
+	float: left;
+	width: 17%;
+	border-radius: 5px;
+}
+.zs-list-p{
+	float: left;
+	width: 83%;
+	padding-left: 8px;
+}
+.zs-list-p .p1{
+	color: #000;
+	font-size: 18px;
+	float: left;
+}
+.zs-list-p .p2{
+	float: left;
+	margin-left: 2em;
+	color: #db8f18;
+}
+.zs-list-p .p3{
+	float: right;
+	color: red;
+}
+.zs-list-p .p4{
+	margin-top: 5px;
+}
+.zs-list-p .p5{
+	margin-top: 5px;
+}
+.money{
+	margin-top: 10px;
+	border-top:1px   #30C6DF;
+}
+.money1{
+	text-align: left;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+.money1 img{
+	width: 18px;
+	position: relative;
+	top:2px;
+	margin-right: 0.3em;
+}
+.money1 span{
+	font-size: 16px;
+}
+

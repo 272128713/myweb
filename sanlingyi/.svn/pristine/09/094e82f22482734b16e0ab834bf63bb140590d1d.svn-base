@@ -1,0 +1,110 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<style type="text/css">
+.frmMain{
+	position:relative;
+	margin-top:10px;
+	margin-left:20px;
+	width:360px;
+}
+.item{
+	position:relative;
+	height:24px;
+	margin-top:10px;
+}
+</style>
+</head>
+<body bgcolor="#E9EEF5">
+<script language="JavaScript">
+<!--
+$(function(){
+	$('#frmAjax').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		if(''==$.trim($('#dName').val())){
+			alert('信息必须填写完整！');
+			return false;
+		}
+		// 可以在此添加其它判断
+	}
+    function complete(data){
+        if(data>0){
+        	if(data==1){
+        		var info='名称或代码有重复！';
+        	}
+        	else{
+        		var info='数据库异常！';	
+        	}
+            alert(info);
+        }
+        else{
+        	window.location.href=window.location.href;
+        	window.parent.treeFrame.location.reload();
+        }
+    }
+    
+    $('#province').change(function(){
+    	var p=$('#province').val();
+    	$('#city option').remove();
+    	$("#city").append("<option value='0'>请选择城市</option>");
+       	if(p>0){
+       		loadData(p);	
+       	}
+    });
+    
+    function loadData(r){
+    	var url="{:U('ajax/getRegionOption')}";
+    	url=url.substring(0,url.indexOf('.html'));
+    	$.ajax({
+			url: url+'/id/'+r,
+            type: 'POST',
+            dataType: 'JSON',
+            error: function () { alert('错误：加载数据异常，请重试!'); },
+            success: function (data) {
+	            $.each(data, function(i,item){ 
+	            	if(item['id']>0)
+	            	{
+	            		$("#city").append("<option value='"+item['id']+"'>"+item['name']+"</option>"); 
+	            	}
+	           	});	            
+            }
+		});
+    }
+});
+
+//-->
+</script><br />
+<form name="frmAjax" id="frmAjax" method="post" action="__URL__/departmentAddDo">
+<div class="frmMain">所属部门： {$data.parentName}</div>
+<div class="frmMain">部门名称： <input type="text" name="name" id="dName" style="width:270px" /></div>
+<if condition="$data.level eq 1"><div class="frmMain">所在城市： <select class="s" name="province" id="province" style="width:120px">
+	<option value="0">请选择省份</option>
+	<volist name="pList" id="vo">
+		<option value='{$vo.id}'>{$vo.name}</option>
+	</volist>
+</select>
+<select class="s" name="city" id="city" style="width:148px">
+	<option value="0">请选择城市</option>
+</select></div></if>
+<div class="frmMain">显示顺序： <select size="1" name="position" style="width:274px">
+	<option value='{$data.parentID}'>显示在第一位</option>
+	<volist name="poList" id="vo">
+		<option value="{$vo.id}">
+		在【{$vo.name}】之后
+		</option>
+	</volist>
+</select></div>
+<div class="frmMain"><include file='Template/button' /></div>
+<input type="hidden" name="parentId" value="{$data.parentID}"/>
+<input type="hidden" name="level" value="{$data.level}"/>
+</form>
+</body>
+</html>

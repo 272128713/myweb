@@ -1,0 +1,66 @@
+<foreach name="news" item="v">
+
+    <div class="zs-box" url="{:U('Index/detail',array('id'=>$v['id']))}">
+        <div class="content">
+            <p class="title1">{$v.clinic_name}</p>
+            <p class="title2">{$v.type}</p>
+            <div class="clear"></div>
+            <p class="title3">{$v.address}</p>
+            <!--
+                作者：272128713@qq.com
+                时间：2015-07-30
+                描述：医生box
+            -->
+            <foreach name="v['doc']" item="vo">
+
+
+                <div class="zs-list">
+                    <img src="{$vo.img_url}"/>
+                    <div class="zs-list-p">
+                        <p class="p1">{$vo.user_name}</p>
+                        <p class="p2">{$vo.k_name}</p>
+                        <p class="p3">{$vo.service_num}/{$vo.sale_num}</p>
+                        <div class="clear"></div>
+                        <div class="p4"><span>{$vo.recollection_name} </span><span> {$vo.duty_name}</span></div>
+                        <p class="p5">{$vo.hospital} {$vo.h_area}</p>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="money">
+                        <div class="money1 left">
+                            <img src="__IMG__/jisuanqi.png"/>
+							<span>
+								预筹：
+							</span>
+							<span class="red">
+								￥{$vo.tmoney}
+							</span>
+                        </div>
+                        <div class="money1 right">
+                            <img src="__IMG__/money.png"/>
+							<span>
+								达成：
+							</span>
+							<span class="red">
+								￥{$vo.nmoney}
+							</span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+            </foreach>
+            <!--
+                作者：272128713@qq.com
+                时间：2015-07-30
+                描述：医生box
+            -->
+
+            <!--
+                作者：272128713@qq.com
+                时间：2015-07-30
+                描述：医生box
+            -->
+
+        </div>
+    </div>
+</foreach>

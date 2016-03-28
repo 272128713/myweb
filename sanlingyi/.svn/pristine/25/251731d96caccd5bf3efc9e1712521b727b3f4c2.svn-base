@@ -1,0 +1,34 @@
+<div style="width:700px;float:left;">
+<div style="width:470px;float:left">
+	<form  >	
+		医生姓名 <input type="text"  name="name"  id="name" style='width:90px;' />		
+		手机号码 <input type="text"  name="mobile" id="mobile"   style='width:90px;'  />
+		认证状态 <select name="status" id="status">
+				<option value="-1">请选择</option>
+				<option value="1">未审批</option>
+				<option value="5">审批通过</option>
+				<option value="2">审批未通过</option>
+			</select>
+	</form>
+</div>
+<div id="my_st" style="float:left;" class='PageIcon' onmouseover="this.style.cursor='pointer';this.style.backgroundImage='url(__PUBLIC__/Home/images/page/bg_button.gif)'" onmouseout="this.style.backgroundImage=''"><img class='PageSearch' src='__PUBLIC__/Home/images/page/search.gif' /></div>
+</div>
+<script>
+function changePage(p){
+	var url="{:U('Ajax/pageTo')}"; 
+	url=url.substring(0,url.indexOf('.html'));
+	$.ajax({
+		url: url+'/opt/'+p+'/rowNums/'+$('#rowNums').html(),
+		type: 'POST',
+		dataType: 'JSON',
+		error: function () { alert('错误：加载数据异常，请重试!'); },
+		success: function(){
+			window.optFrame.location.reload();
+		}
+	});
+}
+$('#my_st').click(function(){
+	var con='form,'+$('#name').val()+','+$('#mobile').val()+','+$('#status').val();
+	changePage(con);
+});	
+</script>

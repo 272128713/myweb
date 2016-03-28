@@ -1,0 +1,4 @@
+<div class="right">
+    <a href="{:U('Self/index')}"><img src="__IMG__/jilu.png" class="jiluzixun" /></a>
+    <a href=""><img src="__IMG__/consult.png" class="jiluzixun" /></a>
+</div>

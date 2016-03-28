@@ -1,0 +1,137 @@
+head h1{
+}
+header img{
+	height: 44px;
+	cursor: pointer;
+}
+
+.hid-pl{
+	width: 100%;
+	padding: 9px 5% 7px 5%;
+	background: #e3e3e3;
+	display: none;
+}
+.hid-pl textarea{
+	height: 150px;
+	width: 100%;
+	background: #E3E3E3;
+}
+.hid-title{
+	line-height: 2em;
+	margin-bottom: 0.2em;
+}
+.hid-title .p1{
+	float: left;
+	font-size: 18px;
+	color: #333;
+}
+.hid-title .p2 a{
+	float: right;
+	display: block;
+	padding-left: 1em;
+	padding-right: 1em;
+	margin-top: 0.25em;
+	border-radius: 3px;
+	background: #30C6DF;
+	line-height: 1.7em;
+}
+.title{
+	margin-top: 0.5em;
+	line-height: 2.5em;
+	color: #000;
+	font-size: 16px;
+}
+.time p{
+	position: relative;
+	top:2px;
+	float: left;
+	font-size:12px;
+}
+.time .fx-sc{
+	float: right;
+}
+.fx-sc img{
+	width: 14px;
+	position: relative;
+	top:2px;
+}
+.fx-sc a{
+	padding-left: 1em;
+	padding-right: 1em;
+}
+.con{
+	margin-top:0.6em;
+	padding-bottom: 1em;
+	font-size:14px;
+}
+.cy{
+	height: 35px;
+	line-height: 35px;
+	background: #e5e5e5;
+	margin-bottom: 10px;
+}
+.cy p{
+	float: left;
+	margin-left: 3%;
+	font-size: 14px;
+	color: #000;
+	
+}
+.cy .til{
+	float: right;
+	margin-right: 3%;
+	font-size: 12px;
+	color: #666;
+}
+.til span{
+	font-size: 12px;
+	
+}
+.cy .til img{
+	width:14px;
+	position: relative;
+	top:3px
+}
+.list-box{
+	width: 95%;
+	margin: auto;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #E5E5E5;
+}
+.im{
+	width: 17%;
+	float: left;
+}
+.im img{
+	width: 100%;
+}
+.li-box-p{
+	width: 83%;
+	float: left;
+	padding-left:10px ;
+}
+.tim{
+	margin-top: 10px;
+}
+.tim p{
+	float: left;
+	color:#999;
+	font-size: 12px;
+}
+.tim .zan{
+	float: right;
+	font-size: 12px;
+	padding-left: 4px;
+	padding-right: 4px;
+	color:#999;
+}
+.zan span{
+	color: red;
+	font-size:12px;
+}
+.tim .zan img{
+	width: 14px;
+	position: relative;
+	top:1px;
+} 

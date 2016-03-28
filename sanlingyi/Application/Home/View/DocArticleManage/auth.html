@@ -1,0 +1,89 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>  
+
+<style type="text/css">
+.frmMain{
+	position:relative;
+	width:800px;
+	height:26px;	
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+}
+.item{
+	float:left;
+	margin-left:10px;
+	margin-bottom:5px;
+}
+</style>
+</head>
+<body bgcolor="#E9EEF5">
+<script language="JavaScript">
+<!--
+$(function(){
+	$('#frmForm').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		// 可以在此添加其它判断
+	
+
+		
+	}
+    function complete(data){
+        if(data>0)
+        {
+        	if(data==1)
+        	{
+        		var info='错误：数据库异常！';
+        	}
+            alert(info);
+        }
+        else
+        {
+        	alert('修改成功');        
+        	window.top.mainFrame.optFrame.location.reload();
+        	window.parent.hiddenWindow()
+        }
+    }
+});
+//-->
+</script>
+	<form name="frmForm" id="frmForm" method="post" action="__URL__/DocArticleManageDoAuth">
+
+<div class="frmMain">
+<div style="">
+	<div class="item" >标题： <input type="text" id="title" name="title" style='width:250px'value="{$data['title']}"  /></div>
+	<div style="clear:both"></div>	 
+	<div class="item" >栏目： <input type="text" id="class" name="class" style='width:250px'value="{$data['class']}"  /></div>
+	<div style="clear:both"></div>			 	 
+	 <div class="item" style="">内容：
+	 	<textarea name="content" cols="40" rows="15">{$data['content']}</textarea>		 				
+	 </div>
+	<div style="clear:both"></div>		 
+	 <div class="item" style="">图片：
+	 	<if condition="$data['imgs'] eq ''">
+	 		无图
+	 	<else/>	 		
+	 		<img src="{$data['img']}" style="max-width:340px;max-height:130px;">
+	 	</if>
+	 		 				
+	 </div>		 		 
+	 <div style="clear:both"></div>
+	<div class="item" >状态： <input type="radio" name="state" value="1" <if condition="$data['report_flag'] eq 2"> checked </if> >通过 <input type="radio" name="state" <if condition="$data['report_flag'] eq 3"> checked </if> value="0">不通过</div>
+	<div style="clear:both"></div>	 		
+	 <div style="float:left;margin-left:200px;"><include file="Template/button"/></div>
+	 </div>
+		
+	<input type="hidden" name="id" value="{$data['id']}">
+</div>
+</form>
+</body>
+</html>

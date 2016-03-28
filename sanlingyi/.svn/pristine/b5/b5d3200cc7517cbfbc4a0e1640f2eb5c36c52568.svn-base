@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>用户查找结果</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <link rel="stylesheet" href="__CSS__/mui.min.css">
+        <link rel="stylesheet" type="text/css" href="__CSS__/common.css"/>
+        <link rel="stylesheet" type="text/css" href="__CSS__/app.css"/>
+        <link rel="stylesheet" type="text/css" href="__CSS__/search.css"/>
+        <link rel="stylesheet" type="text/css" href="__CSS__/iconfont.css"/>
+
+	</head>
+
+	<body>
+    <php>
+        $is_doc=M('user_base_info',null)->where(array('user_id'=> session('yixin_user')))->getField('user_type_id');
+    </php>
+        <style>
+            .sarch_list{ padding: 0; margin: 0;}
+            .sarch_list li{ padding: 0; margin: 0;}
+        </style>
+		<header class="mui-bar mui-bar-nav" style="background:#23272a;position: fixed;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" onclick="history.go(-1)"></a>
+			<h1 class="mui-title" style="color:#fff" onclick="history.go(-1)"><php>echo_title();</php></h1>
+            <div class="right">
+
+                <?php
+                    if($is_doc==2){
+                  ?>
+             
+                <?php
+                    }else{
+                   ?>
+                <a onclick="go_to_app_consult('')"><img src="__IMG__/consult.png" class="jiluzixun" /></a>
+                <a href="{:U('SelfConsult/index')}"><img src="__IMG__/jilu.png" class="jiluzixun" /></a>
+
+                <?php
+                      }
+                    ?>
+            </div>
+		</header>
+		<!--
+        	时间：2015-06-29
+        	描述：主要内容
+        -->
+		<div class="mui-content">
+		<!--
+        	时间：2015-06-29
+        	描述：选项卡
+        -->
+        <div class="cc left">
+
+            <form id="search" method="get" name="search"
+                  <?php
+                    if($is_doc==2){
+                  ?>
+                  action="{:U('Index/docindex')}"
+                  <?php
+                    }else{
+                   ?>
+                     action="{:U('Index/index')}"
+                    <?php
+                      }
+                    ?>
+                    >
+			<input type="search"  name="svalue" required="" placeholder="请输入相关症状或疾病" lang="zh-CN">
+            </form>
+			<img src="__IMG__/sousuo1.png" style="width:24px;height: 24px;position: relative;top:-2.6em;left:0.4em"/>
+
+            <div class="mui-content">
+                <ul class="mui-table-view">
+
+                    <volist  name="hs" id="vo">
+                        <li class="mui-table-view-cell hlist">
+                            <?php
+                                 if($is_doc==2){
+                             ?>
+                            <a href="{:U('Index/docindex',array('svalue'=>urlencode($vo)))}">
+                            <?php
+                            }else{
+                             ?>
+                            <a href="{:U('Index/index',array('svalue'=>urlencode($vo)))}">
+                            <?php
+                                }
+                            ?>
+                              {$vo}</a>
+                        </li>
+                    </volist >
+                    <li id="delete" class="mui-table-view-cell" style="color: #0062cc;">
+                        <span class="mui-icon mui-icon-trash"></span>清除历史
+                    </li>
+                </ul>
+            </div>
+	     </div>	
+	    <a  id="submit"><div class="search right">搜索</div></a>
+
+		</div>
+        <script>
+            document.getElementById("submit").onclick=function(){
+                document.getElementById("search").submit();
+            }
+        </script>
+        <script src="__PUBLIC__/Article/js/jquery-1.9.1.min.js"></script>
+        <script>
+            $('#delete').click(function () {
+                var url="{:U('delete')}"
+                $.post(url,{},function(data){
+                    if(data==1){
+                        $('.hlist').remove();
+                    }
+                },'text');
+            })
+        </script>
+    <script src="__JS__/app_com.js"></script>
+	</body>
+
+</html>

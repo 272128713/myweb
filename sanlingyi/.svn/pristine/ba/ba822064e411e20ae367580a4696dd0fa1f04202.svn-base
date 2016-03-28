@@ -1,0 +1,133 @@
+<link rel="stylesheet" href="__PUBLIC__/Home/css/page.css" type="text/css" />
+<script type="text/javascript">
+<!--
+$(function(){
+	function changePage(p){
+		var url="{:U('Ajax/pageTo')}";
+		url=url.substring(0,url.indexOf('.html'));
+		$.ajax({
+			url: url+'/opt/'+p+'/rowNums/'+$('#rowNums').html(),
+			type: 'POST',
+			dataType: 'JSON',
+			error: function () { alert('错误：加载数据异常，请重试!'); },
+			success: function(){
+				window.optFrame.location.reload();
+			}
+		});
+	}
+	$('#F').click(function(){
+		var nowPage=$('#nowPage').val();
+		if(nowPage==1){
+			alert('提示：现在已经是第一页了！');
+		}
+		else{
+			changePage('F');
+		}
+	});
+	$('#P').click(function(){
+		var nowPage=$('#nowPage').val();
+		if(nowPage==1){
+			alert('提示：现在已经是第一页了！');
+		}
+		else{
+			changePage('P');
+		}
+	});
+	$('#N').click(function(){
+		var pages=$('#pageNums').html();
+		var nowPage=$('#nowPage').val();
+		if(nowPage==pages){
+			alert('提示：现在已经是最后一页了！');
+		}
+		else{
+			changePage('N');
+		}
+	});
+	$('#L').click(function(){
+		var pages=$('#pageNums').html();
+		var nowPage=$('#nowPage').val();
+		if(nowPage==pages){
+			alert('提示：现在已经是最后一页了！');
+		}
+		else{
+			changePage('L');
+		}
+	});
+	$('#R').click(function(){
+		$('#PageName').val('');
+		changePage('R');
+	});
+	$('#SP').click(function(){
+		var pages=$('#pageNums').html();
+		var sp=$('#nowPage').val();
+		if(sp>0 && sp<=pages*1){
+			changePage(sp);
+		}
+		else{
+			alert('错误：页码超出范围，请重新填写！');
+		}
+	});
+	$('#ST').click(function(){
+		var t=$('#PageName').val();
+		if($.trim(t)==''){
+			alert('错误：请填写需要查找的名称！');
+		}
+		else{
+			changePage(t);
+		}
+	});
+});
+//-->
+</script>
+<table style="border-top:1px solid #99bbe8" bgcolor='#d5e1f2'>
+  <tr>
+  	<td height="25">
+  	<div id="F" class='PageIcon' onmouseover="this.style.cursor='pointer';this.style.backgroundImage='url(__PUBLIC__/Home/images/page/bg_button.gif)'" onmouseout="this.style.backgroundImage=''"><img class='PageBt' src='__PUBLIC__/Home/images/page/first.gif' /></div>
+  	<div class='PageSplit'></div>
+  	<div id="P" class='PageIcon' onmouseover="this.style.cursor='pointer';this.style.backgroundImage='url(__PUBLIC__/Home/images/page/bg_button.gif)'" onmouseout="this.style.backgroundImage=''"><img class='PageBt' src='__PUBLIC__/Home/images/page/pre.gif' /></div>
+  	<div class='PageSplit'></div>
+  	<div id="N" class='PageIcon' onmouseover="this.style.cursor='pointer';this.style.backgroundImage='url(__PUBLIC__/Home/images/page/bg_button.gif)'" onmouseout="this.style.backgroundImage=''"><img class='PageBt' src='__PUBLIC__/Home/images/page/next.gif' /></div>
+  	<div class='PageSplit'></div>
+  	<div id="L" class='PageIcon' onmouseover="this.style.cursor='pointer';this.style.backgroundImage='url(__PUBLIC__/Home/images/page/bg_button.gif)'" onmouseout="this.style.backgroundImage=''"><img class='PageBt' src='__PUBLIC__/Home/images/page/last.gif' /></div>
+  	<div class='PageSplit'></div>
+  	<div id="R" class='PageIcon' onmouseover="this.style.cursor='pointer';this.style.backgroundImage='url(__PUBLIC__/Home/images/page/bg_button.gif)'" onmouseout="this.style.backgroundImage=''"><img class='PageReload' src='__PUBLIC__/Home/images/page/reload.gif' /></div>
+  	<div class='PageSplit'></div>
+  	<div class='PageNums'>共有<span id='pageNums'></span>页/当前页<input type="text" class='PageNumber' id="nowPage" style="height:15px;" /></div>
+  	<div id="SP" class='PageIcon' onmouseover="this.style.cursor='pointer';this.style.backgroundImage='url(__PUBLIC__/Home/images/page/bg_button.gif)'" onmouseout="this.style.backgroundImage=''"><img class='PageSearch' src='__PUBLIC__/Home/images/page/search.gif' /></div>
+  	<div class='PageSplit'></div>
+<!-- 
+  	<div class='PageNums'>按名称搜索<input type='text' class='PageName' id='PageName' style="height:15px;" /></div>
+  	<div id="ST" class='PageIcon' onmouseover="this.style.cursor='pointer';this.style.backgroundImage='url(__PUBLIC__/Home/images/page/bg_button.gif)'" onmouseout="this.style.backgroundImage=''"><img class='PageSearch' src='__PUBLIC__/Home/images/page/search.gif' /></div>
+ -->  	
+  	</td>
+  	<td >  
+	<php>
+	$contoller=session("SESS_optModuleEN");
+	$str= "./Application/Home/View/".$contoller."/search.html";
+	$con=$contoller.'/search';	
+	</php>
+	<switch name="contoller">    
+		<case value="StaffManage"><include file='StaffManage/search' /></case>
+		<case value="DocManage"><include file='DocManage/search' /></case>
+		<case value="UserBuyKmanage"><include file='UserBuyKmanage/search' /></case>
+		<case value="HealthAgency"><include file='HealthAgency/search' /></case>
+		<case value="Kmanage"><include file='Kmanage/search' /></case>
+		<case value="FitpayDrawApply"><include file='FitpayDrawApply/search' /></case>
+		<case value="AgentDrawApply"><include file='AgentDrawApply/search' /></case>
+		<case value="EntityHospitalApply"><include file='EntityHospitalApply/search' /></case>
+		<case value="HospitalManage"><include file='HospitalManage/search' /></case>
+		<case value="HospitalApply"><include file='HospitalApply/search' /></case>
+		<case value="UserManage"><include file='UserManage/search' /></case>
+		<case value="ArticleManage"><include file='ArticleManage/search' /></case>
+		<case value="DocArticleManage"><include file='DocArticleManage/search' /></case>
+		<case value="EntityHospitalPay"><include file='EntityHospitalPay/search' /></case>
+		<case value="TradeRecord"><include file='TradeRecord/search' /></case>		
+		<case value="FitpayManage"><include file='FitpayManage/search' /></case>
+		<default />
+	</switch>
+	
+	
+  	</td>
+  	<td width="130" align='right'><div style="margin-right:6px;">共有信息<span id='rowNums'></span>条</div></td>
+  </tr>
+</table>

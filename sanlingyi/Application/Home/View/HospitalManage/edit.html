@@ -1,0 +1,140 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="__PUBLIC__/Home/css/default.css" type="text/css" />
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery-1.9.1.min.js"></script>
+<script language="JavaScript" src="__PUBLIC__/Home/js/jquery/jquery.form.js"></script>
+<style type="text/css">
+.frmMain{
+	position:relative;
+	width:90%;
+	height:26px;	
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+}
+.item{
+	float:left;
+	margin-left:10px;
+}
+</style>
+</head>
+<body bgcolor="#E9EEF5">
+<script language="JavaScript">
+<!--
+$(function(){
+	$('#frmForm').ajaxForm({
+		beforeSubmit:  checkForm,  // pre-submit callback
+		success:       complete,  // post-submit callback
+		dataType: 'json'
+	});
+	function checkForm(){
+		// 可以在此添加其它判断
+	}
+    function complete(data){
+        if(data>0)
+        {
+        	if(data==1)
+        	{
+        		var info='错误：数据库异常！';
+        	}
+            alert(info);
+        }
+        else
+        {
+        	alert('修改成功');        
+        	window.top.mainFrame.optFrame.location.reload();
+        	window.parent.hiddenWindow()
+        }
+    }
+});
+//-->
+</script>
+<if condition="$data['id']">
+	<form name="frmForm" id="frmForm" method="post" action="__URL__/HospitalManageModify">
+<else/>
+	<form name="frmForm" id="frmForm" method="post" action="__URL__/HospitalManageCreate">
+</if>
+<div class="frmMain">
+	<div class="item">&nbsp;&nbsp;医院名： <input type="text"  name="name" style='width:170px'value="{$data['name']}"  /></div>
+	<div class="item">&nbsp;&nbsp;所在省： 
+		<select name="province" id="province">
+			<option value="-1">所在省</option>
+			<volist name="provinces" id="pro">
+				<option value="{$pro['provinceID']}" <if condition="$pro['provinceID'] eq $data['province']"> selected </if> >{$pro['province']}</option>
+			</volist>
+		</select>
+	</div>
+	<div class="item">&nbsp;&nbsp;所在市：
+		<select name="city" id="city">
+			<if condition="$data['city']">
+				<volist name="citys" id="ci">
+					<option value="{$ci['cityID']}" <if condition="$ci['cityID'] eq $data['city']"> selected </if> >{$ci['city']}</option>
+				</volist>
+			<else/>
+				<option value="-1">所在市</option>
+			</if>	
+		</select>
+	</div>
+	<div class="item">&nbsp;&nbsp;所在区：	
+		<select name="section" id="area">
+			<if condition="$data['section']">
+				<volist name="areas" id="ar">
+					<option value="{$ar['cityID']}" <if condition="$ar['areaID'] eq $data['section']"> selected </if> >{$ar['AREA']}</option>
+				</volist>
+			<else/>
+				<option value="-1">所在区</option>
+			</if>
+		</select>					
+	</div>
+	<div class="item">详细地址： <input type="text"  name="address" style='width:170px'value="{$data['address']}"  /></div>	
+	<div class="item">&nbsp;&nbsp;&nbsp;&nbsp;等级： <input type="text"  name="lev" style='width:170px'value="{$data['lev']}"  /></div>
+	<div class="item">联系电话： <input type="text"  name="phone" style='width:170px'value="{$data['phone']}"  /></div>
+	<div class="item">&nbsp;&nbsp;&nbsp;&nbsp;类型： <input type="text"  name="nature" style='width:170px'value="{$data['nature']}"  /></div>
+	<input type="hidden" name="id" value="{$data['id']}">
+</div>
+<div style="float:right;margin-right:36px;margin-top:10px"><include file="Template/button"/></div>
+</form>
+</body>
+<script>
+	$('#province').change(function(){
+		var province=$('#province').val();
+		var url="{:U('ajax/changeProvince')}";	
+		var str='';
+		$.ajax({
+			url: url,
+			type: 'POST',
+			data:{province:province},
+			dataType: 'JSON',
+			error: function () {  },
+			success: function(data){
+				str+='<option value="-1">所在市</option>';
+				$.each(data,function(i,val){
+					 str+="<option value="+val.cityID+">"+val.city+"</option>";
+				})
+				$('#city').html(str);
+			}
+		});
+     });
+	$('#city').change(function(){
+		var city=$('#city').val();
+		var url="{:U('ajax/changeCity')}";	
+		var str='';
+		$.ajax({
+			url: url,
+			type: 'POST',
+			data:{city:city},
+			dataType: 'JSON',
+			error: function () {  },
+			success: function(data){
+				str+='<option value="-1">所在区</option>';				
+				$.each(data,function(i,val){
+					 str+="<option value="+val.areaID+">"+val.AREA+"</option>";
+				})
+				$('#area').html(str);
+			}
+		});
+     });	
+</script>
+</html>

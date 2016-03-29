@@ -1,0 +1,170 @@
+2015-11-19 09:22:49,000 [ERROR] (get_public_welfare_activity_info.php:16) -- params is err. params is array (
+  'ss' => '',
+  'activity_id' => '',
+) 
+2015-11-19 09:22:50,004 [ERROR] (get_public_welfare_activity_people.php:13) -- params error. params is array (
+  'ss' => '',
+  'activity_id' => '',
+) 
+2015-11-19 09:22:52,024 [ERROR] (get_public_welfare_activity_info.php:16) -- params is err. params is array (
+  'ss' => '',
+  'activity_id' => '',
+) 
+2015-11-19 09:22:53,004 [ERROR] (get_public_welfare_activity_info.php:16) -- params is err. params is array (
+  'ss' => '',
+  'activity_id' => '',
+) 
+2015-11-19 09:22:53,104 [ERROR] (get_public_welfare_activity_people.php:13) -- params error. params is array (
+  'ss' => '',
+  'activity_id' => '',
+) 
+2015-11-19 09:22:53,630 [ERROR] (get_public_welfare_activity_info.php:16) -- params is err. params is array (
+  'ss' => '',
+  'activity_id' => '',
+) 
+2015-11-19 09:22:53,631 [ERROR] (get_public_welfare_activity_people.php:13) -- params error. params is array (
+  'ss' => '',
+  'activity_id' => '',
+) 
+2015-11-19 09:22:53,986 [ERROR] (get_public_welfare_activity_people.php:13) -- params error. params is array (
+  'ss' => '',
+  'activity_id' => '',
+) 
+2015-11-19 09:22:54,216 [ERROR] (get_public_welfare_activity_info.php:16) -- params is err. params is array (
+  'ss' => '',
+  'activity_id' => '',
+) 
+2015-11-19 09:22:54,216 [ERROR] (get_public_welfare_activity_people.php:13) -- params error. params is array (
+  'ss' => '',
+  'activity_id' => '',
+) 
+2015-11-19 09:22:54,737 [ERROR] (get_public_welfare_activity_info.php:16) -- params is err. params is array (
+  'ss' => '',
+  'activity_id' => '',
+) 
+2015-11-19 09:22:54,746 [ERROR] (get_public_welfare_activity_people.php:13) -- params error. params is array (
+  'ss' => '',
+  'activity_id' => '',
+) 
+2015-11-19 09:22:54,926 [ERROR] (get_public_welfare_activity_people.php:13) -- params error. params is array (
+  'ss' => '',
+  'activity_id' => '',
+) 
+2015-11-19 09:22:54,939 [ERROR] (get_public_welfare_activity_info.php:16) -- params is err. params is array (
+  'ss' => '',
+  'activity_id' => '',
+) 
+2015-11-19 09:22:55,115 [ERROR] (get_public_welfare_activity_people.php:13) -- params error. params is array (
+  'ss' => '',
+  'activity_id' => '',
+) 
+2015-11-19 09:22:55,116 [ERROR] (get_public_welfare_activity_info.php:16) -- params is err. params is array (
+  'ss' => '',
+  'activity_id' => '',
+) 
+2015-11-19 09:22:56,248 [ERROR] (get_public_welfare_activity_people.php:13) -- params error. params is array (
+  'ss' => '',
+  'activity_id' => '',
+) 
+2015-11-19 09:22:56,256 [ERROR] (get_public_welfare_activity_info.php:16) -- params is err. params is array (
+  'ss' => '',
+  'activity_id' => '',
+) 
+2015-11-19 09:23:00,270 [ERROR] (get_public_welfare_activity_people.php:13) -- params error. params is array (
+  'ss' => '',
+  'activity_id' => '1',
+) 
+2015-11-19 09:23:00,281 [ERROR] (get_public_welfare_activity_info.php:16) -- params is err. params is array (
+  'ss' => '',
+  'activity_id' => '1',
+) 
+2015-11-19 10:22:35,309 [INFO] (DatabaseManager.php:115) -- poster's param is: url: http://192.168.20.11/sky_master/1.0//get_postulant_auth.phppost data isarray (
+  'user_id' => '25040006',
+) return is'{"code":"1","msg":"\\u8bf7\\u6c42\\u6210\\u529f","result":""}
+' 
+2015-11-19 10:22:47,367 [INFO] (DatabaseManager.php:115) -- poster's param is: url: http://192.168.20.11/sky_master/1.0//get_postulant_auth.phppost data isarray (
+  'user_id' => '25040005',
+) return is'{"code":"1","msg":"\\u8bf7\\u6c42\\u6210\\u529f","result":""}
+' 
+2015-11-19 10:22:54,026 [INFO] (DatabaseManager.php:115) -- poster's param is: url: http://192.168.20.11/sky_master/1.0//get_postulant_auth.phppost data isarray (
+  'user_id' => '25040007',
+) return is'{"code":"1","msg":"\\u8bf7\\u6c42\\u6210\\u529f","result":""}
+' 
+2015-11-19 10:25:54,173 [INFO] (DatabaseManager.php:115) -- poster's param is: url: http://192.168.20.11/sky_master/1.0//get_postulant_auth.phppost data isarray (
+  'user_id' => '25040007',
+) return is'{"code":"1","msg":"\\u8bf7\\u6c42\\u6210\\u529f","result":""}
+' 
+2015-11-19 10:26:15,653 [INFO] (DatabaseManager.php:115) -- poster's param is: url: http://192.168.20.11/sky_master/1.0//get_postulant_auth.phppost data isarray (
+  'user_id' => '25036285',
+) return is'{"code":"1024","msg":"\\u7528\\u6237\\u4fe1\\u606f\\u4e0d\\u5b8c\\u6574"}
+' 
+2015-11-19 10:28:01,876 [INFO] (DatabaseManager.php:115) -- poster's param is: url: http://192.168.20.11/sky_master/1.0//get_postulant_auth.phppost data isarray (
+  'user_id' => '25036291',
+) return is'{"code":"1","msg":"\\u8bf7\\u6c42\\u6210\\u529f","result":""}
+' 
+2015-11-19 10:28:11,764 [INFO] (DatabaseManager.php:115) -- poster's param is: url: http://192.168.20.11/sky_master/1.0//get_postulant_auth.phppost data isarray (
+  'user_id' => '25035839',
+) return is'{"code":"1","msg":"\\u8bf7\\u6c42\\u6210\\u529f","result":""}
+' 
+2015-11-19 10:28:18,106 [INFO] (DatabaseManager.php:115) -- poster's param is: url: http://192.168.20.11/sky_master/1.0//get_postulant_auth.phppost data isarray (
+  'user_id' => '25035836',
+) return is'{"code":"1024","msg":"\\u7528\\u6237\\u4fe1\\u606f\\u4e0d\\u5b8c\\u6574"}
+' 
+2015-11-19 10:33:07,348 [INFO] (DatabaseManager.php:115) -- poster's param is: url: http://192.168.20.11/sky_master/1.0//get_postulant_auth.phppost data isarray (
+  'user_id' => '25035850',
+) return is'{"code":"1024","msg":"\\u7528\\u6237\\u4fe1\\u606f\\u4e0d\\u5b8c\\u6574"}
+' 
+2015-11-19 10:33:08,965 [INFO] (DatabaseManager.php:115) -- poster's param is: url: http://192.168.20.11/sky_master/1.0//get_postulant_auth.phppost data isarray (
+  'user_id' => '25035850',
+) return is'{"code":"1024","msg":"\\u7528\\u6237\\u4fe1\\u606f\\u4e0d\\u5b8c\\u6574"}
+' 
+2015-11-19 10:33:29,249 [INFO] (DatabaseManager.php:115) -- poster's param is: url: http://192.168.20.11/sky_master/1.0//get_postulant_auth.phppost data isarray (
+  'user_id' => '25035849',
+) return is'{"code":"1","msg":"\\u8bf7\\u6c42\\u6210\\u529f","result":""}
+' 
+2015-11-19 13:25:34,222 [ERROR] (join_public_welfare_activity.php:17) -- params is err. params is array (
+) 
+2015-11-19 13:25:57,766 [ERROR] (join_public_welfare_activity.php:17) -- params is err. params is array (
+) 
+2015-11-19 13:26:13,702 [ERROR] (join_public_welfare_activity.php:17) -- params is err. params is array (
+) 
+2015-11-19 13:26:19,100 [ERROR] (join_public_welfare_activity.php:17) -- params is err. params is array (
+) 
+2015-11-19 13:26:40,824 [ERROR] (join_public_welfare_activity.php:17) -- params is err. params is array (
+) 
+2015-11-19 13:26:41,654 [ERROR] (join_public_welfare_activity.php:17) -- params is err. params is array (
+) 
+2015-11-19 13:26:42,251 [ERROR] (join_public_welfare_activity.php:17) -- params is err. params is array (
+) 
+2015-11-19 13:29:42,805 [ERROR] (join_public_welfare_activity.php:17) -- params is err. params is array (
+) 
+2015-11-19 13:29:43,981 [ERROR] (join_public_welfare_activity.php:17) -- params is err. params is array (
+) 
+2015-11-19 13:29:44,512 [ERROR] (join_public_welfare_activity.php:17) -- params is err. params is array (
+) 
+2015-11-19 13:29:44,750 [ERROR] (join_public_welfare_activity.php:17) -- params is err. params is array (
+) 
+2015-11-19 13:29:44,952 [ERROR] (join_public_welfare_activity.php:17) -- params is err. params is array (
+) 
+2015-11-19 13:29:45,127 [ERROR] (join_public_welfare_activity.php:17) -- params is err. params is array (
+) 
+2015-11-19 13:29:45,320 [ERROR] (join_public_welfare_activity.php:17) -- params is err. params is array (
+) 
+2015-11-19 13:29:46,268 [ERROR] (join_public_welfare_activity.php:17) -- params is err. params is array (
+) 
+2015-11-19 13:32:14,774 [ERROR] (join_public_welfare_activity.php:17) -- params is err. params is array (
+) 
+2015-11-19 13:32:17,471 [ERROR] (join_public_welfare_activity.php:17) -- params is err. params is array (
+) 
+2015-11-19 13:35:41,806 [ERROR] (join_public_welfare_activity.php:17) -- params is err. params is array (
+) 
+2015-11-19 13:35:42,799 [ERROR] (join_public_welfare_activity.php:17) -- params is err. params is array (
+) 
+2015-11-19 13:35:43,435 [ERROR] (join_public_welfare_activity.php:17) -- params is err. params is array (
+) 
+2015-11-19 13:35:44,165 [ERROR] (join_public_welfare_activity.php:17) -- params is err. params is array (
+) 
+2015-11-19 13:35:46,846 [ERROR] (join_public_welfare_activity.php:17) -- params is err. params is array (
+) 
+2015-11-19 13:36:23,283 [ERROR] (join_public_welfare_activity.php:17) -- params is err. params is array (
+) 

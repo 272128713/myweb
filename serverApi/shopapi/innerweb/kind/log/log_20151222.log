@@ -1,0 +1,24 @@
+2015-12-22 10:50:08,335 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\kind\emergency_server_classlist.php  line: 26  
+2015-12-22 10:50:08,344 [ERROR] (Tools.php:463) --  [8] Undefined variable: _SESSION  _File: E:\myweb\firstaid\innerweb\kind\emergency_server_classlist.php  line: 42  
+2015-12-22 10:50:08,410 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 362  
+2015-12-22 10:50:08,419 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 365  
+2015-12-22 10:50:11,207 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\kind\emergency_server_classlist.php  line: 26  
+2015-12-22 10:50:11,216 [ERROR] (Tools.php:463) --  [8] Undefined variable: _SESSION  _File: E:\myweb\firstaid\innerweb\kind\emergency_server_classlist.php  line: 42  
+2015-12-22 10:50:11,282 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 362  
+2015-12-22 10:50:11,287 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 365  
+2015-12-22 10:50:11,291 [ERROR] (Tools.php:463) --  [8] Undefined variable: _SESSION  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 51  
+2015-12-22 10:50:14,680 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\kind\emergency_server_classlist.php  line: 26  
+2015-12-22 10:50:14,685 [ERROR] (Tools.php:463) --  [8] Undefined variable: _SESSION  _File: E:\myweb\firstaid\innerweb\kind\emergency_server_classlist.php  line: 42  
+2015-12-22 10:50:14,751 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 362  
+2015-12-22 10:50:14,756 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 365  
+2015-12-22 10:50:14,761 [ERROR] (Tools.php:463) --  [8] Undefined variable: _SESSION  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 51  
+2015-12-22 10:50:18,557 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\kind\emergency_server_classlist.php  line: 26  
+2015-12-22 10:50:18,564 [ERROR] (Tools.php:463) --  [8] Undefined variable: _SESSION  _File: E:\myweb\firstaid\innerweb\kind\emergency_server_classlist.php  line: 42  
+2015-12-22 10:50:18,630 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 362  
+2015-12-22 10:50:18,639 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 365  
+2015-12-22 10:50:18,647 [ERROR] (Tools.php:463) --  [8] Undefined variable: _SESSION  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 51  
+2015-12-22 10:51:36,415 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\kind\emergency_server_classlist.php  line: 26  
+2015-12-22 10:51:36,423 [ERROR] (Tools.php:463) --  [8] Undefined variable: _SESSION  _File: E:\myweb\firstaid\innerweb\kind\emergency_server_classlist.php  line: 42  
+2015-12-22 10:51:36,489 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 362  
+2015-12-22 10:51:36,494 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 365  
+2015-12-22 10:51:36,499 [ERROR] (Tools.php:463) --  [8] Undefined variable: _SESSION  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 51  

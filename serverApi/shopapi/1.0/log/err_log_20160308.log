@@ -1,0 +1,12 @@
+2016-03-08 16:29:41,659 [ERROR] (get_user_address.php:53) -- array (
+) 
+2016-03-08 16:31:09,957 [ERROR] (get_user_address.php:53) -- array (
+  'id' => '56',
+  'user_id' => '39000012',
+  'area_code' => '340825',
+  'address' => '455688',
+  'createDate' => '2016-03-08 16:30:12',
+  'receive_name' => '要疯啊',
+  'receive_phone' => '15389249006',
+  'area' => '安徽省 安庆市 太湖县',
+) 

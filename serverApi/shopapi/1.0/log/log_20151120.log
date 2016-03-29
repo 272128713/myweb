@@ -1,0 +1,21 @@
+2015-11-20 09:55:42,418 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 296  
+2015-11-20 09:55:42,423 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 299  
+2015-11-20 09:56:06,422 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 296  
+2015-11-20 09:56:06,431 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 299  
+2015-11-20 10:04:04,686 [ERROR] (get_public_welfare_activity_list.php:15) -- params is err. params is array (
+  'ss' => '',
+) 
+2015-11-20 13:55:41,039 [ERROR] (Tools.php:463) --  [8] Use of undefined constant PAGE_NUM - assumed 'PAGE_NUM'  _File: E:\myweb\firstaid\1.0\get_user_question.php  line: 58  
+2015-11-20 13:57:24,392 [ERROR] (Tools.php:463) --  [8] Use of undefined constant PAGE_NUM - assumed 'PAGE_NUM'  _File: E:\myweb\firstaid\1.0\get_user_question.php  line: 58  
+2015-11-20 13:59:10,159 [ERROR] (Tools.php:463) --  [8] Use of undefined constant PAGE_NUM - assumed 'PAGE_NUM'  _File: E:\myweb\firstaid\1.0\get_user_question.php  line: 58  
+2015-11-20 13:59:21,174 [ERROR] (get_user_question.php:14) -- params error. params is array (
+  'ss' => 'zwTj6TDUB5hVA3zIxsUHaHN5VgsptjWa',
+  'flag' => '',
+  'page' => '',
+) 
+2015-11-20 13:59:24,361 [ERROR] (Tools.php:463) --  [8] Use of undefined constant PAGE_NUM - assumed 'PAGE_NUM'  _File: E:\myweb\firstaid\1.0\get_user_question.php  line: 58  
+2015-11-20 13:59:32,579 [ERROR] (Tools.php:463) --  [8] Use of undefined constant PAGE_NUM - assumed 'PAGE_NUM'  _File: E:\myweb\firstaid\1.0\get_user_question.php  line: 58  
+2015-11-20 14:00:00,872 [ERROR] (Tools.php:463) --  [8] Use of undefined constant PAGE_NUM - assumed 'PAGE_NUM'  _File: E:\myweb\firstaid\1.0\get_user_question.php  line: 58  
+2015-11-20 14:11:06,785 [ERROR] (Tools.php:463) --  [8] Use of undefined constant PAGE_NUM - assumed 'PAGE_NUM'  _File: E:\myweb\firstaid\1.0\get_user_question.php  line: 58  
+2015-11-20 14:11:51,594 [ERROR] (Tools.php:463) --  [8] Use of undefined constant PAGE_NUM - assumed 'PAGE_NUM'  _File: E:\myweb\firstaid\1.0\get_user_question.php  line: 58  
+2015-11-20 14:27:16,673 [ERROR] (Tools.php:463) --  [8] Use of undefined constant PAGE_NUM - assumed 'PAGE_NUM'  _File: E:\myweb\firstaid\1.0\get_user_question.php  line: 58  

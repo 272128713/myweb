@@ -1,0 +1,317 @@
+2016-03-01 09:55:16,584 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-03-01 09:57:41,506 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-03-01 09:58:17,637 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-03-01 10:11:15,083 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-03-01 10:14:50,087 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-03-01 10:17:02,301 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-03-01 10:19:25,235 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-03-01 10:23:11,051 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-03-01 11:26:33,295 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 2 AND img.type = 0' 
+2016-03-01 11:29:31,809 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-03-01 11:29:57,318 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-03-01 11:30:42,233 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-03-01 11:31:21,285 [ERROR] (logindo.php:70) -- array (
+  0 => 'oper_result=0',
+  1 => 'nm=%E8%A6%81%E6%B2%A3%E8%B6%85',
+  2 => 'sex=1',
+  3 => 'email=',
+  4 => 'bg=1',
+  5 => 'bd=1987-11-03%2000%3A00%3A00',
+  6 => 'bp=410182',
+  7 => 'rpp=8',
+  8 => 'rpo=410182',
+  9 => 'st=1',
+  10 => 'sm=',
+  11 => 'dp=1',
+  12 => 'sosm=0',
+  13 => 'drug_allergy=%E6%97%A0',
+  14 => 'e1n=Ada',
+  15 => 'e1p=18721042197',
+  16 => 'e2n=尹凯文',
+  17 => 'e2p=',
+  18 => 'pdn=',
+  19 => 'pdp=',
+  20 => 'per=0111',
+  21 => 'ute=0',
+) 
+2016-03-01 11:31:23,793 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-03-01 11:40:46,923 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-03-01 11:41:33,670 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-03-01 11:43:11,309 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-03-01 11:51:16,602 [ERROR] (get_user_address.php:23) -- params error. params is array (
+) 
+2016-03-01 11:52:46,422 [ERROR] (get_user_address.php:23) -- params error. params is array (
+) 
+2016-03-01 11:53:47,814 [ERROR] (get_user_address.php:45) -- array (
+) 
+2016-03-01 11:57:51,010 [ERROR] (get_user_address.php:45) -- array (
+) 
+2016-03-01 12:01:49,959 [ERROR] (get_user_address.php:45) -- array (
+) 
+2016-03-01 12:03:59,688 [ERROR] (get_user_address.php:45) -- array (
+) 
+2016-03-01 14:59:41,816 [ERROR] (logindo.php:70) -- array (
+  0 => 'oper_result=0',
+  1 => 'nm=%E8%A6%81%E6%B2%A3%E8%B6%85',
+  2 => 'sex=1',
+  3 => 'email=',
+  4 => 'bg=1',
+  5 => 'bd=1987-11-03%2000%3A00%3A00',
+  6 => 'bp=410182',
+  7 => 'rpp=8',
+  8 => 'rpo=410182',
+  9 => 'st=1',
+  10 => 'sm=',
+  11 => 'dp=1',
+  12 => 'sosm=0',
+  13 => 'drug_allergy=%E6%97%A0',
+  14 => 'e1n=Ada',
+  15 => 'e1p=18721042197',
+  16 => 'e2n=尹凯文',
+  17 => 'e2p=',
+  18 => 'pdn=',
+  19 => 'pdp=',
+  20 => 'per=0111',
+  21 => 'ute=0',
+) 
+2016-03-01 14:59:50,695 [ERROR] (get_user_address.php:45) -- array (
+) 
+2016-03-01 15:00:20,367 [ERROR] (goods_buy.php:24) -- params error. params is array (
+  'srn' => '要沣超',
+  'saddr' => '321',
+  'price' => '599',
+  'rn' => '15389249006',
+  'goods_num' => '1',
+  'gid' => '1',
+  'stel' => '15389249005',
+  'un' => '要沣超',
+) 
+2016-03-01 15:00:21,210 [ERROR] (goods_buy.php:24) -- params error. params is array (
+  'srn' => '要沣超',
+  'saddr' => '321',
+  'price' => '599',
+  'rn' => '15389249006',
+  'goods_num' => '1',
+  'gid' => '1',
+  'stel' => '15389249005',
+  'un' => '要沣超',
+) 
+2016-03-01 15:02:48,037 [ERROR] (get_user_address.php:32) -- session error 
+2016-03-01 15:03:33,581 [ERROR] (goods_buy.php:39) -- user format error 
+2016-03-01 15:07:44,614 [ERROR] (get_user_address.php:32) -- session error 
+2016-03-01 15:08:04,997 [ERROR] (Tools.php:463) --  [2] mysql_fetch_row() expects parameter 1 to be resource, boolean given  _File: E:\myweb\serverApi\shopapi\1.0\common\database\DataBase_Mysql.php  line: 237  
+2016-03-01 15:08:05,006 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\serverApi\shopapi\1.0\common\database\DataBase_Mysql.php  line: 238  
+2016-03-01 15:10:31,905 [ERROR] (get_user_address.php:32) -- session error 
+2016-03-01 15:10:34,167 [ERROR] (get_user_address.php:32) -- session error 
+2016-03-01 15:10:41,156 [ERROR] (get_user_address.php:32) -- session error 
+2016-03-01 15:11:46,196 [ERROR] (Tools.php:463) --  [2] mysql_fetch_row() expects parameter 1 to be resource, boolean given  _File: E:\myweb\serverApi\shopapi\1.0\common\database\DataBase_Mysql.php  line: 237  
+2016-03-01 15:11:46,200 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\serverApi\shopapi\1.0\common\database\DataBase_Mysql.php  line: 238  
+2016-03-01 15:16:49,729 [ERROR] (get_user_address.php:32) -- session error 
+2016-03-01 15:17:05,303 [ERROR] (get_user_address.php:32) -- session error 
+2016-03-01 15:17:47,869 [ERROR] (goods_buy.php:43) -- user format error 
+2016-03-01 15:19:02,345 [ERROR] (get_user_address.php:32) -- session error 
+2016-03-01 16:01:57,543 [ERROR] (logindo.php:70) -- array (
+  0 => 'oper_result=0',
+  1 => 'nm=%E8%A6%81%E6%B2%A3%E8%B6%85',
+  2 => 'sex=1',
+  3 => 'email=',
+  4 => 'bg=1',
+  5 => 'bd=1987-11-03%2000%3A00%3A00',
+  6 => 'bp=410182',
+  7 => 'rpp=8',
+  8 => 'rpo=410182',
+  9 => 'st=1',
+  10 => 'sm=',
+  11 => 'dp=1',
+  12 => 'sosm=0',
+  13 => 'drug_allergy=%E6%97%A0',
+  14 => 'e1n=Ada',
+  15 => 'e1p=18721042197',
+  16 => 'e2n=尹凯文',
+  17 => 'e2p=',
+  18 => 'pdn=',
+  19 => 'pdp=',
+  20 => 'per=0111',
+  21 => 'ute=0',
+) 
+2016-03-01 16:02:00,020 [ERROR] (get_user_address.php:45) -- array (
+  'id' => '15',
+  'user_id' => '39000015',
+  'area_code' => '320302',
+  'address' => '628885',
+  'createDate' => '2016-03-01 15:18:11',
+  'receive_name' => '衙门',
+  'receive_phone' => '15389249006',
+) 
+2016-03-01 16:03:25,041 [ERROR] (get_user_address.php:45) -- array (
+  'id' => '15',
+  'user_id' => '39000015',
+  'area_code' => '320302',
+  'address' => '628885',
+  'createDate' => '2016-03-01 15:18:11',
+  'receive_name' => '衙门',
+  'receive_phone' => '15389249006',
+) 
+2016-03-01 16:12:58,021 [ERROR] (get_user_address.php:45) -- array (
+  'id' => '15',
+  'user_id' => '39000015',
+  'area_code' => '320302',
+  'address' => '628885',
+  'createDate' => '2016-03-01 15:18:11',
+  'receive_name' => '衙门',
+  'receive_phone' => '15389249006',
+) 
+2016-03-01 16:24:23,686 [ERROR] (get_user_address.php:53) -- array (
+  'id' => '15',
+  'user_id' => '39000015',
+  'area_code' => '320302',
+  'address' => '628885',
+  'createDate' => '2016-03-01 15:18:11',
+  'receive_name' => '衙门',
+  'receive_phone' => '15389249006',
+  'area' => '江苏省 徐州市 鼓楼区',
+) 
+2016-03-01 16:30:03,561 [ERROR] (get_user_address.php:53) -- array (
+  'id' => '15',
+  'user_id' => '39000015',
+  'area_code' => '320302',
+  'address' => '628885',
+  'createDate' => '2016-03-01 15:18:11',
+  'receive_name' => '衙门',
+  'receive_phone' => '15389249006',
+  'area' => '江苏省 徐州市 鼓楼区',
+) 
+2016-03-01 16:31:26,442 [ERROR] (get_user_address.php:53) -- array (
+  'id' => '15',
+  'user_id' => '39000015',
+  'area_code' => '320302',
+  'address' => '628885',
+  'createDate' => '2016-03-01 15:18:11',
+  'receive_name' => '衙门',
+  'receive_phone' => '15389249006',
+  'area' => '江苏省 徐州市 鼓楼区',
+) 
+2016-03-01 16:31:40,257 [ERROR] (get_user_address.php:53) -- array (
+  'id' => '15',
+  'user_id' => '39000015',
+  'area_code' => '320302',
+  'address' => '628885',
+  'createDate' => '2016-03-01 15:18:11',
+  'receive_name' => '衙门',
+  'receive_phone' => '15389249006',
+  'area' => '江苏省 徐州市 鼓楼区',
+) 
+2016-03-01 16:32:07,385 [ERROR] (get_user_address.php:53) -- array (
+  'id' => '15',
+  'user_id' => '39000015',
+  'area_code' => '320302',
+  'address' => '628885',
+  'createDate' => '2016-03-01 15:18:11',
+  'receive_name' => '衙门',
+  'receive_phone' => '15389249006',
+  'area' => '江苏省 徐州市 鼓楼区',
+) 
+2016-03-01 16:42:14,818 [ERROR] (get_user_address.php:53) -- array (
+  'id' => '15',
+  'user_id' => '39000015',
+  'area_code' => '320302',
+  'address' => '628885',
+  'createDate' => '2016-03-01 15:18:11',
+  'receive_name' => '衙门',
+  'receive_phone' => '15389249006',
+  'area' => '江苏省 徐州市 鼓楼区',
+) 
+2016-03-01 16:48:34,560 [ERROR] (get_user_address.php:53) -- array (
+  'id' => '15',
+  'user_id' => '39000015',
+  'area_code' => '320302',
+  'address' => '628885',
+  'createDate' => '2016-03-01 15:18:11',
+  'receive_name' => '衙门',
+  'receive_phone' => '15389249006',
+  'area' => '江苏省 徐州市 鼓楼区',
+) 
+2016-03-01 16:49:53,424 [ERROR] (get_user_address.php:53) -- array (
+  'id' => '15',
+  'user_id' => '39000015',
+  'area_code' => '320302',
+  'address' => '628885',
+  'createDate' => '2016-03-01 15:18:11',
+  'receive_name' => '衙门',
+  'receive_phone' => '15389249006',
+  'area' => '江苏省 徐州市 鼓楼区',
+) 
+2016-03-01 16:50:51,090 [ERROR] (get_user_address.php:53) -- array (
+  'id' => '15',
+  'user_id' => '39000015',
+  'area_code' => '320302',
+  'address' => '628885',
+  'createDate' => '2016-03-01 15:18:11',
+  'receive_name' => '衙门',
+  'receive_phone' => '15389249006',
+  'area' => '江苏省 徐州市 鼓楼区',
+) 

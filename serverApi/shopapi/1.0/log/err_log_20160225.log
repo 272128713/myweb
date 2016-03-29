@@ -1,0 +1,66 @@
+2016-02-25 10:06:24,800 [ERROR] (register.php:22) -- params error. params is array (
+) 
+2016-02-25 10:06:33,508 [ERROR] (register.php:22) -- params error. params is array (
+  'un' => '',
+) 
+2016-02-25 10:06:34,234 [ERROR] (register.php:22) -- params error. params is array (
+  'un' => '',
+) 
+2016-02-25 10:06:34,380 [ERROR] (register.php:22) -- params error. params is array (
+  'un' => '',
+) 
+2016-02-25 10:06:34,564 [ERROR] (register.php:22) -- params error. params is array (
+  'un' => '',
+) 
+2016-02-25 10:06:34,684 [ERROR] (register.php:22) -- params error. params is array (
+  'un' => '',
+) 
+2016-02-25 10:53:31,831 [ERROR] (Tools.php:463) --  [8] Undefined index: pin  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 33  
+2016-02-25 10:54:00,012 [ERROR] (Tools.php:463) --  [8] Undefined index: pin  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 33  
+2016-02-25 10:54:12,907 [ERROR] (Tools.php:463) --  [8] Undefined index: pin  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 33  
+2016-02-25 10:56:06,766 [ERROR] (Tools.php:463) --  [8] Undefined index: pin  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 33  
+2016-02-25 10:58:28,005 [ERROR] (Tools.php:463) --  [8] Undefined index: pin  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 33  
+2016-02-25 10:59:04,514 [ERROR] (Tools.php:463) --  [8] Undefined index: pin  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 33  
+2016-02-25 10:59:35,425 [ERROR] (Tools.php:463) --  [8] Undefined index: pin  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 33  
+2016-02-25 11:01:45,531 [ERROR] (Tools.php:463) --  [8] Undefined index: pin  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 33  
+2016-02-25 11:02:07,989 [ERROR] (Tools.php:463) --  [8] Undefined index: pin  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 33  
+2016-02-25 11:03:22,791 [ERROR] (Tools.php:463) --  [8] Undefined index: pin  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 33  
+2016-02-25 11:14:35,781 [ERROR] (Tools.php:463) --  [8] Undefined index: pin  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 33  
+2016-02-25 11:20:06,405 [ERROR] (Tools.php:463) --  [8] Undefined index: pin  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 33  
+2016-02-25 11:21:02,832 [ERROR] (Tools.php:463) --  [8] Undefined index: pin  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 33  
+2016-02-25 11:21:22,812 [ERROR] (Tools.php:463) --  [8] Undefined index: pin  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 33  
+2016-02-25 13:58:56,922 [ERROR] (Tools.php:463) --  [8] Undefined index: pin  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 33  
+2016-02-25 13:59:11,591 [ERROR] (Tools.php:463) --  [8] Undefined index: pin  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 33  
+2016-02-25 14:00:42,824 [ERROR] (Tools.php:463) --  [8] Undefined index: pin  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 33  
+2016-02-25 14:04:48,761 [ERROR] (Tools.php:463) --  [8] Undefined index: pin  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 33  
+2016-02-25 14:05:12,296 [ERROR] (Tools.php:463) --  [8] Undefined variable: rn  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 63  
+2016-02-25 14:05:12,300 [ERROR] (Tools.php:463) --  [8] Undefined variable: database  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 64  
+2016-02-25 14:05:36,173 [ERROR] (Tools.php:463) --  [8] Undefined variable: res  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 66  
+2016-02-25 14:05:47,162 [ERROR] (Tools.php:463) --  [8] Undefined variable: res  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 66  
+2016-02-25 14:10:38,830 [ERROR] (Tools.php:463) --  [8] Undefined variable: res  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 67  
+2016-02-25 14:14:30,1000 [ERROR] (Tools.php:463) --  [8] Undefined variable: res  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 67  
+2016-02-25 14:14:32,741 [ERROR] (Tools.php:463) --  [8] Undefined variable: res  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 67  
+2016-02-25 14:14:43,751 [ERROR] (Tools.php:463) --  [8] Undefined variable: res  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 67  
+2016-02-25 14:15:20,542 [ERROR] (Tools.php:463) --  [8] Undefined variable: res  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 67  
+2016-02-25 14:15:20,547 [ERROR] (Tools.php:463) --  [8] Undefined variable: database  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 83  
+2016-02-25 14:17:30,122 [ERROR] (Tools.php:463) --  [8] Undefined variable: res  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 67  
+2016-02-25 14:18:24,965 [ERROR] (Tools.php:463) --  [8] Undefined variable: res  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 67  
+2016-02-25 14:23:46,839 [ERROR] (register.php:24) -- params error. params is array (
+) 
+2016-02-25 14:26:15,417 [ERROR] (register.php:24) -- params error. params is array (
+) 
+2016-02-25 14:27:31,648 [ERROR] (register.php:24) -- params error. params is array (
+) 
+2016-02-25 14:27:33,238 [ERROR] (register.php:24) -- params error. params is array (
+) 
+2016-02-25 14:27:34,213 [ERROR] (register.php:24) -- params error. params is array (
+) 
+2016-02-25 14:28:14,404 [ERROR] (register.php:24) -- params error. params is array (
+) 
+2016-02-25 14:34:06,442 [ERROR] (Tools.php:463) --  [8] Undefined index: pin  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 29  
+2016-02-25 14:34:11,725 [ERROR] (Tools.php:463) --  [8] Undefined index: pin  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 29  
+2016-02-25 14:37:34,837 [ERROR] (Tools.php:463) --  [8] Undefined index: pin  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 29  
+2016-02-25 15:03:04,362 [ERROR] (logindo.php:14) -- params error. params is array (
+  'un' => '',
+  'pw' => '',
+) 

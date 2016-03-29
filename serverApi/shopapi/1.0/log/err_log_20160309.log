@@ -1,0 +1,40 @@
+2016-03-09 15:21:36,351 [ERROR] (goods_buy.php:24) -- params error. params is array (
+  'un' => '15389249006',
+  'rn' => '要沣超',
+  'srn' => '要沣超',
+  'stel' => '15389249006',
+  'spro' => '320924',
+  'saddr' => '绿地蓝海',
+  'gid' => '1',
+  'price' => 'NaN',
+) 
+2016-03-09 15:22:43,593 [ERROR] (goods_buy.php:24) -- params error. params is array (
+  'un' => '15389249006',
+  'rn' => '要沣超',
+  'srn' => '要沣超',
+  'stel' => '15389249999',
+  'spro' => '341282',
+  'saddr' => '为去',
+  'gid' => '1',
+  'price' => 'NaN',
+) 
+2016-03-09 15:24:29,625 [ERROR] (goods_buy.php:24) -- params error. params is array (
+  'un' => '15389249006',
+  'rn' => '要沣超',
+  'srn' => '要沣超',
+  'stel' => '15389249999',
+  'spro' => '341282',
+  'saddr' => '为去',
+  'gid' => '1',
+  'price' => 'NaN',
+) 
+2016-03-09 15:25:25,806 [ERROR] (goods_buy.php:24) -- params error. params is array (
+  'un' => '15389249006',
+  'rn' => '要沣超',
+  'srn' => '要沣超',
+  'stel' => '15389249999',
+  'spro' => '341282',
+  'saddr' => '为去',
+  'gid' => '1',
+  'price' => 'NaN',
+) 

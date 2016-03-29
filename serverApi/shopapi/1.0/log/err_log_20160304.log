@@ -1,0 +1,3 @@
+2016-03-04 10:52:37,996 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+  'gid' => '',
+) 

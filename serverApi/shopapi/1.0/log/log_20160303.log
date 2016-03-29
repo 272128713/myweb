@@ -1,0 +1,74 @@
+2016-03-03 15:15:52,495 [ERROR] (reset_pw_commit.php:42) -- '1007' 
+2016-03-03 15:18:06,769 [ERROR] (Tools.php:463) --  [8] Undefined offset: 1  _File: E:\myweb\serverApi\shopapi\1.0\resendpincode.php  line: 41  
+2016-03-03 15:18:06,776 [ERROR] (Tools.php:463) --  [8] Undefined offset: 1  _File: E:\myweb\serverApi\shopapi\1.0\resendpincode.php  line: 50  
+2016-03-03 15:21:08,799 [ERROR] (Tools.php:463) --  [8] Undefined offset: 1  _File: E:\myweb\serverApi\shopapi\1.0\resendpincode.php  line: 41  
+2016-03-03 15:21:08,804 [ERROR] (Tools.php:463) --  [8] Undefined offset: 1  _File: E:\myweb\serverApi\shopapi\1.0\resendpincode.php  line: 50  
+2016-03-03 15:51:22,959 [ERROR] (Tools.php:463) --  [8] Undefined offset: 1  _File: E:\myweb\serverApi\shopapi\1.0\resendpincode.php  line: 41  
+2016-03-03 15:51:22,969 [ERROR] (Tools.php:463) --  [8] Undefined offset: 1  _File: E:\myweb\serverApi\shopapi\1.0\resendpincode.php  line: 50  
+2016-03-03 15:51:41,399 [ERROR] (reset_pw_commit.php:42) -- '1007' 
+2016-03-03 15:51:43,604 [ERROR] (reset_pw_commit.php:42) -- '1007' 
+2016-03-03 15:51:44,161 [ERROR] (reset_pw_commit.php:42) -- '1007' 
+2016-03-03 15:51:44,718 [ERROR] (reset_pw_commit.php:42) -- '1007' 
+2016-03-03 15:51:45,371 [ERROR] (reset_pw_commit.php:42) -- '1007' 
+2016-03-03 15:51:45,876 [ERROR] (reset_pw_commit.php:42) -- '1007' 
+2016-03-03 15:51:58,379 [ERROR] (reset_pw_commit.php:42) -- '1007' 
+2016-03-03 15:52:37,327 [ERROR] (resetpwd.php:49) -- '0' 
+2016-03-03 15:52:37,905 [ERROR] (Tools.php:463) --  [8] Undefined offset: 1  _File: E:\myweb\serverApi\shopapi\1.0\resendpincode.php  line: 41  
+2016-03-03 15:52:37,912 [ERROR] (Tools.php:463) --  [8] Undefined offset: 1  _File: E:\myweb\serverApi\shopapi\1.0\resendpincode.php  line: 50  
+2016-03-03 15:54:09,255 [ERROR] (resetpwd.php:49) -- '0' 
+2016-03-03 15:54:09,907 [ERROR] (Tools.php:463) --  [8] Undefined offset: 1  _File: E:\myweb\serverApi\shopapi\1.0\resendpincode.php  line: 41  
+2016-03-03 15:54:09,914 [ERROR] (Tools.php:463) --  [8] Undefined offset: 1  _File: E:\myweb\serverApi\shopapi\1.0\resendpincode.php  line: 50  
+2016-03-03 15:59:00,784 [ERROR] (Tools.php:463) --  [8] Undefined offset: 1  _File: E:\myweb\serverApi\shopapi\1.0\resendpincode.php  line: 41  
+2016-03-03 15:59:00,791 [ERROR] (Tools.php:463) --  [8] Undefined offset: 1  _File: E:\myweb\serverApi\shopapi\1.0\resendpincode.php  line: 50  
+2016-03-03 16:02:35,133 [ERROR] (resetpwd.php:49) -- '0' 
+2016-03-03 16:02:35,627 [ERROR] (resendpincode.php:40) -- false 
+2016-03-03 16:02:35,632 [ERROR] (Tools.php:463) --  [8] Undefined offset: 1  _File: E:\myweb\serverApi\shopapi\1.0\resendpincode.php  line: 42  
+2016-03-03 16:02:35,637 [ERROR] (Tools.php:463) --  [8] Undefined offset: 1  _File: E:\myweb\serverApi\shopapi\1.0\resendpincode.php  line: 51  
+2016-03-03 16:03:29,548 [ERROR] (logindo.php:70) -- array (
+  0 => 'oper_result=0',
+  1 => 'nm=%E7%94%A8%E6%88%B719616',
+  2 => 'sex=0',
+  3 => 'email=',
+  4 => 'bg=-1',
+  5 => 'bd=1970-01-01%2000%3A00%3A00',
+  6 => 'bp=',
+  7 => 'rpp=0',
+  8 => 'rpo=',
+  9 => 'st=1',
+  10 => 'sm=',
+  11 => 'dp=1',
+  12 => 'sosm=0',
+  13 => 'drug_allergy=',
+  14 => 'e1n=%E8%A6%81%E6%B2%A3%E8%B6%85',
+  15 => 'e1p=',
+  16 => 'e2n=要沣超',
+  17 => 'e2p=',
+  18 => 'pdn=',
+  19 => 'pdp=',
+  20 => 'per=0111',
+  21 => 'ute=0',
+) 
+2016-03-03 16:03:37,773 [ERROR] (get_user_address.php:53) -- array (
+) 
+2016-03-03 16:04:52,450 [ERROR] (get_user_address.php:53) -- array (
+) 
+2016-03-03 16:04:54,471 [ERROR] (goods_buy.php:24) -- params error. params is array (
+  'rn' => '用户19616',
+  'un' => '17611111111',
+  'srn' => '',
+  'stel' => '',
+  'saddr' => '',
+  'gid' => '1',
+  'goods_num' => '1',
+  'price' => 'null',
+) 
+2016-03-03 16:04:59,409 [ERROR] (goods_buy.php:24) -- params error. params is array (
+  'rn' => '用户19616',
+  'un' => '17611111111',
+  'srn' => '',
+  'stel' => '',
+  'saddr' => '',
+  'gid' => '1',
+  'goods_num' => '1',
+  'price' => 'null',
+) 

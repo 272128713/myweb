@@ -1,0 +1,26 @@
+2015-12-24 15:46:07,190 [DEBUG] (MecManager.php:66) -- 117.34.72.335788 send message:SNE 25035838 [{"dstmid":"3886f1a9dab62411fd05f7abbeef8763a1231d3af46b88de668f94c5873eb9f9","push":"1","lpsserver":"210.14.72.52","lpsport":"1183"}] 1296000 DDM {"type":"DDM","src":25035838,"srcm":"18392402978","qid":"10","time":1450943167,"uuid":"25035838145094316732403","ft":2} 
+ 
+2015-12-24 15:46:07,210 [DEBUG] (MecManager.php:68) -- 117.34.72.335788 send result:0 SUCCESS
+ 
+2015-12-24 15:46:48,043 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 362  
+2015-12-24 15:46:48,053 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 365  
+2015-12-24 15:46:48,063 [ERROR] (set_user_question.php:177) -- accepter not exists ,uid  
+2015-12-24 15:47:08,633 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 362  
+2015-12-24 15:47:08,643 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 365  
+2015-12-24 15:47:08,650 [ERROR] (set_user_question.php:178) -- accepter not exists ,uid  
+2015-12-24 15:51:02,144 [DEBUG] (MecManager.php:40) -- mid is 0000 skip send. accepter info=array (
+  'user_id' => '25035838',
+  'client_type' => '2',
+  'mid' => '0000',
+  'push_service_type' => '1',
+  'mec_ip' => '117.34.72.3',
+  'mec_port' => '35788',
+  'lps_ip' => '210.14.72.52',
+  'lps_port' => '1183',
+  'mobile' => '18392402978',
+) 
+2015-12-24 15:51:02,150 [DEBUG] (MecManager.php:66) -- 117.34.72.335788 send message:SNE 25035838 [] 1296000 DDM {"type":"DDM","src":25035838,"srcm":"18392402978","qid":"30","time":1450943462,"uuid":"25035838145094346283536","ft":2} 
+ 
+2015-12-24 15:51:02,158 [DEBUG] (MecManager.php:68) -- 117.34.72.335788 send result:0 SUCCESS
+ 
+2015-12-24 16:13:43,451 [ERROR] (Tools.php:463) --  [8] Undefined variable: token  _File: E:\myweb\firstaid\1.0\common\database\DatabaseManager.php  line: 529  

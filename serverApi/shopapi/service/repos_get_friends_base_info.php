@@ -1,0 +1,169 @@
+<?php
+
+/**
+ * @param $uid
+ * @param $fid
+ * @return array
+ * @throws Exception
+ */
+
+function getBaseInfoListFromBlack($uid,$fid = null){
+    $sql = <<<T_ECHO
+SELECT
+    v.user_id uid,
+    b.user_name name,
+    b.mobile,
+    v.base_ver piv,
+    v.image_ver pav,
+    b.privilege_id
+FROM
+    sky_user_data_master.user_version_info AS v,
+    sky_user_data_master.user_base_info AS b
+WHERE
+    v.user_id = b.user_id
+    AND v.user_id in (
+         SELECT
+            f.friend_id
+         FROM
+            sky_first_aid.user_friend_list AS f
+         WHERE
+            f.user_id = $uid
+         AND
+            f.is_friend = 0
+    )
+T_ECHO;
+
+    if($fid){
+        $sql .= " AND v.user_id in ($fid)";
+    }
+//    echo $sql;
+    try {
+        $dbObj = new DatabaseManager();
+        $db = $dbObj->getConn();
+        $mongo= new RKMongo();
+        $mongo->connect();
+
+        return $db->getAll($sql);
+
+    } catch (ErrorException $e) {
+        ErrCode::echoJson($e->getCode(),$e->getMessage());
+    }
+
+}
+
+function getBaseInfoList($uid,$fid = null){
+    $sql = <<<T_ECHO
+SELECT
+    v.user_id uid,
+    b.user_name name,
+    b.mobile,
+    v.base_ver piv,
+    v.image_ver pav,
+    b.privilege_id
+FROM
+    sky_user_data_master.user_version_info AS v,
+    sky_user_data_master.user_base_info AS b
+WHERE
+    v.user_id = b.user_id
+    AND v.user_id in (
+         SELECT
+            f.friend_id
+         FROM
+            sky_first_aid.user_friend_list AS f
+         WHERE
+            f.user_id = $uid
+    )
+T_ECHO;
+
+    if($fid){
+        $sql .= " AND v.user_id in ($fid)";
+    }
+//    echo $sql;
+    try {
+        $dbObj = new DatabaseManager();
+        $db = $dbObj->getConn();
+        $mongo= new RKMongo();
+        $mongo->connect();
+
+        return $db->getAll($sql);
+
+    } catch (ErrorException $e) {
+        ErrCode::echoJson($e->getCode(),$e->getMessage());
+    }
+
+}
+
+function getAllFriendListByFriendId($uid,$fid){
+    $sql = <<<T_ECHO
+SELECT
+    v.user_id uid,
+    b.user_name name,
+    b.mobile,
+    v.base_ver piv,
+    v.image_ver pav,
+    b.privilege_id
+FROM
+    sky_user_data_master.user_version_info AS v,
+    sky_user_data_master.user_base_info AS b
+WHERE
+    v.user_id = b.user_id
+    AND v.user_id in (
+        SELECT friend_list.friend_id
+        FROM sky_first_aid.user_friend_list AS friend_list
+        WHERE friend_list.user_id = $uid AND friend_list.is_friend = 1
+    )
+    AND v.user_id in ($fid);
+T_ECHO;
+//    echo $sql;
+    try {
+        $dbObj = new DatabaseManager();
+        $db = $dbObj->getConn();
+        $mongo= new RKMongo();
+        $mongo->connect();
+
+        return $db->getAll($sql);
+
+    } catch (ErrorException $e) {
+        ErrCode::echoJson($e->getCode(),$e->getMessage());
+    }
+
+}
+
+/**
+ * @param $uid
+ * @return array
+ * @throws Exception
+ */
+function getAllFriendList($uid){
+
+    $sql = <<<T_ECHO
+SELECT
+    v.user_id uid,
+    b.user_name name,
+    b.mobile,
+    v.base_ver piv,
+    v.image_ver pav,
+    b.privilege_id
+FROM
+    sky_user_data_master.user_version_info AS v,
+    sky_user_data_master.user_base_info AS b
+WHERE
+    v.user_id = b.user_id AND v.user_id in (
+        SELECT friend_list.friend_id
+        FROM sky_first_aid.user_friend_list AS friend_list
+        WHERE friend_list.user_id = $uid  AND friend_list.is_friend = 1
+);
+T_ECHO;
+    try {
+        $dbObj = new DatabaseManager();
+        $db = $dbObj->getConn();
+        $mongo= new RKMongo();
+        $mongo->connect();
+
+        return $db->getAll($sql);
+
+    } catch (ErrorException $e) {
+        ErrCode::echoJson($e->getCode(),$e->getMessage());
+    }
+
+}

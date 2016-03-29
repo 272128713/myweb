@@ -1,0 +1,4 @@
+2015-12-22 14:36:22,896 [DEBUG] (MecManager.php:66) -- 210.14.72.5235788 send message:SNE 25035843 [{"dstmid":"e9e70a24871814cb626b15162d2c3ee5841d5292789798175a379cbb672e1062","push":"1","lpsserver":"210.14.72.52","lpsport":"1183"}] 1296000 DDM {"type":"DDM","src":25035843,"srcm":"15389249006","qid":"10","time":1450766182,"uuid":"25035843145076618278549","ft":1} 
+ 
+2015-12-22 14:36:22,948 [DEBUG] (MecManager.php:68) -- 210.14.72.5235788 send result:0 SUCCESS
+ 

@@ -1,0 +1,416 @@
+2016-02-29 09:48:58,319 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-29 09:49:13,804 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 2 AND img.type = 0' 
+2016-02-29 09:50:14,033 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 2 AND img.type = 0' 
+2016-02-29 09:57:12,562 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 09:57:18,943 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 10:06:12,972 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-29 10:06:20,697 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-29 10:06:33,161 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 2 AND img.type = 0' 
+2016-02-29 10:06:58,976 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 2 AND img.type = 0' 
+2016-02-29 10:17:24,853 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-29 10:22:27,971 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-29 10:24:05,185 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-29 10:24:24,273 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-29 10:24:53,786 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 2 AND img.type = 0' 
+2016-02-29 10:25:39,303 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-29 10:37:27,688 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 2 AND img.type = 0' 
+2016-02-29 11:06:49,170 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 11:26:56,182 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 11:27:04,615 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 11:27:10,222 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 13:30:48,902 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 2 AND img.type = 0' 
+2016-02-29 13:46:24,049 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 15:39:04,225 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 15:42:14,250 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+  'gid' => '',
+) 
+2016-02-29 16:05:52,000 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:05:52,055 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+  'gid' => '',
+) 
+2016-02-29 16:07:27,213 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:07:28,228 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+  'gid' => '',
+) 
+2016-02-29 16:19:43,167 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:19:53,235 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:19:54,481 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:19:55,615 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:20:14,388 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:20:15,395 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+  'gid' => '',
+) 
+2016-02-29 16:20:39,249 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:20:40,411 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:20:41,196 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:20:41,809 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:20:42,075 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:20:42,298 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:20:42,596 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:20:43,076 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:21:31,463 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:21:32,459 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+  'gid' => '',
+) 
+2016-02-29 16:22:21,261 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:22:22,243 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+  'gid' => '',
+) 
+2016-02-29 16:22:29,647 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:22:30,760 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:22:44,756 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:22:45,707 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:22:45,943 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:22:46,238 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:22:46,525 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:22:46,775 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:22:47,040 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:23:12,918 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:23:13,911 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+  'gid' => '',
+) 
+2016-02-29 16:23:41,739 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:23:42,734 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+  'gid' => '',
+) 
+2016-02-29 16:24:15,443 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:24:16,383 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+  'gid' => '',
+) 
+2016-02-29 16:24:29,104 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:25:59,218 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:26:00,499 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:26:01,349 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:27:27,119 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:28:04,146 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:28:05,098 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+  'gid' => '',
+) 
+2016-02-29 16:28:30,943 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:28:31,906 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:28:45,064 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:28:45,809 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:28:52,339 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:29:06,842 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:29:07,841 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+  'gid' => '',
+) 
+2016-02-29 16:29:47,394 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:29:48,426 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+  'gid' => '',
+) 
+2016-02-29 16:30:25,180 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:30:26,425 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:30:27,191 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:30:27,389 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:30:27,604 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:30:27,794 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:30:28,009 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:30:28,389 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:31:02,911 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:31:03,867 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:31:04,086 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:31:04,367 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:31:04,700 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:31:05,054 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:31:09,082 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:31:25,644 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:31:26,608 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:31:27,349 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:31:48,238 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:31:48,998 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:31:49,308 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:31:49,590 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:31:50,015 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:34:29,248 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:34:30,202 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:35:26,359 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:38:15,645 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:38:16,343 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:38:16,603 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:38:16,908 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:38:56,556 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:38:57,496 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:38:58,115 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:39:27,117 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:39:27,988 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:39:29,017 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:40:36,797 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:40:37,878 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:40:49,235 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 16:53:38,247 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-29 16:55:08,089 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-29 16:57:27,542 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-29 16:59:38,479 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-29 17:01:33,335 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-29 17:03:36,917 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-29 17:08:13,778 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:08:15,004 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:08:15,309 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:08:15,562 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:08:15,866 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:08:16,355 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:08:16,913 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:08:18,618 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:08:32,272 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 2 AND img.type = 0' 
+2016-02-29 17:09:04,152 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:10:00,747 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:10:01,432 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:10:01,980 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:10:02,280 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:10:02,493 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:11:06,632 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-29 17:13:48,212 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-29 17:15:05,933 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:15:06,951 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:15:08,393 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:16:02,417 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:16:03,398 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-29 17:18:04,555 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:18:05,412 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:18:06,062 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:18:06,303 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:18:06,567 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:18:06,832 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:18:08,029 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:18:48,094 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 2 AND img.type = 0' 
+2016-02-29 17:19:09,760 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:19:10,533 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:19:30,228 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:19:31,207 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-29 17:19:51,560 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:19:52,482 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+  'gid' => '',
+) 
+2016-02-29 17:25:01,023 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:25:02,092 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 
+2016-02-29 17:26:58,331 [ERROR] (get_goods_detail.php:14) -- params error. params is array (
+) 

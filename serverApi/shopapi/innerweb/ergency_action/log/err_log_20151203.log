@@ -1,0 +1,25 @@
+2015-12-03 09:34:23,797 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-03 09:34:27,166 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-03 09:35:32,530 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-03 09:35:34,766 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-03 09:35:36,188 [ERROR] (Tools.php:463) --  [8] Undefined index: uid  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_order.php  line: 43  
+2015-12-03 09:35:36,193 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 266  
+2015-12-03 09:35:36,196 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 267  
+2015-12-03 09:35:36,200 [ERROR] (Tools.php:463) --  [8] Undefined variable: address  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_shoppingcart.php  line: 58  
+2015-12-03 09:35:36,204 [ERROR] (Tools.php:463) --  [8] Undefined variable: address  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_shoppingcart.php  line: 62  
+2015-12-03 09:35:36,208 [ERROR] (Tools.php:463) --  [8] Undefined variable: address  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_shoppingcart.php  line: 66  
+2015-12-03 09:35:36,212 [ERROR] (Tools.php:463) --  [8] Undefined variable: address  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_shoppingcart.php  line: 72  
+2015-12-03 09:35:36,216 [ERROR] (Tools.php:463) --  [8] Undefined index: uid  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_shoppingcart.php  line: 113  
+2015-12-03 09:35:36,219 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_shoppingcart.php  line: 135  
+2015-12-03 09:35:40,867 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-03 09:35:41,825 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-03 09:36:18,471 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-03 09:36:18,471 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-03 09:36:24,407 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-03 09:58:17,674 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-03 10:02:48,093 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-03 10:28:56,019 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-03 10:29:01,180 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-03 10:29:04,037 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-03 10:34:52,596 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_finishorder.php  line: 42  
+2015-12-03 10:34:52,601 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_finishorder.php  line: 43  

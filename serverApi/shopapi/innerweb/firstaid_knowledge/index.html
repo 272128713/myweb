@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>急救知识</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="../common/css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="../common/css/app.css"/>
+		<style>
+			.mui-table h4,.mui-table h5,.mui-table .mui-h5,.mui-table .mui-h6,.mui-table p{
+		        margin-top: 0;
+		    }
+		    .mui-table h4{
+		        line-height: 21px;
+		        font-weight: 500;
+		    	margin-bottom:7px;
+		    	font-size:15px;
+		    }
+		
+		    .mui-table .oa-icon{
+		        position: absolute;
+		        right:0;
+		        bottom: 0;
+		    }
+		    .mui-table .oa-icon-star-filled{
+		        color:#f14e41;
+		    }
+		    .mui-content>.mui-table-view:first-child{
+		    	margin-top:0;
+		    }
+		    .list-img{
+		    	width:100%;
+		    }
+		    .mui-table-view-cell{
+		    	padding:11px 2%;
+		    }
+		    .mui-table-view-cell:after{
+		    	left:2%;
+		    	right:2%;
+		    }
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+		    <ul class="mui-table-view mui-table-view-striped mui-table-view-condensed">
+		    	<li class="mui-table-view-cell" id="tap5">
+		            <div class="mui-table">
+		                <div class="mui-table-cell mui-col-xs-10">
+		                    <h4 class="mui-ellipsis">【急救常识】CPR心脏复苏</h4>
+		                    <img src="images/CPR.jpg" class="list-img"/>
+		                </div>
+		            </div>
+		        </li>
+		        <li class="mui-table-view-cell" id="tap1">
+		            <div class="mui-table">
+		                <div class="mui-table-cell mui-col-xs-10">
+		                    <h4 class="mui-ellipsis">【急救常识】火灾逃生技巧</h4>
+		                    <img src="images/ff.jpg" class="list-img"/>
+		                </div>
+		            </div>
+		        </li>
+		        <li class="mui-table-view-cell" id="tap2">
+		            <div class="mui-table">
+		                <div class="mui-table-cell mui-col-xs-10">
+		                    <h4 class="mui-ellipsis">【急救常识】水灾逃生技巧</h4>
+		                    <img src="images/ss.jpg" class="list-img"/>
+		                </div>
+		            </div>
+		        </li>
+		        <li class="mui-table-view-cell" id="tap3">
+		            <div class="mui-table">
+		                <div class="mui-table-cell mui-col-xs-10">
+		                    <h4 class="mui-ellipsis">【急救常识】地震逃生技巧</h4>
+		                    <img src="images/zz.jpg" class="list-img"/>
+		                </div>
+		            </div>
+		        </li>
+		        <li class="mui-table-view-cell" id="tap4">
+		            <div class="mui-table">
+		                <div class="mui-table-cell mui-col-xs-10">
+		                    <h4 class="mui-ellipsis">【急救常识】车祸逃生技巧</h4>
+		                    <img src="images/cc.jpg" class="list-img"/>
+		                </div>
+		            </div>
+		        </li>
+		    </ul>
+		</div>
+	</body>
+	<script src="../common/js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+		document.getElementById("tap1").addEventListener('tap',function(){
+			window.location.href="fire/fire.html";
+		});
+		document.getElementById("tap2").addEventListener('tap',function(){
+			window.location.href="flood/flood.html";
+		});
+		document.getElementById("tap3").addEventListener('tap',function(){
+			window.location.href="earthquake/earthquake.html";
+		});
+		document.getElementById("tap4").addEventListener('tap',function(){
+			window.location.href="accident/accident.html";
+		});
+		document.getElementById("tap5").addEventListener('tap',function(){
+			window.location.href="CPR/CPR.html";
+		});
+	</script>
+</html>

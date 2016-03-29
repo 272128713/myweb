@@ -1,0 +1,70 @@
+.container{
+	width:3.2rem;
+	margin:0 auto;
+}
+.container .grxx{
+	width:3.04rem;
+	margin-top:15px;
+}
+.container .grxx .tx{
+	width:0.45rem;
+	margin-left: 1.296rem;
+	display: block;
+}
+.grxx .name{
+	font-size:15px;
+	line-height:0.15rem;
+	color:#333333;
+	text-align: center;
+	margin-top:14px;
+}
+.grxx .name img{
+	height:16px;
+	margin-left:0.1rem;
+}
+.grxx .age{
+	font-size:12px;
+	color:#666666;
+	line-height:0.12rem;
+	text-align: center;
+	margin-top:14px;
+	margin-bottom: 14px;
+}
+.grxx .age span{
+	font-size:12px;
+	color:#666666;
+	margin-right:0.2rem;
+}
+.container .border{
+	width:100%;
+	height:5px;
+	background:#ededed;
+}
+.container ul li{
+	width:3.02rem;
+	margin-top:8px;
+	margin:0 auto;
+	padding-top:16px;
+	padding-bottom:16px;
+	border-bottom:1px solid #ccc;
+}
+.container ul li:last-child{
+	border:0;
+}
+.container ul li p{
+	font-size:14px;
+	color:#333;
+}
+.container ul li img{
+	width:0.19rem;
+	float: left;
+	margin-left:0.1rem;
+	margin-right:0.1rem;
+}
+.container ul li .p2{
+	width:2.63rem;
+	float:left;
+}
+.p3{
+	margin-top:8px;
+}

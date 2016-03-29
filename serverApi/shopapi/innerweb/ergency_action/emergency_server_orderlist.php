@@ -1,0 +1,91 @@
+
+<?php
+/**
+* 订单列表
+*/ 
+	include(dirname(__FILE__) . "/../../1.0/common/inc.php");
+	$logger = Logger::getLogger(basename(__FILE__));
+	$databaseManager = new DatabaseManager();
+	session_start();
+	$db = $databaseManager->getConn();
+	if($_GET['pod']){
+		$pod = $_GET['pod'];
+	}else{
+		$pod = '';
+	}
+	if($pod==1){
+		sleep(2);
+	}
+	//数据库链接失败
+	if(!$db){
+		echo "<div style='margin:1em 0 0 2em'>Server Error</div>";
+		echo "<div style='margin:1em 0 0 2em'>服务器开小差~！跳转中。。。</div>";
+		?>
+			<script>
+			setTimeout("goBack()",2000);
+			function goBack(){
+				history.go(-1);
+			}
+			</script>
+			<?php
+		die();
+	}
+
+	//待付款
+		$sql = "select info.goods_name,img.img_url,buy.price,info.goods_price,buy.numbers,buy.order_nums
+			from user_buy_goods_info as buy
+			left join first_aid_goods_info as info
+			on info.id = buy.goods_id
+			left join first_aid_goods_img_info as img 
+			on info.id = img.goods_id
+			where buy.pay_state=0 
+			and img.type=2
+			and buy.user_id = ".$_SESSION['uid']."
+			order by buy.buy_time desc
+					";
+		$result_wait = $db->getAll($sql);
+	//待收货
+
+		$sql = "select info.goods_name,img.img_url,buy.price,info.goods_price,buy.numbers,buy.order_nums,buy.logistics_code
+			from user_buy_goods_info as buy
+			left join first_aid_goods_info as info
+			on info.id = buy.goods_id
+			left join first_aid_goods_img_info as img
+			on info.id = img.goods_id
+			where buy.pay_state=1
+			and buy.order_state in (1,2)
+			and img.type=2
+			and buy.user_id = ".$_SESSION['uid']."
+			order by buy.pay_time desc
+					";
+		$result_pay_wait = $db->getAll($sql);
+		
+	//已收货
+
+		$sql = "select info.goods_name,img.img_url,buy.price,info.goods_price,buy.numbers,buy.order_nums
+			from user_buy_goods_info as buy
+			left join first_aid_goods_info as info
+			on info.id = buy.goods_id
+			left join first_aid_goods_img_info as img
+			on info.id = img.goods_id
+			where buy.pay_state=1
+			and buy.order_state=3
+			and img.type=2
+			and buy.user_id = ".$_SESSION['uid']."
+			order by buy.pay_time desc
+					";
+		$result_getorder = $db->getAll($sql);
+		
+		
+	
+	
+
+?>	
+	
+	
+	
+	
+	
+	
+	
+	

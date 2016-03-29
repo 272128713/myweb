@@ -1,0 +1,23 @@
+2015-12-04 15:23:15,986 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-04 15:23:18,798 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-04 15:37:34,634 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-04 15:39:26,309 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-04 15:45:36,314 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-04 15:45:39,769 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-04 15:45:51,762 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-04 15:47:47,634 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-04 15:49:13,789 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-04 16:05:20,396 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-04 16:26:53,466 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-04 16:42:27,054 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-04 16:42:33,484 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-04 16:42:34,764 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-04 16:55:47,537 [ERROR] (Tools.php:463) --  [8] Undefined index: uid  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_order.php  line: 43  
+2015-12-04 16:55:47,543 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 266  
+2015-12-04 16:55:47,547 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 267  
+2015-12-04 16:55:47,551 [ERROR] (Tools.php:463) --  [8] Undefined variable: address  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_shoppingcart.php  line: 58  
+2015-12-04 16:55:47,555 [ERROR] (Tools.php:463) --  [8] Undefined variable: address  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_shoppingcart.php  line: 62  
+2015-12-04 16:55:47,559 [ERROR] (Tools.php:463) --  [8] Undefined variable: address  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_shoppingcart.php  line: 66  
+2015-12-04 16:55:47,563 [ERROR] (Tools.php:463) --  [8] Undefined variable: address  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_shoppingcart.php  line: 72  
+2015-12-04 16:55:47,567 [ERROR] (Tools.php:463) --  [8] Undefined index: uid  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_shoppingcart.php  line: 113  
+2015-12-04 16:55:47,571 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_shoppingcart.php  line: 138  

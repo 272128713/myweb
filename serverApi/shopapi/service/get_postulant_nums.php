@@ -1,0 +1,24 @@
+<?php
+/*
+ * 1.7.6. get_postulant_nums.php （获取志愿者统计）
+*/
+function get_postulant_nums($userID){
+	$obj = new DatabaseManager();
+	$db = $obj->getConn();
+	
+	
+	$sql="select count(a.user_id) as num,ifnull(b.live_province_id,'') as live_province_id,IFNULL(left(b.live_province_id, 2),'')  as province
+		  from sky_user_data_master.user_base_info as a
+		  LEFT JOIN  sky_user_data_master.sky_user_extend_info as b On a.user_id=b.user_id
+		  where a.privilege_id  like '1__1%'
+		  group by(province)";
+	  $result =  $db->getAll($sql);
+	  foreach($result as $key=>$val)
+	  {
+	  	unset($result[$key]['province']);//删除province字段
+	  }
+   
+	  return $result; 
+}
+
+?>

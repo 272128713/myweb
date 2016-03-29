@@ -1,0 +1,173 @@
+2015-12-02 10:20:30,377 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-02 10:20:35,016 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-02 10:20:37,408 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-02 10:20:45,614 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 10:20:57,112 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 10:20:57,520 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 10:52:33,014 [ERROR] (Tools.php:463) --  [8] Undefined index: area_code  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_setuaddress_info.php  line: 29  
+2015-12-02 10:52:40,078 [ERROR] (Tools.php:463) --  [8] Undefined index: area_code  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_setuaddress_info.php  line: 29  
+2015-12-02 10:58:43,631 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 11:37:10,476 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-02 11:37:11,115 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-02 11:42:30,568 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 11:44:34,707 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 11:47:29,997 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 11:48:11,127 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 11:48:27,644 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 11:49:39,343 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 11:49:44,341 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-02 11:49:46,625 [ERROR] (Tools.php:463) --  [8] Undefined variable: con  _File: E:\myweb\firstaid\innerweb\ergency_action\sort_list.php  line: 20  
+2015-12-02 11:49:49,301 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 11:50:20,806 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 11:50:31,220 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 11:51:45,996 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 11:51:48,834 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 11:53:27,732 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 11:53:30,501 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 11:54:15,998 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 11:54:36,833 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 11:54:46,800 [ERROR] (Tools.php:463) --  [8] Undefined variable: con  _File: E:\myweb\firstaid\innerweb\ergency_action\sort_list.php  line: 20  
+2015-12-02 11:55:01,922 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 11:55:05,307 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 11:58:04,429 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 12:00:28,562 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 12:02:28,168 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 13:41:05,642 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 13:54:56,221 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 13:57:55,446 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 13:57:59,435 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 13:57:59,439 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 13:58:14,415 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 13:58:14,419 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 13:59:55,616 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 13:59:55,620 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:01:33,977 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:01:33,982 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:01:52,681 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:01:52,686 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:05:03,498 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:05:03,502 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:05:09,898 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:05:09,902 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:06:01,173 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:06:01,178 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:06:05,298 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:06:05,303 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:06:11,626 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:06:11,630 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:06:35,149 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:06:35,153 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:06:39,082 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:06:39,087 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:06:46,554 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:06:46,558 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:06:48,594 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:06:48,599 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:06:50,285 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:06:50,290 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:06:51,990 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:06:51,995 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:06:53,711 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:06:53,715 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:06:55,422 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:06:55,426 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:06:57,071 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:06:57,075 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:06:58,773 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:06:58,777 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:07:00,397 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:07:00,401 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:07:02,136 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:07:02,141 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:07:03,649 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:07:03,654 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:07:05,251 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:07:05,256 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:07:06,906 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:07:06,910 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:07:08,626 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:07:08,631 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:07:10,188 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:07:10,193 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:07:19,130 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:07:19,135 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:07:20,958 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:07:20,963 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:07:22,578 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:07:22,584 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:07:28,172 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:07:28,177 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:07:32,818 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:07:32,822 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:07:36,948 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:07:36,953 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:07:40,931 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:07:40,935 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:07:45,595 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:07:45,599 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:07:51,155 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:07:51,160 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:07:55,981 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:07:55,985 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:08:00,326 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:08:00,331 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:08:05,657 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:08:05,661 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:08:09,196 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:08:09,201 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:08:14,141 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:08:14,145 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:08:17,970 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:08:17,975 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:08:19,662 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:08:19,666 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:08:21,299 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:08:21,304 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:08:22,963 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:08:22,967 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:08:28,999 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:08:29,003 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:08:30,147 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:08:30,152 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:08:31,239 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:08:31,243 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:08:32,637 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:08:32,642 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:08:33,810 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:08:33,814 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:08:46,268 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:08:46,274 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:08:47,313 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:08:47,318 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:08:48,451 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:08:48,458 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:08:49,787 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:08:49,791 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:08:51,028 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:08:51,032 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:08:52,167 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:08:52,172 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:08:53,350 [ERROR] (Tools.php:463) --  [8] Use of undefined constant code - assumed 'code'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 42  
+2015-12-02 14:08:53,355 [ERROR] (Tools.php:463) --  [8] Use of undefined constant msg - assumed 'msg'  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_cancelorder.php  line: 43  
+2015-12-02 14:29:53,900 [ERROR] (Tools.php:463) --  [8] Undefined index: classid  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_classlist.php  line: 26  
+2015-12-02 14:44:45,954 [ERROR] (Tools.php:463) --  [8] Undefined index: classid  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_classlist.php  line: 26  
+2015-12-02 15:18:16,494 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 15:22:54,145 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 15:32:44,261 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 15:32:47,074 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 16:36:46,192 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-02 16:36:47,960 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-02 16:36:48,523 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 21  
+2015-12-02 16:36:49,788 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 16:36:52,295 [ERROR] (Tools.php:463) --  [8] Undefined index: uid  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server_order.php  line: 43  
+2015-12-02 16:36:52,300 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 266  
+2015-12-02 16:36:52,304 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 267  
+2015-12-02 16:36:52,308 [ERROR] (Tools.php:463) --  [8] Undefined variable: address  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_shoppingcart.php  line: 58  
+2015-12-02 16:36:52,312 [ERROR] (Tools.php:463) --  [8] Undefined variable: address  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_shoppingcart.php  line: 62  
+2015-12-02 16:36:52,316 [ERROR] (Tools.php:463) --  [8] Undefined variable: address  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_shoppingcart.php  line: 66  
+2015-12-02 16:36:52,320 [ERROR] (Tools.php:463) --  [8] Undefined variable: address  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_shoppingcart.php  line: 72  
+2015-12-02 16:36:52,324 [ERROR] (Tools.php:463) --  [8] Undefined index: uid  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_shoppingcart.php  line: 113  
+2015-12-02 16:36:52,328 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_shoppingcart.php  line: 135  
+2015-12-02 17:22:23,108 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 17:24:22,093 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  
+2015-12-02 17:38:54,257 [ERROR] (Tools.php:463) --  [8] Undefined variable: goods_content  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_detail.php  line: 60  

@@ -1,0 +1,76 @@
+2015-12-08 11:18:01,073 [ERROR] (get_cooperation_message.php:23) -- params error. params is array (
+  'ss' => '',
+) 
+2015-12-08 11:18:04,476 [ERROR] (get_cooperation_message.php:23) -- params error. params is array (
+  'ss' => '',
+) 
+2015-12-08 11:18:05,662 [ERROR] (get_cooperation_message.php:23) -- params error. params is array (
+  'ss' => '',
+) 
+2015-12-08 14:12:42,121 [ERROR] (get_public_welfare_activity_list.php:15) -- params is err. params is array (
+  'ss' => '',
+) 
+2015-12-08 17:42:49,480 [ERROR] (get_public_welfare_activity_info.php:16) -- params is err. params is array (
+  'ss' => 'oCKp7XwACrMPIBvJYYCXU8RFzzRGP8xl',
+  'activity_id' => '',
+) 
+2015-12-08 17:42:50,445 [ERROR] (get_public_welfare_activity_people.php:13) -- params error. params is array (
+  'ss' => 'oCKp7XwACrMPIBvJYYCXU8RFzzRGP8xl',
+  'activity_id' => '',
+) 
+2015-12-08 17:42:51,997 [ERROR] (get_public_welfare_activity_info.php:16) -- params is err. params is array (
+  'ss' => 'oCKp7XwACrMPIBvJYYCXU8RFzzRGP8xl',
+  'activity_id' => '',
+) 
+2015-12-08 17:42:52,999 [ERROR] (get_public_welfare_activity_people.php:13) -- params error. params is array (
+  'ss' => 'oCKp7XwACrMPIBvJYYCXU8RFzzRGP8xl',
+  'activity_id' => '',
+) 
+2015-12-08 17:44:37,519 [ERROR] (get_public_welfare_activity_info.php:16) -- params is err. params is array (
+  'ss' => 'oCKp7XwACrMPIBvJYYCXU8RFzzRGP8xl',
+  'activity_id' => '',
+) 
+2015-12-08 17:44:38,520 [ERROR] (get_public_welfare_activity_people.php:13) -- params error. params is array (
+  'ss' => 'oCKp7XwACrMPIBvJYYCXU8RFzzRGP8xl',
+  'activity_id' => '',
+) 
+2015-12-08 17:45:14,338 [ERROR] (get_public_welfare_activity_info.php:16) -- params is err. params is array (
+  'ss' => 'oCKp7XwACrMPIBvJYYCXU8RFzzRGP8xl',
+  'activity_id' => '',
+) 
+2015-12-08 17:45:15,573 [ERROR] (get_public_welfare_activity_people.php:13) -- params error. params is array (
+  'ss' => 'oCKp7XwACrMPIBvJYYCXU8RFzzRGP8xl',
+  'activity_id' => '',
+) 
+2015-12-08 17:45:32,938 [ERROR] (get_public_welfare_activity_info.php:16) -- params is err. params is array (
+  'ss' => 'oCKp7XwACrMPIBvJYYCXU8RFzzRGP8xl',
+  'activity_id' => '',
+) 
+2015-12-08 17:45:33,922 [ERROR] (get_public_welfare_activity_people.php:13) -- params error. params is array (
+  'ss' => 'oCKp7XwACrMPIBvJYYCXU8RFzzRGP8xl',
+  'activity_id' => '',
+) 
+2015-12-08 17:45:39,184 [ERROR] (get_public_welfare_activity_info.php:16) -- params is err. params is array (
+  'ss' => 'oCKp7XwACrMPIBvJYYCXU8RFzzRGP8xl',
+  'activity_id' => '',
+) 
+2015-12-08 17:45:40,171 [ERROR] (get_public_welfare_activity_people.php:13) -- params error. params is array (
+  'ss' => 'oCKp7XwACrMPIBvJYYCXU8RFzzRGP8xl',
+  'activity_id' => '',
+) 
+2015-12-08 17:45:43,018 [ERROR] (get_public_welfare_activity_info.php:16) -- params is err. params is array (
+  'ss' => 'oCKp7XwACrMPIBvJYYCXU8RFzzRGP8xl',
+  'activity_id' => '',
+) 
+2015-12-08 17:45:43,821 [ERROR] (get_public_welfare_activity_people.php:13) -- params error. params is array (
+  'ss' => 'oCKp7XwACrMPIBvJYYCXU8RFzzRGP8xl',
+  'activity_id' => '',
+) 
+2015-12-08 17:46:42,547 [ERROR] (get_public_welfare_activity_info.php:16) -- params is err. params is array (
+  'ss' => 'oCKp7XwACrMPIBvJYYCXU8RFzzRGP8xl',
+  'activity_id' => '',
+) 
+2015-12-08 17:46:43,539 [ERROR] (get_public_welfare_activity_people.php:13) -- params error. params is array (
+  'ss' => 'oCKp7XwACrMPIBvJYYCXU8RFzzRGP8xl',
+  'activity_id' => '',
+) 

@@ -1,0 +1,19 @@
+2016-02-25 14:23:46,839 [ERROR] (register.php:24) -- params error. params is array (
+) 
+2016-02-25 14:26:15,417 [ERROR] (register.php:24) -- params error. params is array (
+) 
+2016-02-25 14:27:31,648 [ERROR] (register.php:24) -- params error. params is array (
+) 
+2016-02-25 14:27:33,238 [ERROR] (register.php:24) -- params error. params is array (
+) 
+2016-02-25 14:27:34,213 [ERROR] (register.php:24) -- params error. params is array (
+) 
+2016-02-25 14:28:14,404 [ERROR] (register.php:24) -- params error. params is array (
+) 
+2016-02-25 14:34:06,442 [ERROR] (Tools.php:463) --  [8] Undefined index: pin  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 29  
+2016-02-25 14:34:11,725 [ERROR] (Tools.php:463) --  [8] Undefined index: pin  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 29  
+2016-02-25 14:37:34,837 [ERROR] (Tools.php:463) --  [8] Undefined index: pin  _File: E:\myweb\serverApi\shopapi\1.0\register.php  line: 29  
+2016-02-25 15:03:04,362 [ERROR] (logindo.php:14) -- params error. params is array (
+  'un' => '',
+  'pw' => '',
+) 

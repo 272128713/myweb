@@ -1,0 +1,6 @@
+2015-12-10 11:25:09,199 [ERROR] (get_public_welfare_activity_list.php:15) -- params is err. params is array (
+  'ss' => '',
+) 
+2015-12-10 16:30:08,471 [ERROR] (get_public_welfare_activity_list.php:15) -- params is err. params is array (
+  'ss' => '',
+) 

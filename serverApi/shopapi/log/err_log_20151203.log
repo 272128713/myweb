@@ -1,0 +1,6 @@
+2015-12-03 12:32:55,062 [ERROR] (Tools.php:463) --  [2] mysql_connect():   _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 133  
+2015-12-03 12:32:55,068 [ERROR] (eg_union_tn_query.php:31) -- Database connect fail. 
+2015-12-03 12:33:18,457 [ERROR] (Tools.php:463) --  [2] mysql_connect():   _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 133  
+2015-12-03 12:33:18,466 [ERROR] (eg_union_tn_query.php:31) -- Database connect fail. 
+2015-12-03 12:34:01,966 [ERROR] (Tools.php:463) --  [2] mysql_connect():   _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 133  
+2015-12-03 12:34:01,976 [ERROR] (eg_union_tn_query.php:31) -- Database connect fail. 

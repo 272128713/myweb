@@ -1,0 +1,50 @@
+2015-11-24 14:34:45,087 [ERROR] (Tools.php:463) --  [8] Undefined variable: img_url  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_action.php  line: 60  
+2015-11-24 14:34:45,091 [ERROR] (Tools.php:463) --  [8] Undefined variable: img_url  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_action.php  line: 62  
+2015-11-24 14:34:45,182 [ERROR] (Tools.php:463) --  [2] Invalid argument supplied for foreach()  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_action.php  line: 62  
+2015-11-24 14:34:45,186 [ERROR] (Tools.php:463) --  [8] Undefined variable: img_url  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_action.php  line: 68  
+2015-11-24 14:34:45,190 [ERROR] (Tools.php:463) --  [8] Undefined variable: img_url_length  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_action.php  line: 73  
+2015-11-24 14:50:18,133 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 14:51:14,431 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 14:51:55,690 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 14:51:57,098 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 14:51:58,139 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 14:52:33,638 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 15:14:05,980 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 15:15:51,947 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 15:16:27,752 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 15:16:34,328 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 15:16:47,794 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 15:21:30,654 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 15:21:38,686 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 15:21:45,362 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 15:22:57,458 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 15:23:17,737 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 15:23:22,511 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 15:27:32,714 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 15:27:50,761 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 15:27:57,283 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 16:12:20,709 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 16:13:11,257 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 16:13:33,277 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 16:13:42,734 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 16:14:16,650 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 16:14:38,924 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 16:15:53,942 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 16:17:21,668 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 16:21:16,284 [ERROR] (Tools.php:463) --  [8] Undefined index: id  _File: E:\myweb\firstaid\innerweb\ergency_action\emergency_server.php  line: 48  
+2015-11-24 16:37:33,377 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 266  
+2015-11-24 16:37:33,383 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 267  
+2015-11-24 16:37:33,389 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 266  
+2015-11-24 16:37:33,395 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 267  
+2015-11-24 16:38:20,957 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 266  
+2015-11-24 16:38:20,961 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 267  
+2015-11-24 16:38:20,967 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 266  
+2015-11-24 16:38:20,971 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 267  
+2015-11-24 16:38:31,190 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 266  
+2015-11-24 16:38:31,194 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 267  
+2015-11-24 16:38:31,201 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 266  
+2015-11-24 16:38:31,205 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 267  
+2015-11-24 16:48:30,923 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 266  
+2015-11-24 16:48:30,923 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 267  
+2015-11-24 16:48:30,923 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 266  
+2015-11-24 16:48:30,923 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 267  

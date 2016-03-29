@@ -1,0 +1,23 @@
+<?php
+session_start();
+include dirname(dirname(__DIR__)).'/common/php/common.php';
+include dirname(dirname(__DIR__)).'/common/php/config.php';
+if(isset($_GET['ss'])){
+
+    $_SESSION['ss']=$_GET['ss'];
+}
+$_POST['ss']=$_SESSION['ss'];
+$_POST['org_id']=$_GET['oid'];
+$result=httpRequest($URLHOST.'/firstaid/1.0/get_org_activelist.php',$_POST,'post');
+$result = json_decode($result);
+//$resultac = $result->result;
+//var_dump($result);
+if($result->code==1){
+    if($result->result){
+        $resultac=$result->result;
+        $orgname = $resultac[0];
+        $result = $resultac[1];
+        $logo_url = $resultac[2];
+    }
+
+}

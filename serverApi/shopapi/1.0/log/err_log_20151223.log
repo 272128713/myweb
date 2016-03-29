@@ -1,0 +1,9 @@
+2015-12-23 10:38:48,833 [ERROR] (get_user_question.php:47) --  Session fail. 
+2015-12-23 10:38:57,740 [ERROR] (get_user_question.php:47) --  Session fail. 
+2015-12-23 11:31:45,967 [ERROR] (MecManager.php:29) -- Mec server 210.14.72.52 connect fail. port is 35788 
+2015-12-23 11:35:55,016 [ERROR] (MecManager.php:29) -- Mec server 210.14.72.52 connect fail. port is 35788 
+2015-12-23 11:52:26,766 [ERROR] (MecManager.php:29) -- Mec server 210.14.72.52 connect fail. port is 35788 
+2015-12-23 11:57:32,697 [ERROR] (MecManager.php:29) -- Mec server 210.14.72.52 connect fail. port is 35788 
+2015-12-23 13:24:48,753 [ERROR] (MecManager.php:29) -- Mec server 210.14.72.52 connect fail. port is 35788 
+2015-12-23 13:26:57,650 [ERROR] (MecManager.php:29) -- Mec server 210.14.72.52 connect fail. port is 35788 
+2015-12-23 17:03:11,102 [ERROR] (get_user_question.php:47) --  Session fail. 

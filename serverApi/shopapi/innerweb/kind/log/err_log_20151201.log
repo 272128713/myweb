@@ -1,0 +1,50 @@
+2015-12-01 10:01:48,736 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\kind\emergency_server_classlist.php  line: 26  
+2015-12-01 10:01:48,741 [ERROR] (Tools.php:463) --  [8] Undefined variable: _SESSION  _File: E:\myweb\firstaid\innerweb\kind\emergency_server_classlist.php  line: 42  
+2015-12-01 10:01:48,748 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 362  
+2015-12-01 10:01:48,753 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 365  
+2015-12-01 10:02:43,059 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\kind\emergency_server_classlist.php  line: 26  
+2015-12-01 10:02:43,064 [ERROR] (Tools.php:463) --  [8] Undefined variable: _SESSION  _File: E:\myweb\firstaid\innerweb\kind\emergency_server_classlist.php  line: 42  
+2015-12-01 10:02:43,068 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 362  
+2015-12-01 10:02:43,072 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 365  
+2015-12-01 10:03:15,478 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\kind\emergency_server_classlist.php  line: 26  
+2015-12-01 10:03:15,483 [ERROR] (Tools.php:463) --  [8] Undefined variable: _SESSION  _File: E:\myweb\firstaid\innerweb\kind\emergency_server_classlist.php  line: 42  
+2015-12-01 10:03:15,488 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 362  
+2015-12-01 10:03:15,491 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 365  
+2015-12-01 10:04:15,544 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\kind\emergency_server_classlist.php  line: 26  
+2015-12-01 10:04:15,551 [ERROR] (Tools.php:463) --  [8] Undefined variable: _SESSION  _File: E:\myweb\firstaid\innerweb\kind\emergency_server_classlist.php  line: 42  
+2015-12-01 10:04:15,558 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 362  
+2015-12-01 10:04:15,564 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 365  
+2015-12-01 10:04:27,350 [ERROR] (Tools.php:463) --  [8] Undefined index: ss  _File: E:\myweb\firstaid\innerweb\kind\emergency_server_classlist.php  line: 26  
+2015-12-01 10:04:27,354 [ERROR] (Tools.php:463) --  [8] Undefined variable: _SESSION  _File: E:\myweb\firstaid\innerweb\kind\emergency_server_classlist.php  line: 42  
+2015-12-01 10:04:27,359 [ERROR] (Tools.php:463) --  [2] mysql_fetch_assoc() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 362  
+2015-12-01 10:04:27,363 [ERROR] (Tools.php:463) --  [2] mysql_free_result() expects parameter 1 to be resource, boolean given  _File: E:\myweb\firstaid\1.0\common\database\DataBase_Mysql.php  line: 365  
+2015-12-01 10:06:50,389 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,393 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,396 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,400 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,404 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,409 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,413 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,418 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,422 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,426 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,430 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,434 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,437 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,442 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,446 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,449 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,453 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,457 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,461 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,465 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,468 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,472 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,476 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,481 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,484 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,491 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,497 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,500 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,507 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  
+2015-12-01 10:06:50,512 [ERROR] (Tools.php:463) --  [8] Undefined index: goods_name  _File: E:\myweb\firstaid\innerweb\kind\kind.php  line: 37  

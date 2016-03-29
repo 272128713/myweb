@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>善有善报</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/kindreward.css" />
+		
+		<style>
+			.mui-control-content {
+				background-color: white;
+				min-height:500px;
+			}
+			.mui-segmented-control {
+				color:#fff;
+			    font-size: 15px;
+			    font-weight: nomal;
+			}
+			.mui-slider .mui-segmented-control.mui-segmented-control-inverted~.mui-slider-group .mui-slider-item {
+    			border-top: 0; 
+   				border-bottom: 0; 
+			}
+			#sliderSegmentedControl{
+				background:#dd403b;
+			}
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+			    color: #fff;
+                background-image: url("./images/jiao.png");
+                background-repeat: no-repeat;
+                background-position: bottom center;
+                background-size: 17px 10px;
+			}
+			.mui-segmented-control .mui-control-item {
+    			line-height: 50px;
+			}
+			.mui-segmented-control.mui-segmented-control-inverted~.mui-slider-progress-bar {
+			    width:50%;
+			}
+            .mui-segmented-control.mui-segmented-control-inverted~.mui-slider-progress-bar{
+                background-color: #fff ;
+            }
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="banner" style="background-image:url(images/shan.png)">
+				<div class="text">
+					<p class="p1">￥178260.00</p>
+					<p class="p2">空中急救公益基金向公益慈善机构提供</p>
+					<p class="p2">资金支持，推动中国公益事业的良性发展</p>
+				</div>
+			</div>
+			<div id="slider" class="mui-slider">
+				<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<a class="mui-control-item mui-active" href="#item1mobile">奉献爱心</a>
+					<a class="mui-control-item" href="#item3mobile">资助项目</a>
+				</div>
+				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4"></div>
+				<div class="mui-slider-group">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="top">
+								<img src="images/jiao.png">
+								<p>每消费一件爱心产品，消费金额的<span>10%</span>就以你的</p>
+								<p>名义赞助给空中急救基金会，用于公益慈善活动</p>
+								<div class="btn" onclick="layer.msg('敬请期待！')">立即奉献爱心</div>
+							</div>
+							<!--ul>
+								<li>
+									<div class="tx"><img src="images/tx.png"></div>
+									<div class="info">
+										<div class="left">
+											<p class="name">赵雷</p>
+											<p class="tz">购买价值125元爱心产品</p>
+										</div>
+										<div class="right">
+											<p class="zan">赞助基金<span>￥12.5</span></p>
+											<p class="tz time">2015-12-25</p>
+										</div>
+										<div class="clear"></div>
+									</div>
+									<div class="clear"></div>
+								</li>
+								<li>
+									<div class="tx"><img src="images/tx.png"></div>
+									<div class="info">
+										<div class="left">
+											<p class="name">赵雷</p>
+											<p class="tz">购买价值125元爱心产品</p>
+										</div>
+										<div class="right">
+											<p class="zan">赞助基金<span>￥12.5</span></p>
+											<p class="tz time">2015-12-25</p>
+										</div>
+										<div class="clear"></div>
+									</div>
+									<div class="clear"></div>
+								</li>
+							</ul-->
+						</div>
+					</div>
+					<div id="item3mobile" class="mui-slider-item mui-control-content">
+						<div id="scroll3" class="mui-scroll-wrapper">
+							<p>当前还没有接受赞助的项目</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/layer/layer.js"></script>
+
+		<!--<script>
+			$(function(){
+				var bh = $('.mui-slider-group').height();
+				alert(bh);
+				var banner_height = $('.banner').height();
+				$('.mui-control-content').css('min-height',bh);
+			});
+		</script>-->
+
+	</body>
+
+</html>

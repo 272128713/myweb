@@ -1,0 +1,266 @@
+2016-02-26 09:44:03,329 [ERROR] (logindo.php:57) -- array (
+  0 => 'oper_result=0',
+  1 => 'uid=25015148',
+  2 => 'role=1',
+  3 => 'ss=QhdOr59NfwXYB8RT6dZ1HU6pjmNkS16o',
+  4 => 'flag=0',
+  5 => 'push_service_type=APNS',
+  6 => 'piv=0',
+  7 => 'pav=0',
+  8 => 'lps_server=210.14.72.58',
+  9 => 'lps_server_port=1183',
+  10 => 'yixin_api_server=210.14.72.56',
+  11 => 'yixin_api_server_port=80',
+  12 => 'yixin_news_server=210.14.72.58',
+  13 => 'yixin_news_server_port=80',
+  14 => 'file_server=210.14.72.56',
+  15 => 'file_server_port=80',
+) 
+2016-02-26 11:32:19,342 [ERROR] (logindo.php:70) -- array (
+  0 => 'oper_result=0',
+  1 => 'nm=%E8%A6%81%E6%B2%A3%E8%B6%85',
+  2 => 'sex=1',
+  3 => 'email=',
+  4 => 'bg=1',
+  5 => 'bd=1987-11-03%2000%3A00%3A00',
+  6 => 'bp=410182',
+  7 => 'rpp=8',
+  8 => 'rpo=410182',
+  9 => 'st=1',
+  10 => 'sm=',
+  11 => 'dp=1',
+  12 => 'sosm=0',
+  13 => 'drug_allergy=%E6%97%A0',
+  14 => 'e1n=Ada',
+  15 => 'e1p=18721042197',
+  16 => 'e2n=Ada',
+  17 => 'e2p=',
+  18 => 'pdn=',
+  19 => 'pdp=',
+  20 => 'per=0111',
+  21 => 'ute=0',
+) 
+2016-02-26 11:32:19,353 [ERROR] (Tools.php:463) --  [2] Illegal string offset 'id'  _File: E:\myweb\serverApi\shopapi\1.0\logindo.php  line: 74  
+2016-02-26 11:32:19,363 [ERROR] (Tools.php:463) --  [8] Uninitialized string offset: 0  _File: E:\myweb\serverApi\shopapi\1.0\logindo.php  line: 74  
+2016-02-26 11:32:19,374 [ERROR] (Tools.php:463) --  [2] Illegal string offset 'id'  _File: E:\myweb\serverApi\shopapi\1.0\logindo.php  line: 80  
+2016-02-26 11:32:19,378 [ERROR] (Tools.php:463) --  [8] Uninitialized string offset: 0  _File: E:\myweb\serverApi\shopapi\1.0\logindo.php  line: 80  
+2016-02-26 11:47:25,021 [ERROR] (logindo.php:70) -- array (
+  0 => 'oper_result=0',
+  1 => 'nm=%E8%A6%81%E6%B2%A3%E8%B6%85',
+  2 => 'sex=1',
+  3 => 'email=',
+  4 => 'bg=1',
+  5 => 'bd=1987-11-03%2000%3A00%3A00',
+  6 => 'bp=410182',
+  7 => 'rpp=8',
+  8 => 'rpo=410182',
+  9 => 'st=1',
+  10 => 'sm=',
+  11 => 'dp=1',
+  12 => 'sosm=0',
+  13 => 'drug_allergy=%E6%97%A0',
+  14 => 'e1n=Ada',
+  15 => 'e1p=18721042197',
+  16 => 'e2n=Ada',
+  17 => 'e2p=',
+  18 => 'pdn=',
+  19 => 'pdp=',
+  20 => 'per=0111',
+  21 => 'ute=0',
+) 
+2016-02-26 11:50:35,225 [ERROR] (logindo.php:70) -- array (
+  0 => 'oper_result=0',
+  1 => 'nm=%E8%A6%81%E6%B2%A3%E8%B6%85',
+  2 => 'sex=1',
+  3 => 'email=',
+  4 => 'bg=1',
+  5 => 'bd=1987-11-03%2000%3A00%3A00',
+  6 => 'bp=410182',
+  7 => 'rpp=8',
+  8 => 'rpo=410182',
+  9 => 'st=1',
+  10 => 'sm=',
+  11 => 'dp=1',
+  12 => 'sosm=0',
+  13 => 'drug_allergy=%E6%97%A0',
+  14 => 'e1n=Ada',
+  15 => 'e1p=18721042197',
+  16 => 'e2n=Ada',
+  17 => 'e2p=',
+  18 => 'pdn=',
+  19 => 'pdp=',
+  20 => 'per=0111',
+  21 => 'ute=0',
+) 
+2016-02-26 11:52:42,155 [ERROR] (logindo.php:70) -- array (
+  0 => 'oper_result=0',
+  1 => 'nm=%E8%A6%81%E6%B2%A3%E8%B6%85',
+  2 => 'sex=1',
+  3 => 'email=',
+  4 => 'bg=1',
+  5 => 'bd=1987-11-03%2000%3A00%3A00',
+  6 => 'bp=410182',
+  7 => 'rpp=8',
+  8 => 'rpo=410182',
+  9 => 'st=1',
+  10 => 'sm=',
+  11 => 'dp=1',
+  12 => 'sosm=0',
+  13 => 'drug_allergy=%E6%97%A0',
+  14 => 'e1n=Ada',
+  15 => 'e1p=18721042197',
+  16 => 'e2n=Ada',
+  17 => 'e2p=',
+  18 => 'pdn=',
+  19 => 'pdp=',
+  20 => 'per=0111',
+  21 => 'ute=0',
+) 
+2016-02-26 11:52:42,176 [ERROR] (logindo.php:109) -- array (
+  'code' => 1,
+  'msg' => '登录成功',
+  'result' => 
+  array (
+    0 => 'nm',
+    1 => '%E8%A6%81%E6%B2%A3%E8%B6%85',
+  ),
+  'uname' => '要沣超',
+) 
+2016-02-26 11:56:16,319 [ERROR] (logindo.php:70) -- array (
+  0 => 'oper_result=0',
+  1 => 'nm=%E8%A6%81%E6%B2%A3%E8%B6%85',
+  2 => 'sex=1',
+  3 => 'email=',
+  4 => 'bg=1',
+  5 => 'bd=1987-11-03%2000%3A00%3A00',
+  6 => 'bp=410182',
+  7 => 'rpp=8',
+  8 => 'rpo=410182',
+  9 => 'st=1',
+  10 => 'sm=',
+  11 => 'dp=1',
+  12 => 'sosm=0',
+  13 => 'drug_allergy=%E6%97%A0',
+  14 => 'e1n=Ada',
+  15 => 'e1p=18721042197',
+  16 => 'e2n=Ada',
+  17 => 'e2p=',
+  18 => 'pdn=',
+  19 => 'pdp=',
+  20 => 'per=0111',
+  21 => 'ute=0',
+) 
+2016-02-26 11:56:16,341 [ERROR] (logindo.php:109) -- array (
+  'code' => 1,
+  'msg' => '登录成功',
+  'result' => 
+  array (
+    0 => 'oper_result=0',
+    1 => 'uid=25001572',
+    2 => 'role=1',
+    3 => 'ss=1ysWUkI6qlOa6cCZJfWyNOqqv1qvjKtE',
+    4 => 'flag=1',
+    5 => 'push_service_type=APNS',
+    6 => 'piv=15',
+    7 => 'pav=2',
+    8 => 'lps_server=210.14.72.58',
+    9 => 'lps_server_port=1183',
+    10 => 'yixin_api_server=210.14.72.56',
+    11 => 'yixin_api_server_port=80',
+    12 => 'yixin_news_server=210.14.72.58',
+    13 => 'yixin_news_server_port=80',
+    14 => 'file_server=210.14.72.56',
+    15 => 'file_server_port=80',
+  ),
+  'uname' => '要沣超',
+) 
+2016-02-26 15:13:40,572 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-26 15:14:19,225 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 2 AND img.type = 0' 
+2016-02-26 15:15:48,565 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-26 15:16:17,859 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 2 AND img.type = 0' 
+2016-02-26 15:42:01,276 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-26 16:10:20,260 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-26 17:11:20,369 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-26 17:11:55,091 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-26 17:13:36,790 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-26 17:16:18,385 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 2 AND img.type = 0' 
+2016-02-26 17:16:21,822 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-26 17:17:29,227 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-26 17:17:40,788 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-26 17:23:28,910 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-26 17:25:50,576 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-26 17:26:07,602 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-26 17:27:04,133 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 
+2016-02-26 17:33:24,232 [ERROR] (get_goods_detail.php:51) -- 'select info.goods_name, info.goods_en_name, info.goods_price, info.goods_summary, info.goods_content, img.img_url
+from shop_goods_info as info
+ LEFT JOIN shop_goods_img_info AS img
+ ON img.goods_id = info.id
+ where info.id = 1 AND img.type = 0' 

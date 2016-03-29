@@ -43,11 +43,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Application/Clinic/View/Index/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.0" vertical-offset="3748" max-vertical-offset="5104">
-              <caret line="184" column="56" selection-start-line="184" selection-start-column="56" selection-end-line="184" selection-end-column="56" />
+            <state vertical-scroll-proportion="-0.29101795" vertical-offset="4269" max-vertical-offset="5104">
+              <caret line="183" column="58" selection-start-line="183" selection-start-column="58" selection-end-line="183" selection-end-column="58" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -77,11 +77,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="area_city.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="area_city.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Public/Clinic/js/area_city.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.107061505" vertical-offset="2898" max-vertical-offset="3784">
-              <caret line="136" column="84" selection-start-line="136" selection-start-column="73" selection-end-line="136" selection-end-column="84" />
+            <state vertical-scroll-proportion="-46.9375" vertical-offset="588" max-vertical-offset="3784">
+              <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
               <folding>
                 <marker date="1459222221371" expanded="true" signature="180:184" placeholder="..." />
                 <marker date="1459222221371" expanded="true" signature="650:688" placeholder="..." />
@@ -1257,18 +1257,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Clinic/View/Index/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.0" vertical-offset="3748" max-vertical-offset="5104">
-          <caret line="184" column="56" selection-start-line="184" selection-start-column="56" selection-end-line="184" selection-end-column="56" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1459221734901" expanded="true" signature="4159:4246" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Clinic/View/Index/showArea.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-42.42857" vertical-offset="924" max-vertical-offset="2794">
@@ -1287,12 +1275,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Public/Clinic/js/area_city.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.107061505" vertical-offset="2898" max-vertical-offset="3784">
-          <caret line="136" column="84" selection-start-line="136" selection-start-column="73" selection-end-line="136" selection-end-column="84" />
+        <state vertical-scroll-proportion="-46.9375" vertical-offset="588" max-vertical-offset="3784">
+          <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
           <folding>
             <marker date="1459222221371" expanded="true" signature="180:184" placeholder="..." />
             <marker date="1459222221371" expanded="true" signature="650:688" placeholder="..." />
             <marker date="1459222221371" expanded="true" signature="1287:1312" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Clinic/View/Index/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.29101795" vertical-offset="4269" max-vertical-offset="5104">
+          <caret line="183" column="58" selection-start-line="183" selection-start-column="58" selection-end-line="183" selection-end-column="58" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1459221734901" expanded="true" signature="4159:4246" placeholder="..." />
           </folding>
         </state>
       </provider>
